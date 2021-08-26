@@ -1,6 +1,7 @@
-import type { AppProps } from "next/app";
+import type { NextPage } from "next";
 
-const App = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+const Home: NextPage = () => {
+  return <div>Posts:</div>;
 };
-export default App;
+
+export default Home;
