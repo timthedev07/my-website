@@ -4,7 +4,7 @@ import { NavigationEntry } from "./nav/Entry";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div className="App">
+    <div className="bg-white dark:bg-gray-900 p-8 min-h-screen">
       <Head>
         <title>Tim&apos;s Website</title>
         <meta name="title" content="Tim's Website" />
@@ -29,6 +29,8 @@ export const Layout: FC = ({ children }) => {
           property="og:description"
           content="Tim's personal website. About me, FAQ, projects, and ... everything!"
         />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
 
       <NavigationEntry />
