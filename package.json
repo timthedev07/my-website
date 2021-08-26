@@ -15,8 +15,11 @@
   },
   "devDependencies": {
     "@types/react": "17.0.19",
+    "autoprefixer": "^9",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typescript": "4.3.5"
   }
 }
