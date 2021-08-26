@@ -7,7 +7,7 @@ interface EntryProps {}
 const BREAK_POINT = 300;
 
 export const NavigationEntry: React.FC<EntryProps> = ({}) => {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
     const resizeHandler = () => {
