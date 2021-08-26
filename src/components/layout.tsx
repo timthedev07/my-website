@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Head from "next/head";
+import { NavigationEntry } from "./nav/entry";
 
 export const Layout: FC = ({ children }) => {
   return (
@@ -29,6 +30,8 @@ export const Layout: FC = ({ children }) => {
           content="Tim's personal website. About me, FAQ, projects, and ... everything!"
         />
       </Head>
+
+      <NavigationEntry />
       <main>{children}</main>
     </div>
   );

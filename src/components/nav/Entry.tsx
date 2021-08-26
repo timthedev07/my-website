@@ -4,6 +4,6 @@ interface EntryProps {}
 
 const BREAK_POINT = 300;
 
-export const Entry: React.FC<EntryProps> = ({}) => {
+export const NavigationEntry: React.FC<EntryProps> = ({}) => {
   return <div></div>;
 };
