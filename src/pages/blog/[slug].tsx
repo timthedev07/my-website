@@ -20,7 +20,7 @@ const Slug: NextPage<Props> = ({ content, metadata }) => {
         <meta name="title" content={metadata.title} />
         <meta name="description" content={metadata.title} />
       </Head>
-      <div>
+      <div className="prose dark:prose-light lg:prose-base">
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     </>
