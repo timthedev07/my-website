@@ -1,18 +1,28 @@
 import type { NextPage } from "next";
+import Head from "next/head";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
+import matter from "gray-matter";
+import { MarkdownMetadata } from "../../types/posts";
+import marked from "marked";
 
 interface Props {
-  slug: string;
   content: string;
+  metadata: MarkdownMetadata;
 }
 
-const Slug: NextPage<Props> = ({ slug, content }) => {
+const Slug: NextPage<Props> = ({ content, metadata }) => {
   return (
     <>
-      <div>Slug {slug}:</div>
-      <pre>{content}</pre>
+      <Head>
+        <title>{metadata.title}</title>
+        <meta name="title" content={metadata.title} />
+        <meta name="description" content={metadata.title} />
+      </Head>
+      <div>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
+      </div>
     </>
   );
 };
@@ -33,14 +43,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params as any as Props;
-  const content = readFileSync(join("posts", slug + ".md")).toString();
+  const fileContent = readFileSync(
+    join("posts", params!.slug + ".md")
+  ).toString();
+
+  const withMetadata = matter(fileContent);
 
   return {
     props: {
-      slug,
-      content,
-    },
+      content: marked(withMetadata.content),
+      metadata: withMetadata.data,
+    } as Props,
   };
 };
 
