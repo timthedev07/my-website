@@ -7,11 +7,13 @@ module.exports = {
       colors: {
         "light-blue": colors.sky,
         cyan: colors.cyan,
+        black: "#252525",
       },
       typography: (theme) => ({
         light: {
           css: [
             {
+              backgroundColor: theme("colors.gray.800"),
               color: theme("colors.gray.200"),
               '[class~="lead"]': {
                 color: theme("colors.gray.200"),
