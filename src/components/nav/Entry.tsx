@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
 
-interface EntryProps {}
-
 const BREAK_POINT = 300;
 
-export const NavigationEntry: React.FC<EntryProps> = ({}) => {
+export const NavigationEntry: React.FC = ({}) => {
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
