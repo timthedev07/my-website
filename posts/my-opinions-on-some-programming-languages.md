@@ -7,5 +7,5 @@ description: Sharing some of my opinions on the programming languages I've learn
 
 There's tons of programming languages out there for different purposes, but depending on our needs, we learn and utilize the ones that are convenient and more useful to us. In this blog, I'm going to share my experience and opinions on some programming languages I know.
 
-![](assets/programming-languages.jpg)
+![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/programming-languages.jpg)
 _Caption here_
