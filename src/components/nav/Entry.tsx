@@ -8,6 +8,7 @@ export const NavigationEntry: React.FC = ({}) => {
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
     const resizeHandler = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -16,7 +17,7 @@ export const NavigationEntry: React.FC = ({}) => {
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  });
+  }, []);
 
   return windowWidth > BREAK_POINT ? <Navbar /> : <Sidebar />;
 };
