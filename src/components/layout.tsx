@@ -4,7 +4,7 @@ import { NavigationEntry } from "./nav/Entry";
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div className="bg-white dark:bg-gray-900 p-8 min-h-screen">
+    <>
       <Head>
         <title>Tim&apos;s Website</title>
         <meta name="title" content="Tim's Website" />
@@ -33,8 +33,12 @@ export const Layout: FC = ({ children }) => {
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
 
-      <NavigationEntry />
-      <main>{children}</main>
-    </div>
+      <div id="App">
+        <NavigationEntry />
+        <main className=" bg-gray-100 dark:bg-gray-900 p-8 min-h-screen">
+          {children}
+        </main>
+      </div>
+    </>
   );
 };
