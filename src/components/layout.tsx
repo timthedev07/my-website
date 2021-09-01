@@ -33,11 +33,9 @@ export const Layout: FC = ({ children }) => {
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
 
-      <div id="App">
+      <div id="App" className="bg-gray-100 dark:bg-gray-900">
         <NavigationEntry />
-        <main className=" bg-gray-100 dark:bg-gray-900 p-8 min-h-screen">
-          {children}
-        </main>
+        <main className="p-8 min-h-screen">{children}</main>
       </div>
     </>
   );
