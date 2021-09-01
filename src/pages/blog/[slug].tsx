@@ -20,8 +20,11 @@ const Slug: NextPage<Props> = ({ content, metadata }) => {
         <meta name="title" content={metadata.title} />
         <meta name="description" content={metadata.title} />
       </Head>
-      <div className="prose dark:prose-light lg:prose-base">
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div className="flex justify-center items-center">
+        <div
+          className="prose dark:prose-light lg:prose-base"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
       </div>
     </>
   );
