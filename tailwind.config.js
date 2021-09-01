@@ -3,17 +3,29 @@ module.exports = {
   purge: ["./src/pages/**/*.{tsx,ts}", "./src/components/**/*.{ts,tsx}"],
   darkMode: "media",
   theme: {
+    fontFamily: {
+      sans: [
+        "Inter",
+        "-apple-system",
+        "BlinkMacSystemFont",
+        "Segoe UI",
+        "Roboto",
+        "Helvetica",
+        "Arial",
+        "sans-serif",
+      ],
+      mono: ["Menlo", "Monaco", "Courier New", "monospace"],
+    },
     extend: {
       colors: {
         "light-blue": colors.sky,
         cyan: colors.cyan,
-        black: "#252525",
       },
       typography: (theme) => ({
         light: {
           css: [
             {
-              backgroundColor: theme("colors.gray.800"),
+              backgroundColor: theme("colors.gray.900"),
               color: theme("colors.gray.200"),
               '[class~="lead"]': {
                 color: theme("colors.gray.200"),
