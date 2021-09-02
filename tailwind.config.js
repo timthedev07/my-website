@@ -20,6 +20,12 @@ module.exports = {
       colors: {
         "light-blue": colors.sky,
         cyan: colors.cyan,
+        "primary-bg": "#282828",
+        "component-primary-bg": "#353535",
+        "purple-bold": "#3500D3",
+        "purple-dim": "#240090",
+        "purple-darkish": "#190061",
+        "purple-dark": "#0C0032",
       },
       typography: (theme) => ({
         light: {
