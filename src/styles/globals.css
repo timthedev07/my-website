@@ -13,6 +13,9 @@
   --color-primary-700: #242c37;
   --color-primary-800: #151a21;
   --color-primary-900: #0b0e11;
+
+  --scroll-bar-bg: #282828;
+  --scroll-bar-thumb-bg: #999;
 }
 
 html,
@@ -23,10 +26,18 @@ body {
 
 * {
   box-sizing: border-box;
-  scrollbar-track-color: blue;
-  scrollbar-color: red red;
+  scrollbar-color: var(--scroll-bar-thumb-bg) var(--scroll-bar-bg);
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 3px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: green;
+  background-color: var(--scroll-bar-thumb-bg);
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--scroll-bar-bg);
 }
