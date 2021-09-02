@@ -31,7 +31,7 @@ module.exports = {
         light: {
           css: [
             {
-              backgroundColor: theme("colors.gray.900"),
+              backgroundColor: theme("primary-bg"),
               color: theme("colors.gray.200"),
               '[class~="lead"]': {
                 color: theme("colors.gray.200"),
