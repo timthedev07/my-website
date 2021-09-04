@@ -2,15 +2,15 @@ import type { GetStaticProps, NextPage } from "next";
 import { readdirSync } from "fs";
 
 interface Props {
-  posts: string[];
+  slugs: string[];
 }
 
-const Blogs: NextPage<Props> = ({ posts }) => {
+const Blogs: NextPage<Props> = ({ slugs }) => {
   return (
     <div>
       Posts:
       <ol>
-        {posts.map((each) => (
+        {slugs.map((each) => (
           <li key={each}>
             {each
               .split("-")
@@ -24,13 +24,13 @@ const Blogs: NextPage<Props> = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = readdirSync("posts");
+  const fileNames = readdirSync("posts");
 
-  const paths = posts.map((each) => each.replace(".md", ""));
+  const slugs = fileNames.map((each) => each.replace(".md", ""));
 
   return {
     props: {
-      posts: paths,
+      slugs,
     } as Props,
   };
 };
