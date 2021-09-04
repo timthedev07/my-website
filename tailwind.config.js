@@ -26,7 +26,7 @@ module.exports = {
         "purple-dim": "#240090",
         "purple-darkish": "#190061",
         "purple-dark": "#0C0032",
-        "purple-light": "#774aff",
+        "purple-light": "#8c66ff",
       },
       typography: (theme) => ({
         light: {
