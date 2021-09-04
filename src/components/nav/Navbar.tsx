@@ -9,7 +9,7 @@ interface NavbarItemProps {
 const NavbarItem: FC<NavbarItemProps> = ({ name, href }) => {
   return (
     <Link href={href} passHref={true}>
-      <a className="uppercase text-gray-800 transition duration-300 ease-in-out dark:text-gray-50 dark:hover:text-gray-300">
+      <a className="nav-item uppercase text-gray-800 transition duration-300 ease-in-out dark:text-gray-50 dark:hover:text-gray-300">
         {name}
       </a>
     </Link>
@@ -40,7 +40,11 @@ export const Navbar: FC = ({}) => {
     <div
       className={`fixed w-full dark:bg-black h-12 flex justify-around items-center`}
     >
-      <img className="w-auto h-9" src="/images/timthedev07.svg" alt="" />
+      <Link href="/">
+        <div className="nav-item w-auto h-7 cursor-pointer">
+          <img className="w-full h-full" src="/images/timthedev07.svg" alt="" />
+        </div>
+      </Link>
 
       {NAV_LINKS.map((navLink) => {
         return <NavbarItem key={navLink.name} {...navLink} />;
