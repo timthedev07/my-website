@@ -1,0 +1,12 @@
+.nav-item::after {
+  text-decoration: none;
+  display: block;
+  text-decoration: none;
+  content: "";
+  border-bottom: solid 3px #019fb6;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+.nav-item:hover::after {
+  transform: scaleX(1);
+}

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(./nav-item.module.css);
 
 :root {
   font-size: 14px;
