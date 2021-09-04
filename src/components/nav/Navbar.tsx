@@ -37,11 +37,13 @@ const NAV_LINKS: NavbarItemProps[] = [
 
 export const Navbar: FC = ({}) => {
   return (
-    <div className="dark:bg-black h-10 flex justify-around items-center">
-      <img className="w-9 h-9" src="/images/timthedev07.svg" alt="" />
+    <div
+      className={`fixed w-full dark:bg-black h-12 flex justify-around items-center`}
+    >
+      <img className="w-auto h-9" src="/images/timthedev07.svg" alt="" />
 
       {NAV_LINKS.map((navLink) => {
-        return <NavbarItem {...navLink} />;
+        return <NavbarItem key={navLink.name} {...navLink} />;
       })}
     </div>
   );
