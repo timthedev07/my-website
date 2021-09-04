@@ -38,7 +38,7 @@ const NAV_LINKS: NavbarItemProps[] = [
 export const Navbar: FC = ({}) => {
   return (
     <div
-      className={`fixed w-full dark:bg-black h-12 flex justify-around items-center`}
+      className={`fixed w-full bg-gray-200 dark:bg-black h-12 flex justify-around items-center`}
     >
       <Link href="/">
         <div className="nav-item w-auto h-7 cursor-pointer">
