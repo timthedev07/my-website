@@ -15,7 +15,7 @@ For example, I took a web development course(which brought me into the software 
 
 I tried JavaScript with React afterward and completed a few simple projects, and I decided to really dive into React or frontend web development in general, because I liked it a lot. JavaScript was actually OK for me at that time, it's robust and applicable almost everywhere.
 
-Somewhere halfway down, I was introduced to the language 'Typescript - JavaScript that Scale', which is currently my favorite language, so, I decided to give Typescript React a shot.
+Somewhere halfway down, I was introduced to the language 'TypeScript - JavaScript that Scale', which is currently my favorite language, so, I decided to give TypeScript React a shot.
 
 Initially I struggled a lot with stuff like generics, weird looking type annotations, intersection and union types, and I found the static typing part very constraining because I don't have that "freedom" I used to have with Python and JavaScript.
 
@@ -25,6 +25,10 @@ In the same month, C++ came into my way and I was like, why not try it out. I le
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/cpp.jpg)
 
-Not gonna lie, I actually thought of switching to Python or TypeScript because 40% of the time I was just dealing with address boundary errors and other low level mistakes. Then, things started to get better as I completed more questions and got more familiar with data structures and algorithms, and then I was dedicated to stick to C++ for this sort of programming, and partially because it is the choice of most many programmers.
+Not gonna lie, I actually thought of switching to Python or TypeScript because 40% of the time I was just dealing with address boundary errors and other subtle mistakes. Then, things started to get better as I completed more questions and got more familiar with data structures and algorithms, and then I was dedicated to stick to C++ for this sort of programming, and partially because it is the choice of most many programmers.
 
 Now, I'm doing algorithms styled questions on a daily basis on LeetCode and other websites, you can find the challenge [here](https://github.com/timthedev07/200algo-in-200days).
+
+I then went fullstack(Next.js, Apollo GraphQL, TypeOrm, Express, etc) and started to build some serious projects with the technologies I learned, and all in TypeScript of course.
+
+That's when I genuinely started to benefit from TypeScript. As the project scales(1.1k commits currently), a reliable and smart typing system comes in **very** handy.
