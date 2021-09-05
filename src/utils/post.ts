@@ -4,7 +4,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 export const getPostMetadata = (filename: string): MarkdownMetadata => {
-  const fileContent = readFileSync(join("post", filename)).toString();
+  const fileContent = readFileSync(join("posts", filename)).toString();
   const { data } = matter(fileContent);
 
   return data as MarkdownMetadata;
