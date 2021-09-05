@@ -18,8 +18,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build website
         run: yarn build
-      - name: List Files
-        run: ls
+      - name: Rename output directory
+        run: mv out docs
       - name: Push output.
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
