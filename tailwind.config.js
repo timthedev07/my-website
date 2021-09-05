@@ -88,6 +88,12 @@ module.exports = {
               "tbody tr": {
                 borderBottomColor: theme("colors.gray.600"),
               },
+              "code::before": {
+                content: '""',
+              },
+              "code::after": {
+                content: '""',
+              },
             },
           ],
         },
