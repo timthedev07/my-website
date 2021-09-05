@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url(./nav-item.module.css);
+@import url("https://fonts.googleapis.com/css2?family=Glory:ital,wght@1,800&display=swap");
 
 :root {
   font-size: 14px;
@@ -41,4 +42,8 @@ body {
 
 *::-webkit-scrollbar-track {
   background-color: var(--scroll-bar-bg);
+}
+
+* {
+  font-family: "Glory", sans-serif;
 }
