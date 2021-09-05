@@ -21,7 +21,7 @@ module.exports = {
         "light-blue": colors.sky,
         cyan: colors.cyan,
         "primary-bg": "#282828",
-        "component-primary-bg": "#353535",
+        "component-primary-bg": "#404040",
         "purple-bold": "#3500D3",
         "purple-dim": "#240090",
         "purple-darkish": "#190061",
