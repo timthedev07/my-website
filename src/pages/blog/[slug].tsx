@@ -9,10 +9,11 @@ import marked from "marked";
 
 interface Props {
   content: string;
-  metadata: MarkdownMetadata;
+  metadataAsString: string;
 }
 
-const Slug: NextPage<Props> = ({ content, metadata }) => {
+const Slug: NextPage<Props> = ({ content, metadataAsString }) => {
+  const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
   return (
     <>
       <Head>
@@ -56,7 +57,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       content: marked(withMetadata.content),
-      metadata: withMetadata.data,
+      metadataAsString: JSON.stringify(withMetadata.data),
     } as Props,
   };
 };
