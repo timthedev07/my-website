@@ -1,4 +1,5 @@
 const colors = require(`tailwindcss/colors`);
+/** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   purge: ["./src/pages/**/*.{tsx,ts}", "./src/components/**/*.{ts,tsx}"],
   darkMode: "media",
