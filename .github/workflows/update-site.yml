@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: List Files
+        run: ls
       - name: Push output.
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
