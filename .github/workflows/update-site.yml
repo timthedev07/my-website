@@ -25,7 +25,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
         with:
-          source_file: "out/"
+          source_file: "out/*"
           destination_repo: "timthedev07/timthedev07.github.io"
           user_email: ${{ secrets.EMAIL }}
           user_name: "timthedev07"
