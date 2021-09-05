@@ -3,6 +3,10 @@ module.exports = {
   purge: ["./src/pages/**/*.{tsx,ts}", "./src/components/**/*.{ts,tsx}"],
   darkMode: "media",
   theme: {
+    boxShadow: {
+      "xl-theme-color":
+        "0 10px 15px -3px rgba(53, 0, 211, 0.1), 0 4px 6px -2px rgba(53, 0, 211, 0.05)",
+    },
     fontFamily: {
       sans: [
         "Inter",
