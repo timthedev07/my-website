@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16
       - name: Install dependencies
-        run: yarn install --production --frozen-lockfile
+        run: yarn install --frozen-lockfile
       - name: Build website
         run: yarn build
 
