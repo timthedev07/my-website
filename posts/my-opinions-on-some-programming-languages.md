@@ -14,3 +14,5 @@ For example, I took a web development course(which brought me into the software 
 I tried JavaScript with React afterward and completed a few simple projects, and I decided to really dive into React because I liked it a lot. JavaScript was actually OK for me at that time, it's robust and applicable almost everywhere. Somewhere halfway down, I was introduced to the language 'Typescript - JavaScript that Scale', which is currently my favorite language, so, I decided to give Typescript React a shot.
 
 Initially I struggled a lot with stuff like generics, weird looking type annotations, intersection and union types, and I found the static typing part very constraining because I don't have that "freedom" I used to have with Python and JavaScript.
+
+As I got better at it and used to it, it's becoming harder for me to go back to dynamic typing languages to build something serious and scalable.
