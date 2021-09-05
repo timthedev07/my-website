@@ -5,5 +5,10 @@ const octokit = new Octokit({
 });
 
 (() => {
-  octokit.rest.git.createCommit();
+  octokit.rest.git.createCommit({
+    owner: "timthedev07",
+    message: "New Release",
+    repo: "timthedev07.github.io",
+    tree: "",
+  });
 })();
