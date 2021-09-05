@@ -35,7 +35,7 @@ export const Layout: FC = ({ children }) => {
 
       <div id="App" className="bg-gray-100 dark:bg-primary-bg">
         <NavigationEntry />
-        <main className="w-screen py-16 min-h-screen text-gray-900 dark:text-white">
+        <main className="w-full py-16 min-h-screen text-gray-900 dark:text-white">
           {children}
         </main>
       </div>
