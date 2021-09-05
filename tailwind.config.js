@@ -4,6 +4,10 @@ module.exports = {
   purge: ["./src/pages/**/*.{tsx,ts}", "./src/components/**/*.{ts,tsx}"],
   darkMode: "media",
   theme: {
+    scale: {
+      102: "1.02",
+      103: "1.03",
+    },
     boxShadow: {
       "xl-theme-color":
         "0 10px 15px -3px rgba(53, 0, 211, 0.1), 0 4px 6px -2px rgba(53, 0, 211, 0.05)",
