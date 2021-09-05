@@ -5,7 +5,7 @@ on:
     #   - release
 
 jobs:
-  Build:
+  Build-and-Push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
