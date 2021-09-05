@@ -23,7 +23,7 @@ As I got better at it and used to it, it's becoming harder for me to go back to 
 
 In the same month, C++ came into my way and I was like, why not try it out. I learned some of the syntax and fundamental concepts and it was quite easy for me since I have some prior experience using C, then I stumbled upon algorithm styled questions. I first started doing some of the easy ones on LeetCode with cpp, and it was definitely a disaster, I couldn't even solve a easy problem like two sum, without exceeding time limit because I didn't even know data structures and algorithms. So, I went all the way back to learn some data structures like stack, queue, unordered_map and unordered_set with C++.
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/cpp.jpg)
+![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/cpp.png)
 
 Not gonna lie, I actually thought of switching to Python or TypeScript because 40% of the time I was just dealing with address boundary errors and other subtle mistakes. Then, things started to get better as I completed more questions and got more familiar with data structures and algorithms, and then I was dedicated to stick to C++ for this sort of programming, and partially because it is the choice of most many programmers.
 
@@ -31,4 +31,12 @@ Now, I'm doing algorithms styled questions on a daily basis on LeetCode and othe
 
 I then went fullstack(Next.js, Apollo GraphQL, TypeOrm, Express, etc) and started to build some serious projects with the technologies I learned, and all in TypeScript of course.
 
-That's when I genuinely started to benefit from TypeScript. As the project scales(1.1k commits currently), a reliable and smart typing system comes in **very** handy.
+![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/fullstack.jpg)
+
+That's when I genuinely started to benefit from TypeScript. As the project scales(1.1k commits currently), a reliable and smart typing system comes in **very** handy, and along with some other tools like type-graphql and graphql-code-generator, I was able to get consistent type definitions on the client side when querying the server.
+
+---
+
+I went through the languages that really had a great impact on me and thus skipped some of the other ones like Swift and C since they didn't act as an essential role in my career.
+
+This is the end and thank you for reading!
