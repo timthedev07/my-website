@@ -1,23 +1,36 @@
-name: Commit and push to repo - timthedev07.github.io
+name: Copy build output to repo - timthedev07.github.io
 on:
   push:
     # branches:
     #   - release
 
 jobs:
-  publish:
+  Build NextJS:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
       - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
           node-version: 16
       - name: Install dependencies
-        run: yarn add @octokit/rest@18.10.0 --frozen-lockfile
-      - name: Run Main Script
-        run: node scripts/pushToSiteRepo.js
+        run: yarn install --production --frozen-lockfile
+      - name: Build website
+        run: yarn build
+
+  Push Output to .github.io:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Push output.
+        uses: dmnemec/copy_file_to_another_repo_action@main
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
+        with:
+          source_file: "out/**/*"
+          destination_repo: "timthedev07/timthedev07.github.io"
+          user_email: ${{ secrets.EMAIL }}
+          user_name: "timthedev07"
+          commit_message: "New Static files built on github actions"
