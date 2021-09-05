@@ -1,0 +1,21 @@
+name: Commit and push to repo - timthedev07.github.io
+on:
+  push:
+    # branches:
+    #   - release
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: yarn add @octokit/rest@18.10.0 --frozen-lockfile
+      - name: Run Main Script
+        run: node scripts/pushToSiteRepo.js
