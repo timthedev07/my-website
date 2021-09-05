@@ -24,7 +24,7 @@ module.exports = {
       },
       boxShadow: {
         "xl-theme-color":
-          "0 10px 15px -3px rgba(53, 0, 211, 0.1), 0 4px 6px -2px rgba(53, 0, 211, 0.05)",
+          "0 10px 15px -3px rgba(53, 0, 211, 0.4), 0 4px 6px -2px rgba(53, 0, 211, 0.05)",
       },
       colors: {
         "light-blue": colors.sky,
