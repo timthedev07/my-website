@@ -19,3 +19,5 @@ jobs:
         run: yarn add @octokit/rest@18.10.0 --frozen-lockfile
       - name: Run Main Script
         run: node scripts/pushToSiteRepo.js
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
