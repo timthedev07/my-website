@@ -5,7 +5,7 @@ on:
     #   - release
 
 jobs:
-  Build NextJS:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,7 +19,7 @@ jobs:
       - name: Build website
         run: yarn build
 
-  Push Output to .github.io:
+  Transfer-Output:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
