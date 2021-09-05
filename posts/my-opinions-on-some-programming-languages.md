@@ -5,11 +5,11 @@ description: Sharing some of my opinions on the programming languages I've learn
 
 # My Opinions on Some Programming Languages
 
-There's tons of programming languages out there for different purposes, I used to search what are the best languages to learn everyday when I first started out. Ones like Rust, Python, JavaScript, Ruby, Golang, and Java appear the most. But then after trying some of the languages out I realized they are just not my type, or in other words, they are not suitable for my purposes. On the other hand, I quite liked some other ones and I decided to just stick to them. In this blog, I'm going to be walking through some of my experiences learning and using different languages.
+There's tons of programming languages out there for different purposes, I used to search what are the best languages to learn everyday when I first started out. Ones like Rust, Python, JavaScript, Ruby, Golang, and Java appear the most. But then after trying some of the languages out I realized they are just not my type, or in other words, they are not suitable for my purposes. On the other hand, I quite liked some other ones and I decided to just stick to them. In this blog, I'm going to be walking through some of my experiences learning and using different programming languages.
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/programming-languages.jpg)
 
-For example, I took a web development course(which brought me into the software industry first, so thank you) in Python with Django. To be honest, I think python is a nice language for beginners like I was, because you don't need to worry about memory management, types(mostly), pointers, and other things since Python does that for you underneath the hood. At first I was pretty happy having this "freedom", but then after the codebase scales, it's just a nightmare to refactor and clean up the code.
+For example, I took a web development course(which brought me into the software industry first, so thank you) in Python with Django. To be honest, I think python is a nice language for beginners, because you don't need to worry about memory management, types(mostly), pointers, and other things since Python does that for you underneath the hood. At first I was pretty happy having this "freedom", but then after the codebase scales, it's just a nightmare to refactor and clean up the code.
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/django.jpg)
 
@@ -21,7 +21,7 @@ Initially I struggled a lot with stuff like generics, weird looking type annotat
 
 As I got better at it and used to it, it's becoming harder for me to go back to dynamic typing languages to build something serious and complex.
 
-In the same month, C++ came into my way and I was like, why not try it out. I learned some of the syntax and fundamental concepts and it was quite easy for me since I have some prior experience using C, then I stumbled upon algorithm styled questions. I first started doing some of the easy ones on LeetCode with cpp, and it was definitely a disaster, I couldn't even solve a easy problem like two sum, without exceeding time limit because I didn't even know data structures and algorithms. So, I went all the way back to learn some data structures like stack, queue, unordered_map and unordered_set with C++.
+In the same month, C++ came into my way and I was like, why not try it out. I learned some of the syntax and fundamental concepts and it was quite easy for me since I have some prior experience using C, then I stumbled upon algorithm styled questions. I first started doing some of the easy ones on LeetCode with C++, and it was definitely a disaster, I couldn't even solve a easy problem like two sum, without exceeding time limit because I didn't even know data structures and algorithms well. So, I went all the way back to learn some data structures like `stack`, `queue`, `unordered_map` and `unordered_set` with C++.
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/cpp.png)
 
