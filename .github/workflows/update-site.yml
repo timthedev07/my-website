@@ -18,14 +18,12 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build website
         run: yarn build
-      - name: Rename output directory
-        run: mv out docs
       - name: Push output.
         uses: timthedev07/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
         with:
-          source_file: "docs/"
+          source_file: "out/"
           destination_repo: "timthedev07/timthedev07.github.io"
           user_email: ${{ secrets.EMAIL }}
           user_name: "timthedev07"
