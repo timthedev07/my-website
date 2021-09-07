@@ -27,4 +27,4 @@ jobs:
           destination_repo: "timthedev07/timthedev07.github.io"
           user_email: ${{ secrets.EMAIL }}
           user_name: "timthedev07"
-          commit_message: "New static files built on github actions"
+          commit_message: "New static files built on github actions."
