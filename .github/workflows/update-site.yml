@@ -21,7 +21,7 @@ jobs:
       - name: Rename output directory
         run: mv out docs
       - name: Push output.
-        run: sh scripts/update-site.sh
+        uses: timthedev07/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
         with:
