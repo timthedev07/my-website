@@ -18,6 +18,8 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Build website
         run: yarn build
+      - name: No Jekyll
+        run: touch out/.nojekyll
       - name: Push output.
         uses: timthedev07/copy_file_to_another_repo_action@main
         env:
