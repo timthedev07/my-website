@@ -13,8 +13,13 @@ const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
     <>
       <h3 className="text-4xl mx-8">Posts:</h3>
       <ol className="w-full p-8">
-        {filenamesWithMetadata.map(
-          ({ filename, metadata: metadataAsString }) => {
+        {filenamesWithMetadata
+          .sort(
+            (a, b) =>
+              new Date(JSON.parse(b.metadata).date).valueOf() -
+              new Date(JSON.parse(a.metadata).date).valueOf()
+          )
+          .map(({ filename, metadata: metadataAsString }) => {
             const metadata = JSON.parse(metadataAsString) as MarkdownMetadata;
             return (
               <Link key={filename} href={`blog/${filename}`}>
@@ -31,8 +36,7 @@ const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
                 </li>
               </Link>
             );
-          }
-        )}
+          })}
       </ol>
     </>
   );
