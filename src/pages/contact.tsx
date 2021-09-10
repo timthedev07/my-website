@@ -24,8 +24,8 @@ const Contact: NextPage = () => {
           </Link>
         </ul>
       </div>
-      <div>
-        <img className="animate-spin" src="/images/tech-ring.png" />
+      <div className="w-auto overflow-hidden">
+        <img className="animate-spin-slow" src="/images/tech-ring.png" />
       </div>
     </div>
   );
