@@ -33,6 +33,7 @@ module.exports = {
         "light-blue": colors.sky,
         cyan: colors.cyan,
         "primary-bg": "#282828",
+        "dark-bg": "#121212",
         "component-primary-bg": "#404040",
         "purple-bold": "#3500D3",
         "purple-dim": "#240090",
