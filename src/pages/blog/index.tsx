@@ -56,4 +56,5 @@ export const getStaticProps: GetStaticProps = async () => {
     } as Props,
   };
 };
+
 export default Blogs;
