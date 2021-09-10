@@ -18,6 +18,9 @@ module.exports = {
       mono: ["Menlo", "Monaco", "Courier New", "monospace"],
     },
     extend: {
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
       scale: {
         102: "1.02",
         103: "1.03",
