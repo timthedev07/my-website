@@ -1,8 +1,12 @@
 import { FC } from "react";
 import Head from "next/head";
 import { NavigationEntry } from "./nav/Entry";
+import { isDarkBG } from "../utils/bg";
+import { useRouter } from "next/router";
 
 export const Layout: FC = ({ children }) => {
+  const { pathname } = useRouter();
+
   return (
     <>
       <Head>
@@ -33,7 +37,12 @@ export const Layout: FC = ({ children }) => {
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
 
-      <div id="App" className="bg-gray-100 dark:bg-primary-bg">
+      <div
+        id="App"
+        className={`bg-gray-100 ${
+          isDarkBG(pathname) ? "dark:bg-primary-bg" : "dark:bg-dark-bg"
+        }`}
+      >
         <NavigationEntry />
         <main className="w-full py-16 min-h-screen text-gray-900 dark:text-white">
           {children}
