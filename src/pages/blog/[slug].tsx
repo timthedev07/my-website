@@ -21,6 +21,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString }) => {
         <meta name="title" content={metadata.title} />
         <meta name="description" content={metadata.description} />
         <meta property="og:description" content={metadata.description} />
+        <meta property="og:title" content={metadata.title} />
       </Head>
       <div className="flex justify-center items-center">
         <div
