@@ -18,6 +18,10 @@ const NavbarItem: FC<NavbarItemProps> = ({ name, href }) => {
 
 export const NAV_LINKS: NavbarItemProps[] = [
   {
+    href: "/",
+    name: "home",
+  },
+  {
     href: "/contact",
     name: "contact",
   },
