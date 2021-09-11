@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { Navbar } from "./nav/Navbar";
 import { BottomNav } from "./nav/BottomNav";
 
-const BREAK_POINT = 300;
+const BREAK_POINT = 600;
 
 export const Layout: FC = ({ children }) => {
   const { pathname } = useRouter();
