@@ -50,7 +50,7 @@ export const Navbar: FC = ({}) => {
         </div>
       </Link>
 
-      {NAV_LINKS.map((navLink) => {
+      {NAV_LINKS.slice(1).map((navLink) => {
         return <NavbarItem key={navLink.name} {...navLink} />;
       })}
     </div>
