@@ -41,7 +41,7 @@ export const Layout: FC = ({ children }) => {
         id="App"
         className={`bg-gray-100 ${
           isDarkBG(pathname) ? "dark:bg-primary-bg" : "dark:bg-dark-bg"
-        }`}
+        } min-w-350`}
       >
         <NavigationEntry />
         <main className="w-full py-16 min-h-screen text-gray-900 dark:text-white">
