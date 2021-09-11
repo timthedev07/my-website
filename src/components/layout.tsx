@@ -7,6 +7,14 @@ import { BottomNav } from "./nav/BottomNav";
 
 const BREAK_POINT = 600;
 
+const metadata = {
+  title: "Tim's Website",
+  image:
+    "https://og-image.xyz/og/Tim's%20Website/Hire%20me/timthedev07.github.io/https/menlo/unmatchedeclipse/%7B%7Bh%7D%7Dffffff/data.png",
+  description:
+    "Tim is a software engineer specializing in full stack web development.",
+};
+
 export const Layout: FC = ({ children }) => {
   const { pathname } = useRouter();
   const [windowSize, setWindowSize] = useState<number>(0);
@@ -27,8 +35,8 @@ export const Layout: FC = ({ children }) => {
     <>
       <Head>
         <title>Tim&apos;s Website</title>
-        <meta name="title" content="Tim's Website" />
-        <meta name="description" content="Tim's personal website." />
+        <meta name="title" content={metadata.title} />
+        <meta name="description" content={metadata.title} />
         <meta
           name="keywords"
           content="portfolio, website, coding, programming, faang"
@@ -39,16 +47,16 @@ export const Layout: FC = ({ children }) => {
         <meta name="revisit-after" content="0 days" />
         <meta name="author" content="Tim <timpersonal07@gmail.com>" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Tim's Website" />
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:site_name" content={metadata.title} />
         <meta property="og:url" content="https://timthedev07.github.io/" />
-        <meta
-          property="og:image"
-          content="https://og-image.xyz/og/Tim's%20Website/Hire%20me/timthedev07.github.io/https/menlo/unmatchedeclipse/%7B%7Bh%7D%7Dffffff/data.png"
-        />
-        <meta
-          property="og:description"
-          content="Tim's personal website. About me, FAQ, projects, and ... everything!"
-        />
+        <meta property="og:image" content={metadata.image} />
+        <meta property="og:description" content={metadata.description} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@timthedev07" />
+        <meta name="twitter:title" content={metadata.title} />
+        <meta name="twitter:description" content={metadata.description} />
+        <meta name="twitter:image" content={metadata.image} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
