@@ -63,7 +63,7 @@ export const Layout: FC = ({ children }) => {
         <main className="w-full py-16 min-h-screen text-gray-900 dark:text-white">
           {children}
         </main>
-        {!isMobile ? <BottomNav /> : null}
+        {isMobile ? <BottomNav /> : null}
       </div>
     </>
   );
