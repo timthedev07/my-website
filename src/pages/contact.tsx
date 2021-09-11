@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 
-const contactIconClass = "w-7 h-7 lg:w-10 lg:h-10";
-
 const ContactLink: React.FC<{ href: string; name: string }> = ({
   href,
   name,
@@ -12,7 +10,7 @@ const ContactLink: React.FC<{ href: string; name: string }> = ({
       <a>
         <li>
           <img
-            className={contactIconClass}
+            className="w-7 h-7 lg:w-10 lg:h-10 transition ease-in-out transform hover:scale-105"
             src={`/images/${name}.svg`}
             alt={name}
           />
