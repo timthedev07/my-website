@@ -9,12 +9,12 @@ const BREAK_POINT = 600;
 
 export const Layout: FC = ({ children }) => {
   const { pathname } = useRouter();
-  const [isMobile, setIsMobile] = useState<boolean>(true);
+  const [windowSize, setWindowSize] = useState<number>(0);
 
   useEffect(() => {
-    setIsMobile(window.innerWidth <= BREAK_POINT);
+    setWindowSize(window.innerWidth);
     const resizeHandler = () => {
-      setIsMobile(window.innerWidth <= BREAK_POINT);
+      setWindowSize(window.innerWidth);
     };
     window.addEventListener("resize", resizeHandler);
 
@@ -59,11 +59,11 @@ export const Layout: FC = ({ children }) => {
           isDarkBG(pathname) ? "dark:bg-primary-bg" : "dark:bg-dark-bg"
         } min-w-350`}
       >
-        {!isMobile ? <Navbar /> : null}
+        {windowSize > BREAK_POINT ? <Navbar /> : null}
         <main className="w-full py-16 min-h-screen text-gray-900 dark:text-white">
           {children}
         </main>
-        {isMobile ? <BottomNav /> : null}
+        {windowSize <= BREAK_POINT ? <BottomNav /> : null}
       </div>
     </>
   );
