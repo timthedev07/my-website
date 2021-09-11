@@ -1,7 +1,7 @@
 import React from "react";
 
-interface SidebarProps {}
+interface BottomNavProps {}
 
-export const Sidebar: React.FC<SidebarProps> = ({}) => {
+export const BottomNav: React.FC<BottomNavProps> = ({}) => {
   return <div></div>;
 };
