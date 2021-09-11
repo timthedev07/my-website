@@ -1,11 +1,27 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Head from "next/head";
-import { NavigationEntry } from "./nav/Entry";
 import { isDarkBG } from "../utils/bg";
 import { useRouter } from "next/router";
+import { Navbar } from "./nav/Navbar";
+import { BottomNav } from "./nav/BottomNav";
+
+const BREAK_POINT = 300;
 
 export const Layout: FC = ({ children }) => {
   const { pathname } = useRouter();
+  const [isMobile, setIsMobile] = useState<boolean>(true);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= BREAK_POINT);
+    const resizeHandler = () => {
+      setIsMobile(window.innerWidth <= BREAK_POINT);
+    };
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
 
   return (
     <>
@@ -43,10 +59,11 @@ export const Layout: FC = ({ children }) => {
           isDarkBG(pathname) ? "dark:bg-primary-bg" : "dark:bg-dark-bg"
         } min-w-350`}
       >
-        <NavigationEntry />
+        {!isMobile ? <Navbar /> : null}
         <main className="w-full py-16 min-h-screen text-gray-900 dark:text-white">
           {children}
         </main>
+        {!isMobile ? <BottomNav /> : null}
       </div>
     </>
   );
