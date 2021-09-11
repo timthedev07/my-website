@@ -16,7 +16,7 @@ const NavbarItem: FC<NavbarItemProps> = ({ name, href }) => {
   );
 };
 
-const NAV_LINKS: NavbarItemProps[] = [
+export const NAV_LINKS: NavbarItemProps[] = [
   {
     href: "/contact",
     name: "contact",
