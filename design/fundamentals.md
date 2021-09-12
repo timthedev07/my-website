@@ -31,6 +31,18 @@ Converting to dark theme while maintaining this color and contrast
 
 ## White Space
 
+### An example of a poorly designed component color-wise
+
+![alt](assets/images/bad-spacing.png)
+
+### Why Bad?
+
+The spacing is inconsistent.
+
+- The big title on the top has a lot larger top margin and bottom margin.
+- The caption below the input is poorly aligned
+- The placeholder in the input box sticks onto the left side.
+
 ## Visual Hierarchy
 
 ## Complexity vs Simplicity
