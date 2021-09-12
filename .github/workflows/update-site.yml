@@ -1,8 +1,8 @@
 name: Copy build output to repo - timthedev07.github.io
 on:
   push:
-    # branches:
-    #   - release
+    branches:
+      - release
 
 jobs:
   Build-and-Push:
