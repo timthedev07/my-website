@@ -5,6 +5,15 @@ interface Props {
   repos: TrimmedRepo[];
 }
 
+const REPO_NAMES = [
+  "my-website",
+  "Your-Doge",
+  "distinct.css",
+  "snake",
+  "svelte-calculator",
+  "Dream-of-Berlin",
+];
+
 const Projects: NextPage<Props> = ({ repos }) => {
   return (
     <div>
@@ -17,17 +26,18 @@ const Projects: NextPage<Props> = ({ repos }) => {
   );
 };
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch(
-    "https://api.github.com/search/repositories?q=user:timthedev07+sort:updated-desc"
-  );
-
-  const { items } = await response.json();
-
-  const latest = items.splice(0, 6);
+  const repos: TrimmedRepo[] = [];
+  for (const repo of REPO_NAMES) {
+    const response = await fetch(
+      `https://api.github.com/repos/timthedev07/${repo}`
+    );
+    const data = await response.json();
+    repos.push(data);
+  }
 
   return {
     props: {
-      repos: latest,
+      repos,
     } as Props,
   };
 };
