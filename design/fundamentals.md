@@ -21,6 +21,10 @@ Now the text in the upper part stands out a bit better
 
 ![alt](assets/images/kinda-fine-color.png)
 
+This also words
+
+![alt](assets/images/also-works.png)
+
 ## White Space
 
 ## Visual Hierarchy
