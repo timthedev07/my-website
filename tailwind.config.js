@@ -18,6 +18,9 @@ module.exports = {
       mono: ["Menlo", "Monaco", "Courier New", "monospace"],
     },
     extend: {
+      screens: {
+        md2: "868px",
+      },
       minWidth: {
         350: "350px",
       },
