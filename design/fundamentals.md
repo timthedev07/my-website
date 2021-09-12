@@ -31,7 +31,7 @@ Converting to dark theme while maintaining this color and contrast
 
 ## White Space
 
-### An example of a poorly designed component color-wise
+### An example of a poorly designed component
 
 ![alt](assets/images/bad-spacing.png)
 
@@ -44,6 +44,17 @@ The spacing is inconsistent.
 - The placeholder in the input box sticks onto the left side.
 
 ## Visual Hierarchy
+
+### An example of a poorly designed component
+
+![alt](assets/images/bad-hierarchy.png)
+
+### Why Bad?
+
+No catchy content, in other words, you eye doesn't know where to look first.
+
+- The heading has the same font size as the sub heading
+- The button has the same color as the upper part
 
 ## Complexity vs Simplicity
 
