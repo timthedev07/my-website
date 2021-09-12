@@ -9,7 +9,9 @@ const Projects: NextPage<Props> = ({ repos }) => {
   return (
     <div>
       <ul>
-        <li className="m-5">{repos.map((each) => each.name)}</li>
+        {repos.map((each) => (
+          <li className="m-5">{each.name}</li>
+        ))}
       </ul>
     </div>
   );
