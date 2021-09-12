@@ -18,7 +18,7 @@ const REPO_NAMES = [
 const Projects: NextPage<Props> = ({ repos }) => {
   return (
     <div>
-      <div className="grid grid-cols-1 items-center sm:grid-cols-3">
+      <div className="grid grid-cols-1 items-center md2:grid-cols-3">
         {repos.map((each) => (
           <Link key={each.name} href={each.html_url} passHref>
             <a>
