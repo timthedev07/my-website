@@ -87,3 +87,10 @@ You can use stuff like shadows and gradients, only if you can use them properly.
 - Inconsistent white space
 
 ## Scale
+
+### Example
+
+![](./assets/images/bad-scale.png)
+
+- Tiny placeholder
+- Button text too big
