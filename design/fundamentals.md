@@ -72,8 +72,18 @@ If you compare it to this simple component
 
 You see the shadows and gradients are nothing more than stupid looking stuff that destroys the entire component.
 
-You can use stuff like shadows and gradients, if you can use them properly.
+You can use stuff like shadows and gradients, only if you can use them properly.
 
 ## Consistency
+
+### Inconsistent example
+
+![](assets/images/inconsistency.png)
+
+### Why?
+
+- Inconsistent font
+- Inconsistent alignment
+- Inconsistent white space
 
 ## Scale
