@@ -18,18 +18,18 @@ const REPO_NAMES = [
 const Projects: NextPage<Props> = ({ repos }) => {
   return (
     <div>
-      <ul className="grid grid-cols-1 items-center sm:grid-cols-3">
+      <div className="grid grid-cols-1 items-center sm:grid-cols-3">
         {repos.map((each) => (
           <Link key={each.name} href={each.html_url} passHref>
-            <a className="m-5 h-64 sm:self-center">
-              <li>
-                <h3 className="text-4xl">{each.name}</h3>
-                <p>{each.description}</p>
-              </li>
+            <a>
+              <fieldset className="m-5 h-64 sm:self-center border-white border-opacity-30 border-2 p-4 rounded-sm relative">
+                <legend className="text-4xl">{each.name}</legend>
+                <p className="text-lg">{each.description}</p>
+              </fieldset>
             </a>
           </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
