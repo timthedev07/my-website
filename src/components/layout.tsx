@@ -64,11 +64,11 @@ export const Layout: FC = ({ children }) => {
       <div
         id="App"
         className={`bg-gray-100 ${
-          isDarkBG(pathname) ? "dark:bg-primary-bg" : "dark:bg-dark-bg"
+          isDarkBG(pathname) ? "dark:bg-dark-bg" : "dark:bg-primary-bg"
         } min-w-350`}
       >
         {windowSize > BREAK_POINT ? <Navbar /> : null}
-        <main className="w-full py-16 min-h-screen text-gray-900 dark:text-white">
+        <main className="w-full py-12 min-h-screen text-gray-900 dark:text-white">
           {children}
         </main>
         {windowSize <= BREAK_POINT ? <BottomNav /> : null}
