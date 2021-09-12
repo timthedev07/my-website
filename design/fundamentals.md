@@ -58,6 +58,22 @@ No catchy content, in other words, you eye doesn't know where to look first.
 
 ## Complexity vs Simplicity
 
+### An example of a component with too much redundant junk
+
+![](./assets/images/junk.png)
+
+### Why Bad
+
+- That freaking shadows and gradients which make the thing look much worse.
+
+If you compare it to this simple component
+
+![](./assets/images/dark-theme)
+
+You see the shadows and gradients are nothing more than stupid looking stuff that destroys the entire component.
+
+You can use stuff like shadows and gradients, if you can use them properly.
+
 ## Consistency
 
 ## Scale
