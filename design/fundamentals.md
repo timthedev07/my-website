@@ -25,6 +25,10 @@ This also words
 
 ![alt](assets/images/also-works.png)
 
+Converting to dark theme while maintaining this color and contrast
+
+![dark](assets/images/dark-theme.png)
+
 ## White Space
 
 ## Visual Hierarchy
