@@ -2,6 +2,23 @@
 
 ## Color & Contrast
 
+### An example of a poorly designed component color-wise
+
+![alt](assets/images/bad-color.png)
+
+### Why Bad?
+
+- Input placeholder doesn't have enough to contrast to be seen.
+- Top and bottom part don't have enough contrast.
+
+### Improvements
+
+Now the bottom part contrasts with the top part.
+![alt](assets/images/bad-color1.png)
+
+Now the text in the upper part stands out a bit better
+![alt](assets/images/kinda-fine-color.png)
+
 ## White Space
 
 ## Visual Hierarchy
