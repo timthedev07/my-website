@@ -22,7 +22,7 @@ const Projects: NextPage<Props> = ({ repos }) => {
         {repos.map((each) => (
           <Link key={each.name} href={each.html_url} passHref>
             <a>
-              <fieldset className="m-5 h-64 sm:self-center border-white border-opacity-30 border-2 p-4 rounded-sm relative">
+              <fieldset className="m-5 h-64 sm:self-center border-white border-opacity-30 border-2 p-4 rounded-sm relative transition duration-200 ease-out transform hover:-translate-y-1 hover:scale-103 hover:border-opacity-60">
                 <legend className="text-4xl">{each.name}</legend>
                 <p className="text-lg">{each.description}</p>
               </fieldset>
