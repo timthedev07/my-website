@@ -14,9 +14,11 @@
 ### Improvements
 
 Now the bottom part contrasts with the top part.
+
 ![alt](assets/images/bad-color1.png)
 
 Now the text in the upper part stands out a bit better
+
 ![alt](assets/images/kinda-fine-color.png)
 
 ## White Space
