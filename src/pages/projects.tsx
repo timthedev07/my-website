@@ -18,6 +18,10 @@ const REPO_NAMES = [
 const Projects: NextPage<Props> = ({ repos }) => {
   return (
     <div>
+      <header className="relative">
+        <img src="/images/tech0.jpg" alt="" />
+        <div className="w-full h-72 absolute bottom-0 bg-gradient-to-b from-transparent via-primary-bg to-primary-bg"></div>
+      </header>
       <div className="grid grid-cols-1 items-center md2:grid-cols-3">
         {repos.map((each) => (
           <Link key={each.name} href={each.html_url} passHref>
