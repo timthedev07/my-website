@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Link from "next/link";
 
 interface NavbarItemProps {
@@ -40,9 +40,25 @@ export const NAV_LINKS: NavbarItemProps[] = [
 ];
 
 export const Navbar: FC = ({}) => {
+  const [scrollY, setScrollY] = useState<number>(0);
+
+  useEffect(() => {
+    const handler = () => {
+      console.log(window.scrollY);
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handler);
+
+    return () => {
+      window.removeEventListener("scroll", handler);
+    };
+  }, []);
+
   return (
     <div
-      className={`fixed w-full bg:transparent z-50 h-12 flex justify-around items-center`}
+      className={`fixed w-full bg-${
+        scrollY > 40 ? "gray-900" : "transparent"
+      } z-50 h-12 flex justify-around items-center`}
     >
       <Link href="/">
         <div className="nav-item w-auto h-7 cursor-pointer">
