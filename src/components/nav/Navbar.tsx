@@ -9,7 +9,7 @@ interface NavbarItemProps {
 const NavbarItem: FC<NavbarItemProps> = ({ name, href }) => {
   return (
     <Link href={href} passHref={true}>
-      <a className="nav-item uppercase text-gray-800 transition duration-300 ease-in-out dark:text-gray-50 dark:hover:text-gray-300">
+      <a className="nav-item uppercase text-gray-800 transition duration-300 ease-in-out dark:text-gray-300 dark:hover:text-gray-100">
         {name}
       </a>
     </Link>
