@@ -74,6 +74,11 @@ export const Layout: FC = ({ children }) => {
           } w-full  min-h-screen text-gray-900 dark:text-white`}
         >
           {children}
+          <div
+            className={`${
+              windowSize <= BREAK_POINT ? "block" : "hidden"
+            } bg-transparent h-5`}
+          ></div>
         </main>
         {windowSize <= BREAK_POINT ? <BottomNav /> : null}
       </div>
