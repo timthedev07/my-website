@@ -5,7 +5,7 @@ import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import { MarkdownMetadata } from "../../types/posts";
-import marked from "marked";
+import { marked } from "marked";
 
 interface Props {
   content: string;
