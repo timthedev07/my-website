@@ -60,11 +60,7 @@ export const Layout: FC = ({ children }) => {
 
       <div id="App" className={`bg-slate-900 min-w-350`}>
         {windowSize > BREAK_POINT ? <Navbar /> : null}
-        <main
-          className={`${
-            windowSize > BREAK_POINT ? "py-12" : ""
-          } w-full  min-h-screen text-gray-900 dark:text-white`}
-        >
+        <main className={`w-full min-h-screen text-gray-900 dark:text-white`}>
           {children}
           <div
             className={`${

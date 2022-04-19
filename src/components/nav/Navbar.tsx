@@ -52,8 +52,8 @@ export const Navbar: FC = ({}) => {
 
   return (
     <div
-      className={`fixed w-full bg-${
-        scrollY > 40 ? "gray-900" : "transparent"
+      className={`fixed top-0 w-full ${
+        scrollY > 100 ? "bg-gray-900" : "bg-transparent"
       } z-50 h-12 flex justify-around items-center`}
     >
       <Link href="/">
