@@ -35,18 +35,7 @@ module.exports = {
         "xl-theme-color":
           "0 10px 15px -3px rgba(53, 0, 211, 0.4), 0 4px 6px -2px rgba(53, 0, 211, 0.05)",
       },
-      colors: {
-        "light-blue": colors.sky,
-        cyan: colors.cyan,
-        "primary-bg": "#282828",
-        "dark-bg": "#121212",
-        "component-primary-bg": "#404040",
-        "purple-bold": "#3500D3",
-        "purple-dim": "#240090",
-        "purple-darkish": "#190061",
-        "purple-dark": "#0C0032",
-        "purple-light": "#8c66ff",
-      },
+
       typography: (theme) => ({
         light: {
           css: [

@@ -1,7 +1,5 @@
 import { FC, useEffect, useState } from "react";
 import Head from "next/head";
-import { isDarkBG } from "../utils/bg";
-import { useRouter } from "next/router";
 import { Navbar } from "./nav/Navbar";
 import { BottomNav } from "./nav/BottomNav";
 
@@ -16,7 +14,6 @@ const metadata = {
 };
 
 export const Layout: FC = ({ children }) => {
-  const { pathname } = useRouter();
   const [windowSize, setWindowSize] = useState<number>(0);
 
   useEffect(() => {
@@ -61,12 +58,7 @@ export const Layout: FC = ({ children }) => {
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
 
-      <div
-        id="App"
-        className={`bg-gray-100 ${
-          isDarkBG(pathname) ? "dark:bg-dark-bg" : "dark:bg-primary-bg"
-        } min-w-350`}
-      >
+      <div id="App" className={`bg-slate-900 min-w-350`}>
         {windowSize > BREAK_POINT ? <Navbar /> : null}
         <main
           className={`${

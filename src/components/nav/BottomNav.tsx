@@ -7,15 +7,13 @@ export const BottomNav: React.FC = ({}) => {
     <ul className="py-5 w-full flex justify-around items-center fixed bottom-0 bg-dark-bg">
       {NAV_LINKS.map(({ name, href }) => (
         <Link key={name} href={href}>
-          <a>
-            <li>
-              <img
-                className="w-8 h-8"
-                src={`/images/bottomnav/${name}.svg`}
-                alt=""
-              />
-            </li>
-          </a>
+          <li>
+            <img
+              className="w-8 h-8"
+              src={`/images/bottomnav/${name}.svg`}
+              alt=""
+            />
+          </li>
         </Link>
       ))}
     </ul>
