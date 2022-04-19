@@ -24,6 +24,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -46,4 +47,29 @@ body {
 
 * {
   font-family: "Glory", sans-serif;
+}
+
+body h1 {
+  font-size: 4rem;
+}
+
+body h2 {
+  font-size: 2.8rem;
+}
+
+body h3 {
+  font-size: 2rem;
+}
+
+body h4 {
+  font-size: 1.4rem;
+}
+
+body p {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+body p.small {
+  font-size: 0.85rem;
 }

@@ -18,20 +18,16 @@ const NavbarItem: FC<NavbarItemProps> = ({ name, href }) => {
 
 export const NAV_LINKS: NavbarItemProps[] = [
   {
-    href: "/contact",
-    name: "contact",
-  },
-  {
-    href: "/",
-    name: "home",
-  },
-  {
     href: "/about",
     name: "about",
   },
   {
     href: "/projects",
     name: "projects",
+  },
+  {
+    href: "/contact",
+    name: "contact me",
   },
   {
     href: "/blog",
@@ -66,7 +62,7 @@ export const Navbar: FC = ({}) => {
         </div>
       </Link>
 
-      {NAV_LINKS.slice(1).map((navLink) => {
+      {NAV_LINKS.map((navLink) => {
         return <NavbarItem key={navLink.name} {...navLink} />;
       })}
     </div>
