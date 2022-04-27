@@ -11,7 +11,7 @@ const NavbarItem: FC<NavbarItemProps> = ({ name, href, className = "" }) => {
   return (
     <Link href={href} passHref={true}>
       <a
-        className={`nav-item uppercase text-gray-800 transition duration-300 ease-in-out dark:text-gray-300 dark:hover:text-gray-100 ${className}`}
+        className={`nav-item uppercase transition duration-300 ease-in-out text-gray-300 hover:text-gray-100 ${className}`}
       >
         {name}
       </a>
