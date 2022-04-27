@@ -6,16 +6,6 @@
 
 :root {
   font-size: 14px;
-
-  --color-button-text: #fff;
-  --color-primary-100: #dee3ea;
-  --color-primary-200: #b2bdcd;
-  --color-primary-300: #5d7290;
-  --color-primary-600: #323d4d;
-  --color-primary-700: #242c37;
-  --color-primary-800: #151a21;
-  --color-primary-900: #0b0e11;
-
   --scroll-bar-bg: #282828;
   --scroll-bar-thumb-bg: #999;
 }
@@ -34,11 +24,14 @@ body {
 }
 
 *::-webkit-scrollbar {
-  width: max(0.8vw, 7px);
+  width: max(0.8vw, 8px);
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: var(--scroll-bar-thumb-bg);
+  border: max(0.4vw, 4px) solid transparent;
+  border-radius: 8px;
+  background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-track {

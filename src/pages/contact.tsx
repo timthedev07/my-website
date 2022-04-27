@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import { ContactForm } from "../components/ContactForm";
 
 const ContactLink: React.FC<{ href: string; name: string }> = ({
   href,
@@ -34,6 +35,7 @@ const Contact: NextPage = () => {
           />
         </ul>
       </div>
+      <ContactForm />
     </div>
   );
 };

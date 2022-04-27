@@ -4,12 +4,15 @@ import Link from "next/link";
 interface NavbarItemProps {
   name: string;
   href: string;
+  className?: string;
 }
 
-const NavbarItem: FC<NavbarItemProps> = ({ name, href }) => {
+const NavbarItem: FC<NavbarItemProps> = ({ name, href, className = "" }) => {
   return (
     <Link href={href} passHref={true}>
-      <a className="nav-item uppercase text-gray-800 transition duration-300 ease-in-out dark:text-gray-300 dark:hover:text-gray-100">
+      <a
+        className={`nav-item uppercase text-gray-800 transition duration-300 ease-in-out dark:text-gray-300 dark:hover:text-gray-100 ${className}`}
+      >
         {name}
       </a>
     </Link>
@@ -17,6 +20,10 @@ const NavbarItem: FC<NavbarItemProps> = ({ name, href }) => {
 };
 
 export const NAV_LINKS: NavbarItemProps[] = [
+  {
+    href: "/",
+    name: "home",
+  },
   {
     href: "/about",
     name: "about",
@@ -26,12 +33,12 @@ export const NAV_LINKS: NavbarItemProps[] = [
     name: "projects",
   },
   {
-    href: "/contact",
-    name: "contact me",
-  },
-  {
     href: "/blog",
     name: "blog",
+  },
+  {
+    href: "/contact",
+    name: "contact",
   },
 ];
 
@@ -40,7 +47,6 @@ export const Navbar: FC = ({}) => {
 
   useEffect(() => {
     const handler = () => {
-      console.log(window.scrollY);
       setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handler);
@@ -52,19 +58,16 @@ export const Navbar: FC = ({}) => {
 
   return (
     <div
-      className={`fixed top-0 w-full ${
+      className={`sticky top-0 w-full ${
         scrollY > 100 ? "bg-gray-900" : "bg-transparent"
-      } z-50 h-12 flex justify-around items-center`}
+      } z-50 h-14 flex justify-between items-center gap-5 px-8`}
     >
-      <Link href="/">
-        <div className="nav-item w-auto h-7 cursor-pointer">
-          <img className="w-full h-full" src="/images/timthedev07.svg" alt="" />
-        </div>
-      </Link>
-
-      {NAV_LINKS.map((navLink) => {
-        return <NavbarItem key={navLink.name} {...navLink} />;
-      })}
+      <div className="flex justify-start items-center w-[40%] gap-5">
+        {NAV_LINKS.slice(0, -1).map((navLink) => {
+          return <NavbarItem key={navLink.name} {...navLink} className="" />;
+        })}
+      </div>
+      <NavbarItem {...NAV_LINKS.at(-1)!} className="" />
     </div>
   );
 };

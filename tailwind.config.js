@@ -40,7 +40,7 @@ module.exports = {
         light: {
           css: [
             {
-              backgroundColor: theme("primary-bg"),
+              backgroundColor: "inherit",
               color: theme("colors.gray.200"),
               '[class~="lead"]': {
                 color: theme("colors.gray.200"),

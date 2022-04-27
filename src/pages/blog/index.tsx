@@ -23,7 +23,7 @@ const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
             const metadata = JSON.parse(metadataAsString) as MarkdownMetadata;
             return (
               <Link key={filename} href={`blog/${filename}`}>
-                <li className="w-full h-28 p-3 cursor-pointer bg-component-primary-bg shadow-xl rounded-xl my-6 transition ease-out duration-200 transform hover:scale-102 hover:shadow-xl-theme-color ">
+                <li className="w-full h-28 p-3 cursor-pointer bg-slate-700 shadow-xl rounded-xl my-6 transition ease-out duration-200 transform hover:scale-102 hover:shadow-xl-theme-color ">
                   <div className="text-xl">
                     {filename
                       .split("-")
