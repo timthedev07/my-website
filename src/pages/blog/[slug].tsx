@@ -25,7 +25,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString }) => {
       </Head>
       <div className="flex justify-center items-center">
         <div
-          className="prose dark:prose-light lg:prose-base"
+          className="max-w-2xl flex flex-col gap-4 pb-52"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
