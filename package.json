@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
     "dragontail-experimental": "^0.0.9",
     "gray-matter": "^4.0.3",
