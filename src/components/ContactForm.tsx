@@ -1,11 +1,12 @@
 import {
+  Button,
   FormControl,
   FormErrorMessage,
   FormLabel,
   Input,
   Textarea,
 } from "dragontail-experimental";
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC, FormEventHandler, useState } from "react";
 import { hasNoAlphanumeric, validateEmailWithRegex } from "../utils/regex";
 
 export interface ContactFormData {
@@ -14,7 +15,7 @@ export interface ContactFormData {
   message: string;
 }
 
-export const ContactForm: FC = ({}) => {
+export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
   const [formData, setFormData] = useState<ContactFormData>({
     email: "",
     message: "",
@@ -28,7 +29,9 @@ export const ContactForm: FC = ({}) => {
     name: false,
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+
     const errors = {
       email: !formData.email || !validateEmailWithRegex(formData.email),
       message: !formData.message || hasNoAlphanumeric(formData.message),
@@ -60,15 +63,24 @@ export const ContactForm: FC = ({}) => {
         [e.target.name]: e.target.value,
       };
     });
+
+    if (Object.values(formError).findIndex((val) => val === true) >= 0) {
+      setFormError((prev) => {
+        return {
+          ...prev,
+          [e.target.name]: false,
+        };
+      });
+    }
   };
 
   return (
-    <div className="border border-slate-500/60 rounded-md p-4 max-w-lg">
+    <div className={`border border-slate-500/60 rounded-md p-4 ${className}`}>
       <form onSubmit={handleSubmit}>
         <FormControl isInvalid={formError.name} isRequired>
           <FormLabel>Name</FormLabel>
           <Input name="name" value={formData.name} onChange={handleChange} />
-          {formError && (
+          {formError.name && (
             <FormErrorMessage>Name must not be empty</FormErrorMessage>
           )}
         </FormControl>
@@ -82,14 +94,16 @@ export const ContactForm: FC = ({}) => {
         <FormControl isInvalid={formError.message} isRequired>
           <FormLabel>Message</FormLabel>
           <Textarea
-            name="email"
+            name="message"
+            resize="vertical"
             value={formData.message}
             onChange={handleChange}
           />
-          {formError.email && (
+          {formError.message && (
             <FormErrorMessage>Invalid Message</FormErrorMessage>
           )}
         </FormControl>
+        <Button type="submit">Submit</Button>
       </form>
     </div>
   );

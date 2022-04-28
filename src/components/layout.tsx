@@ -13,7 +13,7 @@ const metadata = {
     "Tim is a software engineer specializing in full stack web development.",
 };
 
-export const Layout: FC = ({ children }) => {
+export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
   const [windowSize, setWindowSize] = useState<number>(0);
 
   useEffect(() => {
