@@ -2,6 +2,7 @@ const colors = require(`tailwindcss/colors`);
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   content: ["./src/pages/**/*.{tsx,ts}", "./src/components/**/*.{ts,tsx}"],
+  mode: "jit",
   theme: {
     fontFamily: {
       sans: [
