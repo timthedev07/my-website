@@ -1,11 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import Link from "next/link";
-
-interface NavbarItemProps {
-  name: string;
-  href: string;
-  className?: string;
-}
+import { NavbarItemProps, NAV_LINKS } from "./NavData";
 
 const NavbarItem: FC<NavbarItemProps> = ({ name, href, className = "" }) => {
   return (
@@ -18,29 +13,6 @@ const NavbarItem: FC<NavbarItemProps> = ({ name, href, className = "" }) => {
     </Link>
   );
 };
-
-export const NAV_LINKS: NavbarItemProps[] = [
-  {
-    href: "/",
-    name: "home",
-  },
-  {
-    href: "/about",
-    name: "about",
-  },
-  {
-    href: "/projects",
-    name: "projects",
-  },
-  {
-    href: "/blog",
-    name: "blog",
-  },
-  {
-    href: "/contact",
-    name: "contact",
-  },
-];
 
 export const Navbar: FC = ({}) => {
   const [scrollY, setScrollY] = useState<number>(0);

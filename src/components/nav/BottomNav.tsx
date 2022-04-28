@@ -1,5 +1,5 @@
 import React from "react";
-import { NAV_LINKS } from "./Navbar";
+import { NAV_LINKS } from "./NavData";
 import Link from "next/link";
 
 export const BottomNav: React.FC = ({}) => {
