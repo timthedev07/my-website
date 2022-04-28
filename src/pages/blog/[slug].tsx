@@ -17,7 +17,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString }) => {
   return (
     <>
       <Head>
-        <title>{metadata.title}</title>
+        <title>{metadata.title} - Tim's Blog</title>
         <meta name="title" content={metadata.title} />
         <meta name="description" content={metadata.description} />
         <meta property="og:description" content={metadata.description} />
@@ -25,7 +25,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString }) => {
       </Head>
       <div className="flex justify-center items-center">
         <div
-          className="max-w-2xl flex flex-col gap-4 pb-52"
+          className="w-[90%] md:max-w-2xl flex flex-col gap-4 pb-52"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
