@@ -39,7 +39,7 @@ export const Navbar: FC = ({}) => {
           return <NavbarItem key={navLink.name} {...navLink} className="" />;
         })}
       </div>
-      <NavbarItem {...NAV_LINKS.at(-1)!} className="" />
+      <NavbarItem {...NAV_LINKS[NAV_LINKS.length - 1]} className="" />
     </div>
   );
 };
