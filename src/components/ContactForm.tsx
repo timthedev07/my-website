@@ -96,6 +96,7 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
           <Textarea
             name="message"
             resize="vertical"
+            className="min-h-[100px]"
             value={formData.message}
             onChange={handleChange}
           />
