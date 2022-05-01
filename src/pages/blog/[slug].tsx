@@ -17,7 +17,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString }) => {
   return (
     <>
       <Head>
-        <title>{metadata.title} - Tim's Blog</title>
+        <title>{metadata.title} - Tim&apois;s Blog</title>
         <meta name="title" content={metadata.title} />
         <meta name="description" content={metadata.description} />
         <meta property="og:description" content={metadata.description} />

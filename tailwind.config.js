@@ -1,7 +1,11 @@
 const colors = require(`tailwindcss/colors`);
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
-  content: ["./src/pages/**/*.{tsx,ts}", "./src/components/**/*.{ts,tsx}"],
+  content: [
+    "./src/pages/**/*.{tsx,ts}",
+    "./src/components/**/*.{ts,tsx}",
+    "node_modules/dragontail-experimental/dist/cjs/index.js",
+  ],
   mode: "jit",
   theme: {
     fontFamily: {
