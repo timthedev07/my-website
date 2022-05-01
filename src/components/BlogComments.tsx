@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { BlogComment } from "../mongodb/models/BlogComment";
+import { CommentForm } from "./CommentForm";
 
 interface BlogCommentsProps {
   blogId: string;
@@ -28,18 +29,19 @@ export const BlogComments: FC<BlogCommentsProps> = ({
 
   return (
     <>
-      <h3>
+      <h3 className={`mb-4 font-semibold`}>
         {apiResponse.length} {apiResponse.length === 1 ? "Comment" : "Comments"}
       </h3>
+      <CommentForm blogId={blogId} className={"w-full m-auto"} />
       <ul className="text-left flex flex-col justify-center gap-4 w-full">
         {isError
           ? "error"
           : apiResponse.map((each) => (
               <li
                 key={each.blogId}
-                className="rounded-md border border-slate-300/50 w-full p-5 flex flex-col gap-4"
+                className="rounded-md border border-neutral-300 w-full p-5 flex flex-col gap-4"
               >
-                <h4 className="font-extrabold">{each.commenterName}</h4>
+                <h4 className="font-medium">{each.commenterName}</h4>
                 <p>{each.comment}</p>
               </li>
             ))}

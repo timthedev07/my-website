@@ -6,8 +6,7 @@ import { join } from "path";
 import matter from "gray-matter";
 import { MarkdownMetadata } from "../../types/posts";
 import { marked } from "marked";
-import { CommentForm } from "../../components/CommentForm";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useOnScreen } from "../../utils/hooks";
 import { BlogComments } from "../../components/BlogComments";
 
@@ -22,6 +21,8 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const loadComments = useOnScreen(ref);
 
+  const xPaddings = "md:px-24 px-6";
+
   return (
     <>
       <Head>
@@ -33,22 +34,17 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
       </Head>
       <div className="flex flex-col justify-center items-center">
         <section
-          className={`flex flex-col gap-4 pb-36 w-[95%] md:w-[90%] md:max-w-[50rem] md:border-2 md:border-slate-400/50 md:bg-slate-900 rounded-xl px-6 md:px-24 m-6 pt-20 md:pt-8`}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-        <section className="w-full mb-12 flex flex-col justify-start items-center">
-          <hr
-            className={`border-t border-t-slate-200/60 h-[1px] w-full md:w-[90%] m-auto my-8`}
-          />
-          <div className="w-[85%] md:w-[70%] lg:w-[55%]" ref={ref}>
-            {loadComments && (
-              <>
-                {/* list of comments */}
-                <BlogComments blogId={slug} />
+          className={`w-[95%] md:w-[90%] md:max-w-4xl lg:max-w-5xl md:border-2 md:border-slate-400/50 md:bg-slate-900 rounded-xl m-6`}
+        >
+          <article
+            className={`flex flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings}`}
+            dangerouslySetInnerHTML={{ __html: content }}
+          ></article>
 
-                <CommentForm blogId={slug} className={"w-full m-auto"} />
-              </>
-            )}
+          <hr className="w-full h-[1px] border-t border-t-slate-400/30" />
+
+          <div ref={ref} className={xPaddings + " py-10"}>
+            {loadComments && <BlogComments blogId={slug} />}
           </div>
         </section>
       </div>
