@@ -97,7 +97,7 @@ export const CommentForm: FC<CommentFormProps> = ({
             name="comment"
           ></Textarea>
         </FormControl>
-        <Button color="emerald" type="submit">
+        <Button className="max-w-[80px]" color="emerald" type="submit">
           Comment
         </Button>
       </form>
