@@ -5,12 +5,13 @@ import { BottomNav } from "./nav/BottomNav";
 
 const BREAK_POINT = 600;
 
-const metadata = {
+export const metadata = {
   title: "Tim's Website",
   image:
     "https://og-image.xyz/og/Tim's%20Website/Hire%20me/timthedev07.github.io/https/menlo/unmatchedeclipse/%7B%7Bh%7D%7Dffffff/data.png",
   description:
     "Tim is a software engineer specializing in full stack web development.",
+  domain: "timthedev07.github.io",
 };
 
 export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
