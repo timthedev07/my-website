@@ -9,7 +9,7 @@ interface Args {
 }
 
 export const getHeadForPage = (pageData: Args) => {
-  const title = `${pageData.title} - Some prefix`;
+  const title = `${pageData.title} - timthedev07`;
 
   return (
     <Head>
