@@ -20,6 +20,8 @@ export const CommentForm: FC<CommentFormProps> = ({
   className = "",
   blogId,
 }) => {
+  const [showWholeForm, setShowWholeForm] = useState<boolean>(false);
+
   const [formData, setFormData] = useState<BlogFormData>({
     blogId,
     comment: "",
@@ -78,29 +80,47 @@ export const CommentForm: FC<CommentFormProps> = ({
   };
 
   return (
-    <div className={`border border-slate-500/60 rounded-md p-6 ${className}`}>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-        <FormControl>
-          <FormLabel>Comment as</FormLabel>
-          <Input
-            placeholder="Comment anonymously"
-            value={formData.commenterName}
-            onChange={handleChange}
-            name="commenterName"
-          />
-        </FormControl>
+    <div
+      className={`${
+        showWholeForm &&
+        `border border-slate-500/60 rounded-md p-6 ${className}`
+      }`}
+    >
+      <form
+        onSubmit={handleSubmit}
+        className={`${showWholeForm && "flex flex-col gap-5"}`}
+      >
+        {showWholeForm && (
+          <FormControl>
+            <FormLabel>Comment as</FormLabel>
+            <Input
+              placeholder="Comment anonymously"
+              value={formData.commenterName}
+              onChange={handleChange}
+              name="commenterName"
+            />
+          </FormControl>
+        )}
         <FormControl isRequired>
-          <FormLabel>Comment</FormLabel>
+          {showWholeForm && <FormLabel>Comment</FormLabel>}
           <Textarea
-            className="min-h-[120px]"
+            className={`${
+              showWholeForm ? "min-h-[120px]" : "min-h-[60px] mb-12 mt-6"
+            }`}
+            onFocus={() => {
+              if (!showWholeForm) setShowWholeForm(true);
+            }}
             value={formData.comment}
             onChange={handleChange}
             name="comment"
+            placeholder={!showWholeForm ? "Leave a comment" : ""}
           ></Textarea>
         </FormControl>
-        <Button className="max-w-[80px]" color="emerald" type="submit">
-          Comment
-        </Button>
+        {showWholeForm && (
+          <Button className="max-w-[80px]" color="emerald" type="submit">
+            Comment
+          </Button>
+        )}
       </form>
     </div>
   );
