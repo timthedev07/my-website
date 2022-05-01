@@ -5,7 +5,7 @@ import {
   Input,
   Textarea,
 } from "dragontail-experimental";
-import { ChangeEvent, FC, FormEventHandler, useState } from "react";
+import { ChangeEvent, FC, FormEventHandler, useEffect, useState } from "react";
 import { BlogComment } from "../mongodb/models/BlogComment";
 import { hasNoAlphanumeric } from "../utils/regex";
 
@@ -35,6 +35,12 @@ export const CommentForm: FC<CommentFormProps> = ({
     blogId: false,
     commenterName: false,
   });
+
+  useEffect(() => {
+    if (showWholeForm) {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  }, [showWholeForm]);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -105,10 +111,12 @@ export const CommentForm: FC<CommentFormProps> = ({
           {showWholeForm && <FormLabel>Comment</FormLabel>}
           <Textarea
             className={`${
-              showWholeForm ? "min-h-[120px]" : "min-h-[60px] mb-12 mt-6"
+              (showWholeForm ? "min-h-[120px]" : "min-h-[60px] mt-6") + " mb-12"
             }`}
             onFocus={() => {
-              if (!showWholeForm) setShowWholeForm(true);
+              if (!showWholeForm) {
+                setShowWholeForm(true);
+              }
             }}
             value={formData.comment}
             onChange={handleChange}
