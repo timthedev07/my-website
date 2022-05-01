@@ -14,23 +14,24 @@ interface CommentFormProps {
   blogId: string;
 }
 
+export type BlogFormData = Omit<BlogComment, "id">;
+
 export const CommentForm: FC<CommentFormProps> = ({
   className = "",
   blogId,
 }) => {
-  const [formData, setFormData] = useState<BlogComment>({
+  const [formData, setFormData] = useState<BlogFormData>({
     blogId,
     comment: "",
     commenterName: "",
   });
 
   const [formError, setFormError] = useState<
-    Record<keyof BlogComment, boolean>
+    Record<keyof BlogFormData, boolean>
   >({
     comment: false,
     blogId: false,
     commenterName: false,
-    id: false,
   });
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
