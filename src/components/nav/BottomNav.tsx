@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const BottomNav: React.FC = ({}) => {
   return (
-    <ul className="py-5 w-full flex justify-around items-center fixed bottom-0 bg-dark-bg">
+    <ul className="py-5 w-full flex justify-around items-center fixed bottom-0 bg-inherit">
       {NAV_LINKS.map(({ name, href }) => (
         <Link passHref key={name} href={href}>
           <li>
