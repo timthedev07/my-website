@@ -6,7 +6,7 @@ date: 2021-09-05
 
 # My Opinions on Some Programming Languages
 
-There's tons of programming languages out there for different purposes, I used to search what are the best languages to learn everyday when I first started out. Ones like Rust, Python, JavaScript, Ruby, Golang, and Java appear the most. But then after trying some of the languages out I realized they are just not my type, or in other words, they are not suitable for my purposes. On the other hand, I quite liked some other ones and I decided to just stick to them. In this blog, I'm going to be walking through some of my experiences learning and using different programming languages.
+There's tons of programming languages out there for different purposes, I used to search what the best languages are to learn every day when I first started out. Ones like Rust, Python, JavaScript, Ruby, Golang, and Java appeared the most. But then after trying some of the languages I realized they are just not my type, or in other words, they are not suitable for my purposes. On the other hand, I quite liked some other ones and I decided to just stick to them. In this blog, I'm going to be walking through some of my experiences learning and using different programming languages.
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/staging/assets/programming-languages.jpg)
 
