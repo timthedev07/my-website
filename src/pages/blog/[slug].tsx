@@ -6,14 +6,19 @@ import { join } from "path";
 import matter from "gray-matter";
 import { MarkdownMetadata } from "../../types/posts";
 import { marked } from "marked";
+import { CommentForm } from "../../components/CommentForm";
 
 interface Props {
   content: string;
   metadataAsString: string;
+  slug: string;
 }
 
-const Slug: NextPage<Props> = ({ content, metadataAsString }) => {
+const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
+
+  const widths = "w-[90%] md:max-w-2xl";
+
   return (
     <>
       <Head>
@@ -23,11 +28,17 @@ const Slug: NextPage<Props> = ({ content, metadataAsString }) => {
         <meta property="og:description" content={metadata.description} />
         <meta property="og:title" content={metadata.title} />
       </Head>
-      <div className="flex justify-center items-center">
-        <div
-          className="w-[90%] md:max-w-2xl flex flex-col gap-4 pb-52"
+      <div className="flex flex-col justify-center items-center">
+        <section
+          className={`flex flex-col gap-4 pb-36 ${widths}`}
           dangerouslySetInnerHTML={{ __html: content }}
         />
+        <section className="w-full mb-12">
+          <hr
+            className={`border-t border-t-slate-200/60 h-[1px] w-full md:w-[90%] m-auto my-8`}
+          />
+          <CommentForm blogId={slug} className={widths + " m-auto"} />
+        </section>
       </div>
     </>
   );
@@ -49,14 +60,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const fileContent = readFileSync(
-    join("posts", params!.slug + ".md")
-  ).toString();
+  const slug = params!.slug;
+  const fileContent = readFileSync(join("posts", slug + ".md")).toString();
 
   const withMetadata = matter(fileContent);
 
   return {
     props: {
+      slug,
       content: marked(withMetadata.content),
       metadataAsString: JSON.stringify(withMetadata.data),
     } as Props,
