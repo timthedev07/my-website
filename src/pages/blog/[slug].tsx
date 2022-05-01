@@ -7,6 +7,9 @@ import matter from "gray-matter";
 import { MarkdownMetadata } from "../../types/posts";
 import { marked } from "marked";
 import { CommentForm } from "../../components/CommentForm";
+import { useRef } from "react";
+import { useOnScreen } from "../../utils/hooks";
+import { BlogComments } from "../../components/BlogComments";
 
 interface Props {
   content: string;
@@ -16,6 +19,8 @@ interface Props {
 
 const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
+  const ref = useRef<HTMLDivElement | null>(null);
+  const loadComments = useOnScreen(ref);
 
   const widths = "w-[90%] md:max-w-2xl";
 
@@ -28,16 +33,22 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
         <meta property="og:description" content={metadata.description} />
         <meta property="og:title" content={metadata.title} />
       </Head>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center pt-24 sm:pt-0">
         <section
           className={`flex flex-col gap-4 pb-36 ${widths}`}
           dangerouslySetInnerHTML={{ __html: content }}
         />
-        <section className="w-full mb-12">
+        <section className="w-full mb-12 flex flex-col justify-start items-center">
           <hr
             className={`border-t border-t-slate-200/60 h-[1px] w-full md:w-[90%] m-auto my-8`}
           />
-          <CommentForm blogId={slug} className={widths + " m-auto"} />
+          {/* list of comments */}
+          <div className="w-[90%]" ref={ref}>
+            <BlogComments blogId={slug} />
+          </div>
+
+          {/* write comment form */}
+          {/* <CommentForm blogId={slug} className={widths + " m-auto"} /> */}
         </section>
       </div>
     </>

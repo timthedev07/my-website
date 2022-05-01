@@ -1,62 +1,146 @@
-/* vietnamese */
 @font-face {
   font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-ThinItalic.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-ThinItalic.woff") format("woff");
+  font-weight: 100;
   font-style: italic;
-  font-weight: 400;
   font-display: swap;
-  src: url(../../public/fonts/Glory/static/Glory-Italic.ttf);
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
-    U+01AF-01B0, U+1EA0-1EF9, U+20AB;
 }
-/* latin-ext */
+
 @font-face {
   font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-Regular.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-SemiBoldItalic.woff2")
+      format("woff2"),
+    url("../../public/fonts/Glory/Glory-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
   font-style: italic;
-  font-weight: 400;
   font-display: swap;
-  src: url(../../public/fonts/Glory/static/Glory-Italic.ttf);
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
-    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
 @font-face {
   font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-SemiBold.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-Thin.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-MediumItalic.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-MediumItalic.woff") format("woff");
+  font-weight: 500;
   font-style: italic;
-  font-weight: 400;
   font-display: swap;
-  src: url(../../public/fonts/Glory/static/Glory-Italic.ttf);
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
 }
-/* vietnamese */
+
 @font-face {
   font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-ExtraLight.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-ExtraLight.woff") format("woff");
+  font-weight: 200;
   font-style: normal;
-  font-weight: 400;
   font-display: swap;
-  src: url(../../public/fonts/Glory/static/Glory-Regular.ttf);
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1,
-    U+01AF-01B0, U+1EA0-1EF9, U+20AB;
 }
-/* latin-ext */
+
 @font-face {
   font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-Medium.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-Medium.woff") format("woff");
+  font-weight: 500;
   font-style: normal;
-  font-weight: 400;
   font-display: swap;
-  src: url(../../public/fonts/Glory/static/Glory-Regular.ttf);
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
-    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-/* latin */
+
 @font-face {
   font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-ExtraBold.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-ExtraBold.woff") format("woff");
+  font-weight: bold;
   font-style: normal;
-  font-weight: 400;
   font-display: swap;
-  src: url(../../public/fonts/Glory/static/Glory-Regular.ttf);
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
-    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-Light.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-Italic.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-Bold.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-ExtraLightItalic.woff2")
+      format("woff2"),
+    url("../../public/fonts/Glory/Glory-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-ExtraBoldItalic.woff2")
+      format("woff2"),
+    url("../../public/fonts/Glory/Glory-ExtraBoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-BoldItalic.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-BoldItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glory";
+  src: url("../../public/fonts/Glory/Glory-LightItalic.woff2") format("woff2"),
+    url("../../public/fonts/Glory/Glory-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
