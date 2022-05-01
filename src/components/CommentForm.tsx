@@ -78,7 +78,7 @@ export const CommentForm: FC<CommentFormProps> = ({
 
   return (
     <div className={`border border-slate-500/60 rounded-md p-6 ${className}`}>
-      <form onSubmit={handleSubmit} className="gap-5">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <FormControl>
           <FormLabel>Comment as</FormLabel>
           <Input
