@@ -1,7 +1,7 @@
 import { collections, connectDB } from "..";
-import { BlogComment } from "../models/BlogComment";
+import { BlogFormData } from "../../components/CommentForm";
 
-export const newComment = async (commentData: BlogComment) => {
+export const newComment = async (commentData: BlogFormData) => {
   await connectDB();
 
   const commentsCollection = collections.blogComments;
