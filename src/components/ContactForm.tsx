@@ -75,8 +75,8 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
   };
 
   return (
-    <div className={`border border-slate-500/60 rounded-md p-4 ${className}`}>
-      <form onSubmit={handleSubmit}>
+    <div className={`border border-slate-500/60 rounded-md p-6 ${className}`}>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <FormControl isInvalid={formError.name} isRequired>
           <FormLabel>Name</FormLabel>
           <Input name="name" value={formData.name} onChange={handleChange} />
@@ -103,7 +103,9 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
             <FormErrorMessage>Invalid Message</FormErrorMessage>
           )}
         </FormControl>
-        <Button type="submit">Submit</Button>
+        <Button color="neutral" type="submit">
+          Submit
+        </Button>
       </form>
     </div>
   );
