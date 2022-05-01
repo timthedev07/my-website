@@ -7,7 +7,7 @@ import matter from "gray-matter";
 import { MarkdownMetadata } from "../../types/posts";
 import { marked } from "marked";
 import { CommentForm } from "../../components/CommentForm";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useOnScreen } from "../../utils/hooks";
 import { BlogComments } from "../../components/BlogComments";
 
@@ -22,8 +22,6 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const loadComments = useOnScreen(ref);
 
-  const widths = "w-[90%] md:max-w-2xl";
-
   return (
     <>
       <Head>
@@ -33,22 +31,25 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
         <meta property="og:description" content={metadata.description} />
         <meta property="og:title" content={metadata.title} />
       </Head>
-      <div className="flex flex-col justify-center items-center pt-24 sm:pt-0">
+      <div className="flex flex-col justify-center items-center">
         <section
-          className={`flex flex-col gap-4 pb-36 ${widths}`}
+          className={`flex flex-col gap-4 pb-36 w-[95%] md:w-[90%] md:max-w-[50rem] md:border-2 md:border-slate-400/50 md:bg-slate-900 rounded-xl px-6 md:px-24 m-6 pt-20 md:pt-8`}
           dangerouslySetInnerHTML={{ __html: content }}
         />
         <section className="w-full mb-12 flex flex-col justify-start items-center">
           <hr
             className={`border-t border-t-slate-200/60 h-[1px] w-full md:w-[90%] m-auto my-8`}
           />
-          {/* list of comments */}
-          <div className="w-[90%]" ref={ref}>
-            <BlogComments blogId={slug} />
-          </div>
+          <div className="w-[85%] md:w-[70%] lg:w-[55%]" ref={ref}>
+            {loadComments && (
+              <>
+                {/* list of comments */}
+                <BlogComments blogId={slug} />
 
-          {/* write comment form */}
-          {/* <CommentForm blogId={slug} className={widths + " m-auto"} /> */}
+                <CommentForm blogId={slug} className={"w-full m-auto"} />
+              </>
+            )}
+          </div>
         </section>
       </div>
     </>
