@@ -5,7 +5,14 @@ import {
   Input,
   Textarea,
 } from "dragontail-experimental";
-import { ChangeEvent, FC, FormEventHandler, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  FC,
+  FormEventHandler,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 import { BlogComment } from "../mongodb/models/BlogComment";
 import { hasNoAlphanumeric } from "../utils/regex";
 
@@ -23,6 +30,7 @@ export const CommentForm: FC<CommentFormProps> = ({
   onSuccess = () => {},
 }) => {
   const [showWholeForm, setShowWholeForm] = useState<boolean>(false);
+  const textareaRef = useRef<HTMLFormElement | null>(null);
 
   const [formData, setFormData] = useState<BlogFormData>({
     blogId,
@@ -39,8 +47,9 @@ export const CommentForm: FC<CommentFormProps> = ({
   });
 
   useEffect(() => {
-    if (showWholeForm) {
-      window.scrollTo(0, document.body.scrollHeight);
+    if (showWholeForm && textareaRef.current) {
+      const element = textareaRef.current;
+      window.scrollTo(0, element.scrollHeight + element.offsetTop - 150);
     }
   }, [showWholeForm]);
 
@@ -96,6 +105,7 @@ export const CommentForm: FC<CommentFormProps> = ({
       }`}
     >
       <form
+        ref={textareaRef}
         onSubmit={handleSubmit}
         className={`${showWholeForm && "flex flex-col gap-5"}`}
       >
