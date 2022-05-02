@@ -7,10 +7,8 @@ interface BlogCommentsProps {
   className?: string;
 }
 
-export const BlogComments: FC<BlogCommentsProps> = ({
-  blogId,
-  className = "",
-}) => {
+export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
+  const [refetch, setRefetch] = useState<string | undefined>(undefined);
   const [apiResponse, setApiResponse] = useState<BlogComment[]>([]);
   const [isError, setIsError] = useState<boolean>(false);
 
@@ -25,14 +23,23 @@ export const BlogComments: FC<BlogCommentsProps> = ({
     };
 
     f();
-  }, [blogId]);
+  }, [blogId, refetch]);
+
+  const handleSuccess = () => {
+    // refresh token for new requests
+    setRefetch(new Date().toISOString());
+  };
 
   return (
     <>
       <h3 className={`mb-4 font-semibold`}>
         {apiResponse.length} {apiResponse.length === 1 ? "Comment" : "Comments"}
       </h3>
-      <CommentForm blogId={blogId} className={"w-full m-auto"} />
+      <CommentForm
+        onSuccess={handleSuccess}
+        blogId={blogId}
+        className={"w-full m-auto"}
+      />
       <ul className="text-left flex flex-col justify-center gap-4 w-full">
         {isError
           ? "error"

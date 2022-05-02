@@ -12,6 +12,7 @@ import { hasNoAlphanumeric } from "../utils/regex";
 interface CommentFormProps {
   className?: string;
   blogId: string;
+  onSuccess?: Function;
 }
 
 export type BlogFormData = Omit<BlogComment, "id">;
@@ -19,6 +20,7 @@ export type BlogFormData = Omit<BlogComment, "id">;
 export const CommentForm: FC<CommentFormProps> = ({
   className = "",
   blogId,
+  onSuccess = () => {},
 }) => {
   const [showWholeForm, setShowWholeForm] = useState<boolean>(false);
 
@@ -59,8 +61,9 @@ export const CommentForm: FC<CommentFormProps> = ({
       method: "POST",
     });
 
-    const status = response.status;
-    console.log(status);
+    if (response.ok) {
+      onSuccess();
+    }
   };
 
   const handleChange = <
