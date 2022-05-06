@@ -753,10 +753,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dragontail-experimental@^0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.16.tgz#304d0a0b2037f622868b56c610f89f4d4867a64b"
-  integrity sha512-hiuXMf3Oi+6dh6HRrnclhaXUg4UCA6GcdQbk4G8XizPC5cbepr7hKMThdbTlalPW7Ri6m5Agdd9rNkbLtpreoA==
+dragontail-experimental@^0.0.17:
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.17.tgz#554815eee144e158dfc29cec84940db5d58561ac"
+  integrity sha512-yXxRuOAx+FkZ4sUJMWg8i6BTClQMCX9D6UOabXfDvWBaXYq5WkgZ5uNnvQMe8xV00GLJAK1U0suTy5HHmtCoxA==
 
 electron-to-chromium@^1.4.118:
   version "1.4.124"
@@ -2100,7 +2100,7 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-react-dom@18.1.0:
+react-dom@^18.1.0:
   version "18.1.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.1.0.tgz#7f6dd84b706408adde05e1df575b3a024d7e8a2f"
   integrity sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==
