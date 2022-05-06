@@ -15,6 +15,7 @@ import {
 } from "react";
 import { BlogComment } from "../mongodb/models/BlogComment";
 import { hasNoAlphanumeric } from "../utils/regex";
+import { Spinner } from "./svgs/Spinner";
 
 interface CommentFormProps {
   className?: string;
@@ -31,6 +32,7 @@ export const CommentForm: FC<CommentFormProps> = ({
 }) => {
   const [showWholeForm, setShowWholeForm] = useState<boolean>(false);
   const textareaRef = useRef<HTMLFormElement | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const [formData, setFormData] = useState<BlogFormData>({
     blogId,
@@ -48,13 +50,21 @@ export const CommentForm: FC<CommentFormProps> = ({
 
   useEffect(() => {
     if (showWholeForm && textareaRef.current) {
-      const element = textareaRef.current;
-      window.scrollTo(0, element.scrollHeight + element.offsetTop - 400);
+      const scrollTop =
+        window.pageYOffset !== undefined
+          ? window.pageYOffset
+          : (
+              document.documentElement ||
+              document.body.parentNode ||
+              document.body
+            ).scrollTop;
+      window.scrollTo(0, scrollTop + 400);
     }
   }, [showWholeForm]);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const errors = {
       comment: !formData.comment || hasNoAlphanumeric(formData.comment),
@@ -72,7 +82,10 @@ export const CommentForm: FC<CommentFormProps> = ({
 
     if (response.ok) {
       onSuccess();
+      setShowWholeForm(false);
     }
+
+    setLoading(false);
   };
 
   const handleChange = <
@@ -101,16 +114,21 @@ export const CommentForm: FC<CommentFormProps> = ({
     <div
       className={`${
         showWholeForm &&
-        `border border-slate-500/60 rounded-md p-6 ${className}`
+        `border relative border-slate-500/60 rounded-md p-6 ${className}`
       }`}
     >
+      {loading && (
+        <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full bg-neutral-800/50 z-40 flex justify-center items-center">
+          <Spinner className="animate-spin-slow w-24 h-24" />
+        </div>
+      )}
       <form
         ref={textareaRef}
         onSubmit={handleSubmit}
         className={`${showWholeForm && "flex flex-col gap-5"}`}
       >
         {showWholeForm && (
-          <FormControl>
+          <FormControl isDisabled={loading}>
             <FormLabel>Comment as</FormLabel>
             <Input
               placeholder="Comment anonymously"
@@ -120,7 +138,7 @@ export const CommentForm: FC<CommentFormProps> = ({
             />
           </FormControl>
         )}
-        <FormControl isRequired>
+        <FormControl isRequired isDisabled={showWholeForm && loading}>
           {showWholeForm && <FormLabel>Comment</FormLabel>}
           <Textarea
             className={`${
@@ -138,7 +156,12 @@ export const CommentForm: FC<CommentFormProps> = ({
           ></Textarea>
         </FormControl>
         {showWholeForm && (
-          <Button className="max-w-[80px]" color="emerald" type="submit">
+          <Button
+            isDisabled={loading}
+            className="max-w-[80px]"
+            color="neutral"
+            type="submit"
+          >
             Comment
           </Button>
         )}
