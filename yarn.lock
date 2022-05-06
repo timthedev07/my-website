@@ -753,10 +753,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dragontail-experimental@^0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.15.tgz#cfa8adfd59366e9422c51ae7b784d7f0e2ef198e"
-  integrity sha512-TqN1efNa5i/TBSsMjaJDTsSGGy9kINIfob79s+4d7s/IiZw2zOV/ASD/JAppZ+2wmt9+FEuh84nQK/R+OSQk/A==
+dragontail-experimental@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.16.tgz#304d0a0b2037f622868b56c610f89f4d4867a64b"
+  integrity sha512-hiuXMf3Oi+6dh6HRrnclhaXUg4UCA6GcdQbk4G8XizPC5cbepr7hKMThdbTlalPW7Ri6m5Agdd9rNkbLtpreoA==
 
 electron-to-chromium@^1.4.118:
   version "1.4.124"
