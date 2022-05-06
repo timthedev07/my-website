@@ -22,7 +22,7 @@ interface CommentFormProps {
   onSuccess?: Function;
 }
 
-export type BlogFormData = Omit<BlogComment, "id">;
+export type BlogFormData = Omit<Omit<BlogComment, "isAnonymous">, "id">;
 
 export const CommentForm: FC<CommentFormProps> = ({
   className = "",
@@ -49,7 +49,7 @@ export const CommentForm: FC<CommentFormProps> = ({
   useEffect(() => {
     if (showWholeForm && textareaRef.current) {
       const element = textareaRef.current;
-      window.scrollTo(0, element.scrollHeight + element.offsetTop - 150);
+      window.scrollTo(0, element.scrollHeight + element.offsetTop - 400);
     }
   }, [showWholeForm]);
 
