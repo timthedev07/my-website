@@ -46,7 +46,7 @@ export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
           : apiResponse.map((each, ind) => (
               <li
                 key={JSON.stringify(each.id) || ind}
-                className="rounded-md border border-neutral-400/70 w-full p-5 flex flex-col gap-4"
+                className="rounded-md border border-neutral-400/70 w-full p-5 flex flex-col gap-2"
               >
                 <div className="flex justify-start items-center p-1 gap-3">
                   {each.commenterName.toLowerCase() !== "anonymous visitor" ? (
@@ -88,7 +88,7 @@ export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
                   )}
                   <h4 className="font-medium">{each.commenterName}</h4>
                 </div>
-                <p>{each.comment}</p>
+                <p className="p-3">{each.comment}</p>
               </li>
             ))}
       </ul>
