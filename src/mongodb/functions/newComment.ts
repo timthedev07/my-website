@@ -11,12 +11,15 @@ export const newComment = async (commentData: BlogFormData) => {
     throw 503;
   }
 
+  const isAnonymous =
+    commentData.commenterName === "" ||
+    hasNoAlphanumeric(commentData.commenterName);
+
   await commentsCollection.insertOne({
     ...commentData,
-    commenterName:
-      commentData.commenterName === "" ||
-      hasNoAlphanumeric(commentData.commenterName)
-        ? "Anonymous Visitor"
-        : commentData.commenterName,
+    isAnonymous,
+    commenterName: isAnonymous
+      ? "Anonymous Visitor"
+      : commentData.commenterName,
   });
 };
