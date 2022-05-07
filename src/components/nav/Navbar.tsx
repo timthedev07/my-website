@@ -14,7 +14,7 @@ import { BottomNav } from "./BottomNav";
 
 interface NavContextType {
   navTransparent: boolean;
-  setNavTransparent?: Dispatch<SetStateAction<boolean>>;
+  setNavTransparent: Dispatch<SetStateAction<boolean>>;
 }
 
 const BREAK_POINT = 600;
@@ -31,7 +31,7 @@ export const useNavContext = () => {
 export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [scrollY, setScrollY] = useState<number>(0);
   const [windowSize, setWindowSize] = useState<number>(0);
-  const [navTransparent, setNavTransparent] = useState<boolean>(false);
+  const [navTransparent, setNavTransparent] = useState<boolean>(true);
 
   useEffect(() => {
     setWindowSize(window.innerWidth);
@@ -65,8 +65,10 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
     <NavContext.Provider value={value}>
       {windowSize > BREAK_POINT ? (
         <div
-          className={`sticky top-0 w-full ${
-            scrollY > 100 ? "bg-gray-900" : "bg-transparent"
+          className={`top-0 w-full ${
+            !navTransparent
+              ? (scrollY > 100 ? "bg-transparent" : "bg-gray-900") + " sticky"
+              : (scrollY > 100 ? "bg-gray-900" : "bg-transparent") + " fixed"
           } z-50 h-14 flex justify-between items-center gap-5 px-8`}
         >
           <div className="flex justify-start items-center w-[40%] gap-5">

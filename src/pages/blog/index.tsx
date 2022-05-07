@@ -3,12 +3,20 @@ import { readdirSync } from "fs";
 import Link from "next/link";
 import { getPostMetadata } from "../../utils/post";
 import { MarkdownMetadata } from "../../types/posts";
+import { useNavContext } from "../../components/nav/Navbar";
+import { useEffect } from "react";
 
 interface Props {
   filenamesWithMetadata: { filename: string; metadata: string }[];
 }
 
 const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
+  const { setNavTransparent } = useNavContext();
+
+  useEffect(() => {
+    setNavTransparent(true);
+  }, [setNavTransparent]);
+
   return (
     <>
       <header className="relative w-full h-72 flex justify-center items-center">
