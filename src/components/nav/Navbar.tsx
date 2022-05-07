@@ -15,7 +15,7 @@ import { BottomNav } from "./BottomNav";
 interface NavContextType {
   navTransparent: boolean;
   setNavTransparent: Dispatch<SetStateAction<boolean>>;
-  windowSize: number;
+  windowSize?: number;
 }
 
 const BREAK_POINT = 600;
@@ -23,7 +23,7 @@ const BREAK_POINT = 600;
 const NavContext = createContext<NavContextType>({
   navTransparent: false,
   setNavTransparent: () => {},
-  windowSize: typeof window !== "undefined" ? window.innerWidth : 600,
+  windowSize: typeof window !== "undefined" ? window.innerWidth : undefined,
 });
 
 export const useNavContext = () => {
