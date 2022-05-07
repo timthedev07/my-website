@@ -45,5 +45,9 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant("child-images", "& img");
+    },
+  ],
 };
