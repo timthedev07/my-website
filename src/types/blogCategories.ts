@@ -6,4 +6,4 @@ export const BLOG_CATEGORIES = [
   "books",
 ] as const;
 
-export type BlogType = typeof BLOG_CATEGORIES[number];
+export type BlogCategoryType = typeof BLOG_CATEGORIES[number];
