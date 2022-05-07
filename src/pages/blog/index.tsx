@@ -19,7 +19,7 @@ const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
         />
         <h2 className="text-center absolute font-medium uppercase">My Blog</h2>
       </header>
-      <ol className="w-full p-8">
+      <ol className="w-full flex gap-5 p-8 flex-wrap">
         {filenamesWithMetadata
           .sort(
             (a, b) =>
@@ -28,18 +28,30 @@ const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
           )
           .map(({ filename, metadata: metadataAsString }) => {
             const metadata = JSON.parse(metadataAsString) as MarkdownMetadata;
+            const datePieces = metadata.date.split("-");
             return (
               <Link passHref key={filename} href={`/blog/${filename}`}>
-                <li className="w-full h-28 p-3 cursor-pointer bg-slate-700 shadow-xl rounded-xl my-6 transition ease-out duration-200 transform hover:scale-102 hover:shadow-xl-theme-color ">
-                  <div className="text-xl">
-                    {filename
-                      .split("-")
-                      .map(
-                        (each) => each.charAt(0).toUpperCase() + each.slice(1)
-                      )
-                      .join(" ")}
+                <li className="max-w-xs w-[90%] md:w-auto h-auto cursor-pointer bg-slate-300/20 shadow-xl rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color ">
+                  <img
+                    src={`/thumbnails/${datePieces[0]}-${
+                      datePieces[1]
+                    }-${datePieces[2].slice(0, 2)}.png`}
+                    alt=""
+                    className="w-full h-auto rounded-t-md"
+                  />
+                  <div className="p-6 flex flex-col gap-2">
+                    <div className="text-xl">
+                      {filename
+                        .split("-")
+                        .map(
+                          (each) => each.charAt(0).toUpperCase() + each.slice(1)
+                        )
+                        .join(" ")}
+                    </div>
+                    <div className="text-white/60">
+                      {new Date(metadata.date).toDateString()}
+                    </div>
                   </div>
-                  <div>{new Date(metadata.date).toDateString()}</div>
                 </li>
               </Link>
             );
