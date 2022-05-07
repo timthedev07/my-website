@@ -46,10 +46,10 @@ export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
           : apiResponse.map((each, ind) => (
               <li
                 key={JSON.stringify(each.id) || ind}
-                className="rounded-md border border-neutral-400/70 w-full p-5 flex flex-col gap-2"
+                className="shadow-xl rounded-md border bg-gray-600/20 border-neutral-400/30 w-full p-5 flex flex-col gap-2"
               >
                 <div className="flex justify-start items-center p-1 gap-3">
-                  {each.commenterName.toLowerCase() !== "anonymous visitor" ? (
+                  {!each.isAnonymous ? (
                     <svg
                       fill="none"
                       height="24"
