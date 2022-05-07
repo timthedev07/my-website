@@ -32,7 +32,7 @@ export const CommentForm: FC<CommentFormProps> = ({
 }) => {
   const [showWholeForm, setShowWholeForm] = useState<boolean>(false);
   const textareaRef = useRef<HTMLFormElement | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [formData, setFormData] = useState<BlogFormData>({
     blogId,
@@ -83,6 +83,11 @@ export const CommentForm: FC<CommentFormProps> = ({
     if (response.ok) {
       onSuccess();
       setShowWholeForm(false);
+      setFormData({
+        blogId,
+        comment: "",
+        commenterName: "",
+      });
     }
 
     setLoading(false);
