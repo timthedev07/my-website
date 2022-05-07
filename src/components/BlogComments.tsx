@@ -49,7 +49,7 @@ export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
       <ul className="text-left flex flex-col justify-center gap-4 w-full mt-4 relative h-fit">
         {loading ? (
           <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full bg-neutral-800/50 z-40 flex justify-center items-center">
-            <Spinner className="animate-spin-slow w-24 h-24" />
+            <Spinner className="animate-spin-slow w-16 h-16" />
           </div>
         ) : isError ? (
           "error"
