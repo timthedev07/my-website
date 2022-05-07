@@ -5,10 +5,10 @@ import { readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import { MarkdownMetadata } from "../../types/posts";
-import { marked } from "marked";
 import { useRef } from "react";
 import { useOnScreen } from "../../utils/hooks";
 import { BlogComments } from "../../components/BlogComments";
+import markdownToHtml from "../../utils/markdown";
 
 interface Props {
   content: string;
@@ -76,7 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       slug,
-      content: marked(withMetadata.content),
+      content: await markdownToHtml(withMetadata.content),
       metadataAsString: JSON.stringify(withMetadata.data),
     } as Props,
   };
