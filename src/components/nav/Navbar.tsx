@@ -74,7 +74,11 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
           <div className="flex justify-start items-center w-[40%] gap-5">
             {NAV_LINKS.slice(0, -1).map((navLink) => {
               return (
-                <NavbarItem key={navLink.name} {...navLink} className="" />
+                <NavbarItem
+                  key={navLink.name}
+                  {...navLink}
+                  className="select-none"
+                />
               );
             })}
           </div>
