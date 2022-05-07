@@ -15,6 +15,7 @@ import { BottomNav } from "./BottomNav";
 interface NavContextType {
   navTransparent: boolean;
   setNavTransparent: Dispatch<SetStateAction<boolean>>;
+  windowSize: number;
 }
 
 const BREAK_POINT = 600;
@@ -22,6 +23,7 @@ const BREAK_POINT = 600;
 const NavContext = createContext<NavContextType>({
   navTransparent: false,
   setNavTransparent: () => {},
+  windowSize: typeof window !== "undefined" ? window.innerWidth : 600,
 });
 
 export const useNavContext = () => {
@@ -59,6 +61,7 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const value: NavContextType = {
     navTransparent,
     setNavTransparent,
+    windowSize,
   };
 
   return (
