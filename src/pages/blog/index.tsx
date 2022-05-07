@@ -11,7 +11,14 @@ interface Props {
 const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
   return (
     <>
-      <h3 className="text-4xl mx-8">Posts:</h3>
+      <header className="relative w-full h-72 flex justify-center items-center">
+        <img
+          src="/images/blog-heading.jpg"
+          className="absolute w-full h-full object-cover brightness-[0.6]"
+          alt=""
+        />
+        <h2 className="text-center absolute font-medium uppercase">My Blog</h2>
+      </header>
       <ol className="w-full p-8">
         {filenamesWithMetadata
           .sort(
@@ -22,7 +29,7 @@ const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
           .map(({ filename, metadata: metadataAsString }) => {
             const metadata = JSON.parse(metadataAsString) as MarkdownMetadata;
             return (
-              <Link key={filename} href={`blog/${filename}`}>
+              <Link passHref key={filename} href={`/blog/${filename}`}>
                 <li className="w-full h-28 p-3 cursor-pointer bg-slate-700 shadow-xl rounded-xl my-6 transition ease-out duration-200 transform hover:scale-102 hover:shadow-xl-theme-color ">
                   <div className="text-xl">
                     {filename
