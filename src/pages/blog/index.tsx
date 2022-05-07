@@ -11,6 +11,8 @@ import {
 } from "../../types/blogCategories";
 import { BlogGroups, groupBlogs } from "../../utils/groupBlogs";
 import { useRouter } from "next/router";
+import { BlogTabs } from "../../components/BlogTabs";
+import { Menu, MenuButton, MenuItem, MenuList } from "dragontail-experimental";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -18,8 +20,8 @@ interface Props {
 
 const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
   const router = useRouter();
-  const { query, isReady, push } = router;
-  const { setNavTransparent } = useNavContext();
+  const { query, isReady } = router;
+  const { setNavTransparent, windowSize } = useNavContext();
   const [currTab, setCurrTab] = useState<BlogCategoryTabType>(() => "recent");
 
   useEffect(() => {
@@ -49,25 +51,36 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
           My Blog
         </h2>
       </header>
-      <ul className="w-full flex h-11">
-        {["recent", ...BLOG_CATEGORIES].map((each) => (
-          <li
-            onClick={() => {
-              router.query.category = each;
-              push(router);
-            }}
-            className={`flex-1 select-none flex-grow text-center uppercase flex justify-center items-center ${
-              each === currTab
-                ? "border-b-2 border-b-neutral-200 bg-slate-600/20"
-                : ""
-            } transition duration-200 hover:bg-slate-400/20 cursor-pointer`}
-            key={each}
-          >
-            {each}
-          </li>
-        ))}
-      </ul>
-      <ol className="w-full flex gap-5 p-8 flex-wrap">
+
+      {windowSize ? (
+        windowSize > 800 ? (
+          <BlogTabs currTab={currTab} />
+        ) : (
+          <Menu className="m-6">
+            <MenuButton className="capitalize">{currTab || ""}</MenuButton>
+            <MenuList>
+              {["recent", ...BLOG_CATEGORIES]
+                .filter((val) => val !== currTab)
+                .map((each) => (
+                  <MenuItem
+                    onClick={() => {
+                      router.query.category = each;
+                      router.push(router);
+                    }}
+                    className="capitalize"
+                    key={each}
+                  >
+                    {each}
+                  </MenuItem>
+                ))}
+            </MenuList>
+          </Menu>
+        )
+      ) : (
+        ""
+      )}
+
+      <ol className="w-full flex gap-5 p-8 flex-wrap justify-center md:justify-start">
         {filenamesWithMetadata[currTab]
           .sort(
             (a, b) =>
