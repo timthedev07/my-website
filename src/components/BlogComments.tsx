@@ -88,6 +88,7 @@ export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
                   )}
                   <h4 className="font-medium">{each.commenterName}</h4>
                 </div>
+                <h5>{JSON.stringify(each.timestamp)}</h5>
                 <p className="p-3">{each.comment}</p>
               </li>
             ))}

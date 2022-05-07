@@ -6,7 +6,7 @@ export class BlogComment {
     public comment: string,
     public blogId: string,
     public isAnonymous: boolean,
-    public timestamp: Date,
+    public timestamp: string,
     public id?: ObjectId
   ) {}
 }
