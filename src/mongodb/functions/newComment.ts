@@ -16,6 +16,7 @@ export const newComment = async (commentData: BlogFormData) => {
     hasNoAlphanumeric(commentData.commenterName);
 
   await commentsCollection.insertOne({
+    timestamp: new Date(),
     ...commentData,
     isAnonymous,
     commenterName: isAnonymous
