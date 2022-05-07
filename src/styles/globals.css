@@ -3,6 +3,7 @@
 @tailwind utilities;
 @import url(./nav-item.module.css);
 @import url(./fonts.css);
+@import url(./prism-tomorrow.css);
 
 :root {
   font-size: 14px;
@@ -38,7 +39,7 @@ body {
   background-color: var(--scroll-bar-bg);
 }
 
-* {
+*:not(.token) {
   font-family: "Glory", sans-serif;
 }
 
