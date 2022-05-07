@@ -48,7 +48,7 @@ export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
                 key={JSON.stringify(each.id) || ind}
                 className="shadow-xl rounded-md border bg-gray-600/20 border-neutral-400/30 w-full p-5 flex flex-col gap-2"
               >
-                <div className="flex justify-start items-center p-1 gap-3">
+                <div className="flex justify-start items-center px-1 gap-3">
                   {!each.isAnonymous ? (
                     <svg
                       fill="none"
@@ -88,8 +88,10 @@ export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
                   )}
                   <h4 className="font-medium">{each.commenterName}</h4>
                 </div>
-                <h5>{JSON.stringify(each.timestamp)}</h5>
-                <p className="p-3">{each.comment}</p>
+                <h5 className="px-2">
+                  {new Date(each.timestamp).toDateString()}
+                </h5>
+                <p className="p-4">{each.comment}</p>
               </li>
             ))}
       </ul>
