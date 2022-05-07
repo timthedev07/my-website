@@ -48,6 +48,7 @@ module.exports = {
   plugins: [
     function ({ addVariant }) {
       addVariant("child-images", "& img");
+      addVariant("child-code", "& pre");
     },
   ],
 };
