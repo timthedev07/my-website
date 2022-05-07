@@ -37,7 +37,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
           className={`w-[95%] md:w-[90%] md:max-w-4xl lg:max-w-5xl md:bg-slate-900 rounded-xl m-6`}
         >
           <article
-            className={`flex flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings}`}
+            className={`flex flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-images:rounded-xl child-images:shadow-xl`}
             dangerouslySetInnerHTML={{ __html: content }}
           ></article>
 
