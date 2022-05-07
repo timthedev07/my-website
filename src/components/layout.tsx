@@ -1,9 +1,6 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Head from "next/head";
-import { Navbar } from "./nav/Navbar";
-import { BottomNav } from "./nav/BottomNav";
-
-const BREAK_POINT = 600;
+import { NavProvider } from "./nav/Navbar";
 
 export const metadata = {
   title: "Tim's Website",
@@ -15,20 +12,6 @@ export const metadata = {
 };
 
 export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [windowSize, setWindowSize] = useState<number>(0);
-
-  useEffect(() => {
-    setWindowSize(window.innerWidth);
-    const resizeHandler = () => {
-      setWindowSize(window.innerWidth);
-    };
-    window.addEventListener("resize", resizeHandler);
-
-    return () => {
-      window.removeEventListener("resize", resizeHandler);
-    };
-  }, []);
-
   return (
     <>
       <Head>
@@ -61,16 +44,9 @@ export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
       </Head>
 
       <div id="App" className={`bg-slate-900 min-w-350 min-h-screen`}>
-        {windowSize > BREAK_POINT ? <Navbar /> : null}
-        <main className={`w-full min-h-screen text-white`}>
-          {children}
-          <div
-            className={`${
-              windowSize <= BREAK_POINT ? "block" : "hidden"
-            } bg-transparent h-5`}
-          ></div>
-        </main>
-        {windowSize <= BREAK_POINT ? <BottomNav /> : null}
+        <NavProvider>
+          <main className={`w-full min-h-screen text-white`}>{children}</main>
+        </NavProvider>
       </div>
     </>
   );
