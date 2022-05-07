@@ -7,5 +7,8 @@ export const getComments = async (blogId: string) => {
     throw 503;
   }
 
-  return await collections.blogComments.find({ blogId }).toArray();
+  return await collections.blogComments
+    .find({ blogId })
+    .sort("timestamp", "descending")
+    .toArray();
 };
