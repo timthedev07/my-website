@@ -23,7 +23,10 @@ interface CommentFormProps {
   onSuccess?: Function;
 }
 
-export type BlogFormData = Omit<Omit<BlogComment, "isAnonymous">, "id">;
+export type BlogFormData = Omit<
+  Omit<Omit<BlogComment, "isAnonymous">, "id">,
+  "timestamp"
+>;
 
 export const CommentForm: FC<CommentFormProps> = ({
   className = "",
