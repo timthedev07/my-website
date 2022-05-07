@@ -50,15 +50,11 @@ export const CommentForm: FC<CommentFormProps> = ({
 
   useEffect(() => {
     if (showWholeForm && textareaRef.current) {
-      const scrollTop =
-        window.pageYOffset !== undefined
-          ? window.pageYOffset
-          : (
-              document.documentElement ||
-              document.body.parentNode ||
-              document.body
-            ).scrollTop;
-      window.scrollTo(0, scrollTop + 400);
+      textareaRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
     }
   }, [showWholeForm]);
 
