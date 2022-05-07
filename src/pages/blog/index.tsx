@@ -4,14 +4,34 @@ import Link from "next/link";
 import { getPostMetadata } from "../../utils/post";
 import { MarkdownMetadata } from "../../types/posts";
 import { useNavContext } from "../../components/nav/Navbar";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import {
+  BlogCategoryTabType,
+  BLOG_CATEGORIES,
+} from "../../types/blogCategories";
+import { BlogGroups, groupBlogs } from "../../utils/groupBlogs";
+import { useRouter } from "next/router";
 
 interface Props {
-  filenamesWithMetadata: { filename: string; metadata: string }[];
+  groupedBlogs: BlogGroups;
 }
 
-const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
+const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
+  const router = useRouter();
+  const { query, isReady, push } = router;
   const { setNavTransparent } = useNavContext();
+  const [currTab, setCurrTab] = useState<BlogCategoryTabType>(() => "recent");
+
+  useEffect(() => {
+    if (!query.category) return;
+    if (
+      ["recent", ...BLOG_CATEGORIES].findIndex(
+        (val) => val === query.category
+      ) < 0
+    )
+      return;
+    setCurrTab(query.category as any);
+  }, [isReady, query]);
 
   useEffect(() => {
     setNavTransparent(true);
@@ -22,13 +42,33 @@ const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
       <header className="relative w-full h-72 flex justify-center items-center">
         <img
           src="/images/blog-heading.jpg"
-          className="absolute w-full h-full object-cover brightness-[0.6]"
+          className="absolute w-full h-full object-cover brightness-[0.6] pointer-events-none"
           alt=""
         />
-        <h2 className="text-center absolute font-medium uppercase">My Blog</h2>
+        <h2 className="text-center absolute font-medium uppercase select-none">
+          My Blog
+        </h2>
       </header>
+      <ul className="w-full flex h-11">
+        {["recent", ...BLOG_CATEGORIES].map((each) => (
+          <li
+            onClick={() => {
+              router.query.category = each;
+              push(router);
+            }}
+            className={`flex-1 select-none flex-grow text-center uppercase flex justify-center items-center ${
+              each === currTab
+                ? "border-b-2 border-b-neutral-200 bg-slate-600/20"
+                : ""
+            } transition duration-200 hover:bg-slate-400/20 cursor-pointer`}
+            key={each}
+          >
+            {each}
+          </li>
+        ))}
+      </ul>
       <ol className="w-full flex gap-5 p-8 flex-wrap">
-        {filenamesWithMetadata
+        {filenamesWithMetadata[currTab]
           .sort(
             (a, b) =>
               new Date(JSON.parse(b.metadata).date).valueOf() -
@@ -72,14 +112,16 @@ const Blogs: NextPage<Props> = ({ filenamesWithMetadata }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const fileNames = readdirSync("posts");
 
-  const fileNamesWithMetadata = fileNames.map((fileName) => ({
-    filename: fileName.replace(".md", ""),
-    metadata: JSON.stringify(getPostMetadata(fileName)),
-  }));
+  const fileNamesWithMetadata = groupBlogs(
+    fileNames.map((fileName) => ({
+      filename: fileName.replace(".md", ""),
+      metadata: JSON.stringify(getPostMetadata(fileName)),
+    }))
+  );
 
   return {
     props: {
-      filenamesWithMetadata: fileNamesWithMetadata,
+      groupedBlogs: fileNamesWithMetadata,
     } as Props,
   };
 };
