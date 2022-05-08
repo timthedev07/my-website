@@ -64,15 +64,8 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
                 .map((each) => (
                   <MenuItem
                     onClick={() => {
-                      router.push(
-                        router,
-                        {
-                          query: {
-                            category: each,
-                          },
-                        },
-                        { shallow: true }
-                      );
+                      router.query.category = each;
+                      router.push(router);
                     }}
                     className="capitalize"
                     key={each}

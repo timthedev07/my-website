@@ -14,15 +14,8 @@ export const BlogTabs: FC<BlogTabsProps> = ({ currTab }) => {
       {["recent", ...BLOG_CATEGORIES].map((each) => (
         <li
           onClick={() => {
-            router.push(
-              router,
-              {
-                query: {
-                  category: each,
-                },
-              },
-              { shallow: true }
-            );
+            router.query.category = each;
+            router.push(router);
           }}
           className={`flex-1 select-none flex-grow text-center uppercase flex justify-center items-center ${
             each === currTab
