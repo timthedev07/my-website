@@ -120,13 +120,24 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const fileNames = readdirSync("posts");
+  const categories = readdirSync("posts");
+  let fileNames: string[] = [];
+
+  for (const category of categories) {
+    fileNames = fileNames.concat(
+      readdirSync(`posts/${category}`).map((each) => `${category}/${each}`)
+    );
+  }
 
   const fileNamesWithMetadata = groupBlogs(
-    fileNames.map((fileName) => ({
-      filename: fileName.replace(".md", ""),
-      metadata: JSON.stringify(getPostMetadata(fileName)),
-    }))
+    fileNames.map((fileName) => {
+      const mdFileNameArr = fileName.replace(".md", "").split("/");
+
+      return {
+        filename: mdFileNameArr[mdFileNameArr.length - 1],
+        metadata: JSON.stringify(getPostMetadata(fileName)),
+      };
+    })
   );
 
   return {
