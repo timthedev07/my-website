@@ -48,6 +48,9 @@ module.exports = {
   plugins: [
     function ({ addVariant }) {
       addVariant("child-images", "& img");
+      addVariant("child-headings", "& h1, h2, h3, h4, h5, h6");
+      addVariant("child-paragraphs", "& p");
+      addVariant("child-list", "& ol, ul");
       addVariant("child-code", "& pre");
     },
   ],
