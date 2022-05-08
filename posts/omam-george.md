@@ -1,7 +1,7 @@
 ---
 title: "Character Analysis: Of Mice and Men - George"
 description: Analysis of character "George Milton" from "Of Mice and Men"
-date: 2022-05-09
+date: 2022-05-08
 category: books
 ---
 
