@@ -48,9 +48,12 @@ module.exports = {
   plugins: [
     function ({ addVariant }) {
       addVariant("child-images", "& img");
-      addVariant("child-headings", "& h1, h2, h3, h4, h5, h6");
+      addVariant(
+        "child-headings",
+        [1, 2, 3, 4, 5, 6].map((each) => `& h${each}`)
+      );
       addVariant("child-paragraphs", "& p");
-      addVariant("child-list", "& ol, ul");
+      addVariant("child-list", "& ol", "& ul");
       addVariant("child-code", "& pre");
     },
   ],
