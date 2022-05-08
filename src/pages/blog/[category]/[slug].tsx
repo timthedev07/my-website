@@ -2,13 +2,13 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { readdirSync, readFileSync } from "fs";
-import { join } from "path";
+import path, { join } from "path";
 import matter from "gray-matter";
-import { MarkdownMetadata } from "../../types/posts";
+import { MarkdownMetadata } from "../../../types/posts";
 import { useRef } from "react";
-import { useOnScreen } from "../../utils/hooks";
-import { BlogComments } from "../../components/BlogComments";
-import markdownToHtml from "../../utils/markdown";
+import { useOnScreen } from "../../../utils/hooks";
+import { BlogComments } from "../../../components/BlogComments";
+import markdownToHtml from "../../../utils/markdown";
 
 interface Props {
   content: string;
@@ -53,13 +53,28 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const fileNames = readdirSync("posts");
+  const categories = readdirSync("posts");
 
-  const paths = fileNames.map((fileName) => ({
-    params: {
-      slug: fileName.replace(".md", ""),
-    },
-  }));
+  // const fileNames
+  let fileNames: string[] = [];
+  for (const category of categories) {
+    fileNames = fileNames.concat(
+      readdirSync(`posts/${category}`).map((each) => `${category}/${each}`)
+    );
+  }
+
+  const paths = fileNames.map((fileName) => {
+    const pieces = fileName.split(path.sep);
+
+    return {
+      params: {
+        slug: pieces[pieces.length - 1].replace(".md", ""),
+        category: pieces[0],
+      },
+    };
+  });
+
+  console.log(paths);
 
   return {
     paths,
@@ -69,7 +84,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params!.slug;
-  const fileContent = readFileSync(join("posts", slug + ".md")).toString();
+  const category = params!.category;
+
+  const fileContent = readFileSync(
+    join("posts", category as string, slug + ".md")
+  ).toString();
 
   const withMetadata = matter(fileContent);
 

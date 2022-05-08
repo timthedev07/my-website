@@ -1,9 +1,14 @@
-import { BlogCategoryTabType, BLOG_CATEGORIES } from "../types/blogCategories";
+import {
+  BlogCategoryTabType,
+  BlogCategoryType,
+  BLOG_CATEGORIES,
+} from "../types/blogCategories";
 import { MarkdownMetadata } from "../types/posts";
 
 export type BlogFileInfo = {
   metadata: string;
   filename: string;
+  category: BlogCategoryType;
 };
 
 export type BlogGroups = Record<BlogCategoryTabType, BlogFileInfo[]>;
@@ -28,7 +33,11 @@ export const groupBlogs = (blogs: BlogFileInfo[]): BlogGroups => {
 
   for (const blog of sortedBlogs) {
     const blogMetadata = JSON.parse(blog.metadata) as MarkdownMetadata;
-    grouped[blogMetadata.category].push(blog);
+    blogMetadata.category = blog.category;
+    grouped[blog.category as BlogCategoryTabType].push({
+      ...blog,
+      metadata: JSON.stringify(blogMetadata),
+    });
   }
 
   return grouped;

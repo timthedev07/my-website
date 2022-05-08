@@ -13,6 +13,7 @@ import { BlogGroups, groupBlogs } from "../../utils/groupBlogs";
 import { useRouter } from "next/router";
 import { BlogTabs } from "../../components/BlogTabs";
 import { Menu, MenuButton, MenuItem, MenuList } from "dragontail-experimental";
+import path from "path";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -87,10 +88,14 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
               new Date(JSON.parse(b.metadata).date).valueOf() -
               new Date(JSON.parse(a.metadata).date).valueOf()
           )
-          .map(({ filename, metadata: metadataAsString }) => {
+          .map(({ filename, metadata: metadataAsString, category }) => {
             const metadata = JSON.parse(metadataAsString) as MarkdownMetadata;
             return (
-              <Link passHref key={filename} href={`/blog/${filename}`}>
+              <Link
+                passHref
+                key={filename}
+                href={`/blog/${category}/${filename}`}
+              >
                 <li className="max-w-xs w-[90%] md:w-auto h-auto cursor-pointer bg-slate-300/20 shadow-xl rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color ">
                   <img
                     src={`/thumbnails/${filename}.png`}
@@ -131,11 +136,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const fileNamesWithMetadata = groupBlogs(
     fileNames.map((fileName) => {
-      const mdFileNameArr = fileName.replace(".md", "").split("/");
+      const mdFileNameArr = fileName.replace(".md", "").split(path.sep);
 
       return {
         filename: mdFileNameArr[mdFileNameArr.length - 1],
         metadata: JSON.stringify(getPostMetadata(fileName)),
+        category: mdFileNameArr[0] as any,
       };
     })
   );
