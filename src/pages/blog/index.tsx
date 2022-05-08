@@ -89,14 +89,11 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
           )
           .map(({ filename, metadata: metadataAsString }) => {
             const metadata = JSON.parse(metadataAsString) as MarkdownMetadata;
-            const datePieces = metadata.date.split("-");
             return (
               <Link passHref key={filename} href={`/blog/${filename}`}>
                 <li className="max-w-xs w-[90%] md:w-auto h-auto cursor-pointer bg-slate-300/20 shadow-xl rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color ">
                   <img
-                    src={`/thumbnails/${datePieces[0]}-${
-                      datePieces[1]
-                    }-${datePieces[2].slice(0, 2)}.png`}
+                    src={`/thumbnails/${filename}.png`}
                     alt=""
                     className="w-full h-auto rounded-t-md"
                   />
