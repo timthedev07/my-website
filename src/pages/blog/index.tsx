@@ -14,7 +14,6 @@ import { useRouter } from "next/router";
 import { BlogTabs } from "../../components/BlogTabs";
 import { Menu, MenuButton, MenuItem, MenuList } from "dragontail-experimental";
 import path from "path";
-import Head from "next/head";
 import { getHeadForPage } from "../../utils/getHead";
 
 interface Props {
