@@ -14,6 +14,8 @@ import { useRouter } from "next/router";
 import { BlogTabs } from "../../components/BlogTabs";
 import { Menu, MenuButton, MenuItem, MenuList } from "dragontail-experimental";
 import path from "path";
+import Head from "next/head";
+import { getHeadForPage } from "../../utils/getHead";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -42,6 +44,11 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
 
   return (
     <>
+    {getHeadForPage({
+      description: "All My Blogs",
+      path: "/blog",
+      title: "Blogs",
+    })}
       <header className="relative w-full h-72 flex justify-center items-center">
         <img
           src="/images/blog-heading.jpg"
