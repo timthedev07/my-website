@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { useOnScreen } from "../../../utils/hooks";
 import { BlogComments } from "../../../components/BlogComments";
 import markdownToHtml from "../../../utils/markdown";
+import { getHeadForPage } from "../../../utils/getHead";
 
 interface Props {
   content: string;
@@ -32,6 +33,11 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
         <meta property="og:description" content={metadata.description} />
         <meta property="og:title" content={metadata.title} />
       </Head>
+      {getHeadForPage({
+        title: metadata.title,
+        description: metadata.description,
+        path: `/blog/${metadata.category}/${slug}`
+      })}
       <div className="flex flex-col justify-center items-center">
         <section
           className={`w-[95%] md:w-[90%] md:max-w-4xl lg:max-w-5xl md:bg-slate-900 rounded-lg m-6`}
