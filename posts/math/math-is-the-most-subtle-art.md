@@ -33,3 +33,7 @@ Its magic applies everywhere in our life, but realistically, here some jobs wher
 - Financial Analyst
 - Economist
 - Engineer
+
+### Conclusion
+
+Math is unquestionably my favorite art, it expresses its spirits in a way no other forms of art can, and the moment you blow off the dust on it and the treasure chest comes into sight is simply mindblowing; aside from the satisfaction it gives me, the thought process and how I approach a problem is really the most fascinating part. 
