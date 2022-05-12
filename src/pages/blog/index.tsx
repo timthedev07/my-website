@@ -102,7 +102,7 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
                 key={filename}
                 href={`/blog/${category}/${filename}`}
               >
-                <li className="max-w-xs w-[90%] md:w-auto h-auto cursor-pointer bg-slate-300/20 shadow-xl rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color ">
+                <li className="max-w-xs w-[90%] md:w-auto h-auto cursor-pointer bg-slate-300/20 rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color">
                   <img
                     src={`/thumbnails/${filename}.png`}
                     alt=""
