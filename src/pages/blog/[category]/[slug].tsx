@@ -36,7 +36,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
       {getHeadForPage({
         title: metadata.title,
         description: metadata.description,
-        path: `/blog/${metadata.category}/${slug}`
+        path: `/blog/${metadata.category}/${slug}`,
       })}
       <div className="flex flex-col justify-center items-center">
         <section
@@ -79,8 +79,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
       },
     };
   });
-
-  console.log(paths);
 
   return {
     paths,
