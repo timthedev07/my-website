@@ -10,6 +10,7 @@ declare global {
       GOOGLE_CLIENT_SECRET: string;
       SPOTIFY_CLIENT_ID: string;
       SPOTIFY_CLIENT_SECRET: string;
+      NEXT_AUTH_SECRET: string;
     }
   }
 }
