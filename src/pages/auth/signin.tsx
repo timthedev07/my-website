@@ -18,7 +18,7 @@ interface Props {
 
 const SignIn: NextPage<Props> = ({ providers }) => {
   return (
-    <div className="w-screen h-[456px] flex flex-col justify-start items-center pt-36 gap-8">
+    <div className="m-auto w-[90%] h-[456px] flex flex-col justify-start items-center pt-36 gap-8">
       <h2>Sign In</h2>
       <div className="flex flex-col justify-center items-center min-w-[350px]">
         {providers &&
@@ -40,7 +40,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
   const session = await getSession(ctx);
   const params = ctx.query;
 
-  const callbackUrl = params?.callbackUrl || "/me";
+  const callbackUrl = params?.callbackUrl || "/blog";
 
   return {
     props: {
