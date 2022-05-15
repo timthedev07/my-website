@@ -4,7 +4,7 @@ import { ContactIcon } from "./contact";
 import { HomeIcon } from "./home";
 import { ProjectsIcon } from "./projects";
 
-export const BOTTOM_NAV_ICON_MAP = {
+export const BOTTOM_NAV_ICON_MAP: Record<string, any> = {
   home: HomeIcon,
   contact: ContactIcon,
   about: AboutIcon,
