@@ -979,10 +979,10 @@ domexception@^2.0.1:
   dependencies:
     webidl-conversions "^5.0.0"
 
-dragontail-experimental@^0.0.23:
-  version "0.0.23"
-  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.23.tgz#861c1feea7ccc664cb42c1e00ca67cca9b6250ba"
-  integrity sha512-LcRusEohXHeeWk5N+8jhpxuiLoF+YeyZlnG7cKisUpq2O4xgBmYPffxF8bYR9rrviZYW0PzcKaVwElNo19V4RQ==
+dragontail-experimental@^0.0.27:
+  version "0.0.27"
+  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.27.tgz#04328b5d65898729baf509e3341ec7ae016cd1d3"
+  integrity sha512-gTTC+uf2Y/OeLOuCisiTM7DzLXwCTvcAOZ9A+ZQUnWLc5pbhP4AT2wlQ+9dKetRryurM0UNkhNFqj4io3InKLw==
 
 electron-to-chromium@^1.4.118:
   version "1.4.124"
