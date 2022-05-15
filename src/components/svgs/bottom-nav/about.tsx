@@ -3,14 +3,16 @@ import { forwardRef, SVGProps } from "react";
 export const AboutIcon = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>(
   (props, ref) => (
     <svg
-      width={48}
-      height={1}
-      xmlns="http://www.w3.org/2000/svg"
       {...props}
       ref={ref}
+      xmlns="http://www.w3.org/2000/svg"
+      height="48px"
+      viewBox="0 0 24 24"
+      width="48px"
+      fill="#FFFFFF"
     >
-      <title>{"Rectangle 5"}</title>
-      <path d="M0 0h48v1H0z" fill="#063855" fillRule="evenodd" />
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
     </svg>
   )
 );
