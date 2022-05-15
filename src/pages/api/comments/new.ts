@@ -4,7 +4,7 @@ import { BlogFormData } from "../../../components/CommentForm";
 import { newComment } from "../../../mongodb/functions/newComment";
 
 const handler: NextApiHandler = async (req, res) => {
-  const session = await getSession();
+  const session = await getSession({ req });
 
   if (req.method?.toUpperCase() !== "POST") {
     res.status(405).end();
