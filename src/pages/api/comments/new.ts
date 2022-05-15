@@ -7,6 +7,8 @@ import { newComment } from "../../../mongodb/functions/newComment";
 const handler: NextApiHandler = async (req, res) => {
   const formData: BlogFormData = JSON.parse(req.body);
 
+  formData.commenterName = formData.commenterName.split(" ")[0];
+
   try {
     await newComment(formData);
     res.status(201).end();
