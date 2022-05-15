@@ -1,4 +1,5 @@
 import { NextApiHandler } from "next";
+import { withMethodGuard } from "../../../lib/middlewares/methodGuard";
 import { getComments } from "../../../mongodb/functions/getComments";
 
 const handler: NextApiHandler = async (req, res) => {
@@ -10,4 +11,4 @@ const handler: NextApiHandler = async (req, res) => {
   }
 };
 
-export default handler;
+export default withMethodGuard(handler, "GET");
