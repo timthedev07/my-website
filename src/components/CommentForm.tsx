@@ -1,7 +1,9 @@
 import {
   Button,
   FormControl,
+  FormErrorMessage,
   FormLabel,
+  Input,
   Textarea,
 } from "dragontail-experimental";
 import { signIn, signOut, useSession } from "next-auth/react";
@@ -38,12 +40,14 @@ export const CommentForm: FC<CommentFormProps> = ({
   const loggedIn = !!session?.user;
   const textareaRef = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const userName = session?.user?.name || "";
+  const userEmail = session?.user?.email || "";
 
   const [formData, setFormData] = useState<BlogFormData>({
     blogId,
     comment: "",
-    commenterName: session?.user?.name || "",
-    commenterEmail: session?.user?.email || "",
+    commenterName: "",
+    commenterEmail: "",
   });
 
   const [formError, setFormError] = useState<
@@ -69,17 +73,33 @@ export const CommentForm: FC<CommentFormProps> = ({
     e.preventDefault();
     setLoading(true);
 
+    let isAlias = false;
+
+    const updatedFormData = {
+      ...formData,
+      commenterEmail: userEmail,
+    };
+    if (updatedFormData.commenterName === "") {
+      updatedFormData.commenterName = userName;
+      isAlias = true;
+    }
+
     const errors = {
       comment: !formData.comment || hasNoAlphanumeric(formData.comment),
     };
+    console.log(errors);
     setFormError((prev) => ({ ...prev, ...errors }));
 
     if (Object.values(errors).findIndex((val) => val === true) >= 0) {
+      setLoading(false);
       return;
     }
 
     const response = await fetch(`/api/comments/new`, {
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        ...updatedFormData,
+        isAlias,
+      }),
       method: "POST",
     });
 
@@ -136,12 +156,26 @@ export const CommentForm: FC<CommentFormProps> = ({
           onSubmit={handleSubmit}
           className={`${showWholeForm && "flex flex-col gap-5"}`}
         >
-          <FormControl isRequired isDisabled={showWholeForm && loading}>
+          {showWholeForm && (
+            <FormControl isDisabled={loading}>
+              <FormLabel>Commenter alias</FormLabel>
+              <Input
+                value={formData.commenterName}
+                onChange={handleChange}
+                name="commenterName"
+              />
+            </FormControl>
+          )}
+          <FormControl
+            isInvalid={formError.comment}
+            isRequired
+            isDisabled={showWholeForm && loading}
+            className="mb-12 gap-3"
+          >
             {showWholeForm && <FormLabel>Comment</FormLabel>}
             <Textarea
               className={`${
-                (showWholeForm ? "min-h-[120px]" : "min-h-[60px] mt-6") +
-                " mb-12"
+                showWholeForm ? "min-h-[120px]" : "min-h-[60px] mt-6"
               }`}
               onFocus={() => {
                 if (!showWholeForm) {
@@ -153,6 +187,11 @@ export const CommentForm: FC<CommentFormProps> = ({
               name="comment"
               placeholder={!showWholeForm ? "Leave a comment" : ""}
             ></Textarea>
+            {formError.comment && (
+              <FormErrorMessage>
+                Empty comments are not the most inspirational
+              </FormErrorMessage>
+            )}
           </FormControl>
           {showWholeForm && (
             <div className="flex gap-5">
