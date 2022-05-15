@@ -1,4 +1,5 @@
-const colors = require(`tailwindcss/colors`);
+const plugin = require(`tailwindcss/plugin`);
+
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   content: [
@@ -46,7 +47,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    function ({ addVariant }) {
+    plugin(({ addVariant }) => {
       addVariant("child-images", "& img");
       addVariant(
         "child-headings",
@@ -55,6 +56,6 @@ module.exports = {
       addVariant("child-paragraphs", "& p");
       addVariant("child-list", ["& ol", "& ul"]);
       addVariant("child-code", "& pre");
-    },
+    }),
   ],
 };
