@@ -157,7 +157,7 @@ export const CommentForm: FC<CommentFormProps> = ({
           className={`${showWholeForm && "flex flex-col gap-5"}`}
         >
           {showWholeForm && (
-            <FormControl isDisabled={loading}>
+            <FormControl label="alias" isDisabled={loading}>
               <FormLabel>Commenter alias</FormLabel>
               <Input
                 value={formData.commenterName}
@@ -169,6 +169,7 @@ export const CommentForm: FC<CommentFormProps> = ({
           <FormControl
             isInvalid={formError.comment}
             isRequired
+            label="comment"
             isDisabled={showWholeForm && loading}
             className="mb-12 gap-3"
           >
