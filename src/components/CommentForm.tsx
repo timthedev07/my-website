@@ -2,9 +2,9 @@ import {
   Button,
   FormControl,
   FormLabel,
-  Input,
   Textarea,
 } from "dragontail-experimental";
+import { signIn, signOut, useSession } from "next-auth/react";
 import {
   ChangeEvent,
   FC,
@@ -34,13 +34,16 @@ export const CommentForm: FC<CommentFormProps> = ({
   onSuccess = () => {},
 }) => {
   const [showWholeForm, setShowWholeForm] = useState<boolean>(false);
+  const { data: session } = useSession();
+  const loggedIn = !!session?.user;
   const textareaRef = useRef<HTMLFormElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const [formData, setFormData] = useState<BlogFormData>({
     blogId,
     comment: "",
-    commenterName: "",
+    commenterName: session?.user?.name || "",
+    commenterEmail: session?.user?.email || "",
   });
 
   const [formError, setFormError] = useState<
@@ -49,6 +52,7 @@ export const CommentForm: FC<CommentFormProps> = ({
     comment: false,
     blogId: false,
     commenterName: false,
+    commenterEmail: false,
   });
 
   useEffect(() => {
@@ -126,50 +130,65 @@ export const CommentForm: FC<CommentFormProps> = ({
           <Spinner className="animate-spin-slow w-16 h-16" />
         </div>
       )}
-      <form
-        ref={textareaRef}
-        onSubmit={handleSubmit}
-        className={`${showWholeForm && "flex flex-col gap-5"}`}
-      >
-        {showWholeForm && (
-          <FormControl isDisabled={loading}>
-            <FormLabel>Comment as</FormLabel>
-            <Input
-              placeholder="Comment anonymously"
-              value={formData.commenterName}
+      {loggedIn ? (
+        <form
+          ref={textareaRef}
+          onSubmit={handleSubmit}
+          className={`${showWholeForm && "flex flex-col gap-5"}`}
+        >
+          <FormControl isRequired isDisabled={showWholeForm && loading}>
+            {showWholeForm && <FormLabel>Comment</FormLabel>}
+            <Textarea
+              className={`${
+                (showWholeForm ? "min-h-[120px]" : "min-h-[60px] mt-6") +
+                " mb-12"
+              }`}
+              onFocus={() => {
+                if (!showWholeForm) {
+                  setShowWholeForm(true);
+                }
+              }}
+              value={formData.comment}
               onChange={handleChange}
-              name="commenterName"
-            />
+              name="comment"
+              placeholder={!showWholeForm ? "Leave a comment" : ""}
+            ></Textarea>
           </FormControl>
-        )}
-        <FormControl isRequired isDisabled={showWholeForm && loading}>
-          {showWholeForm && <FormLabel>Comment</FormLabel>}
-          <Textarea
-            className={`${
-              (showWholeForm ? "min-h-[120px]" : "min-h-[60px] mt-6") + " mb-12"
-            }`}
-            onFocus={() => {
-              if (!showWholeForm) {
-                setShowWholeForm(true);
-              }
-            }}
-            value={formData.comment}
-            onChange={handleChange}
-            name="comment"
-            placeholder={!showWholeForm ? "Leave a comment" : ""}
-          ></Textarea>
-        </FormControl>
-        {showWholeForm && (
-          <Button
-            isDisabled={loading}
-            className="max-w-[80px]"
-            color="neutral"
-            type="submit"
-          >
-            Comment
-          </Button>
-        )}
-      </form>
+          {showWholeForm && (
+            <div className="flex gap-5">
+              <Button
+                isDisabled={loading}
+                className="max-w-[80px]"
+                color="neutral"
+                type="submit"
+              >
+                Comment
+              </Button>
+              <Button
+                isDisabled={loading}
+                className="max-w-[80px]"
+                type="button"
+                color="red"
+                onClick={() => {
+                  setLoading(true);
+                  signOut();
+                }}
+              >
+                Sign out
+              </Button>
+            </div>
+          )}
+        </form>
+      ) : (
+        <Button
+          onClick={() => {
+            signIn();
+          }}
+          color="green"
+        >
+          Sign in to comment
+        </Button>
+      )}
     </div>
   );
 };
