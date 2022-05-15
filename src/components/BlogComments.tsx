@@ -57,27 +57,30 @@ export const BlogComments: FC<BlogCommentsProps> = ({ blogId }) => {
           apiResponse.map((each, ind) => (
             <li
               key={JSON.stringify(each.id) || ind}
-              className="shadow-xl rounded-md border bg-gray-600/20 border-neutral-400/30 w-full p-5 flex flex-col gap-2"
+              className="shadow-xl rounded-md border bg-gray-600/20 border-neutral-400/30 w-full flex flex-col gap-2"
             >
-              <div className="flex justify-start items-center px-1 gap-3">
-                <svg
-                  fill="none"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM17 13.5C17 12.6716 16.3284 12 15.5 12H8.5C7.67157 12 7 12.6716 7 13.5V14C7 15.9714 8.85951 18 12 18C15.1405 18 17 15.9714 17 14V13.5ZM14.75 8.25C14.75 6.73122 13.5188 5.5 12 5.5C10.4812 5.5 9.25 6.73122 9.25 8.25C9.25 9.76878 10.4812 11 12 11C13.5188 11 14.75 9.76878 14.75 8.25Z"
-                    fill="#efefef"
-                  />
-                </svg>
-                <h4 className="font-medium">{each.commenterName}</h4>
+              <div className="p-5">
+                <div className="flex justify-start items-center px-1 gap-3">
+                  <svg
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM17 13.5C17 12.6716 16.3284 12 15.5 12H8.5C7.67157 12 7 12.6716 7 13.5V14C7 15.9714 8.85951 18 12 18C15.1405 18 17 15.9714 17 14V13.5ZM14.75 8.25C14.75 6.73122 13.5188 5.5 12 5.5C10.4812 5.5 9.25 6.73122 9.25 8.25C9.25 9.76878 10.4812 11 12 11C13.5188 11 14.75 9.76878 14.75 8.25Z"
+                      fill="#efefef"
+                    />
+                  </svg>
+                  <h4 className="font-medium">{each.commenterName}</h4>
+                </div>
+                <h5 className="px-2">
+                  {new Date(each.timestamp).toDateString()}
+                </h5>
               </div>
-              <h5 className="px-2">
-                {new Date(each.timestamp).toDateString()}
-              </h5>
-              <p className="p-4">{each.comment}</p>
+              <hr className="h-[1px] border-t border-t-slate-400/50" />
+              <p className="pt-4 pb-9 px-7 opacity-60">{each.comment}</p>
             </li>
           ))
         )}
