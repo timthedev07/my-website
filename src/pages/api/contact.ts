@@ -1,6 +1,7 @@
 import { NextApiHandler } from "next";
 import { createTransport } from "nodemailer";
 import { ContactFormData } from "../../components/ContactForm";
+import { withMethodGuard } from "../../lib/middlewares/methodGuard";
 
 const transporter = createTransport({
   host: "smtp-mail.outlook.com",
@@ -53,4 +54,4 @@ ${reqData.message}
   });
 };
 
-export default handler;
+export default withMethodGuard(handler, "POST");
