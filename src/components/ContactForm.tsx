@@ -77,21 +77,21 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
   return (
     <div className={`border border-slate-500/60 rounded-md p-6 ${className}`}>
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-        <FormControl isInvalid={formError.name} isRequired>
+        <FormControl label="name" isInvalid={formError.name} isRequired>
           <FormLabel>Name</FormLabel>
           <Input name="name" value={formData.name} onChange={handleChange} />
           {formError.name && (
             <FormErrorMessage>Name must not be empty</FormErrorMessage>
           )}
         </FormControl>
-        <FormControl isInvalid={formError.email} isRequired>
+        <FormControl label="email" isInvalid={formError.email} isRequired>
           <FormLabel>Email</FormLabel>
           <Input name="email" value={formData.email} onChange={handleChange} />
           {formError.email && (
             <FormErrorMessage>Invalid Email</FormErrorMessage>
           )}
         </FormControl>
-        <FormControl isInvalid={formError.message} isRequired>
+        <FormControl label="message" isInvalid={formError.message} isRequired>
           <FormLabel>Message</FormLabel>
           <Textarea
             name="message"
