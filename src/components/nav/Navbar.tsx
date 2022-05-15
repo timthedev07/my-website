@@ -11,9 +11,6 @@ import {
 import Link from "next/link";
 import { NavbarItemProps, NAV_LINKS } from "./NavData";
 import { BottomNav } from "./BottomNav";
-import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
-import { useRouter } from "next/router";
 
 interface NavContextType {
   navTransparent: boolean;
@@ -35,8 +32,6 @@ export const useNavContext = () => {
 
 export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [scrollY, setScrollY] = useState<number>(0);
-  const { data: session } = useSession();
-  const { asPath } = useRouter();
   const [windowSize, setWindowSize] = useState<number>(0);
   const [navTransparent, setNavTransparent] = useState<boolean>(true);
 
@@ -80,7 +75,7 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
           } z-50 h-14 flex justify-between items-center gap-5 px-8`}
         >
           <div className="flex justify-start items-center w-[40%] gap-5">
-            {NAV_LINKS.map((navLink) => {
+            {NAV_LINKS.slice(0, -1).map((navLink) => {
               return (
                 <NavbarItem
                   key={navLink.name}
@@ -90,34 +85,7 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
               );
             })}
           </div>
-          {session && session.user ? (
-            session.user.image ? (
-              <Image
-                src={session.user.image}
-                alt=""
-                onClick={() => {
-                  if (confirm("Are you sure to sign out?"))
-                    signOut({ callbackUrl: asPath });
-                }}
-                width="48px"
-                height="48px"
-              />
-            ) : (
-              <>
-                <span
-                  onClick={() => {
-                    if (confirm("Are you sure to sign out?"))
-                      signOut({ callbackUrl: asPath });
-                  }}
-                  className="cursor-pointer transition duration-300 ease-in-out text-gray-300 hover:text-gray-100"
-                >
-                  {session.user.name}
-                </span>
-              </>
-            )
-          ) : (
-            <NavbarItem href="/auth/signin" name="sign in" className="" />
-          )}
+          <NavbarItem {...NAV_LINKS[NAV_LINKS.length - 1]} className="" />
         </div>
       ) : null}
       {children}
