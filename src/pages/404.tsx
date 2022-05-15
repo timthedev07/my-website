@@ -7,9 +7,9 @@ const NotFound: NextPage = () => {
 
   useEffect(() => {
     setNavTransparent(false);
-  }, [])
-  
-return <div>404</div>;
+  }, [setNavTransparent]);
+
+  return <div>404</div>;
 };
 
 export default NotFound;
