@@ -2,7 +2,7 @@ name: Build and Upload Output Files to Vercel
 on:
   push:
     branches:
-      - staging
+      - dev
 
 jobs:
   deploy:
