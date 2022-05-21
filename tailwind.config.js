@@ -20,7 +20,8 @@ module.exports = {
         "Arial",
         "sans-serif",
       ],
-      mono: ["Menlo", "Monaco", "Courier New", "monospace"],
+      serif: ["ui-serif", "Piazzolla"],
+      mono: ["ui-monospace", "Azeret\\ Mono"],
     },
     extend: {
       screens: {
