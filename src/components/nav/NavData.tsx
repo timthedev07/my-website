@@ -9,10 +9,6 @@ export const NAV_LINKS: NavbarItemProps[] = [
     name: "home",
   },
   {
-    href: "/about",
-    name: "about",
-  },
-  {
     href: "/projects",
     name: "projects",
   },
