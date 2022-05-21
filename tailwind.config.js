@@ -17,15 +17,33 @@ module.exports = {
       mono: ["ui-monospace", "Azeret\\ Mono"],
     },
     extend: {
+      keyframes: (theme) => ({
+        fadeInLeft: {
+          "0%": {
+            opacity: 0,
+            transform: "translateX(-100vw)",
+          },
+          "70%": {
+            opacity: 0.3,
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateX(0)",
+          },
+        },
+      }),
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+        "fade-in-left": "fadeInLeft 700ms cubic-bezier(0,.6,1,.41)",
+        "fade-in-left-slow": "fadeInLeft 1000ms ease-in-out",
+        "fade-in-left-chill": "fadeInLeft 1300ms ease-in-out",
+      },
       screens: {
         md2: "868px",
         xs: "428px",
       },
       minWidth: {
         350: "350px",
-      },
-      animation: {
-        "spin-slow": "spin 3s linear infinite",
       },
       scale: {
         102: "1.02",
