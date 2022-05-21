@@ -31,12 +31,26 @@ module.exports = {
             transform: "translateX(0)",
           },
         },
+        fadeInRight: {
+          "0%": {
+            opacity: 0,
+            transform: "translateX(100vw)",
+          },
+          "70%": {
+            opacity: 0.3,
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateX(0)",
+          },
+        },
       }),
       animation: {
         "spin-slow": "spin 3s linear infinite",
-        "fade-in-left": "fadeInLeft 700ms cubic-bezier(0,.6,1,.41)",
-        "fade-in-left-slow": "fadeInLeft 1000ms ease-in-out",
-        "fade-in-left-chill": "fadeInLeft 1300ms ease-in-out",
+        "fade-in-left": "fadeInLeft 1000ms ease-in-out",
+        "fade-in-left-slow": "fadeInLeft 1300ms ease-in-out",
+        "fade-in-right": "fadeInRight 1000ms ease-in-out",
+        "fade-in-right-slow": "fadeInRight 1300ms ease-in-out",
       },
       screens: {
         md2: "868px",
