@@ -70,8 +70,8 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
         <div
           className={`top-0 w-full ${
             !navTransparent
-              ? (scrollY > 100 ? "bg-transparent" : "bg-gray-900") + " sticky"
-              : (scrollY > 100 ? "bg-gray-900" : "bg-transparent") + " fixed"
+              ? (scrollY > 100 ? "bg-transparent" : "bg-black") + " sticky"
+              : (scrollY > 100 ? "bg-black" : "bg-transparent") + " fixed"
           } z-50 h-14 flex justify-between items-center gap-5 px-8`}
         >
           <div className="flex justify-start items-center w-[40%] gap-5">
