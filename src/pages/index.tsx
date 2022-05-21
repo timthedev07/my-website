@@ -1,13 +1,18 @@
 import type { NextPage } from "next";
+import Image from "next/image";
+import heroImage from "../../public/images/home-hero.jpg";
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <header className="h-96 w-[95%] flex flex-col justify-center px-12 items-start">
-        <h4>Hi there</h4>
-        <h1 className="font-bold text-8xl">I&apos;m Tim</h1>
-      </header>
-    </div>
+    <header className="h-screen w-screen flex flex-col justify-center px-12 items-start relative">
+      <Image
+        src={heroImage}
+        alt=""
+        layout="fill"
+        objectFit="cover"
+        className="object-[50%_30%] absolute"
+      />
+    </header>
   );
 };
 
