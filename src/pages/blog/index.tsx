@@ -56,6 +56,7 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
           layout="fill"
           placeholder="blur"
           src={headerImage}
+          blurDataURL={blurDataUrl}
           className="absolute w-full h-full object-cover brightness-[0.6] pointer-events-none"
           alt=""
         />
