@@ -16,6 +16,7 @@ import { Menu, MenuButton, MenuItem, MenuList } from "dragontail-experimental";
 import path from "path";
 import { getHeadForPage } from "../../utils/getHead";
 import Image from "next/image";
+import headerImage from "../../../public/images/blog-heading.jpg";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -51,10 +52,9 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
       })}
       <header className="relative w-full h-72 flex justify-center items-center">
         <Image
-          // width=""
-          // height=""
           layout="fill"
-          src="/images/blog-heading.jpg"
+          placeholder="blur"
+          src={headerImage}
           className="absolute w-full h-full object-cover brightness-[0.6] pointer-events-none"
           alt=""
         />
@@ -106,12 +106,17 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
                 key={filename}
                 href={`/blog/${category}/${filename}`}
               >
-                <li className="max-w-xs w-[90%] md:w-auto h-auto cursor-pointer bg-slate-300/20 rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color">
-                  <img
-                    src={`/thumbnails/${filename}.png`}
-                    alt=""
-                    className="w-full h-auto rounded-t-md"
-                  />
+                <li className="w-64 md:w-80 h-auto cursor-pointer bg-slate-300/20 rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color">
+                  <div className="relative w-64 md:w-80 h-64 md:h-80 rounded-t-md">
+                    <Image
+                      placeholder="blur"
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPUrAcAANcAqqSJtxIAAAAASUVORK5CYII="
+                      src={`/thumbnails/${filename}.png`}
+                      alt={filename}
+                      layout="fill"
+                      className="rounded-t-md"
+                    />
+                  </div>
                   <div className="p-6 flex flex-col gap-2">
                     <div className="text-xl">
                       {metadata.title
