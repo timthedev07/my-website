@@ -1,5 +1,7 @@
 const plugin = require(`tailwindcss/plugin`);
 
+const openSans = '"Open Sans", sans-serif';
+
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   content: [
@@ -10,17 +12,8 @@ module.exports = {
   mode: "jit",
   theme: {
     fontFamily: {
-      sans: [
-        "Inter",
-        "-apple-system",
-        "BlinkMacSystemFont",
-        "Segoe UI",
-        "Roboto",
-        "Helvetica",
-        "Arial",
-        "sans-serif",
-      ],
-      serif: ["ui-serif", "Piazzolla"],
+      sans: openSans,
+      serif: openSans,
       mono: ["ui-monospace", "Azeret\\ Mono"],
     },
     extend: {

@@ -11,12 +11,6 @@
   --scroll-bar-thumb-bg: #999;
 }
 
-@layer base {
-  html {
-    font-family: "Piazzolla", serif;
-  }
-}
-
 html,
 body {
   padding: 0;
