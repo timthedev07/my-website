@@ -17,6 +17,7 @@ import path from "path";
 import { getHeadForPage } from "../../utils/getHead";
 import Image from "next/image";
 import headerImage from "../../../public/images/blog-heading.jpg";
+import { blurDataUrl } from "../../utils/blurDataUrl";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -110,7 +111,7 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
                   <div className="relative w-64 md:w-80 h-64 md:h-80 rounded-t-md">
                     <Image
                       placeholder="blur"
-                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPUrAcAANcAqqSJtxIAAAAASUVORK5CYII="
+                      blurDataURL={blurDataUrl}
                       src={`/thumbnails/${filename}.png`}
                       alt={filename}
                       layout="fill"
