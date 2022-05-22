@@ -22,7 +22,7 @@ const Home: NextPage = () => {
           <div className="flex flex-col items-start gap-5 animate-fade-in-left-slow">
             <span className="text-base text-neutral-50/60">Hi, I am</span>
             <h1 className="font-semibold text-8xl">Tim</h1>
-            <h5 className="max-w-sm">
+            <h5 className="max-w-sm text-neutral-100/70">
               A software developer interested and specialized in building real
               world projects on the web. Currently a full-time student pursuing
               his dream of studying at G5 colleges.
