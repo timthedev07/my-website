@@ -38,7 +38,7 @@ export const useOnScreen = <T extends HTMLElement | null>(
 export const useViewportClassname = <T extends HTMLElement>(
   ref: MutableRefObject<T | null>,
   viewportClassname = "",
-  threshold = 0
+  threshold = 0.05
 ) => {
   const isOnScreen = useOnScreen(ref, threshold);
 
