@@ -55,7 +55,7 @@ const Home: NextPage = () => {
           Technical Experience
         </h1>
         <div className="relative flex">
-          <div className="flex flex-col gap-12 justify-center flex-1 relative after:content-[''] after:absolute after:right-0 after:h-[60%] after:top-[20%] after:bg-white/40 after:w-[1px]">
+          <div className="w-1/2 flex flex-col gap-12 justify-center flex-1 relative after:content-[''] after:absolute after:right-0 after:h-[60%] after:top-[20%] after:bg-white/40 after:w-[1px]">
             <div className="flex flex-wrap gap-10 p-16" ref={techIconsRef}>
               <TypeScriptSVG className={techIconClassname} />
               <NextjsSVG className={techIconClassname} />
@@ -66,9 +66,13 @@ const Home: NextPage = () => {
               <PostgresSVG className={techIconClassname} />
             </div>
           </div>
-          <div className="flex-1">
-            <div className="p-16 w-min">
-              <p className="typewriter">Hi there, this is the ultimate shit</p>
+          <div className="flex-1 w-1/2">
+            <div className="p-16 w-full">
+              <p className="typewriter">
+                I primarily develop fullstack applications on the internet, and
+                over time, I have built confidence with a few
+                frameworks/libraries that significantly boost my productivity.
+              </p>
             </div>
           </div>
         </div>
