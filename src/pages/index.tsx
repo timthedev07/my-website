@@ -15,13 +15,15 @@ import { useViewportClassname } from "../utils/hooks";
 
 const Home: NextPage = () => {
   const sectionHeading2 = useRef<HTMLHeadingElement | null>(null);
-  const techIconClassname = "rounded full w-24 h-24";
+  const techIconsRef = useRef<HTMLDivElement | null>(null);
+  const techIconClassname = "rounded full w-24 h-24 animate-wiggle";
 
-  useViewportClassname(sectionHeading2, "animate-enlarge-slow");
+  useViewportClassname(sectionHeading2, "animate-fade-in-up", "", 0.1);
+  useViewportClassname(techIconsRef, "animate-fade-in-slow", "opacity-0", 0.1);
 
   return (
     <>
-      <header className="gap-4 md:gap-0 h-[200vh] w-full flex flex-col justify-center items-center md:items-start relative overflow-hidden">
+      <header className="gap-4 md:gap-0 h-screen w-full flex flex-col justify-center items-center md:items-start relative overflow-hidden">
         <Image
           src={heroImage}
           alt=""
@@ -45,16 +47,16 @@ const Home: NextPage = () => {
           <DevSVG className="w-60 h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]" />
         </div>
       </header>
-      <section className="min-h-[100vh] h-max w-full relative overflow-hidden flex flex-col">
+      <section className="min-h-[70vh] bg-indigo-900/60 pt-6 h-max w-full relative overflow-hidden flex flex-col">
         <h1
-          className="font-semibold text-center w-full animate-fade-in-slow"
+          className="font-extralight font-mono text-center w-full opacity-0 underline underline-offset-4 decoration-slate-400/40"
           ref={sectionHeading2}
         >
           Technical Experience
         </h1>
         <div className="relative flex">
           <div className="flex flex-col gap-12 justify-center flex-1 relative after:content-[''] after:absolute after:right-0 after:h-[60%] after:top-[20%] after:bg-white/40 after:w-[1px]">
-            <div className="flex flex-wrap gap-10 p-16">
+            <div className="flex flex-wrap gap-10 p-16" ref={techIconsRef}>
               <TypeScriptSVG className={techIconClassname} />
               <NextjsSVG className={techIconClassname} />
               <TailwindCSSSVG className={techIconClassname} />
@@ -64,7 +66,11 @@ const Home: NextPage = () => {
               <PostgresSVG className={techIconClassname} />
             </div>
           </div>
-          <div className="flex-1"></div>
+          <div className="flex-1">
+            <div className="p-16 w-min">
+              <p className="typewriter">Hi there, this is the ultimate shit</p>
+            </div>
+          </div>
         </div>
       </section>
     </>
