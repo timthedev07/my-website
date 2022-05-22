@@ -11,6 +11,12 @@
   --scroll-bar-thumb-bg: #999;
 }
 
+@layer base {
+  html {
+    @apply bg-slate-900;
+  }
+}
+
 html,
 body {
   padding: 0;
