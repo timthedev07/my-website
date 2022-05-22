@@ -18,9 +18,29 @@ module.exports = {
     },
     extend: {
       keyframes: (theme) => ({
+        enlarge: {
+          from: {
+            "transform-origin": "center",
+            transform: "scale(0.3)",
+            opacity: 0.3,
+          },
+          to: {
+            "transform-origin": "center",
+            transform: "scale(1)",
+            opacity: 1,
+          },
+        },
         wiggle: {
           "0%, 100%": { transform: "rotate(-3deg)", opacity: 0.9 },
           "50%": { transform: "rotate(3deg)", opacity: 1 },
+        },
+        fadeIn: {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
         },
         fadeInLeft: {
           "0%": {
@@ -56,6 +76,10 @@ module.exports = {
         "fade-in-right": "fadeInRight 1000ms ease-in-out",
         "fade-in-right-slow": "fadeInRight 1300ms ease-in-out",
         wiggle: "wiggle 1.4s ease-in-out infinite",
+        "fade-in": "fadeIn 1s ease-in-out",
+        "fade-in-slow": "fadeIn 1.3s ease-in-out",
+        enlarge: "enlarge 0.7s ease-out",
+        "enlarge-slow": "enlarge 1s ease-out",
       },
       screens: {
         md2: "868px",
