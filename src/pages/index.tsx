@@ -17,7 +17,8 @@ import { useViewportClassname } from "../utils/hooks";
 const Home: NextPage = () => {
   const sectionHeading2 = useRef<HTMLHeadingElement | null>(null);
   const techIconsRef = useRef<HTMLDivElement | null>(null);
-  const techIconClassname = "rounded full w-24 h-24 animate-wiggle";
+  const techIconClassname =
+    "rounded full w-20 h-20 md:w-24 md:h-24 animate-wiggle";
   const technicalExperienceRef = useRef<HTMLParagraphElement | null>(null);
 
   useViewportClassname(sectionHeading2, "animate-fade-in-up-slow", "");
@@ -47,7 +48,7 @@ const Home: NextPage = () => {
               Hi, I am
             </span>
             <h1 className="font-semibold text-8xl animate-fade-in">Tim</h1>
-            <h5 className="max-w-sm text-neutral-100/70 animate-fade-in-up">
+            <h5 className="max-w-sm text-neutral-100/70 animate-fade-in-left md:animate-fade-in-up">
               A software developer interested and specialized in building real
               world projects on the web. Currently a full-time student pursuing
               his dream of studying at G5 colleges.
@@ -58,7 +59,7 @@ const Home: NextPage = () => {
       </header>
       <section className="min-h-[70vh] bg-indigo-900/60 pt-6 h-max w-full relative overflow-hidden flex flex-col">
         <h1
-          className="font-bold text-center w-full opacity-0 underline underline-offset-4 decoration-slate-400/40"
+          className="text-4xl md:text-5xl font-bold text-center w-full opacity-0 underline underline-offset-4 decoration-slate-400/40"
           ref={sectionHeading2}
         >
           Technical Experience
@@ -66,7 +67,7 @@ const Home: NextPage = () => {
         <div className="relative flex flex-col md:flex-row md:items-center">
           <div className="md:w-1/2 flex flex-col gap-12 justify-center flex-1 relative after:content-[''] after:absolute after:right-0 after:h-[60%] after:top-[20%] after:bg-white/40 after:w-[1px]">
             <div
-              className="flex justify-center flex-wrap gap-10 p-16"
+              className="flex justify-center flex-wrap gap-10 p-12"
               ref={techIconsRef}
             >
               <TypeScriptSVG className={techIconClassname} />
@@ -82,7 +83,7 @@ const Home: NextPage = () => {
           <div className="flex-1 md:w-1/2">
             <p
               ref={technicalExperienceRef}
-              className="p-16 md:px-16 px-28 font-semibold"
+              className="md:p-16 md:px-16 p-2 px-24 font-semibold"
             >
               I primarily develop fullstack applications on the internet, and
               over time, I have built confidence with a few frameworks/libraries
