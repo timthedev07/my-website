@@ -47,8 +47,8 @@ module.exports = {
             opacity: 0,
             transform: "translateX(-100vw)",
           },
-          "70%": {
-            opacity: 0.3,
+          "80%": {
+            opacity: 0.4,
           },
           "100%": {
             opacity: 1,
@@ -60,8 +60,8 @@ module.exports = {
             opacity: 0,
             transform: "translateX(100vw)",
           },
-          "70%": {
-            opacity: 0.3,
+          "80%": {
+            opacity: 0.4,
           },
           "100%": {
             opacity: 1,
@@ -73,8 +73,8 @@ module.exports = {
             opacity: 0,
             transform: "translateY(300px)",
           },
-          "90%": {
-            opacity: 0.1,
+          "80%": {
+            opacity: 0.4,
           },
           "100%": {
             opacity: 1,
