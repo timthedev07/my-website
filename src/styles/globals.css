@@ -11,9 +11,36 @@
   --scroll-bar-thumb-bg: #999;
 }
 
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes cursor-blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    @apply border-r-cyan-400;
+  }
+}
+
 @layer base {
   html {
     @apply bg-slate-900;
+  }
+}
+
+@layer components {
+  .typewriter {
+    @apply overflow-hidden border-r-[.15em] border-r-cyan-400 whitespace-nowrap mx-0 my-auto font-mono;
+    letter-spacing: 0.001rem;
+    animation: typing 2.5s steps(70, end), cursor-blink 0.75s step-end infinite;
   }
 }
 
