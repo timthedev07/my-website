@@ -1,13 +1,27 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import { useRef } from "react";
 import heroImage from "../../public/images/home-hero.jpg";
-import { DevSVG } from "../components/svgs/Dev";
+import { DevSVG } from "../components/svgs/home/Dev";
+import { ExpressSVG } from "../components/svgs/home/Express";
+import { GraphQLSVG } from "../components/svgs/home/GraphQL";
+import { MongoDBSVG } from "../components/svgs/home/MongoDB";
+import { NextjsSVG } from "../components/svgs/home/Nextjs";
+import { PostgresSVG } from "../components/svgs/home/Postgres";
+import { TailwindCSSSVG } from "../components/svgs/home/TailwindCSS";
+import { TypeScriptSVG } from "../components/svgs/home/TypeScript";
 import { blurDataUrl } from "../utils/blurDataUrl";
+import { useViewportClassname } from "../utils/hooks";
 
 const Home: NextPage = () => {
+  const sectionHeading2 = useRef<HTMLHeadingElement | null>(null);
+  const techIconClassname = "rounded full w-24 h-24";
+
+  useViewportClassname(sectionHeading2, "animate-enlarge-slow");
+
   return (
     <>
-      <header className="gap-4 md:gap-0 h-screen w-full flex flex-col justify-center items-center md:items-start relative overflow-hidden">
+      <header className="gap-4 md:gap-0 h-[200vh] w-full flex flex-col justify-center items-center md:items-start relative overflow-hidden">
         <Image
           src={heroImage}
           alt=""
@@ -31,7 +45,28 @@ const Home: NextPage = () => {
           <DevSVG className="w-60 h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]" />
         </div>
       </header>
-      <section className="h-screen w-full overflow-hidden"></section>
+      <section className="min-h-[100vh] h-max w-full relative overflow-hidden flex flex-col">
+        <h1
+          className="font-semibold text-center w-full animate-fade-in-slow"
+          ref={sectionHeading2}
+        >
+          Technical Experience
+        </h1>
+        <div className="relative flex">
+          <div className="flex flex-col gap-12 justify-center flex-1 relative after:content-[''] after:absolute after:right-0 after:h-[60%] after:top-[20%] after:bg-white/40 after:w-[1px]">
+            <div className="flex flex-wrap gap-10 p-16">
+              <TypeScriptSVG className={techIconClassname} />
+              <NextjsSVG className={techIconClassname} />
+              <TailwindCSSSVG className={techIconClassname} />
+              <ExpressSVG className={techIconClassname} />
+              <GraphQLSVG className={techIconClassname} />
+              <MongoDBSVG className={techIconClassname} />
+              <PostgresSVG className={techIconClassname} />
+            </div>
+          </div>
+          <div className="flex-1"></div>
+        </div>
+      </section>
     </>
   );
 };
