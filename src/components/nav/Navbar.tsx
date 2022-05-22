@@ -92,7 +92,7 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
       <div
         className={`${
           windowSize <= BREAK_POINT ? "block" : "hidden"
-        } bg-transparent h-5`}
+        } bg-transparent h-24 w-full`}
       ></div>
       {windowSize <= BREAK_POINT ? <BottomNav /> : null}
     </NavContext.Provider>
