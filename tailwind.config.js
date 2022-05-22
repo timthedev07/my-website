@@ -18,6 +18,10 @@ module.exports = {
     },
     extend: {
       keyframes: (theme) => ({
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
         fadeInLeft: {
           "0%": {
             opacity: 0,
@@ -51,6 +55,7 @@ module.exports = {
         "fade-in-left-slow": "fadeInLeft 1300ms ease-in-out",
         "fade-in-right": "fadeInRight 1000ms ease-in-out",
         "fade-in-right-slow": "fadeInRight 1300ms ease-in-out",
+        wiggle: "wiggle 1.4s ease-in-out infinite",
       },
       screens: {
         md2: "868px",
