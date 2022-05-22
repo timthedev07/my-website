@@ -37,20 +37,18 @@ export const useOnScreen = <T extends HTMLElement | null>(
 
 export const useViewportClassname = <T extends HTMLElement>(
   ref: MutableRefObject<T | null>,
-  viewportClassname = ""
+  viewportClassname = "",
+  threshold = 0
 ) => {
-  const isOnScreen = useOnScreen(ref, 1);
-  console.log(ref.current?.className);
+  const isOnScreen = useOnScreen(ref, threshold);
 
   useEffect(() => {
     const currNode = ref.current;
     if (!currNode) return;
 
     if (isOnScreen) {
-      currNode.className = currNode.className.concat(viewportClassname);
-      console.log("Is on screen");
+      currNode.className = currNode.className.concat(" " + viewportClassname);
     } else {
-      console.log("Is not on screen");
       if (currNode.className.includes(viewportClassname)) {
         currNode.className = currNode.className.replace(viewportClassname, "");
       }
