@@ -1,7 +1,8 @@
 import { useState, useEffect, MutableRefObject } from "react";
 
 export const useOnScreen = <T extends HTMLElement | null>(
-  ref: MutableRefObject<T>
+  ref: MutableRefObject<T>,
+  threshold = 0.5
 ) => {
   const [isIntersecting, setIntersecting] = useState(false);
 
@@ -10,12 +11,17 @@ export const useOnScreen = <T extends HTMLElement | null>(
       return;
     }
 
-    const observer = new IntersectionObserver(([entry], observer) => {
-      setIntersecting(entry.isIntersecting);
-      if (entry.isIntersecting) {
-        observer.disconnect();
+    const observer = new IntersectionObserver(
+      ([entry], observer) => {
+        setIntersecting(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          observer.disconnect();
+        }
+      },
+      {
+        threshold,
       }
-    });
+    );
 
     if (ref.current) {
       observer.observe(ref.current);
@@ -24,7 +30,30 @@ export const useOnScreen = <T extends HTMLElement | null>(
     return () => {
       observer.disconnect();
     };
-  }, [ref]);
+  }, [ref, threshold]);
 
   return isIntersecting;
+};
+
+export const useViewportClassname = <T extends HTMLElement>(
+  ref: MutableRefObject<T | null>,
+  viewportClassname = ""
+) => {
+  const isOnScreen = useOnScreen(ref, 1);
+  console.log(ref.current?.className);
+
+  useEffect(() => {
+    const currNode = ref.current;
+    if (!currNode) return;
+
+    if (isOnScreen) {
+      currNode.className = currNode.className.concat(viewportClassname);
+      console.log("Is on screen");
+    } else {
+      console.log("Is not on screen");
+      if (currNode.className.includes(viewportClassname)) {
+        currNode.className = currNode.className.replace(viewportClassname, "");
+      }
+    }
+  }, [isOnScreen, ref, viewportClassname]);
 };
