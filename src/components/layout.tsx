@@ -43,9 +43,11 @@ export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>
 
-      <div id="App" className={`bg-slate-900 min-w-350 min-h-screen`}>
+      <div id="App" className={`bg-slate-900 min-w-350 h-screen`}>
         <NavProvider>
-          <main className={`w-full min-h-screen text-white`}>{children}</main>
+          <main className={`w-full h-screen text-white min-w-350`}>
+            {children}
+          </main>
         </NavProvider>
       </div>
     </>
