@@ -47,9 +47,9 @@ module.exports = {
             opacity: 0,
             transform: "translateX(-100vw)",
           },
-          "80%": {
-            opacity: 0.4,
-          },
+          // "80%": {
+          //   opacity: 0.4,
+          // },
           "100%": {
             opacity: 1,
             transform: "translateX(0)",
@@ -60,9 +60,9 @@ module.exports = {
             opacity: 0,
             transform: "translateX(100vw)",
           },
-          "80%": {
-            opacity: 0.4,
-          },
+          // "80%": {
+          //   opacity: 0.4,
+          // },
           "100%": {
             opacity: 1,
             transform: "translateX(0)",
@@ -73,9 +73,9 @@ module.exports = {
             opacity: 0,
             transform: "translateY(300px)",
           },
-          "80%": {
-            opacity: 0.4,
-          },
+          // "80%": {
+          //   opacity: 0.4,
+          // },
           "100%": {
             opacity: 1,
             transform: "translateY(0)",
