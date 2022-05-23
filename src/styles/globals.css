@@ -56,6 +56,10 @@ body {
   scroll-behavior: smooth;
 }
 
+*::selection {
+  @apply bg-orange-700/50;
+}
+
 html {
   box-sizing: border-box;
 }
