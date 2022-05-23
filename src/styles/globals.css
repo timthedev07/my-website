@@ -7,8 +7,6 @@
 
 :root {
   font-size: 14px;
-  --scroll-bar-bg: #282828;
-  --scroll-bar-thumb-bg: #999;
 }
 
 @keyframes typing {
