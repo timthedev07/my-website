@@ -60,8 +60,6 @@ body {
 
 html {
   box-sizing: border-box;
-  scrollbar-color: theme("colors.slate.300") transparent;
-  scrollbar-width: thin;
 }
 
 body h1 {
