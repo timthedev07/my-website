@@ -31,6 +31,9 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <aside className="uppercase font-semibold text-lg fixed right-2 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
+        Hi there
+      </aside>
       <header className="gap-4 md:gap-0 h-screen w-full flex flex-col justify-center items-center md:items-start relative overflow-hidden">
         <Image
           src={heroImage}
