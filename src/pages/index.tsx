@@ -34,7 +34,9 @@ const Home: NextPage = () => {
   return (
     <>
       <aside className="h-96 animate-fade-in-slow flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed right-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
-        timpersonal07@gmail.com
+        <Link href="mailto:timpersonal07@gmail.com">
+          timpersonal07@gmail.com
+        </Link>
         <div className="grow-1 flex-1 w-[1px] bg-zinc-200/80" />
       </aside>
       <aside className="h-96 animate-fade-in-slow flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed left-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
@@ -69,7 +71,7 @@ const Home: NextPage = () => {
           <DevSVG className="w-60 h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]" />
         </div>
       </header>
-      <section className="min-h-[70vh] bg-indigo-900/60 pt-6 h-max w-full relative overflow-hidden flex flex-col items-center">
+      <section className="min-h-[70vh] bg-indigo-900/50 pt-6 h-max w-full relative overflow-hidden flex flex-col items-center">
         <h1
           className="text-4xl md:text-5xl font-bold text-center w-full opacity-0 underline underline-offset-4 decoration-slate-400/40"
           ref={sectionHeading2}
