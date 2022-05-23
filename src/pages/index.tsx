@@ -31,8 +31,9 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <aside className="uppercase font-semibold text-lg fixed right-2 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
-        Hi there
+      <aside className="h-96 animate-fade-in-slow flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed right-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
+        timpersonal07@gmail.com
+        <div className="grow-1 flex-1 w-[1px] bg-zinc-200/80" />
       </aside>
       <header className="gap-4 md:gap-0 h-screen w-full flex flex-col justify-center items-center md:items-start relative overflow-hidden">
         <Image
@@ -60,15 +61,15 @@ const Home: NextPage = () => {
           <DevSVG className="w-60 h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]" />
         </div>
       </header>
-      <section className="min-h-[70vh] bg-indigo-900/60 pt-6 h-max w-full relative overflow-hidden flex flex-col">
+      <section className="min-h-[70vh] bg-indigo-900/60 pt-6 h-max w-full relative overflow-hidden flex flex-col items-center">
         <h1
           className="text-4xl md:text-5xl font-bold text-center w-full opacity-0 underline underline-offset-4 decoration-slate-400/40"
           ref={sectionHeading2}
         >
           Technical Experience
         </h1>
-        <div className="relative flex flex-col md:flex-row md:items-center">
-          <div className="md:w-1/2 flex flex-col gap-12 justify-center flex-1 relative after:content-[''] after:absolute after:right-0 after:h-[60%] after:top-[20%] after:bg-white/40 after:w-[1px]">
+        <div className="relative flex flex-col w-10/12 md:flex-row md:items-center">
+          <div className="md:w-1/2 flex flex-col gap-12 justify-center flex-1 relative after:hidden md:after:block after:content-[''] after:absolute after:right-0 after:h-[60%] after:top-[20%] after:bg-white/40 after:w-[1px]">
             <div
               className="flex justify-center flex-wrap gap-10 p-12"
               ref={techIconsRef}
