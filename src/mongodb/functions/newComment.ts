@@ -13,6 +13,5 @@ export const newComment = async (commentData: BlogFormData) => {
   await commentsCollection.insertOne({
     timestamp: new Date() as any,
     ...commentData,
-    commenterName: commentData.commenterName,
   });
 };

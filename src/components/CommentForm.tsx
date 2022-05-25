@@ -73,7 +73,6 @@ export const CommentForm: FC<CommentFormProps> = ({
     e.preventDefault();
     setLoading(true);
 
-    let isAlias = false;
 
     const updatedFormData = {
       ...formData,
@@ -81,7 +80,6 @@ export const CommentForm: FC<CommentFormProps> = ({
     };
     if (updatedFormData.commenterName === "") {
       updatedFormData.commenterName = userName;
-      isAlias = true;
     }
 
     const errors = {
@@ -98,7 +96,6 @@ export const CommentForm: FC<CommentFormProps> = ({
     const response = await fetch(`/api/comments/new`, {
       body: JSON.stringify({
         ...updatedFormData,
-        isAlias,
       }),
       method: "POST",
     });
