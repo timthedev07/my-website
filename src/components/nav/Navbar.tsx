@@ -103,7 +103,7 @@ const NavbarItem: FC<NavbarItemProps> = ({ name, href, className = "" }) => {
   return (
     <Link href={href} passHref={true}>
       <span
-        className={`nav-item uppercase transition duration-300 ease-in-out text-gray-300 hover:text-gray-100 ${className}`}
+        className={`cursor-pointer nav-item uppercase transition duration-300 ease-in-out text-gray-300 hover:text-gray-100 ${className}`}
       >
         {name}
       </span>
