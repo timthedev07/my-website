@@ -33,13 +33,13 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <aside className="h-96 animate-fade-in-slow flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed right-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
+      <aside className="hidden h-96 animate-fade-in-slow md:flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed right-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
         <Link href="mailto:timpersonal07@gmail.com">
           timpersonal07@gmail.com
         </Link>
         <div className="grow-1 flex-1 w-[1px] bg-zinc-200/80" />
       </aside>
-      <aside className="h-96 animate-fade-in-slow flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed left-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
+      <aside className="hidden h-96 animate-fade-in-slow md:flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed left-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
         <Link passHref href="https://github.com/">
           <GitHubSVG className="h-8 w-8 cursor-pointer" />
         </Link>
