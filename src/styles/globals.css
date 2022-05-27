@@ -9,6 +9,21 @@
   font-size: 14px;
 }
 
+::-webkit-scrollbar {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neutral-700;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100vw;
+  border: solid 0.2rem theme("borderColor.neutral.700");
+  @apply bg-neutral-400/70;
+}
+
 @keyframes typing {
   from {
     width: 0;
