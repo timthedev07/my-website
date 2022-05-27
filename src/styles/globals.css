@@ -32,6 +32,12 @@
   html {
     @apply bg-slate-900;
   }
+  a:hover {
+    @apply text-cyan-400 duration-200;
+  }
+  a {
+    @apply duration-200;
+  }
 }
 
 @layer utilities {
