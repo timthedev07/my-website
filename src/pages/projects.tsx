@@ -16,7 +16,7 @@ const REPO_NAMES = [
 ];
 
 const Projects: NextPage<Props> = ({ repos }) => {
-  return (
+  return 1 > 1 ? (
     <div>
       <header className="relative">
         <img src="/images/tech0.jpg" alt="" />
@@ -35,6 +35,8 @@ const Projects: NextPage<Props> = ({ repos }) => {
         ))}
       </div>
     </div>
+  ) : (
+    <h1 className="flex justify-center items-center h-[80vh]">COMING SOON</h1>
   );
 };
 export const getStaticProps: GetStaticProps = async () => {
