@@ -42,7 +42,12 @@ export const getStaticProps: GetStaticProps = async () => {
 
   for (const repo of REPO_NAMES) {
     const response = await fetch(
-      `https://api.github.com/repos/timthedev07/${repo}`
+      `https://api.github.com/repos/timthedev07/${repo}`,
+      {
+        headers: {
+          Authorization: `token ${process.env.GITHUB_REST_TOKEN}`,
+        },
+      }
     );
     const data = await response.json();
     repos.push(data);
