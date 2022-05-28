@@ -1,7 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
-import { readdirSync } from "fs";
 import Link from "next/link";
-import { getPostMetadata } from "../../utils/post";
 import { MarkdownMetadata } from "../../types/posts";
 import { useNavContext } from "../../components/nav/Navbar";
 import { useEffect, useState } from "react";
@@ -9,15 +7,15 @@ import {
   BlogCategoryTabType,
   BLOG_CATEGORIES,
 } from "../../types/blogCategories";
-import { BlogGroups, groupBlogs } from "../../utils/groupBlogs";
+import { BlogGroups } from "../../utils/groupBlogs";
 import { useRouter } from "next/router";
 import { BlogTabs } from "../../components/BlogTabs";
 import { Menu, MenuButton, MenuItem, MenuList } from "dragontail-experimental";
-import path from "path";
 import { getHeadForPage } from "../../utils/getHead";
 import Image from "next/image";
 import headerImage from "../../../public/images/blog-heading.jpg";
 import { blurDataUrl } from "../../utils/blurDataUrl";
+import { getBlogsWithMetadata } from "../../utils/blogsWithMeta";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -142,30 +140,9 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const categories = readdirSync("posts");
-  let fileNames: string[] = [];
-
-  for (const category of categories) {
-    fileNames = fileNames.concat(
-      readdirSync(`posts/${category}`).map((each) => `${category}/${each}`)
-    );
-  }
-
-  const fileNamesWithMetadata = groupBlogs(
-    fileNames.map((fileName) => {
-      const mdFileNameArr = fileName.replace(".md", "").split(path.sep);
-
-      return {
-        filename: mdFileNameArr[mdFileNameArr.length - 1],
-        metadata: JSON.stringify(getPostMetadata(fileName)),
-        category: mdFileNameArr[0] as any,
-      };
-    })
-  );
-
   return {
     props: {
-      groupedBlogs: fileNamesWithMetadata,
+      groupedBlogs: await getBlogsWithMetadata("ssg"),
     } as Props,
   };
 };
