@@ -6,11 +6,15 @@ date: 2022-05-17
 
 # Feedback Loops in Learning
 
-This blog primarily focuses on my opinions on the feedback loops in different subjects and how they are the most significant reason of enhanced engagement and progress aside from passion.
+This blog primarily focuses on my opinions on the feedback loops in different subjects and how they are the most significant reason for enhanced engagement and progress aside from passion.
 
 ## What I Mean by Feedback Loops
 
-There are many explanations for the term "feedback loop", but the one to be discussed today is mostly tied to the system of learning whereby a student performs a certain action to feed some information into the "black box"(i.e. the system), and an output along with a feedback is returned to the them.
+There are many explanations for the term "feedback loop", but the one to be discussed today is mostly tied to the system of learning whereby a student performs a certain action to feed some information into the "black box"(i.e. the system), and output along with feedback is returned to them.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/base-loop.png" />
+</p>
 
 ## How It Is with Programming
 
@@ -18,7 +22,7 @@ From the observations of my career as a software engineer, I discovered that lea
 
 **_But Why?_**
 
-My only feasible explanation for this is that the journey is mainly composed of **efficient feedback loops.**. You might not be a programmer, but think about the following scenario: you write a line of code with 10 different errors, but the moment you hit run, the compiler immediately feeds you with relevant information of the errors, allowing you to right go back to them without waiting for, say, your teacher to mark it; and this leads to a well-paced cycle in which you can productively learn from your mistakes.
+My only feasible explanation for this is that the journey is mainly composed of **efficient feedback loops.**. You might not be a programmer, but think about the following scenario: you write a line of code with 10 different errors, but the moment you hit run, the compiler immediately feeds you with relevant information about the errors, allowing you to right go back to them without waiting for, say, your teacher to mark it; and this leads to a well-paced cycle in which you can productively learn from your mistakes.
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/programming-feedback-loop.png" />
@@ -30,7 +34,7 @@ Apart from seeing the errors, it also gives you an instant picture of the result
 
 This depends on individuals to some extent. But based on my experience, I find the feedback loops in languages and some sciences to be sometimes a bit demotivating due to the waiting.
 
-Checking your notes and answering your questions require a lot of time from your teachers, and not only is this time consuming for both parties, it doesn't provide an instant feedback!
+Checking your notes and answering your questions require a lot of time from your teachers, and not only is this time-consuming for both parties, but it also doesn't provide instant feedback!
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/subjects-feedback-loop.png" />
@@ -47,3 +51,20 @@ But it doesn't matter, because in the end:
 <p align="center">
   <img src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/my-subjects-loop-b.png" />
 </p>
+
+## Potential Improvements
+
+Time is gold, for each second we waste in this loop, we lose an iPhone.
+
+Here are two technological opportunities(unimplemented) to provide instant feedback:
+
+- Automated marking algorithms
+- A student search engine specifically concentrated on IGCSE/IB to actualize rapid research
+
+**Note: if any authoritative party read this section and has thoughts on this, don't hesitate to contact me via [email](timpersonal07@gmail.com). I will be more than happy to provide technical support.**
+
+## Conclusion
+
+Feedback loops in education are critical, and we should use them to our advantage to effectively provide top-tier and efficient training to our students, which would therefore enhance the school's performance and customer satisfaction, thus brand recognition.
+
+Studying anything requires a learning curve, and certainly, there will be enough obstacles making us fall. But we should reunite and target these stumbling blocks so students can maximize their productivity.
