@@ -11,3 +11,5 @@ const me = school.destroy().goBackHome({
   startCoding: true,
 });
 ```
+
+Just kidding, I'm too lazy to write this.

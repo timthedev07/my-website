@@ -1,7 +1,7 @@
 ---
 title: Feedback Loops in Learning
 Description: My thoughts On the "Feedback Loops" in Learning
-date: 2022-05-17
+date: 2022-05-28
 ---
 
 # Feedback Loops in Learning
