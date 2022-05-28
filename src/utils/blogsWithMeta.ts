@@ -1,9 +1,35 @@
 import { readdirSync } from "fs";
 import path from "path";
+import { getCategories, getCategoryPostNames } from "./GHRest";
 import { groupBlogs } from "./groupBlogs";
-import { getPostMetadata } from "./post";
+import { getPostMetadata, getRemotePostMetadata } from "./post";
 
-export const getBlogsWithMetadata = () => {
+const withGitHubRest = async () => {
+  const categories = await getCategories();
+  let fileNames: string[] = [];
+
+  for (const category of categories) {
+    fileNames = fileNames.concat(
+      (await getCategoryPostNames(category)).map(
+        (each) => `${category}/${each}`
+      )
+    );
+  }
+
+  return groupBlogs(
+    fileNames.map((fileName) => {
+      const mdFileNameArr = fileName.replace(".md", "").split("/");
+
+      return {
+        filename: mdFileNameArr[mdFileNameArr.length - 1],
+        metadata: JSON.stringify(getRemotePostMetadata(fileName)),
+        category: mdFileNameArr[0] as any,
+      };
+    })
+  );
+};
+
+const withSSG = () => {
   const categories = readdirSync("posts");
   let fileNames: string[] = [];
 
@@ -24,4 +50,15 @@ export const getBlogsWithMetadata = () => {
       };
     })
   );
+};
+
+export const getBlogsWithMetadata = async (mode: "ssg" | "github-rest") => {
+  switch (mode) {
+    case "github-rest": {
+      return await withGitHubRest();
+    }
+    case "ssg": {
+      return withSSG();
+    }
+  }
 };
