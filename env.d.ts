@@ -14,6 +14,7 @@ declare global {
       NEXT_AUTH_SECRET: string;
       DISCORD_CLIENT_ID: string;
       DISCORD_CLIENT_SECRET: string;
+      GITHUB_REST_TOKEN: string;
     }
   }
 }
