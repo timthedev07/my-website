@@ -23,7 +23,16 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 }) => {
   const session = await getSession({ req });
 
-  if (!session || !session.user?.email || isAdminEmail(session.user.email)) {
+  if (!session || !session.user?.email) {
+    return {
+      redirect: {
+        destination: "/auth/signin",
+        permanent: false,
+      },
+    };
+  }
+
+  if (!isAdminEmail(session.user.email)) {
     return {
       notFound: true,
     };
