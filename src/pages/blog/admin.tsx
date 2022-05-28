@@ -1,32 +1,36 @@
 import { GetServerSideProps, NextPage } from "next";
-import { Session } from "next-auth";
 import { getSession } from "next-auth/react";
+import { useEffect } from "react";
+import { useNavContext } from "../../components/nav/Navbar";
+import Editor from "rich-markdown-editor";
 
-interface Props {
-  session: Session & {
-    user: NonNullable<Session["user"]>;
-  };
-}
+const BlogAdmin: NextPage = () => {
+  const { setNavTransparent } = useNavContext();
 
-const BlogAdmin: NextPage<Props> = ({ session }) => {
-  const { user } = session;
+  useEffect(() => {
+    setNavTransparent(false);
+  }, [setNavTransparent]);
 
-  return <div>manage shit</div>;
+  return (
+    <>
+      <Editor defaultValue="Hello world!" />
+    </>
+  );
 };
 
 export const isAdminEmail = (email: string) => {
   return process.env.WHITELISTED_ADMIN_EMAILS.indexOf(email) > -1;
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  req,
-}) => {
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const session = await getSession({ req });
 
   if (!session || !session.user?.email) {
     return {
       redirect: {
-        destination: "/auth/signin",
+        destination: `/auth/signin?redirect=${encodeURIComponent(
+          "/blog/admin"
+        )}`,
         permanent: false,
       },
     };
@@ -39,9 +43,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   }
 
   return {
-    props: {
-      session: session as Props["session"],
-    },
+    props: {},
   };
 };
 
