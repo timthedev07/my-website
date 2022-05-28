@@ -1,6 +1,7 @@
 import { FC } from "react";
 import Head from "next/head";
 import { NavProvider } from "./nav/Navbar";
+import { AppLoading } from "./AppLoading";
 
 export const metadata = {
   title: "Tim's Website",
@@ -44,6 +45,7 @@ export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
       </Head>
 
       <div id="App" className={`bg-slate-900 min-h-screen`}>
+        <AppLoading />
         <NavProvider>
           <main className={`w-full min-h-screen text-white min-w-[250px]`}>
             {children}
