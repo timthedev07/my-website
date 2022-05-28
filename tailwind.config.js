@@ -30,6 +30,16 @@ module.exports = {
             opacity: 1,
           },
         },
+        loadingGrow: {
+          from: {
+            left: 0,
+            width: 0,
+          },
+          to: {
+            left: 0,
+            width: "100%",
+          },
+        },
         wiggle: {
           "0%, 100%": { transform: "rotate(-3deg)", opacity: 0.9 },
           "50%": { transform: "rotate(3deg)", opacity: 1 },
@@ -47,9 +57,6 @@ module.exports = {
             opacity: 0,
             transform: "translateX(-100vw)",
           },
-          // "80%": {
-          //   opacity: 0.4,
-          // },
           "100%": {
             opacity: 1,
             transform: "translateX(0)",
@@ -60,9 +67,6 @@ module.exports = {
             opacity: 0,
             transform: "translateX(100vw)",
           },
-          // "80%": {
-          //   opacity: 0.4,
-          // },
           "100%": {
             opacity: 1,
             transform: "translateX(0)",
@@ -73,9 +77,6 @@ module.exports = {
             opacity: 0,
             transform: "translateY(300px)",
           },
-          // "80%": {
-          //   opacity: 0.4,
-          // },
           "100%": {
             opacity: 1,
             transform: "translateY(0)",
@@ -95,6 +96,7 @@ module.exports = {
         "fade-in-slow": "fadeIn 1.3s ease-in-out forwards",
         enlarge: "enlarge 0.7s ease-out forwards",
         "enlarge-slow": "enlarge 1s ease-out forwards",
+        "loading-grow": "loadingGrow 2s ease-in-out forwards",
       },
       screens: {
         md2: "868px",
