@@ -22,8 +22,8 @@ export const AppLoading = () => {
   });
 
   return loading ? (
-    <div className="absolute h-4 w-screen z-[99999999999999999999]">
-      <div className="w-1/2 h-4 bg-cyan-700 border-r rounded-r-full absolute animate-loading-grow"></div>
+    <div className="absolute h-1 w-full z-[99999999999999999999]">
+      <div className="w-1/2 h-1 bg-sky-500 border-r-transparent rounded-r-full absolute animate-loading-grow"></div>
     </div>
   ) : (
     <></>

@@ -96,7 +96,7 @@ module.exports = {
         "fade-in-slow": "fadeIn 1.3s ease-in-out forwards",
         enlarge: "enlarge 0.7s ease-out forwards",
         "enlarge-slow": "enlarge 1s ease-out forwards",
-        "loading-grow": "loadingGrow 2s ease-in-out forwards",
+        "loading-grow": "loadingGrow 2s cubic-bezier(1,.11,0,.89) forwards",
       },
       screens: {
         md2: "868px",
