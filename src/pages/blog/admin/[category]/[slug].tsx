@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import matter from "gray-matter";
-import { BlogComments } from "../../../../components/BlogComments";
 import { MarkdownMetadata } from "../../../../types/posts";
 import { getHeadForPage } from "../../../../utils/getHead";
 import { readRemoteBlog } from "../../../../utils/GHRest";
@@ -16,6 +15,7 @@ interface Props {
 
 const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
+  content;
 
   return (
     <>
