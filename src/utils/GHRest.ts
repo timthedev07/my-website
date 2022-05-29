@@ -112,6 +112,8 @@ export const updateBlog = async (
   newContent: string
 ) => {
   const bs = await createBlob(newContent);
+  console.log(bs);
   const ns = await commit(bs, `posts/${categoryAndSlug}.md`);
+  console.log(ns);
   await updateHead(ns);
 };
