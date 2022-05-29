@@ -35,6 +35,18 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const [viewCount, setViewCount] = useState<number | null>(null);
   const { setAppLoading } = useAppLoading();
   const { setNavTransparent } = useNavContext();
+  const [loadingDots, setLoadingDots] = useState<number>(1);
+
+  useEffect(() => {
+    if (viewCount) return;
+
+    setInterval(() => {
+      setLoadingDots((prev) => {
+        if (prev === 3) return 1;
+        return (prev + 1) % 3;
+      });
+    }, 300);
+  }, [viewCount]);
 
   useEffect(() => {
     setNavTransparent(false);
@@ -100,8 +112,8 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             <div className="text-white/70 flex w-full justify-between">
               <span>Published on {new Date(metadata.date).toDateString()}</span>
               <span>
-                {viewCount ? viewCount : "..."} View
-                {viewCount && viewCount > 1 ? "s" : ""}
+                {viewCount ? viewCount : ".".repeat(loadingDots)} View
+                {!viewCount || viewCount > 1 ? "s" : ""}
               </span>
             </div>
           </article>
