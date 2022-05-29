@@ -1,15 +1,15 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { readdirSync, readFileSync } from "fs";
 import path, { join } from "path";
 import matter from "gray-matter";
 import { MarkdownMetadata } from "../../../types/posts";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOnScreen } from "../../../utils/hooks";
 import { BlogComments } from "../../../components/BlogComments";
 import markdownToHtml from "../../../utils/markdown";
 import { getHeadForPage } from "../../../utils/getHead";
+import { useAppLoading } from "../../../components/AppLoading";
 
 interface Props {
   content: string;
@@ -21,27 +21,62 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
   const ref = useRef<HTMLDivElement | null>(null);
   const loadComments = useOnScreen(ref);
+  const [viewCount, setViewCount] = useState<number | null>(null);
+  const { setAppLoading } = useAppLoading();
+
+  useEffect(() => {
+    const storageKey = `seen:${metadata.category}/${slug}`;
+
+    const f = async () => {
+      setAppLoading(true);
+
+      const prevResponse = await fetch(`/api/viewcount/${slug}`);
+      const prevText = await prevResponse.text();
+
+      setViewCount(parseInt(prevText));
+
+      if (localStorage.getItem(storageKey)) {
+        setAppLoading(false);
+        return;
+      }
+
+      const incrementResponse = await fetch(`/api/viewcount/increment/${slug}`);
+      const incrementText = await incrementResponse.text();
+
+      if (incrementResponse.ok) {
+        setViewCount(parseInt(incrementText));
+      }
+
+      localStorage.setItem(storageKey, "1f23hr923hfh29ih2f");
+
+      setAppLoading(false);
+    };
+
+    f();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const xPaddings = "md:px-24 px-6";
 
   return (
     <>
-      <Head>
-        <title>{metadata.title} - Tim&apois;s Blog</title>
-        <meta name="title" content={metadata.title} />
-        <meta name="description" content={metadata.description} />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:title" content={metadata.title} />
-      </Head>
       {getHeadForPage({
         title: metadata.title,
         description: metadata.description,
         path: `/blog/${metadata.category}/${slug}`,
+        keywords: metadata.keywords,
       })}
       <div className="flex flex-col justify-center items-center">
         <section
           className={`w-[95%] md:w-[90%] md:max-w-4xl lg:max-w-5xl md:bg-slate-900 rounded-lg m-6`}
         >
+          <article className={`${xPaddings} flex flex-col gap-6`}>
+            <h1>{metadata.title}</h1>
+            <div className="text-white/70 flex w-full justify-between">
+              <span>Published on {new Date(metadata.date).toDateString()}</span>
+              <span>{viewCount} Views</span>
+            </div>
+          </article>
           <article
             className={`flex child-headings:font-semibold child-list:list-disc child-list:list-inside child-list:text-white/70 child-paragraphs:text-white/70 flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg`}
             dangerouslySetInnerHTML={{ __html: content }}
