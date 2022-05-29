@@ -118,7 +118,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             </div>
           </article>
           <article
-            className={`flex child-headings:font-semibold child-list:list-disc child-list:list-inside child-list:text-white/70 child-paragraphs:text-white/70 flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg`}
+            className={`flex child-headings:font-semibold flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-paragraphs:text-white/70 child-list:text-white/70 child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside`}
             dangerouslySetInnerHTML={{ __html: content }}
           ></article>
 
