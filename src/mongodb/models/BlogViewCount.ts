@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
 
-export class BlogComment {
+export class BlogViewCount {
   constructor(
     public blogId: string,
     public count: number,
