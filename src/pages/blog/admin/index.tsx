@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from "next";
 import { getSession } from "next-auth/react";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { BLOG_CATEGORIES } from "../../../types/blogCategories";
@@ -36,7 +37,15 @@ const BlogAdmin: NextPage<Props> = ({ blogFileNamesWithMetadata }) => {
             <ul>
               {blogFileNamesWithMetadata[category].map((each) => {
                 const metadata = JSON.parse(each.metadata) as MarkdownMetadata;
-                return <li key={each.filename}>{metadata.title}</li>;
+                return (
+                  <Link
+                    href={`/blog/admin/${category}/${each.filename}`}
+                    key={each.filename}
+                    passHref
+                  >
+                    <li>{metadata.title}</li>
+                  </Link>
+                );
               })}
             </ul>
           </section>
