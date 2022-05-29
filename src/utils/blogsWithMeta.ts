@@ -16,17 +16,19 @@ const withGitHubRest = async () => {
     );
   }
 
-  return groupBlogs(
-    fileNames.map((fileName) => {
+  const blogInfo = await Promise.all(
+    fileNames.map(async (fileName) => {
       const mdFileNameArr = fileName.replace(".md", "").split("/");
 
       return {
         filename: mdFileNameArr[mdFileNameArr.length - 1],
-        metadata: JSON.stringify(getRemotePostMetadata(fileName)),
+        metadata: JSON.stringify(await getRemotePostMetadata(fileName)),
         category: mdFileNameArr[0] as any,
       };
     })
   );
+
+  return groupBlogs(blogInfo);
 };
 
 const withSSG = () => {
