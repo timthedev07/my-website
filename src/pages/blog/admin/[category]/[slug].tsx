@@ -2,8 +2,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import matter, { stringify } from "gray-matter";
 import { MarkdownMetadata } from "../../../../types/posts";
 import { getHeadForPage } from "../../../../utils/getHead";
-import { readRemoteBlog } from "../../../../utils/GHRest";
-import markdownToHtml from "../../../../utils/markdown";
+import { readRemoteBlog, updateBlog } from "../../../../utils/GHRest";
 import RichMarkdownEditor from "@davidilie/markdown-editor";
 import { useNavContext } from "../../../../components/nav/Navbar";
 import { useEffect, useRef, useState } from "react";
@@ -15,27 +14,24 @@ import {
   Textarea,
 } from "dragontail-experimental";
 import { Drawer } from "dragontail-experimental";
+import { useAppLoading } from "../../../../components/AppLoading";
 
 interface Props {
-  content: string;
   metadataAsString: string;
   slug: string;
   originalMarkdown: string;
 }
 
 const Slug: NextPage<Props> = ({
-  content,
   metadataAsString,
   slug,
   originalMarkdown,
 }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
   const { setNavTransparent } = useNavContext();
-  const [updatedFileContent, setUpdatedFileContent] = useState<string | null>(
-    null
-  );
   const editorRef = useRef<RichMarkdownEditor | null>(null);
   const [newMetadata, setNewMetadata] = useState<MarkdownMetadata>(metadata);
+  const { setAppLoading } = useAppLoading();
 
   useEffect(() => {
     setNavTransparent(false);
@@ -117,19 +113,23 @@ const Slug: NextPage<Props> = ({
         <Button
           color="green"
           className="w-[90%] mt-auto"
-          onClick={() => {
+          onClick={async () => {
             const curr = editorRef.current;
             if (!curr) return;
+            setAppLoading(true);
 
             const newVal = curr.value();
-            console.log(newVal);
-            setUpdatedFileContent(newVal);
 
-            // TO IMPLEMENT: upload to github
             const encodedMeta = stringify("", newMetadata);
-            console.log(encodedMeta);
 
             const final = encodedMeta + "\n" + newVal;
+
+            try {
+              await updateBlog(`${metadata.category}/${slug}`, final);
+              setAppLoading(false);
+            } catch (err) {
+              setAppLoading(false);
+            }
           }}
         >
           Save
@@ -158,7 +158,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   return {
     props: {
       slug,
-      content: await markdownToHtml(withMetadata.content),
       metadataAsString: JSON.stringify(withMetadata.data),
       originalMarkdown: withMetadata.content,
     } as Props,
