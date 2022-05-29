@@ -1,5 +1,4 @@
-import type { NextPage } from "next";
-import { GetStaticProps } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import matter from "gray-matter";
 import { MarkdownMetadata } from "../../../../types/posts";
 import { getHeadForPage } from "../../../../utils/getHead";
@@ -31,7 +30,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const slug = params!.slug;
   const category = params!.category;
 
