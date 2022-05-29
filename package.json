@@ -11,7 +11,7 @@
   "dependencies": {
     "@davidilie/markdown-editor": "^1.0.1",
     "@tailwindcss/typography": "^0.5.2",
-    "dragontail-experimental": "^0.0.50",
+    "dragontail-experimental": "^0.0.60",
     "gray-matter": "^4.0.3",
     "mongodb": "^4.5.0",
     "next": "12.1.5",
