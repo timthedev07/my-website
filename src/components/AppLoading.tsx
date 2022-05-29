@@ -10,12 +10,12 @@ import {
 } from "react";
 
 interface AppLoadingContextType {
-  loading: boolean;
-  setLoading: Dispatch<SetStateAction<boolean>>;
+  appLoading: boolean;
+  setAppLoading: Dispatch<SetStateAction<boolean>>;
 }
 const AppLoadingContext = createContext<AppLoadingContextType>({
-  loading: true,
-  setLoading: () => {},
+  appLoading: true,
+  setAppLoading: () => {},
 });
 
 export const useAppLoading = () => {
@@ -27,11 +27,11 @@ export const AppLoadingProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const router = useRouter();
 
-  const [loading, setLoading] = useState(false);
+  const [appLoading, setAppLoading] = useState(false);
 
   useEffect(() => {
-    const handleStart = () => setLoading(true);
-    const handleComplete = () => setLoading(false);
+    const handleStart = () => setAppLoading(true);
+    const handleComplete = () => setAppLoading(false);
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
@@ -45,13 +45,13 @@ export const AppLoadingProvider: React.FC<{ children: ReactNode }> = ({
   });
 
   const value: AppLoadingContextType = {
-    loading,
-    setLoading,
+    appLoading: appLoading,
+    setAppLoading: setAppLoading,
   };
 
   return (
     <AppLoadingContext.Provider value={value}>
-      {loading ? (
+      {appLoading ? (
         <div className="absolute h-1 w-full z-[99999999999999999999]">
           <div className="w-1/2 h-1 bg-sky-500 border-r-transparent rounded-r-full absolute animate-loading-grow"></div>
         </div>
