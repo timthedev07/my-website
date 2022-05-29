@@ -24,6 +24,16 @@
   @apply bg-neutral-400/70;
 }
 
+.transparent-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.transparent-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 100vw;
+  border: solid 0.2rem theme("borderColor.slate.900");
+  @apply bg-neutral-400/70;
+}
+
 @keyframes typing {
   from {
     width: 0;
