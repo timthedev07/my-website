@@ -99,11 +99,11 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             className={`${xPaddings} flex flex-col gap-6 border-2 py-12 bg-slate-700/10 border-slate-700/60 rounded-xl`}
           >
             <h1 className="font-bold">{metadata.title}</h1>
-            <ul className="flex gap-3">
+            <ul className="flex gap-3 flex-wrap">
               {metadata.keywords.map((keyword, ind) => (
                 <li
                   key={keyword}
-                  className={`font-semibold text-sm w-max rounded-md px-2 py-1 ${keywordColors[ind]}`}
+                  className={`whitespace-nowrap font-semibold text-sm w-max rounded-md px-2 py-1 ${keywordColors[ind]}`}
                 >
                   {keyword}
                 </li>
