@@ -1524,10 +1524,10 @@ domexception@^2.0.1:
   dependencies:
     webidl-conversions "^5.0.0"
 
-dragontail-experimental@^0.0.45:
-  version "0.0.45"
-  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.45.tgz#786209a4d9bfefd1bfe9f2525564e7101503f3bf"
-  integrity sha512-5xBKf1AdUPEvBnquN/dsAMqaKJ/GYAmw90ATA2n1sAw191jkZJumziOyE2uOJKojb3s6t/K+APONLyXX9n/D0w==
+dragontail-experimental@^0.0.50:
+  version "0.0.50"
+  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.50.tgz#8548dfad864b1ad3845e225ddac1e080fd066813"
+  integrity sha512-JZgAVr9ZpmVDKh012Yrv4sPw48kcNCJpwissoBVbJiTMcEui8VZsjM8Jx3Dg0HMG8bcLAQIi0GGnYCYnsAW9SA==
 
 ecdsa-sig-formatter@1.0.11:
   version "1.0.11"
