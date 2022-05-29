@@ -78,7 +78,6 @@ const Slug: NextPage<Props> = ({
               <FormControl label="keywords" isRequired>
                 <FormLabel>Comma separated</FormLabel>
                 <Input
-                  defaultValue={metadata.keywords.join(", ")}
                   onChange={(e) => {
                     const val = e.target.value;
                     setNewMetadata((prev) => {
@@ -103,7 +102,6 @@ const Slug: NextPage<Props> = ({
                 <FormLabel>Blog summary</FormLabel>
                 <Textarea
                   className="min-h-[130px]"
-                  defaultValue={metadata.description}
                   value={newMetadata.description}
                   onChange={(e) => {
                     setNewMetadata((prev) => {
