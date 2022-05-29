@@ -38,3 +38,80 @@ export const readRemoteBlog = async (path: string) => {
 
   return await response.text();
 };
+
+export const getLastSha = async () => {
+  const res = await octokit.request("GET /repos/{owner}/{repo}/branches/dev", {
+    owner: "timthedev07",
+    repo: "my-website",
+  });
+  return res.data.commit.sha as string;
+};
+
+export const createBlob = async (utf8Content: string) => {
+  const res = await octokit.request("POST /repos/{owner}/{repo}/git/blobs", {
+    owner: "timthedev07",
+    repo: "my-website",
+    content: utf8Content,
+    encoding: "utf-8",
+  });
+
+  const blobSha = res.data.sha as string;
+  return blobSha;
+};
+
+/**
+ *
+ * @param blobSha
+ * @param fileToUpdate  the relative path from the root of the repo: e.g. posts/math/sth.md
+ * @returns
+ */
+export const getNewTreeSha = async (blobSha: string, fileToUpdate: string) => {
+  const res = await octokit.request("POST /repos/{owner}/{repo}/git/trees", {
+    owner: "timthedev07",
+    repo: "my-website",
+    tree: [
+      {
+        path: fileToUpdate,
+        mode: "100644",
+        type: "blob",
+        sha: blobSha,
+      },
+    ],
+  });
+
+  return res.data.sha as string;
+};
+
+/**
+ *
+ * @param blobSha
+ * @param fileToUpdate  the relative path from the root of the repo: e.g. posts/math/sth.md
+ * @returns
+ */
+export const commit = async (blobSha: string, fileToUpdate: string) => {
+  const res = await octokit.request("POST /repos/{owner}/{repo}/git/commits", {
+    owner: "timthedev07",
+    repo: "my-website",
+    message: "update blog",
+    parents: [await getLastSha()],
+    tree: await getNewTreeSha(blobSha, fileToUpdate),
+  });
+  return res.data.sha as string;
+};
+
+export const updateHead = async (newCommitSha: string) => {
+  await octokit.request("POST /repos/{owner}/{repo}/git/refs/heads/dev", {
+    owner: "timthedev07",
+    repo: "my-website",
+    sha: newCommitSha,
+  });
+};
+
+export const updateBlog = async (
+  categoryAndSlug: string,
+  newContent: string
+) => {
+  const bs = await createBlob(newContent);
+  const ns = await commit(bs, `posts/${categoryAndSlug}.md`);
+  await updateHead(ns);
+};
