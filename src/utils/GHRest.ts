@@ -31,5 +31,7 @@ export const readRemoteBlog = async (path: string) => {
     `https://raw.githubusercontent.com/timthedev07/my-website/dev/posts/${path}`
   );
 
+  if (response.status === 404) throw 404;
+
   return await response.text();
 };
