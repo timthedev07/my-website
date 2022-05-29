@@ -1,7 +1,10 @@
 import * as mongoDB from "mongodb";
 import { BlogComment } from "./models/BlogComment";
-export const collections: { blogComments?: mongoDB.Collection<BlogComment> } =
-  {};
+import { BlogViewCount } from "./models/BlogViewCount";
+export const collections: {
+  blogComments?: mongoDB.Collection<BlogComment>;
+  blogViewCounts?: mongoDB.Collection<BlogViewCount>;
+} = {};
 
 export const connectDB = async () => {
   const client: mongoDB.MongoClient = new mongoDB.MongoClient(
@@ -12,13 +15,15 @@ export const connectDB = async () => {
 
   const db: mongoDB.Db = client.db(process.env.DB_NAME);
 
-  const blogCommentsCollection: mongoDB.Collection = db.collection(
-    process.env.DB_COLLECTION_NAME
-  );
+  const blogCommentsCollection: mongoDB.Collection =
+    db.collection("blog_comments");
+  const blogViewCountsCollection: mongoDB.Collection =
+    db.collection("blog_view_counts");
 
   collections.blogComments = blogCommentsCollection as any;
+  collections.blogViewCounts = blogViewCountsCollection as any;
 
   console.log(
-    `Access to collection "${blogCommentsCollection.collectionName}" granted.`
+    `Access to collections "${blogCommentsCollection.collectionName}", "${blogViewCountsCollection.collectionName}" granted.`
   );
 };
