@@ -6,6 +6,7 @@ interface Args {
   description: string;
   /** relative path; e.g. /login, /me, /users/him */
   path: string;
+  keywords?: string[];
 }
 
 export const getHeadForPage = (pageData: Args) => {
@@ -17,6 +18,9 @@ export const getHeadForPage = (pageData: Args) => {
       <meta name="title" content={title} />
       <meta name="description" content={pageData.description} />
       <meta name="robots" content="index, follow" />
+      {pageData.keywords ? (
+        <meta name="keywords" content={pageData.keywords.join(", ")} />
+      ) : null}
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="0 days" />
