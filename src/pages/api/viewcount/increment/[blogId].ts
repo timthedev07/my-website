@@ -23,11 +23,15 @@ const handler: NextApiHandler = async (req, res) => {
         count: 1,
       },
     });
+    res.send(existing.count + 1);
+    res.end();
   } else {
     collections.blogViewCounts.insertOne({
       blogId: id,
       count: 1,
     });
+    res.send(1);
+    res.end();
   }
 };
 
