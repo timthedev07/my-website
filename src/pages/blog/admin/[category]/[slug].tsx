@@ -1,11 +1,14 @@
-import type { GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
+import dynamic from "next/dynamic";
 import matter, { stringify } from "gray-matter";
 import { MarkdownMetadata } from "../../../../types/posts";
 import { getHeadForPage } from "../../../../utils/getHead";
 import { readRemoteBlog, updateBlog } from "../../../../utils/GHRest";
-import RichMarkdownEditor from "@davidilie/markdown-editor";
+const RichMarkdownEditor = dynamic(() => import("@davidilie/markdown-editor"), {
+  ssr: false,
+});
 import { useNavContext } from "../../../../components/nav/Navbar";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   FormControl,
@@ -29,8 +32,8 @@ const Slug: NextPage<Props> = ({
 }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
   const { setNavTransparent } = useNavContext();
-  const editorRef = useRef<RichMarkdownEditor | null>(null);
   const [newMetadata, setNewMetadata] = useState<MarkdownMetadata>(metadata);
+  const [newContent, setNewContent] = useState<string>(originalMarkdown);
   const { setAppLoading } = useAppLoading();
 
   useEffect(() => {
@@ -50,11 +53,15 @@ const Slug: NextPage<Props> = ({
         className={`${hackyHeight} w-full justify-center items-start flex overflow-y-scroll transparent-scrollbar py-9`}
       >
         <RichMarkdownEditor
-          ref={editorRef}
-          defaultValue={originalMarkdown}
+          placeholder="Write your blog..."
+          defaultValue={newContent}
+          onChange={(a) => {
+            setNewContent(a());
+          }}
+          dark={true}
           /* @ts-ignore */
-          theme={{}}
-          className="w-[80%] child-paragraphs:text-white/70 child-list:text-white/70 child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside"
+          // theme={{}}
+          className="w-[80%] child-paragraphs:leading-7 font-light child-list:text-white/70 child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside"
         />
       </div>
       <aside
@@ -114,15 +121,14 @@ const Slug: NextPage<Props> = ({
           color="green"
           className="w-[90%] mt-auto"
           onClick={async () => {
-            const curr = editorRef.current;
-            if (!curr) return;
             setAppLoading(true);
 
-            const newVal = curr.value();
+            const newVal = newContent;
 
             const encodedMeta = stringify("", newMetadata);
 
             const final = encodedMeta + "\n" + newVal;
+            console.log(final);
 
             try {
               await updateBlog(`${metadata.category}/${slug}`, final);
