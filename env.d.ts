@@ -5,7 +5,6 @@ declare global {
       EMAIL_PASSWORD: string;
       DB_CONN_STRING: string;
       DB_NAME: string;
-      DB_COLLECTION_NAME: string;
       WHITELISTED_ADMIN_EMAILS: string;
       GOOGLE_CLIENT_ID: string;
       GOOGLE_CLIENT_SECRET: string;
