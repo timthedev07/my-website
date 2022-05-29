@@ -99,7 +99,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             </ul>
             <div className="text-white/70 flex w-full justify-between">
               <span>Published on {new Date(metadata.date).toDateString()}</span>
-              <span>{viewCount} Views</span>
+              <span>{viewCount ? viewCount : ""} Views</span>
             </div>
           </article>
           <article
