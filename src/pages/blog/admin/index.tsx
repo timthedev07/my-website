@@ -1,10 +1,10 @@
 import { GetServerSideProps, NextPage } from "next";
 import { getSession } from "next-auth/react";
 import { useEffect } from "react";
-import { useNavContext } from "../../components/nav/Navbar";
-import { BLOG_CATEGORIES } from "../../types/blogCategories";
-import { getBlogsWithMetadata } from "../../utils/blogsWithMeta";
-import { BlogGroups } from "../../utils/groupBlogs";
+import { useNavContext } from "../../../components/nav/Navbar";
+import { BLOG_CATEGORIES } from "../../../types/blogCategories";
+import { getBlogsWithMetadata } from "../../../utils/blogsWithMeta";
+import { BlogGroups } from "../../../utils/groupBlogs";
 
 interface Props {
   blogFileNamesWithMetadata: BlogGroups;
