@@ -4,7 +4,7 @@ description: My thoughts on math
 date: 2022-05-08
 ---
 
-# Why I Love Math
+## Why I Love Math
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/math-pi.jpg)
 

@@ -4,7 +4,7 @@ Description: My thoughts On the "Feedback Loops" in Learning
 date: 2022-05-28
 ---
 
-# Feedback Loops in Learning
+## Introduction
 
 This blog primarily focuses on my opinions on the feedback loops in different subjects and how they are the most significant reason for enhanced engagement and progress aside from passion.
 
