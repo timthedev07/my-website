@@ -75,7 +75,7 @@ const Home: NextPage = () => {
               his dream of studying at G5 colleges.
             </h5>
           </div>
-          <DevSVG className="w-60 h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]" />
+          <DevSVG className="w-48 h-48 md:w-60 md:h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]" />
         </div>
       </header>
       <section className="min-h-[70vh] bg-indigo-900/50 pt-6 h-max w-full relative overflow-hidden flex flex-col items-center">
@@ -88,7 +88,7 @@ const Home: NextPage = () => {
         <div className="relative flex flex-col w-10/12 md:flex-row md:items-center">
           <div className="md:w-1/2 flex flex-col gap-12 justify-center flex-1 relative after:hidden md:after:block after:content-[''] after:absolute after:right-0 after:h-[60%] after:top-[20%] after:bg-white/40 after:w-[1px]">
             <div
-              className="flex justify-center flex-wrap gap-10 p-12"
+              className="flex justify-center flex-wrap gap-10 px-2 py-10 md:p-12"
               ref={techIconsRef}
             >
               <TypeScriptSVG className={techIconClassname} />
@@ -104,7 +104,7 @@ const Home: NextPage = () => {
           <div className="flex-1 md:w-1/2">
             <p
               ref={technicalExperienceRef}
-              className="md:p-16 md:px-16 p-2 px-24 font-semibold"
+              className="md:p-16 md:px-16 p-2 px-6 font-semibold"
             >
               I primarily develop fullstack applications on the internet, and
               over time, I have built confidence with a few frameworks/libraries
