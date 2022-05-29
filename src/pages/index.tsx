@@ -14,6 +14,7 @@ import { SvelteSVG } from "../components/svgs/home/Svelte";
 import { TailwindCSSSVG } from "../components/svgs/home/TailwindCSS";
 import { TypeScriptSVG } from "../components/svgs/home/TypeScript";
 import { blurDataUrl } from "../utils/blurDataUrl";
+import { getHeadForPage } from "../utils/getHead";
 import { useViewportClassname } from "../utils/hooks";
 
 const Home: NextPage = () => {
@@ -33,6 +34,12 @@ const Home: NextPage = () => {
 
   return (
     <>
+      {getHeadForPage({
+        description:
+          "I'm Tim, a software engineer specialized in web development.",
+        path: "/",
+        title: "Homepage",
+      })}
       <aside className="hidden h-96 animate-fade-in-slow md:flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed right-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
         <Link href="mailto:timpersonal07@gmail.com">
           timpersonal07@gmail.com
