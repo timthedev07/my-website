@@ -27,8 +27,11 @@ export const getCategoryPostNames = async (category: string) => {
  * @param path  e.g. math/some-blog.md, school/sth.md
  */
 export const readRemoteBlog = async (path: string) => {
+  const trimmed = path.startsWith("recent")
+    ? path.replace("recent/", "")
+    : path;
   const response = await fetch(
-    `https://raw.githubusercontent.com/timthedev07/my-website/dev/posts/${path}`
+    `https://raw.githubusercontent.com/timthedev07/my-website/dev/posts/${trimmed}`
   );
 
   if (response.status === 404) throw 404;
