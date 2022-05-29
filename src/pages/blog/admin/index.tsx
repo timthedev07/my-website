@@ -3,7 +3,9 @@ import { getSession } from "next-auth/react";
 import { useEffect } from "react";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { BLOG_CATEGORIES } from "../../../types/blogCategories";
+import { MarkdownMetadata } from "../../../types/posts";
 import { getBlogsWithMetadata } from "../../../utils/blogsWithMeta";
+import { getHeadForPage } from "../../../utils/getHead";
 import { BlogGroups } from "../../../utils/groupBlogs";
 
 interface Props {
@@ -18,19 +20,29 @@ const BlogAdmin: NextPage<Props> = ({ blogFileNamesWithMetadata }) => {
   }, [setNavTransparent]);
 
   return (
-    <div>
-      <h2>Blog Admin Dashboard</h2>
-      {BLOG_CATEGORIES.map((category) => (
-        <section key={category}>
-          <h3>{category}</h3>
-          <ul>
-            {blogFileNamesWithMetadata[category].map((each) => (
-              <li key={each.filename}>{each.filename}</li>
-            ))}
-          </ul>
-        </section>
-      ))}
-    </div>
+    <>
+      {getHeadForPage({
+        title: "Blog Admin",
+        description: "Admin Dashboard for My Blog",
+        path: "/blog/admin",
+      })}
+      <div className="p-4">
+        {BLOG_CATEGORIES.map((category) => (
+          <section key={category} className="p-3 my-6 flex flex-col gap-2">
+            <h2 className="text-neutral-100 font-semibold capitalize">
+              {category}
+            </h2>
+            <hr className="h-[2px] bg-white/60 border-none" />
+            <ul>
+              {blogFileNamesWithMetadata[category].map((each) => {
+                const metadata = JSON.parse(each.metadata) as MarkdownMetadata;
+                return <li key={each.filename}>{metadata.title}</li>;
+              })}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </>
   );
 };
 
