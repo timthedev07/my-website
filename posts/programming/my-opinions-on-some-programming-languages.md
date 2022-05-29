@@ -2,6 +2,7 @@
 title: My Opinions on Some Programming Languages
 description: Sharing some of my opinions on the programming languages I've learned.
 date: 2021-09-05
+keywords: ["Programming", "Web Development", "Competitive Programming"]
 ---
 
 ## Intro
