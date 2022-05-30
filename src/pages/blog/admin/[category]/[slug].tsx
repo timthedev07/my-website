@@ -131,6 +131,7 @@ const Slug: NextPage<Props> = ({
             const final = encodedMeta + "\n" + newVal;
 
             const response = await fetch("/api/update-blog", {
+              method: "POST",
               body: JSON.stringify({
                 categoryAndSlug: `${metadata.category}/${slug}`,
                 newContent: final,
