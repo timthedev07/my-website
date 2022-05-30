@@ -20,6 +20,7 @@ import { Drawer } from "dragontail-experimental";
 import { useAppLoading } from "../../../../components/AppLoading";
 import { BlogUpdate } from "../../../../types/blogUpdate";
 import { useRouter } from "next/router";
+import { BLOG_CATEGORIES } from "../../../../types/blogCategories";
 
 interface Props {
   metadataAsString: string;
@@ -159,6 +160,12 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   let fileContent: string;
 
+  if (BLOG_CATEGORIES.findIndex(() => category) < 0) {
+    return {
+      notFound: true,
+    };
+  }
+
   try {
     fileContent = await readRemoteBlog(`${category}/${slug}.md`);
   } catch (err) {
@@ -168,6 +175,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   }
 
   const withMetadata = matter(fileContent);
+  withMetadata.data.category = category;
 
   return {
     props: {
