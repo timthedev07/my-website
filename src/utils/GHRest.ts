@@ -133,14 +133,14 @@ export const updateHead = async (newCommitSha: string) => {
 export const getFileSha = async (categoryAndSlug: string) => {
   try {
     const res = await octokit.request(
-      `GET /repos/{owner}/{repo}/git/contents/{path}`,
+      `GET /repos/{owner}/{repo}/contents/{path}`,
       {
         owner: "timthedev07",
         repo: "my-website",
         path: `posts/${categoryAndSlug}.md`,
       }
     );
-    return res.data.sha as string;
+    return (res.data as any).sha as string;
   } catch (err) {
     console.log(err);
     return "";
