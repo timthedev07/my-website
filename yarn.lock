@@ -147,10 +147,10 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@davidilie/markdown-editor@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@davidilie/markdown-editor/-/markdown-editor-1.0.1.tgz#0425d249896cf77f309ee617d5ae8fa50e8f9484"
-  integrity sha512-epjshgYkU7fdgCL5qMOsIpEhLGj3vjVjaN+GdS/2ObJw4icMsygfsyxMK1Sy8hga9MzO8HLgVzyzuNPOJofJog==
+"@davidilie/markdown-editor@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@davidilie/markdown-editor/-/markdown-editor-1.0.3.tgz#1378c62c6f5307f6799cc021908575e3bbb1d6f0"
+  integrity sha512-nrkxdIOPu2hNf3eWs7hVAJ4+8Dlqor2dUqezTIXOwEhTHNWMjvgoIV90qIJEWdTDRQptR6ytLZPzRe0yA0SVZw==
   dependencies:
     copy-to-clipboard "^3.0.8"
     fuzzy-search "^3.2.1"
