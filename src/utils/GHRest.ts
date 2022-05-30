@@ -1,4 +1,5 @@
 import { Octokit } from "octokit";
+import { b64EncodeUnicode } from "./strings";
 
 export const octokit = new Octokit({
   auth: process.env.GITHUB_REST_TOKEN,
@@ -117,6 +118,7 @@ export const commit = async (blobSha: string, fileToUpdate: string) => {
     parents: [shas.commitSha],
     tree: await getNewTreeSha(blobSha, fileToUpdate, shas.treeSha),
   });
+  console.log(res);
   return res.data.sha as string;
 };
 
@@ -132,7 +134,11 @@ export const updateBlog = async (
   categoryAndSlug: string,
   newContent: string
 ) => {
-  const bs = await createBlob(newContent);
-  const ns = await commit(bs, `posts/${categoryAndSlug}.md`);
-  await updateHead(ns);
+  await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
+    owner: "timthedev07",
+    repo: "my-website",
+    path: `posts/${categoryAndSlug}.md`,
+    message: "Update blog",
+    content: b64EncodeUnicode(newContent),
+  });
 };
