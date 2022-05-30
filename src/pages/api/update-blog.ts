@@ -1,4 +1,6 @@
 import { NextApiHandler } from "next";
+import { withAuth } from "../../lib/middlewares/authRoute";
+import { withMethodGuard } from "../../lib/middlewares/methodGuard";
 import { BlogUpdate } from "../../types/blogUpdate";
 import { updateBlog } from "../../utils/GHRest";
 
@@ -13,4 +15,4 @@ const handler: NextApiHandler = async (req, res) => {
   }
 };
 
-export default handler;
+export default withAuth(withMethodGuard(handler, "POST"), true);
