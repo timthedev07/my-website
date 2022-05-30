@@ -65,7 +65,7 @@ const Slug: NextPage<Props> = ({
           dark={true}
           /* @ts-ignore */
           // theme={{}}
-          className="w-[80%] child-paragraphs:leading-7 font-light child-list:text-white/70 child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside"
+          className="px-20 child-paragraphs:leading-7 font-light child-list:text-white/70 child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside"
         />
       </div>
       <aside
