@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import matter, { stringify } from "gray-matter";
 import { MarkdownMetadata } from "../../../../types/posts";
 import { getHeadForPage } from "../../../../utils/getHead";
-import { readRemoteBlog, updateBlog } from "../../../../utils/GHRest";
+import { readRemoteBlog } from "../../../../utils/GHRest";
 const RichMarkdownEditor = dynamic(() => import("@davidilie/markdown-editor"), {
   ssr: false,
 });
@@ -18,6 +18,8 @@ import {
 } from "dragontail-experimental";
 import { Drawer } from "dragontail-experimental";
 import { useAppLoading } from "../../../../components/AppLoading";
+import { BlogUpdate } from "../../../../types/blogUpdate";
+import { useRouter } from "next/router";
 
 interface Props {
   metadataAsString: string;
@@ -35,6 +37,7 @@ const Slug: NextPage<Props> = ({
   const [newMetadata, setNewMetadata] = useState<MarkdownMetadata>(metadata);
   const [newContent, setNewContent] = useState<string>(originalMarkdown);
   const { setAppLoading } = useAppLoading();
+  const { reload } = useRouter();
 
   useEffect(() => {
     setNavTransparent(false);
@@ -126,13 +129,19 @@ const Slug: NextPage<Props> = ({
             const encodedMeta = stringify("", newMetadata);
 
             const final = encodedMeta + "\n" + newVal;
-            console.log(final);
 
-            try {
-              await updateBlog(`${metadata.category}/${slug}`, final);
-              setAppLoading(false);
-            } catch (err) {
-              setAppLoading(false);
+            const response = await fetch("/api/update-blog", {
+              body: JSON.stringify({
+                categoryAndSlug: `${metadata.category}/${slug}`,
+                newContent: final,
+              } as BlogUpdate),
+            });
+
+            setAppLoading(false);
+
+            if (!response.ok) alert("Update failed.");
+            else {
+              reload();
             }
           }}
         >
