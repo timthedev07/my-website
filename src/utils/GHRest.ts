@@ -44,7 +44,21 @@ export const getLastSha = async () => {
     owner: "timthedev07",
     repo: "my-website",
   });
-  return res.data.commit.sha as string;
+  return {
+    commitSha: res.data.commit.sha as string,
+    treeSha: res.data.commit.commit.tree.sha as string,
+  };
+};
+
+export const getExistingTree = async (treeSha: string) => {
+  return await octokit.request(
+    "GET /repos/{owner}/{repo}/git/trees/{tree_sha}",
+    {
+      owner: "timthedev07",
+      repo: "my-website",
+      tree_sha: treeSha,
+    }
+  );
 };
 
 export const createBlob = async (utf8Content: string) => {
@@ -65,11 +79,17 @@ export const createBlob = async (utf8Content: string) => {
  * @param fileToUpdate  the relative path from the root of the repo: e.g. posts/math/sth.md
  * @returns
  */
-export const getNewTreeSha = async (blobSha: string, fileToUpdate: string) => {
+export const getNewTreeSha = async (
+  blobSha: string,
+  fileToUpdate: string,
+  treeSha: string
+) => {
+  const existingTree = await getExistingTree(treeSha);
   const res = await octokit.request("POST /repos/{owner}/{repo}/git/trees", {
     owner: "timthedev07",
     repo: "my-website",
     tree: [
+      ...(existingTree.data.tree as any),
       {
         path: fileToUpdate,
         mode: "100644",
@@ -89,12 +109,13 @@ export const getNewTreeSha = async (blobSha: string, fileToUpdate: string) => {
  * @returns
  */
 export const commit = async (blobSha: string, fileToUpdate: string) => {
+  const shas = await getLastSha();
   const res = await octokit.request("POST /repos/{owner}/{repo}/git/commits", {
     owner: "timthedev07",
     repo: "my-website",
     message: "update blog",
-    parents: [await getLastSha()],
-    tree: await getNewTreeSha(blobSha, fileToUpdate),
+    parents: [shas.commitSha],
+    tree: await getNewTreeSha(blobSha, fileToUpdate, shas.treeSha),
   });
   return res.data.sha as string;
 };
@@ -112,8 +133,6 @@ export const updateBlog = async (
   newContent: string
 ) => {
   const bs = await createBlob(newContent);
-  console.log(bs);
   const ns = await commit(bs, `posts/${categoryAndSlug}.md`);
-  console.log(ns);
   await updateHead(ns);
 };
