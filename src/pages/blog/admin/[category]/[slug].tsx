@@ -77,7 +77,7 @@ const Slug: NextPage<Props> = ({
           className="w-full"
           content={
             <>
-              <FormControl label="keywords" isRequired>
+              <FormControl label="title" isRequired>
                 <FormLabel>Title</FormLabel>
                 <Input
                   onChange={(e) => {
@@ -94,7 +94,7 @@ const Slug: NextPage<Props> = ({
               </FormControl>
             </>
           }
-          drawerLabel="Keywords"
+          drawerLabel="Title"
         />
         <Drawer
           className="w-full"
