@@ -63,8 +63,6 @@ const Slug: NextPage<Props> = ({
             setNewContent(a());
           }}
           dark={true}
-          /* @ts-ignore */
-          // theme={{}}
           className="px-20 child-paragraphs:leading-7 font-light child-list:text-white/70 child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside"
         />
       </div>
@@ -75,6 +73,29 @@ const Slug: NextPage<Props> = ({
           Edit
         </h3>
 
+        <Drawer
+          className="w-full"
+          content={
+            <>
+              <FormControl label="keywords" isRequired>
+                <FormLabel>Title</FormLabel>
+                <Input
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setNewMetadata((prev) => {
+                      return {
+                        ...prev,
+                        title: val,
+                      };
+                    });
+                  }}
+                  value={newMetadata.keywords.join(", ")}
+                />
+              </FormControl>
+            </>
+          }
+          drawerLabel="Keywords"
+        />
         <Drawer
           className="w-full"
           content={
