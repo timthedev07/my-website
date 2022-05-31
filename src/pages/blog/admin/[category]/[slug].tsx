@@ -89,7 +89,7 @@ const Slug: NextPage<Props> = ({
                       };
                     });
                   }}
-                  value={newMetadata.keywords.join(", ")}
+                  value={newMetadata.title}
                 />
               </FormControl>
             </>
