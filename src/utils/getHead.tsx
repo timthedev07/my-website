@@ -7,6 +7,7 @@ interface Args {
   /** relative path; e.g. /login, /me, /users/him */
   path: string;
   keywords?: string[];
+  image?: string;
 }
 
 export const getHeadForPage = (pageData: Args) => {
@@ -32,6 +33,12 @@ export const getHeadForPage = (pageData: Args) => {
       <meta property="og:description" content={pageData.description} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={pageData.description} />
+      {metadata.image ? (
+        <>
+          <meta property="og:image" content={metadata.image} />
+          <meta name="twitter:image" content={metadata.image} />
+        </>
+      ) : (<></>)}
     </Head>
   );
 };
