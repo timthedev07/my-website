@@ -28,3 +28,53 @@ I decided to use the Cartesian coordinate system for this program because I find
 - `y = 0`
 
 Which creates the following straight lines:
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/cartesian-equilateral.png)
+
+Now, to generate a point within this bounded region we have to check for the following inequalities:
+
+- `y < sqrt(3)x`
+- `y < -sqrt(3)x + 3sqrt(3)`
+- `y > 0`
+
+That's where these two methods of the `Line` class come in handy:
+
+```python
+def isAboveSlope(self, x, y, allowEqual=False):
+  # if on the Line
+  yBound = self.getY(x)
+  if yBound == y:
+    return allowEqual
+
+  return yBound < y
+
+def isBelowSlope(self, x, y, allowEqual=False):
+  # if on the Line
+  yBound = self.getY(x)
+  if yBound == y:
+    return allowEqual
+
+  return yBound > y
+```
+
+What is the `getY` method?
+
+```python
+def getY(self, x):
+  return self.gradient * x + self.yIntercept
+
+def getX(self, y):
+  return (y - self.yIntercept) / self.gradient
+```
+
+Basically, it's just substituting a given value in the pair `(x, y)` to find the other. Simple algebra. These methods simply rearrange the equation to find the desired value.
+
+### Finding the areas of the smaller triangles
+
+Now that we have functions to check if a point P(x, y) is within the equilateral triangle, the next step is to compute the areas of triangles `ADB`, `ADC`, and `BDC`.
+
+How should we do that?
+
+Given that each triangle shares a base of length 3, the only thing missing to finding their areas is the **perpendicular distance from P to each of the three lines** respectively.
+
+Consider the following random point, (1, 1):
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/p-in-equilateral.png)
