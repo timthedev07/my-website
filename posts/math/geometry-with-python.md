@@ -93,7 +93,7 @@ Firstly, the triangle can be interpreted this way, and we will just call the two
 
 The area will equal `deltaX * deltaY / 2`
 
-However, there is another way to calculate its area, and that is, we can easily find the hypotenuse with Pythagoras's theorem, but the point of this is that, when we multiply the hypotenuse by the **perpendicular** distance between P and the line\*_, we get the same value as `deltaX _ deltaY / 2`. Therefore, the equation can be written as follows, where D is the perpendicular distance:
+However, there is another way to calculate its area, and that is, we can easily find the hypotenuse with Pythagoras's theorem, but the point of this is that, when we multiply the hypotenuse by the **perpendicular** distance between P and the line, we get the same value as `deltaX _ deltaY / 2`. Therefore, the equation can be written as follows, where D is the perpendicular distance:
 
 ```
 deltaX * deltaY = sqrt(deltaX^2 + deltaY^2) * D
