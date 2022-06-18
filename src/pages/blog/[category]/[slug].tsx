@@ -42,8 +42,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
 
     setInterval(() => {
       setLoadingDots((prev) => {
-        if (prev === 3) return 1;
-        return (prev + 1) % 3;
+        return (prev + 1) % 4;
       });
     }, 300);
   }, [viewCount]);
