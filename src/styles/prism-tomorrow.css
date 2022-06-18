@@ -39,8 +39,8 @@ pre[class*="language-"] {
 
 /* Inline code */
 :not(pre) > code {
-  padding-x: 0.12em 0.18rem;
-  border-radius: 0.3em;
+  padding: 0.12em 0.18rem !important;
+  border-radius: 0.3em !important;
 }
 
 .token.comment,
