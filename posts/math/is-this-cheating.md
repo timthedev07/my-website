@@ -15,7 +15,7 @@ keywords: ["Math", "Programming", "Geometry"]
 
 The computes the probability by randomly generating a huge number of points within the triangle, and for each of the points, a test is run to check if one of the triangles is greater than both of the other ones.
 
-For reliability, this experiment/process is repeated a few number of times and thus an average probability is presented as the result.
+For reliability, this experiment/process is repeated a few times and thus an average probability is presented as the result.
 
 ## Implementation Details
 
@@ -28,6 +28,7 @@ I decided to use the Cartesian coordinate system for this program because I find
 - `y = 0`
 
 Which creates the following straight lines:
+
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/cartesian-equilateral.png)
 
 Now, to generate a point within this bounded region we have to check for the following inequalities:
@@ -74,7 +75,82 @@ Now that we have functions to check if a point P(x, y) is within the equilateral
 
 How should we do that?
 
-Given that each triangle shares a base of length 3, the only thing missing to finding their areas is the **perpendicular distance from P to each of the three lines** respectively.
+Given that each triangle shares a base of length 3, the only thing missing in finding their areas is the **perpendicular distance from P to each of the three lines** respectively.
 
-Consider the following random point, (1, 1):
+Consider the following point, (1, 1):
+
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/p-in-equilateral.png)
+
+We can construct a triangle as follows:
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/p-in-equilateral-1.png)
+
+Notice that to get the area of it, there are **two** ways to do it with `bh / 2`.
+
+Firstly, the triangle can be interpreted this way, and we will just call the two distances `deltaX` and `deltaY` for simplicity:
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/p-in-equilateral-2.png)
+
+The area will equal `deltaX * deltaY / 2`
+
+However, there is another way to calculate its area, and that is, we can easily find the hypotenuse with Pythagoras's theorem, but the point of this is that, when we multiply the hypotenuse by the **perpendicular** distance between P and the line\*_, we get the same value as `deltaX _ deltaY / 2`. Therefore, the equation can be written as follows, where D is the perpendicular distance:
+
+```
+deltaX * deltaY = sqrt(deltaX^2 + deltaY^2) * D
+```
+
+Rearranging it gets us the formula for D:
+
+```
+D = deltaX * deltaY / sqrt(deltaX^2 + deltaY^2)
+```
+
+The formula is implemented in this function:
+
+```python
+def perpendicularDistance(line, point):
+  # if the line is horizontal, just return the change in Y, which in fact, is the perpendicular distance
+  if line.gradient == 0:
+    return math.fabs(point[1] - line.getY(point[0]))
+
+  # get change in y between the point and the point above and collinear with it at 90deg
+  deltaY = math.fabs(line.getY(point[0]) - point[1])
+
+  # get change in x between the point and the point horizontally aligned and collinear with it
+  deltaX = math.fabs(line.getX(point[1]) - point[0])
+
+  res = (deltaX * deltaY) / math.sqrt(deltaY**2 + deltaX**2)
+  return res
+```
+
+To compute the area, we simply multiply the base, which is 3 in this case, by the `D` that is computed from the function.
+
+### Testing the statement
+
+So at the end, we end up with this `testStatement` function:
+
+```python
+def testStatement(triangle, p):
+  h1 = perpendicularDistance(triangle.base, p)
+  h2 = perpendicularDistance(triangle.left, p)
+  h3 = perpendicularDistance(triangle.right, p)
+
+  trA = getAreaTriangle(3, h1)
+  trB = getAreaTriangle(3, h2)
+  trC = getAreaTriangle(3, h3)
+
+  computedSum = trA + trB + trC
+
+  triangleArea = (3**2 * math.sqrt(3) / 4)
+
+  if math.fabs(computedSum - triangleArea) > THRESHOLD:
+    exit("Error boundary for the computed areas is exceeded!")
+
+  return trA > trB and trA > trC
+```
+
+Now, `trA`, `trB`, and `trC` are the areas of the individual smaller triangles. For the sake of accuracy, an error boundary is enforced to make sure that the sum of the three areas is off from the theoretically correct sum(the area of the larger triangle) no more than the `THRESHOLD`, which is defined as 10 to the power of -10.
+
+This is not because the algorithm is not accurate, it's just in programs, there are sometimes number overflows and other issues which may result in inaccuracy. But the difference is unnoticeable and shall not affect our conclusion.
+
+The function's return value indicates if one of the areas is greater than the other two.
