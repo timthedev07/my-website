@@ -172,3 +172,5 @@ This would be our conclusion.
 Some might argue that solving math problems with programming is kind of like cheating. Now, to some extent I do agree, because the problem challenges you, not the computer.
 
 However, I think combining the two of them does make things more interesting. From my experience implementing it, integrating mathematical ideas into programming is quite enjoyable.
+
+[Check out the source code on GitHub](https://github.com/timthedev07/brute-force-math-june-2022)
