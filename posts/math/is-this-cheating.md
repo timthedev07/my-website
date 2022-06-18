@@ -7,7 +7,7 @@ keywords: ["Math", "Programming", "Geometry"]
 
 ## Problem Statement
 
-> A point D is randomly generated within the equilateral triangle ABC. Find the probability that the area of triangle ADB is greater than that of each triangle ADC and triangle BDC
+> A point D is randomly generated within the equilateral triangle ABC. Find the probability that the area of triangle ADB is greater than that of each triangle ADC and triangle BDC.
 
 **A.1/6&nbsp;&nbsp;&nbsp;&nbsp;B.1/4&nbsp;&nbsp;&nbsp;&nbsp;C.1/3&nbsp;&nbsp;&nbsp;&nbsp;D.1/2&nbsp;&nbsp;&nbsp;&nbsp;E.2/3**
 
@@ -154,3 +154,21 @@ Now, `trA`, `trB`, and `trC` are the areas of the individual smaller triangles. 
 This is not because the algorithm is not accurate, it's just in programs, there are sometimes number overflows and other issues which may result in inaccuracy. But the difference is unnoticeable and shall not affect our conclusion.
 
 The function's return value indicates if one of the areas is greater than the other two.
+
+### Computing a probability from random points
+
+Now, as `N_POINTS` points are generated, we will run `testStatement` on each of them to give us a conclusion.
+
+The probability can be shown as `the number of times the statement is true / N_POINTS`.
+
+### Reiterating for reliability
+
+Repeat the above step `N_ITERATIONS` times and find the average.
+
+This would be our conclusion.
+
+## Conclusion
+
+Some might argue that solving math problems with programming is kind of like cheating. Now, to some extent I do agree, because the problem challenges you, not the computer.
+
+However, I think combining the two of them does make things more interesting. Now, from my experience implementing it, integrating mathematical ideas into programming is of course an interesting thing to do.
