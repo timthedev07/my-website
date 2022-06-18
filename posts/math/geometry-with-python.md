@@ -127,7 +127,7 @@ To compute the area, we simply multiply the base, which is 3 in this case, by th
 
 ### Testing the statement
 
-So at the end, we end up with this `testStatement` function:
+So in the end, we end up with this `testStatement` function:
 
 ```python
 def testStatement(triangle, p):
@@ -149,7 +149,7 @@ def testStatement(triangle, p):
   return trA > trB and trA > trC
 ```
 
-Now, `trA`, `trB`, and `trC` are the areas of the individual smaller triangles. For the sake of accuracy, an error boundary is enforced to make sure that the sum of the three areas is off from the theoretically correct sum(the area of the larger triangle) no more than the `THRESHOLD`, which is defined as 10 to the power of -10.
+Now, `trA`, `trB`, and `trC` are the areas of the individual smaller triangles. For the sake of accuracy, an error boundary is enforced to ensure that the sum of the three areas is off from the theoretically correct sum(the area of the larger triangle) no more than `THRESHOLD`, which is defined as 10 to the power of -10.
 
 This is not because the algorithm is not accurate, it's just in programs, there are sometimes number overflows and other issues which may result in inaccuracy. But the difference is unnoticeable and shall not affect our conclusion.
 
@@ -171,4 +171,4 @@ This would be our conclusion.
 
 Some might argue that solving math problems with programming is kind of like cheating. Now, to some extent I do agree, because the problem challenges you, not the computer.
 
-However, I think combining the two of them does make things more interesting. Now, from my experience implementing it, integrating mathematical ideas into programming is of course an interesting thing to do.
+However, I think combining the two of them does make things more interesting. From my experience implementing it, integrating mathematical ideas into programming is quite enjoyable.
