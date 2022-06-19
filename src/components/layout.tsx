@@ -42,6 +42,10 @@ export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
+        <meta
+          name="google-site-verification"
+          content="ou31BwzL6hYs78yHQZrfEFRvZIBWxVoPkErFfm0f2z4"
+        />
       </Head>
 
       <div id="App" className={`bg-slate-900`}>
