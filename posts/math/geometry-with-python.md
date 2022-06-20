@@ -13,7 +13,7 @@ keywords: ["Math", "Programming", "Geometry"]
 
 ## Brute-forcing with Python
 
-The computes the probability by randomly generating a huge number of points within the triangle, and for each of the points, a test is run to check if one of the triangles is greater than both of the other ones.
+This computes the probability by randomly generating a huge number of points within the triangle, and for each of the points, a test is run to check if one of the triangles is greater than both of the other ones.
 
 For reliability, this experiment/process is repeated a few times and thus an average probability is presented as the result.
 
