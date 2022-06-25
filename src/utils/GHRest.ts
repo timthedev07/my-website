@@ -1,9 +1,30 @@
 import { Octokit } from "octokit";
+import { Site, WithStarCount } from "../pages/projects";
 import { b64EncodeUnicode } from "./strings";
 
 export const octokit = new Octokit({
   auth: process.env.GITHUB_REST_TOKEN,
 });
+
+export const getRepoWithStars = async (site: Site) => {
+  const repoInfo = await octokit.request("GET /repos/{owner}/{repo}", {
+    owner: "timthedev07",
+    repo: site.githubRepo,
+  });
+
+  const stars = (
+    await octokit.request("GET /repos/{owner}/{repo}/stargazers", {
+      owner: "timthedev07",
+      repo: site.githubRepo,
+    })
+  ).data.length;
+
+  return {
+    ...site,
+    url: repoInfo.data.homepage,
+    stars,
+  } as WithStarCount;
+};
 
 export const getCategories = async (): Promise<string[]> => {
   const a = await octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
