@@ -11,22 +11,13 @@ import markdownToHtml from "../../../utils/markdown";
 import { getHeadForPage } from "../../../utils/getHead";
 import { useAppLoading } from "../../../components/AppLoading";
 import { useNavContext } from "../../../components/nav/Navbar";
+import { TagList } from "../../../components/TagList";
 
 interface Props {
   content: string;
   metadataAsString: string;
   slug: string;
 }
-
-const keywordColors = [
-  "bg-yellow-600",
-  "bg-emerald-600",
-  "bg-violet-600",
-  "bg-cyan-600",
-  "bg-orange-600",
-  "bg-rose-600",
-  "bg-slate-500",
-];
 
 const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
@@ -98,16 +89,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             className={`${xPaddings} flex flex-col gap-6 border-2 py-12 bg-slate-700/10 border-slate-700/60 rounded-xl`}
           >
             <h1 className="font-bold">{metadata.title}</h1>
-            <ul className="flex gap-3 flex-wrap">
-              {metadata.keywords.map((keyword, ind) => (
-                <li
-                  key={keyword}
-                  className={`whitespace-nowrap font-semibold text-sm w-max rounded-md px-2 py-1 ${keywordColors[ind]}`}
-                >
-                  {keyword}
-                </li>
-              ))}
-            </ul>
+            <TagList tagContents={metadata.keywords} className="flex-wrap" />
             <div className="text-white/70 flex w-full justify-between">
               <span>Published on {new Date(metadata.date).toDateString()}</span>
               <span>
