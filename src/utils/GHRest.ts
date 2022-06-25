@@ -12,17 +12,10 @@ export const getRepoWithStars = async (site: Site) => {
     repo: site.githubRepo,
   });
 
-  const stars = (
-    await octokit.request("GET /repos/{owner}/{repo}/stargazers", {
-      owner: "timthedev07",
-      repo: site.githubRepo,
-    })
-  ).data.length;
-
   return {
     ...site,
     url: repoInfo.data.homepage,
-    stars,
+    stars: repoInfo.data.stargazers_count,
   } as WithStarCount;
 };
 
