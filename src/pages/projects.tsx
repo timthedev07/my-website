@@ -1,42 +1,56 @@
 import type { GetStaticProps, NextPage } from "next";
+import { getRepoWithStars } from "../utils/GHRest";
 
-type OtherSite = {
-  url: string;
+export type Site = {
+  name: string;
   githubRepo: string;
 };
 
-export const OTHER_SITES: OtherSite[] = [
+export type WithStarCount = Site & {
+  url: string;
+  stars: number;
+};
+
+export const SITES: Site[] = [
   {
+    name: "Dream Of Berlin",
     githubRepo: "dashboard4dev",
-    url: "https://dashboard4dev.netlify.app",
   },
   {
+    name: "Dashboard4Dev",
+    githubRepo: "dashboard4dev",
+  },
+  {
+    name: "Who's More Popular?",
     githubRepo: "whosmorepopular",
-    url: "http://whosmorepopular.netlify.app",
   },
   {
+    name: "Creativity Matters",
     githubRepo: "Creativity-Matters",
-    url: "https://creativity-matters.netlify.app/",
   },
   {
+    name: "React Snake Game",
     githubRepo: "snake",
-    url: "https://gnarly-snake.netlify.app",
   },
   {
+    name: "Todo Master",
     githubRepo: "todo-master",
-    url: "https://todo-master-www.netlify.app/",
   },
 ];
 
-interface Props {}
+interface Props {
+  sites: WithStarCount[];
+}
 
-const Projects: NextPage<Props> = () => {
+const Projects: NextPage<Props> = ({ sites }) => {
   return <></>;
 };
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
-    props: {} as Props,
+    props: {
+      sites: await Promise.all(SITES.map(getRepoWithStars)),
+    } as Props,
   };
 };
 
