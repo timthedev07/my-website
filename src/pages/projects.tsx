@@ -1,4 +1,7 @@
 import type { GetStaticProps, NextPage } from "next";
+import { useEffect } from "react";
+import { useNavContext } from "../components/nav/Navbar";
+import { Site } from "../components/projects/Site";
 import { getRepoWithStars } from "../utils/GHRest";
 
 export type Site = {
@@ -9,6 +12,7 @@ export type Site = {
 export type WithStarCount = Site & {
   url: string;
   stars: number;
+  topics: string[];
 };
 
 export const SITES: Site[] = [
@@ -43,7 +47,17 @@ interface Props {
 }
 
 const Projects: NextPage<Props> = ({ sites }) => {
-  return <></>;
+  const { setNavTransparent } = useNavContext();
+
+  useEffect(() => {
+    setNavTransparent(false);
+  }, [setNavTransparent]);
+
+  return (
+    <section className="justify-center items-start flex p-4 flex-wrap gap-5">
+      {sites.map(Site)}
+    </section>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
