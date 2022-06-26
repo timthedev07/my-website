@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useNavContext } from "../components/nav/Navbar";
 import { Site } from "../components/projects/Site";
 import { getRepoWithStars } from "../utils/GHRest";
+import cw from "capture-website";
 
 export type Site = {
   name: string;
@@ -13,12 +14,13 @@ export type WithStarCount = Site & {
   url: string;
   stars: number;
   topics: string[];
+  description: string;
 };
 
 export const SITES: Site[] = [
   {
     name: "Dream Of Berlin",
-    githubRepo: "dashboard4dev",
+    githubRepo: "Dream-Of-Berlin",
   },
   {
     name: "Dashboard4Dev",
@@ -55,15 +57,32 @@ const Projects: NextPage<Props> = ({ sites }) => {
 
   return (
     <section className="justify-center items-start flex p-4 flex-wrap gap-5">
-      {sites.map(Site)}
+      {sites.map((each) => (
+        <Site {...each} key={each.name} />
+      ))}
     </section>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const sites = await Promise.all(
+    SITES.map(async (e) => {
+      const t = await getRepoWithStars(e);
+
+      const ss = await cw.base64(t.url as string, {
+        isJavaScriptEnabled: true,
+        delay: 4,
+        type: "jpeg",
+        quality: 0.5,
+      });
+
+      return { ...t, ss };
+    })
+  );
+
   return {
     props: {
-      sites: await Promise.all(SITES.map(getRepoWithStars)),
+      sites,
     } as Props,
   };
 };
