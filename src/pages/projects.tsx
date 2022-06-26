@@ -74,6 +74,9 @@ export const getStaticProps: GetStaticProps = async () => {
         delay: 4,
         type: "jpeg",
         quality: 0.5,
+        launchOptions: {
+          args: ["--no-sandbox", "--disable-setuid-sandbox"],
+        },
       });
 
       return { ...t, ss };
