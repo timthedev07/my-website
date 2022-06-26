@@ -15,6 +15,7 @@ export const getRepoWithStars = async (site: Site) => {
   return {
     ...site,
     url: repoInfo.data.homepage,
+    description: repoInfo.data.description,
     stars: repoInfo.data.stargazers_count,
     topics: repoInfo.data.topics || [],
   } as WithStarCount;
