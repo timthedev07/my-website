@@ -16,7 +16,7 @@ export const Site: FC<WithStarCount & { ss?: string }> = ({
   ss,
 }) => {
   return (
-    <div className="flex flex-col p-4 rounded-md border border-slate-400/40 w-80 md:w-[556px] h-[546px] bg-slate-400/20 transform transition duration-200 hover:-translate-y-1">
+    <div className="flex flex-col p-4 rounded-md border border-slate-400/40 w-80 md:w-[516px] h-[546px] bg-slate-400/20 transform transition duration-200 hover:-translate-y-1">
       <div className="w-full h-[60%] relative rounded-md overflow-hidden cursor-pointer">
         <Link href={url} passHref>
           <Image
@@ -32,7 +32,9 @@ export const Site: FC<WithStarCount & { ss?: string }> = ({
         <div className="flex flex-col gap-2">
           <h3 className="font-bold">{name}</h3>
           <TagList tagContents={topics} className="overflow-x-auto" />
-          <p className="flex-[2_1_0] flex-grow text-white/75">{description}</p>
+          <p className="flex-[2_1_0] flex-grow text-white/75 text-[14px]">
+            {description}
+          </p>
         </div>
         <Link href={`https://github.com/timthedev07/${githubRepo}/`} passHref>
           <div className="cursor-pointer bg-slate-300/30 w-min flex items-center rounded-md border-2 border-slate-400/40 transition duration-200 hover:bg-slate-500/40">
