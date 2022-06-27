@@ -80,6 +80,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
         description: metadata.description,
         path: `/blog/${metadata.category}/${slug}`,
         keywords: metadata.keywords,
+        image: `/thumbnails/${slug}.png`,
       })}
       <div className="flex flex-col justify-center items-center">
         <section
