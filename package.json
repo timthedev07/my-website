@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@davidilie/markdown-editor": "^1.0.3",
     "@tailwindcss/typography": "^0.5.2",
     "capture-website": "^2.4.0",
     "dragontail-experimental": "^0.0.60",
@@ -24,8 +23,7 @@
     "react-dom": "^18.1.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
-    "remark-prism": "^1.3.6",
-    "styled-components": "^5.3.5"
+    "remark-prism": "^1.3.6"
   },
   "devDependencies": {
     "@types/node": "^17.0.29",
