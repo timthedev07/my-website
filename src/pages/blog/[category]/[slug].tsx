@@ -12,6 +12,7 @@ import { getHeadForPage } from "../../../utils/getHead";
 import { useAppLoading } from "../../../components/AppLoading";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { TagList } from "../../../components/TagList";
+import { Button } from "dragontail-experimental";
 
 interface Props {
   content: string;
@@ -98,6 +99,19 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
                 {!viewCount || viewCount > 1 ? "s" : ""}
               </span>
             </div>
+            <div>
+              <Button
+                onClick={() => {
+                  navigator.clipboard.writeText(
+                    `https://${window.location.hostname}/blog/${metadata.category}/${slug}`
+                  );
+                }}
+                variant="ghost"
+                color="orange"
+              >
+                Copy Link
+              </Button>
+            </div>
           </article>
           <article
             className={`flex child-headings:font-semibold flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-paragraphs:text-white/70 child-list:text-white/70 child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500`}
@@ -152,6 +166,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   ).toString();
 
   const withMetadata = matter(fileContent);
+
+  withMetadata.data.category = category;
 
   return {
     props: {
