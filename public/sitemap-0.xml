@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://timthedev07.vercel.app</loc><lastmod>2022-06-28T13:59:23.992Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/auth/error</loc><lastmod>2022-06-28T13:59:23.992Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/auth/new-user</loc><lastmod>2022-06-28T13:59:23.992Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/auth/signin</loc><lastmod>2022-06-28T13:59:23.992Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/auth/signout</loc><lastmod>2022-06-28T13:59:23.992Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/auth/verify-request</loc><lastmod>2022-06-28T13:59:23.992Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/blog</loc><lastmod>2022-06-28T13:59:23.992Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/contact</loc><lastmod>2022-06-28T13:59:23.992Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/projects</loc><lastmod>2022-06-28T13:59:23.993Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/blog/math/geometry-with-python</loc><lastmod>2022-06-28T13:59:23.993Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/blog/math/math-is-the-most-subtle-art</loc><lastmod>2022-06-28T13:59:23.993Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/blog/programming/max-path-sum</loc><lastmod>2022-06-28T13:59:23.993Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/blog/programming/my-opinions-on-some-programming-languages</loc><lastmod>2022-06-28T13:59:23.993Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/blog/school/feedback-loop</loc><lastmod>2022-06-28T13:59:23.993Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://timthedev07.vercel.app/blog/school/my-career-and-school</loc><lastmod>2022-06-28T13:59:23.993Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>

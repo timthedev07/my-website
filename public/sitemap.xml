@@ -1,6 +1,4 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-<loc>https://timthedev07.vercel.app/</loc>
-<lastmod>2022-05-15T20:54:29+00:00</lastmod>
-</url>
-</urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+        <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        <sitemap><loc>https://timthedev07.vercel.app/sitemap-0.xml</loc></sitemap>
+        </sitemapindex>
