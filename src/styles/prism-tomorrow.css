@@ -40,7 +40,7 @@ pre[class*="language-"] {
 /* Inline code */
 :not(pre) > code {
   padding: 0.12em 0.18rem !important;
-  border-radius: 0.2em !important;
+  border-radius: 0.1em !important;
   background: #2d2d2db5 !important;
 }
 
