@@ -66,7 +66,7 @@ Now that we have the special and base cases, let's think about the normal recurs
 
 ```python
 # python version 3.10
-def numPaths(dimensions: tuple[int], location: tuple[int], memo = {}):
+def numPaths(dimensions: tuple[int], location: tuple[int] = (0, 0), memo = {}):
     (row, column) = location
     (n, m) = dimensions
 
@@ -93,4 +93,11 @@ def numPaths(dimensions: tuple[int], location: tuple[int], memo = {}):
     memo[key] = res
 
     return res
+
+# Calling the function as follows would give you the desired result
+numPaths((20, 20))
 ```
+
+## Conclusion
+
+This is a very nice problem to familiarize yourself with the basic concepts in dynamic programming and how to optimize your algorithm, and the difference in performance is evident when it's run with and without memoization.
