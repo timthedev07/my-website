@@ -77,10 +77,6 @@ def numPaths(dimensions: tuple[int], location: tuple[int] = (0, 0), memo = {}):
     if memoized:
         return memoized
 
-    if row == n and column == m:
-        # reached the target
-        return 0
-
     # if at the bottom border, then the only way is to go right until reaching the target
     if row == n:
         return 1
