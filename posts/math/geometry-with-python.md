@@ -101,9 +101,13 @@ deltaX * deltaY = sqrt(deltaX^2 + deltaY^2) * D
 
 Rearranging it gets us the formula for D:
 
-```
+$$
 D = deltaX * deltaY / sqrt(deltaX^2 + deltaY^2)
-```
+$$
+
+$$
+\frac{1}{2} \rho v^2 S C_L
+$$
 
 The formula is implemented in this function:
 

@@ -1,11 +1,20 @@
-import { remark } from "remark";
-import html from "remark-html";
-import prism from "remark-prism";
+import rehypeKatex from "rehype-katex";
+import rehypeStringify from "rehype-stringify";
+import remarkMath from "remark-math";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import { unified } from "unified";
+import rehypePrism from "rehype-prism";
 
 export default async function markdownToHtml(markdown: string) {
-  const result = await remark()
-    .use(html, { sanitize: false })
-    .use(prism)
+  const resultHTML = await unified()
+    .use(remarkParse)
+    .use(remarkMath)
+    .use(remarkRehype)
+    .use(rehypeKatex)
+    .use(rehypePrism)
+    .use(rehypeStringify)
     .process(markdown);
-  return result.toString();
+
+  return String(resultHTML);
 }
