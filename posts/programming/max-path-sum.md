@@ -25,7 +25,7 @@ That is, 3 + 7 + 4 + 9 = 23.
 
 Find the maximum total from top to bottom of the triangle in [the 15Kb text file](https://projecteuler.net/project/resources/p067_triangle.txt)
 
-NOTE: It is not possible to try every route to solve this problem, as there are 299 altogether! If you could check one trillion (1012) routes every second it would take over twenty billion years to check them all. There is an efficient algorithm to solve it. ;o)
+NOTE: It is not possible to try every route to solve this problem, as there are $2^{99}$ altogether! If you could check one trillion ($10^{12}$) routes every second it would take over twenty billion years to check them all. There is an efficient algorithm to solve it. ;o)
 
 ## The Algorithm I Used
 
