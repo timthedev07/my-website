@@ -91,7 +91,7 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
         ""
       )}
 
-      <ol className="w-full flex gap-5 p-8 flex-wrap justify-center md:justify-start">
+      <ol className="w-full flex gap-5 p-8 flex-wrap justify-center">
         {filenamesWithMetadata[currTab]
           .sort(
             (a, b) =>
@@ -106,8 +106,8 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
                 key={filename}
                 href={`/blog/${category}/${filename}`}
               >
-                <li className="w-64 md:w-80 h-auto cursor-pointer bg-slate-300/20 rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color">
-                  <div className="relative w-64 md:w-80 h-64 md:h-80 rounded-t-md">
+                <li className="w-80 md:w-96 h-auto cursor-pointer bg-slate-300/20 rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color">
+                  <div className="relative w-80 md:w-96 h-80 md:h-96 rounded-t-md">
                     <Image
                       placeholder="blur"
                       blurDataURL={blurDataUrl}
