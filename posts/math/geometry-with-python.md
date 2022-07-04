@@ -23,9 +23,9 @@ For reliability, this experiment/process is repeated a few times and thus an ave
 
 I decided to use the Cartesian coordinate system for this program because I find it easier and more intuitive to represent the triangle as the area bounded by the lines with the following equations:
 
-- `y = sqrt(3)x`
-- `y = -sqrt(3)x + 3sqrt(3)`
-- `y = 0`
+- $y = \sqrt{3}x$
+- $y = -\sqrt{3}x + 3\sqrt{3}$
+- $y = 0$
 
 Which creates the following straight lines:
 
@@ -33,9 +33,9 @@ Which creates the following straight lines:
 
 Now, to generate a point within this bounded region we have to check for the following inequalities:
 
-- `y < sqrt(3)x`
-- `y < -sqrt(3)x + 3sqrt(3)`
-- `y > 0`
+- $y < \sqrt{3}x$
+- $y < -\sqrt{3}x + 3\sqrt{3}$
+- $y > 0$
 
 That's where these two methods of the `Line` class come in handy:
 
@@ -67,7 +67,7 @@ def getX(self, y):
   return (y - self.yIntercept) / self.gradient
 ```
 
-Basically, it's just substituting a given value in the pair `(x, y)` to find the other. Simple algebra. These methods simply rearrange the equation to find the desired value.
+Basically, it's just substituting a given value in the pair $(x, y)$ to find the other. Simple algebra. These methods simply rearrange the equation to find the desired value.
 
 ### Finding the areas of the smaller triangles
 
@@ -85,28 +85,24 @@ We can construct a triangle as follows:
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/p-in-equilateral-1.png)
 
-Notice that to get the area of it, there are **two** ways to do it with `bh / 2`.
+Notice that to get the area of it, there are **two** ways to do it with $\frac{bh}{2}$.
 
-Firstly, the triangle can be interpreted this way, and we will just call the two distances `deltaX` and `deltaY` for simplicity:
+Firstly, the triangle can be interpreted this way, and we will just call the two distances $deltaX$ and $deltaY$ for simplicity:
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/p-in-equilateral-2.png)
 
-The area will equal `deltaX * deltaY / 2`
+The area will equal $\frac{deltaX \cdot deltaY}{2}$
 
-However, there is another way to calculate its area, and that is, we can easily find the hypotenuse with Pythagoras's theorem, but the point of this is that, when we multiply the hypotenuse by the **perpendicular** distance between P and the line, we get the same value as `deltaX * deltaY / 2`. Therefore, the equation can be written as follows, where D is the perpendicular distance:
+However, there is another way to calculate its area, and that is, we can easily find the hypotenuse with Pythagoras's theorem, but the point of this is that, when we multiply the hypotenuse by the **perpendicular** distance between P and the line, we get the same value as $\frac{deltaX \cdot deltaY}{2}$. Therefore, the equation can be written as follows, where D is the perpendicular distance:
 
-```
-deltaX * deltaY = sqrt(deltaX^2 + deltaY^2) * D
-```
+$$
+deltaX \cdot deltaY = D \cdot \sqrt{deltaX^2 + deltaY^2}
+$$
 
 Rearranging it gets us the formula for D:
 
 $$
-D = deltaX * deltaY / sqrt(deltaX^2 + deltaY^2)
-$$
-
-$$
-\frac{1}{2} \rho v^2 S C_L
+D = \frac{deltaX \cdot deltaY}{\sqrt{deltaX^2 + deltaY^2}}
 $$
 
 The formula is implemented in this function:
@@ -161,9 +157,9 @@ The function's return value indicates if one of the areas is greater than the ot
 
 ### Computing a probability from random points
 
-Now, as `N_POINTS` points are generated, we will run `testStatement` on each of them to give us a conclusion.
+Now, as N_POINTS points are generated, we will run `testStatement` on each of them to give us a conclusion.
 
-The probability can be shown as `the number of times the statement is true / N_POINTS`.
+The probability can be shown as the number of times the statement is true / N_POINTS.
 
 ### Reiterating for reliability
 
