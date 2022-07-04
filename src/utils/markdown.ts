@@ -12,7 +12,7 @@ export default async function markdownToHtml(markdown: string) {
     .use(remarkParse)
     .use(remarkMath)
     .use(remarkRehype)
-    .use(rehypeKatex)
+    .use(rehypeKatex, { strict: true })
     .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(markdown);

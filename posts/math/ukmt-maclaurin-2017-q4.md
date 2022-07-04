@@ -22,11 +22,13 @@ What is the length of $RU$?
 ## Identities to Know
 
 $$
-\tan(90 - \theta) = {\cot(\theta)}\\\ \\\
+\begin{align*}
+\tan(90 - \theta) &= {\cot(\theta)}\\
 
-\cot(\theta) = \frac{1}{\tan(\theta)}\\\ \\\
+\cot(\theta) &= \frac{1}{\tan(\theta)}\\
 
-\tan(2\theta) = \frac{2\tan(\theta)}{1-\tan^2(\theta)}\\\ \\\
+\tan(2\theta) &= \frac{2\tan(\theta)}{1-\tan^2(\theta)}\\
+\end{align*}
 $$
 
 ## Solution with Trigonometry
