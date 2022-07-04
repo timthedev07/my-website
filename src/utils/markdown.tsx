@@ -4,7 +4,8 @@ import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
 import { unified } from "unified";
-import rehypePrism from "rehype-prism";
+// import rehypePrism from "rehype-prism";
+import rehypeHighlight from "rehype-highlight";
 
 export default async function markdownToHtml(markdown: string) {
   const resultHTML = await unified()
@@ -12,7 +13,7 @@ export default async function markdownToHtml(markdown: string) {
     .use(remarkMath)
     .use(remarkRehype)
     .use(rehypeKatex)
-    .use(rehypePrism)
+    .use(rehypeHighlight)
     .use(rehypeStringify)
     .process(markdown);
 
