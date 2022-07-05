@@ -120,7 +120,7 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
                   <div className="p-6 flex flex-col gap-2">
                     <div className="text-xl">
                       {metadata.title
-                        .split("-")
+                        .split(" ")
                         .map(
                           (each) => each.charAt(0).toUpperCase() + each.slice(1)
                         )

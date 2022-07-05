@@ -1,5 +1,5 @@
 ---
-title: "Algorithm styled question - Lattice Paths"
+title: "Algorithm styled question - Triangular Words"
 description: "A quick solution to Project Euler #42"
 date: 2022-07-05
 keywords:
