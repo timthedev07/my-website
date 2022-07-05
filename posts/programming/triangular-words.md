@@ -82,7 +82,7 @@ def countTriangular(words: list[str]):
         if isTriangularWord(word):
             count += 1
 
-    return
+    return count
 ```
 
 ## Conclusion
