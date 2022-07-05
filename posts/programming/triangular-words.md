@@ -62,6 +62,8 @@ def isTriangular(x: int):
     return (-1 + (1 + 4 * (x * 2))**0.5) % 2 == 0
 ```
 
+## What's Left?
+
 Hopefully the remaining part of the solution is more straightforward:
 
 ```python
@@ -82,3 +84,7 @@ def countTriangular(words: list[str]):
 
     return
 ```
+
+## Conclusion
+
+I quite like this problem because I could easily replace trial and error processes with some mathematical thinking.
