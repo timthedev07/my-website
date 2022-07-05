@@ -1,5 +1,5 @@
 ---
-title: Algorithm styled question - Max Path Sum
+title: "Algorithm Styled Question - Max Path Sum"
 description: My Python implementation of the algorithm used to solve problem 67 of Project Euler.
 date: "2022-06-28"
 keywords:

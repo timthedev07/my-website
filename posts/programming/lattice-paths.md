@@ -1,5 +1,5 @@
 ---
-title: Algorithm styled question - Lattice Paths
+title: "Algorithm Styled Question - Lattice Paths"
 description: Dynamic programming algorithm with a detailed explanation.
 date: 2022-07-02
 keywords:
