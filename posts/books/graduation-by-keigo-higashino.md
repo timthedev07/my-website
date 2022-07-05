@@ -7,10 +7,4 @@ keywords: ["Thriller", "Book Review", "Detective Story", "Keigo Higashino"]
 
 ## Plot Summary
 
-As college graduation is approaching for students at a local university in Osaka.
-
-Provide a summary: What is story about? Who are the main characters and what is the main conflict?
-
-Present your evaluation: What did you think of the book? ...
-
-Give your recommendation: Would you recommend this book to others?
+TO BE WRITTEN

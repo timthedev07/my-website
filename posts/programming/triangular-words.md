@@ -1,7 +1,7 @@
 ---
 title: "Algorithm styled question - Lattice Paths"
 description: "A quick solution to Project Euler #42"
-date: 2022-07-02
+date: 2022-07-05
 keywords:
   - Math
   - Algorithms
