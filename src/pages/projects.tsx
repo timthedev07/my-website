@@ -31,16 +31,16 @@ export const SITES: Site[] = [
     githubRepo: "whosmorepopular",
   },
   {
+    name: "Digit Recognition",
+    githubRepo: "digit-recognition",
+  },
+  {
     name: "Creativity Matters",
     githubRepo: "Creativity-Matters",
   },
   {
     name: "React Snake Game",
     githubRepo: "snake",
-  },
-  {
-    name: "Todo Master",
-    githubRepo: "todo-master",
   },
 ];
 
@@ -57,6 +57,7 @@ const Projects: NextPage<Props> = ({ sites }) => {
 
   return (
     <section className="justify-center items-start flex p-4 flex-wrap gap-5">
+      <h2>Other Sites</h2>
       {sites.map((each) => (
         <Site {...each} key={each.name} />
       ))}
