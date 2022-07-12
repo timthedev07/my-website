@@ -56,11 +56,13 @@ const Projects: NextPage<Props> = ({ sites }) => {
   }, [setNavTransparent]);
 
   return (
-    <section className="justify-center items-start flex p-4 flex-wrap gap-5">
-      <h2>Other Sites</h2>
-      {sites.map((each) => (
-        <Site {...each} key={each.name} />
-      ))}
+    <section className="flex p-4 flex-col items-center">
+      <h1 className="font-bold">Other Sites</h1>
+      <div className="justify-center items-start flex p-4 flex-wrap gap-5">
+        {sites.map((each) => (
+          <Site {...each} key={each.name} />
+        ))}
+      </div>
     </section>
   );
 };
