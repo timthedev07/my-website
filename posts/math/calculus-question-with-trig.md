@@ -79,7 +79,9 @@ $$
 [1 + \frac{x}{2}\cos(x)\sin^{-1}(x)] &= 0 \\
 \therefore \frac{x}{2}\cos(x)\sin^{-1}(x) &= -1 \\
 \end{align*}
-\\
+$$
+
+$$
 \begin{align*}
 \Longleftrightarrow\space& \frac{x}{2}\frac{\cos(x)}{\sin(x)} = -1 \\
 \Longleftrightarrow\space& \frac{x}{2\tan(x)} = -1 \\
