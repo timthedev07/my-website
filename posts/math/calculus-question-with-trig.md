@@ -64,11 +64,11 @@ Let's take a look at the two possible scenarios.
 $$
 \begin{align*}
 \therefore\space& \sin(x) = 0 \\
-\therefore\space& x = 0
+\therefore\space& x = 0, \pi
 \end{align*}
 $$
 
-However, as given by the question, $x$ should be greater than 0, so this is certainly not the case.
+However, as given by the question, $x$ should be greater than 0 and smaller than $\pi$, so this is certainly not the case.
 
 What about the other possibility?
 
