@@ -38,13 +38,15 @@ Not only can we calculate the derivative of a function, we can also calculate th
 
 A function's derivative can be calculated by applying some rules _**to each term of the expression**_.
 
-## Rules of differentiation.
+## Formulae for Differentiation
 
-Here we will just discuss a few basic rules of differentiation
+Here we will just discuss a few basic ones used in differentiation.
 
 ### $x^n$
 
-First off, $\frac{d}{dx}(x^n) = n \cdot x^{n - 1}$, in other words, move the previous power of x out for multiplication and subtract 1 to get the new index.
+$\frac{d}{dx}(x^n) = n \cdot x^{n - 1}$
+
+In other words, move the previous power of x out for multiplication and subtract 1 to get the new index.
 
 Examples:
 
@@ -58,7 +60,7 @@ When differentiating a single constant(a term that does not involve the variable
 
 To understand why, though, we can let $c$ be a constant, then it is also the equivalent of $c \cdot x^{0}$ and the value is unchanged as anything that $\not= 0$ to the power of 0 is 1.
 
-Therefore, applying the rule above would give $0 \cdot c \cdot x^{-1}$, which would always give 0.
+Therefore, applying the rule above would give $0 \cdot c \cdot x^{-1}$, which would always equal 0.
 
 Examples:
 
@@ -67,3 +69,52 @@ Examples:
 - $\frac{d}{dx}(t^2) = 0$ note that $\frac{d}{dx}$ signifies that we should any variable that's not x should be treated as a constant, thus the derivative of the expression **with respect to x** is 0.
 - $\frac{d}{dx}(3px^4) = 12px^3$ in this case, p is treated as a constant that multiplies with 3 to make the coefficient of $x^4$.
 - $\frac{d}{dx}(3x^2 - 10x + 5) = 6x - 10$
+
+### Sine & Cosine
+
+$$
+\begin{align*}
+\frac{d}{dx}\space& \sin(ax) = a \cdot \cos(ax) \\ \\
+\frac{d}{dx}\space& \cos(x) = -a \cdot \sin(x)
+\end{align*}
+$$
+
+Note that it's easier have your angle(if in degrees) converted to radians before differentiating. (Hint: $\pi$ radians = $180^\circ$)
+
+Examples:
+
+- $\frac{d}{dx}[\sin(3x)] = 3\cos(3x)$
+- $\frac{d}{dx}[\frac{1}{2}\sin(4x)] = 2\cos(4x)$
+- $\frac{d}{dx}[2\cos(4x)] = -8\sin(4x)$
+
+### The Exponential Function
+
+$$
+\frac{d}{dx}\space e^{ax} = a \cdot e^{ax}
+$$
+
+Examples:
+
+- $\frac{d}{dx}\space e^{x} = e^{x}$
+- $\frac{d}{dx}\space 3e^{4x} = 12e^{4x}$
+
+### Logarithmic Functions
+
+$$
+\frac{d}{dx}[\ln(u)] = \frac{u'}{u}
+$$
+
+Where $u'$ is the derivative of $u$.
+
+Examples:
+
+- $\frac{d}{dx}\space \ln(x^n) = \frac{n}{x}$
+- $\frac{d}{dx}\space \ln(\sin(x)) = \frac{\cos(x)}{\sin(x)} = \tan^{-1}(x) = \cot(x)$
+- $\frac{d}{dx}\space \ln(\cos(x)) = -\frac{\sin(x)}{\cos(x)} = -\tan(x)$
+- $\frac{d}{dx}\space \ln(c) = 0$
+- $\frac{d}{dx}\space \ln(c) = 0$
+- $\frac{d}{dx}\space \ln(e^{ax}) = a$
+
+## Rules of Differentiation
+
+### The Product Rule
