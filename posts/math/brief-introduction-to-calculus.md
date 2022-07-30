@@ -81,7 +81,7 @@ $$
 \end{align*}
 $$
 
-Note that it's easier have your angle(if in degrees) converted to radians before differentiating. (Hint: $\pi$ radians = $180^\circ$)
+Note that it's easier to have your angle(if in degrees) converted to radians before differentiating. (Hint: $\pi$ radians = $180^\circ$)
 
 Examples:
 
@@ -123,7 +123,7 @@ Examples:
 
 This is when an expression can be seen as a function nested inside another.
 
-If $y = f(g(x))$, then $y'$ or $\frac{dy}{dx} = f'(g(x)) \cdot g'(x)$
+If $y = f(g(x))$, then $y'$ or $\frac{dy}{dx} = f'(g(x)) \cdot g'(x)$.
 
 Examples:
 
@@ -172,4 +172,38 @@ $$
 
 ### The Product Rule
 
-If $y = uv$, then $\frac{dy}{dx} = u \cdot v' + v \cdot u'$
+If $y = uv$, then $\frac{dy}{dx} = u \cdot v' + v \cdot u'$.
+
+Examples:
+
+1. Differentiate $y = e^x \sin(x)$
+
+$$
+\begin{align*}
+u &= e^x \\
+u' &= e^x \\ \\
+
+v &= \sin(x) \\
+v' &= \cos(x) \\ \\
+
+\frac{dy}{dx} &= e^x\cos(x) + e^x\sin(x) \\
+&= e^x[\cos(x) + \sin(x)]
+\end{align*}
+$$
+
+2. Differentiate $y = x^2(3 + 2x)^4$
+
+$$
+\begin{align*}
+u &= x^2 \\
+u' &= 2x \\ \\
+
+v &= (3 + 2x)^4 \\
+v' &= 8(3 + 2x)^3\\ \\
+
+\frac{dy}{dx} &= 8x^2(3+2x)^3 + 2x(3+2x)^4 \\
+&= 2x(3+2x)^3[4x + (3 + 2x)] \\
+&= 2x(3+2x)^3[6x + 3] \\
+&= 6x(3+2x)^3[2x + 1]
+\end{align*}
+$$
