@@ -1,6 +1,6 @@
 ---
 title: "A Brief Introduction to Calculus"
-description: "If you're new to calculus, then this would blog is aimed to get a gist of it for you, but not to turn you into a master of calculus."
+description: "If you're new to calculus and know nothing about it, then this blog is aimed to get a gist of it for you, but not to turn you into a master of calculus."
 date: 2022-07-31
 keywords:
   - Math
@@ -119,6 +119,57 @@ Examples:
 
 ## Rules of Differentiation
 
-### The Product Rule
+### The Chain Rule
+
+This is when an expression can be seen as a function nested inside another.
 
 If $y = f(g(x))$, then $y'$ or $\frac{dy}{dx} = f'(g(x)) \cdot g'(x)$
+
+Examples:
+
+1. Differentiate $\sin(2x^2 + 3)$
+
+$$
+\begin{align*}
+f(x) &= \sin(x) \\
+f'(x) &= \cos(x) \\ \\
+
+g(x) &= 2x^2 + 3 \\
+g'(x) &= 4x \\ \\
+
+\frac{dy}{dx} &= \cos(2x^2 + 3) \cdot 4x
+\end{align*}
+$$
+
+2. Differentiate $\large e^{x^2+x}$
+
+$$
+\begin{align*}
+f(x) &= e^x \\
+f'(x) &= e^x \\ \\
+
+g(x) &= x^2 + x \\
+g'(x) &= 2x + 1 \\ \\
+
+\frac{dy}{dx} &= e^{x^2 + x}(2x + 1)
+\end{align*}
+$$
+
+3. Differentiate $(x^3 + 4)^6$
+
+$$
+\begin{align*}
+f(x) &= x^6 \\
+f'(x) &= 6x^5 \\ \\
+
+g(x) &= x^3 + 4 \\
+g'(x) &= 3x^2 \\ \\
+
+\frac{dy}{dx} &= 6(x^3 + 4)^5 \cdot 3x^2 \\
+&= 18x^2(x^3 + 4)^5
+\end{align*}
+$$
+
+### The Product Rule
+
+If $y = uv$, then $\frac{dy}{dx} = u \cdot v' + v \cdot u'$
