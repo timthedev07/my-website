@@ -30,7 +30,7 @@ Graphically, this is the equivalent of: for each x-coordinate, calculate its cor
 
 Differentiation in calculus refers to the process of finding the derivative of a function, which also represents the rate of change of a function.
 
-The mathematical representation of the derivative of a function is $f'(x)$ where the number of apostrophes after $f$ indicates the nth derivative of function $f(x)$; meanwhile you can also say that the first derivative of $y$, **with respect to** $x$, is $\frac{dy}{dx}$. Furthermore, the $n$th derivative of y is written as $\Large\frac{d^{n - 1}y}{dx^{n - 1}}$
+The mathematical representation of the derivative of a function is $f'(x)$ where the number of apostrophes after $f$ indicates the nth derivative of function $f(x)$; meanwhile you can also say that the first derivative of $y$, **with respect to** $x$, is $\frac{dy}{dx}$. Furthermore, the $n$th derivative of y is written as $\large\frac{d^{n - 1}y}{dx^{n - 1}}$
 
 Not only can we calculate the derivative of a function, we can also calculate the derivative of a derivative. This might sound a bit confusing, but to put simply, say we have a function $f(x)$, its **first derivative** is $f'(x)$, and the derivative of the first derivative, i.e. the **second derivative** of $f(x)$, would be $f''(x)$, so on and so forth.
 
