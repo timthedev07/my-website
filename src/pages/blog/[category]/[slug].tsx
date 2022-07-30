@@ -20,6 +20,8 @@ interface Props {
   slug: string;
 }
 
+const NORMAL_TEXT_COLOR = "text-white/80";
+
 const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -117,7 +119,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             </div>
           </article>
           <article
-            className={`flex child-headings:font-semibold leading-loose child-code:leading-normal flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-paragraphs:text-white/70 child-list:text-white/70 child-list:text-[1.1rem] child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500 child-images:m-auto`}
+            className={`flex child-headings:font-semibold leading-loose child-code:leading-normal flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-paragraphs:${NORMAL_TEXT_COLOR} child-list:${NORMAL_TEXT_COLOR} child-list:text-[1.1rem] child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500 child-images:m-auto`}
             dangerouslySetInnerHTML={{ __html: content }}
           ></article>
 
