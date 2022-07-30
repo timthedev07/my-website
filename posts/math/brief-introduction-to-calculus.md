@@ -1,6 +1,6 @@
 ---
 title: "A Brief Introduction to Calculus"
-description: "A conclusion blog of my learning of the basics of calculus."
+description: "If you're new to calculus, then this would blog is aimed to get a gist of it for you, but not to turn you into a master of calculus."
 date: 2022-07-31
 keywords:
   - Math
@@ -17,6 +17,8 @@ Note: the content covered here would only require a solid understanding of basic
 So now, let's sit back, relax, and have some fun!
 
 # Functions
+
+This is one of the most fundamental and critical ideas in calculus, so do ensure that you understand this part perfectly.
 
 Functions are the way we define the relationship between an independent variable and a dependent variable. Like in computer science, a function has an input(mathematically called a variable) and an output(the value of a function).
 
@@ -118,3 +120,5 @@ Examples:
 ## Rules of Differentiation
 
 ### The Product Rule
+
+If $y = f(g(x))$, then $y'$ or $\frac{dy}{dx} = f'(g(x)) \cdot g'(x)$
