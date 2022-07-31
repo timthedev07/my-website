@@ -20,8 +20,6 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import remarkParse from "remark-parse";
 import Link from "next/link";
-import Image from "next/image";
-import { blurDataUrl } from "../../../utils/blurDataUrl";
 
 interface Props {
   content: string;
