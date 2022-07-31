@@ -16,6 +16,8 @@ Note: the content covered here would only require a solid understanding of basic
 
 So now, let's sit back, relax, and have some fun!
 
+<iframe src="https://www.desmos.com/calculator/epngogzfrm?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+
 # Functions
 
 This is one of the most fundamental and critical ideas in calculus, so do ensure that you understand this part perfectly.
@@ -172,6 +174,8 @@ $$
 
 ### The Product Rule
 
+This is used to differentiate a term that is made by multiplying two others, e.g. $\sin(x)\cdot x^3$
+
 If $y = uv$, then $\frac{dy}{dx} = u \cdot v' + v \cdot u'$.
 
 Examples:
@@ -207,3 +211,5 @@ v' &= 8(3 + 2x)^3\\ \\
 &= 6x(3+2x)^3[2x + 1]
 \end{align*}
 $$
+
+### The Quotient Rule

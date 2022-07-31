@@ -11,11 +11,15 @@ export default async function markdownToHtml(markdown: string) {
   const resultHTML = await unified()
     .use(remarkParse)
     .use(remarkMath)
-    .use(remarkGfm)
-    .use(remarkRehype)
+    .use(remarkGfm, {})
+    .use(remarkRehype, {
+      allowDangerousHtml: true,
+    })
     .use(rehypeKatex, { strict: true })
     .use(rehypeHighlight)
-    .use(rehypeStringify)
+    .use(rehypeStringify, {
+      allowDangerousHtml: true,
+    })
     .process(markdown);
 
   return String(resultHTML);
