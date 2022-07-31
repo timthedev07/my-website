@@ -128,6 +128,7 @@ module.exports = {
       addVariant("child-paragraphs", "& p");
       addVariant("child-list", ["& ol", "& ul"]);
       addVariant("child-links", "& a");
+      addVariant("child-math", "& .math");
       addVariant("child-links-hover", "& a:hover");
       addVariant("child-code", "& pre");
       addVariant("child-iframes", "& iframe");
