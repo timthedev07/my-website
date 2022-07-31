@@ -264,8 +264,8 @@ The green line is the tangent to the blue curve at P. Try to drag the point $P$,
 
 Thus **the gradient of a curve changes**, unlike a linear equation where the gradient is constant no matter what $x$ is.
 
-Take point $P(x, f(a))$, how do we find the gradient at $P$ then?
+Take point $P(x, f(x))$, how do we find the gradient at $P$ then?
 
 As discusses above, we can formulate a gradient function for any line/curve by taking the derivative of the original function.
 
-In this example, the curve shown is a quadratic function, so let $f(x) = ax^2 + bx + c$. Taking its derivative would give $f'(x) = 2ax + b$, which means that the tangent's gradient at $P(x, f(a))$ is simply equal to $f'(x)$,
+In this example, the curve shown is a quadratic function, so let $f(x) = ax^2 + bx + c$. Taking its derivative would give $f'(x) = 2ax + b$, which means that the tangent's gradient at $P(x, f(x))$ is simply equal to $f'(x)$.
