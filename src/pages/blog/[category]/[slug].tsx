@@ -13,6 +13,15 @@ import { useAppLoading } from "../../../components/AppLoading";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { TagList } from "../../../components/TagList";
 import { Button } from "dragontail-experimental";
+import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import remarkParse from "remark-parse";
+import Link from "next/link";
+import Image from "next/image";
+import { blurDataUrl } from "../../../utils/blurDataUrl";
 
 interface Props {
   content: string;
@@ -119,9 +128,31 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             </div>
           </article>
           <article
-            className={`flex child-headings:font-semibold child-iframes:rounded-md child-iframes:mx-auto leading-loose child-code:leading-normal flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-paragraphs:${NORMAL_TEXT_COLOR} child-list:${NORMAL_TEXT_COLOR} child-list:text-[1.1rem] child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500 child-images:m-auto`}
-            dangerouslySetInnerHTML={{ __html: content }}
-          ></article>
+            className={``}
+            // dangerouslySetInnerHTML={{ __html: content }}
+          >
+            <ReactMarkdown
+              className={`flex child-headings:font-semibold child-headings:text-white child-iframes:rounded-md child-iframes:mx-auto leading-loose child-code:leading-normal flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-math:text-white/90 ${NORMAL_TEXT_COLOR} child-list:text-[1.1rem] child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500 child-images:m-auto`}
+              rehypePlugins={[
+                [remarkParse, {}],
+                [remarkMath, {}],
+                [remarkGfm, {}],
+                [rehypeKatex, { strict: true }],
+                rehypeHighlight,
+              ]}
+              components={{
+                a: ({ href, children, ...rest }) => {
+                  return (
+                    <Link {...rest} href={href || ""}>
+                      {children?.length ? children[0] : children}
+                    </Link>
+                  );
+                },
+              }}
+            >
+              {content}
+            </ReactMarkdown>
+          </article>
 
           <hr className="w-full h-[1px] border-t border-t-slate-400/30" />
 
@@ -174,10 +205,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   withMetadata.data.category = category;
 
+  const blogContent = await markdownToHtml(withMetadata.content);
+
   return {
     props: {
       slug,
-      content: await markdownToHtml(withMetadata.content),
+      content: 1 > 1 ? blogContent : withMetadata.content,
       metadataAsString: JSON.stringify(withMetadata.data),
     } as Props,
   };
