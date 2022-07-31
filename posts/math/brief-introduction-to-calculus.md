@@ -211,3 +211,61 @@ v' &= 8(3 + 2x)^3\\ \\
 $$
 
 ### The Quotient Rule
+
+To differentiate a quotient(an expression obtained from dividing one value by another).
+
+If $y = \frac{u}{v}$, then $\frac{dy}{dx} = \large\frac{vu' - uv'}{v^2}$.
+
+Examples:
+
+1. Differentiate $y = \frac{x}{3x + 4}$
+
+$$
+\begin{align*}
+u &= x \\
+u' &= 1 \\ \\
+
+v &= 3x + 4 \\
+v' &= 3 \\ \\
+
+\frac{dy}{dx} &= \frac{3x+4 - 3x}{(3x+4)^2} \\
+&= \frac{4}{(3x+4)^2}
+\end{align*}
+$$
+
+2. Differentiate $\frac{e^{x^2}}{x}$
+
+$$
+\begin{align*}
+u &= e^{x^2} \\
+u' &= e^{x^2} \cdot 2x \\ \\
+
+v &= x \\
+v' &= 1 \\ \\
+
+\frac{dy}{dx} &= \frac{2x^2e^{x^2} - e^{x^2}}{x^2} \\
+&= \frac{e^{x^2}(2x^2 - 1)}{x^2}
+\end{align*}
+$$
+
+## Gradient Functions
+
+Now that you have some basic knowledge of the different rules and formulae used to differentiate functions. Let's talk a bit more about the graphical interpretations.
+
+**The first derivative of a function is always the gradient function of the curve/line.**
+
+For example, for a linear function $y = mx + c$, its derivative is given by $\frac{dy}{dx} = m$, which means that for any linear function, its derivative is always its gradient.
+
+Now, when it comes to a non-linear function, for any arbitrary point $P$ on the curve, it is said to have its own gradient, and its gradient is that of the tangent to the curve at P.
+
+The green line is the tangent to the blue curve at P. Try to drag the point $P$, and you'll see that the gradient of the tangent varies as $P$ moves along the curve.
+
+<iframe src="https://www.desmos.com/calculator/kynbnsv9ss?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+Thus **the gradient of a curve changes**, unlike a linear equation where the gradient is constant no matter what $x$ is.
+
+Take point $P(x, f(a))$, how do we find the gradient at $P$ then?
+
+As discusses above, we can formulate a gradient function for any line/curve by taking the derivative of the original function.
+
+In this example, the curve shown is a quadratic function, so let $f(x) = ax^2 + bx + c$. Taking its derivative would give $f'(x) = 2ax + b$, which means that the tangent's gradient at $P(x, f(a))$ is simply equal to $f'(x)$,
