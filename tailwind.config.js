@@ -130,6 +130,7 @@ module.exports = {
       addVariant("child-links", "& a");
       addVariant("child-links-hover", "& a:hover");
       addVariant("child-code", "& pre");
+      addVariant("child-iframes", "& iframe");
     }),
   ],
 };

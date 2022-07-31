@@ -16,8 +16,6 @@ Note: the content covered here would only require a solid understanding of basic
 
 So now, let's sit back, relax, and have some fun!
 
-<iframe src="https://www.desmos.com/calculator/epngogzfrm?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
-
 # Functions
 
 This is one of the most fundamental and critical ideas in calculus, so do ensure that you understand this part perfectly.
