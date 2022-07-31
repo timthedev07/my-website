@@ -7,7 +7,6 @@ import { MarkdownMetadata } from "../../../types/posts";
 import { useEffect, useRef, useState } from "react";
 import { useOnScreen } from "../../../utils/hooks";
 import { BlogComments } from "../../../components/BlogComments";
-import markdownToHtml from "../../../utils/markdown";
 import { getHeadForPage } from "../../../utils/getHead";
 import { useAppLoading } from "../../../components/AppLoading";
 import { useNavContext } from "../../../components/nav/Navbar";
@@ -203,12 +202,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   withMetadata.data.category = category;
 
-  const blogContent = await markdownToHtml(withMetadata.content);
-
   return {
     props: {
       slug,
-      content: 1 > 1 ? blogContent : withMetadata.content,
+      content: withMetadata.content,
       metadataAsString: JSON.stringify(withMetadata.data),
     } as Props,
   };
