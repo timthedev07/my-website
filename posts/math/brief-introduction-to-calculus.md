@@ -361,13 +361,15 @@ Now, what if the curve we are dealing with has more than one stationary points? 
 
 The second derivative of a function can be used to check if a stationary point is the maximum, minimum, or neither.
 
+#### Key Point
+
 If $f'(x) = 0$, i.e. for a stationary point:
 
 - If $f''(x) < 0$, the point is a maximum point.
 - Else if $f''(x) > 0$, the point is a minimum point.
 - Otherwise the point is neither a maximum nor a minimum.
 
-Take this as an example:
+#### Example
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/stationary-calculus-1.png)
 
@@ -424,3 +426,9 @@ $$
 f''(x) = 6x
 \end{align*}
 $$
+
+2. So for any positive value of $x$, the point is a minimum, and hence for any negative value of $x$, the point is a maximum.
+
+- $x_1 = \frac{2\sqrt{3}}{3} > 0$, so the stationary point with the x-coordinate $x_1$ is a _minimum_.
+
+- $x_2 = -\frac{2\sqrt{3}}{3} < 0$, so the stationary point with the x-coordinate $x_2$ is a _maximum_.
