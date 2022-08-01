@@ -135,7 +135,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
               child-code:leading-normal child-code:rounded-lg
               child-math:text-white/90 ${NORMAL_TEXT_COLOR} child-list:text-[1.1rem]
               child-images:rounded-xl child-images:shadow-xl child-images:mx-auto
-              child-list:list-disc child-list:list-inside
+              child-ul:list-disc child-ol:list-decimal child-list:list-inside
               child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500`}
               rehypePlugins={[
                 [rehypeRaw, {}],
