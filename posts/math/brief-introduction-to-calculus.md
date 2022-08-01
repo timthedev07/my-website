@@ -254,13 +254,13 @@ Now that you have some basic knowledge of the different rules and formulae used 
 
 **The first derivative of a function is always the gradient function of the curve/line.**
 
-For example, for a linear function $y = mx + c$, its derivative is given by $\frac{dy}{dx} = m$, which means that for any linear function, its derivative is always its gradient.
+For example, for a linear function $y = mx + b$, its derivative is given by $\frac{dy}{dx} = m$, which means that for any linear function, its derivative is always its gradient.
 
 Now, when it comes to a non-linear function, for any arbitrary point $P$ on the curve, it is said to have its own gradient, and its gradient is that of the tangent to the curve at P.
 
 The green line is the tangent to the blue curve at P. Try to drag the point $P$, and you'll see that the gradient of the tangent varies as $P$ moves along the curve.
 
-<iframe src="https://www.desmos.com/calculator/kynbnsv9ss?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+<iframe src="https://www.desmos.com/calculator/kynbnsv9ss?embed" width="100%" height="500" frameborder=0></iframe>
 
 Thus **the gradient of a curve changes**, unlike a linear equation where the gradient is constant no matter what $x$ is.
 
@@ -268,4 +268,24 @@ Take point $P(x, f(x))$, how do we find the gradient at $P$ then?
 
 As discusses above, we can formulate a gradient function for any line/curve by taking the derivative of the original function.
 
-In this example, the curve shown is a quadratic function, so let $f(x) = ax^2 + bx + c$. Taking its derivative would give $f'(x) = 2ax + b$, which means that the tangent's gradient at $P(x, f(x))$ is simply equal to $f'(x)$.
+In this example, the curve shown is a quadratic function, so let $f(x) = ax^2 + bx + c$. Taking its derivative would give $f'(x) = 2ax + b$, and the tangent's gradient at $P(x, f(x))$ is simply equal to $f'(x)$.
+
+### Calculating the Equation of The Tangent
+
+Now that we have the gradient of the tangent, you might wonder, can we form an equation for the straight line?
+
+We can use the formula for the equation of a straight line $y - y_1 = m(x - x_1)$, and in this case, $x_1$ and $y_1$ would be the coordinates of the point $P$.
+
+**The equation of the tangent to a curve at** $P(a, f(a))$ is:
+
+$$
+y = f'(a)(x - a) + f(a)
+$$
+
+### The Normal
+
+The normal is a straight line that crosses the tangent at 90 degrees(perpendicular) through the point where the tangent meets the curve.
+
+Therefore, the normal's gradient is the negative reciprocal to that of the tangent.
+
+<iframe src="https://www.desmos.com/calculator/4fhbarj2z8?embed" width="100%" height="500" />
