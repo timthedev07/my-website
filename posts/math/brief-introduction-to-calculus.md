@@ -288,4 +288,139 @@ The normal is a straight line that crosses the tangent at 90 degrees(perpendicul
 
 Therefore, the normal's gradient is the negative reciprocal to that of the tangent.
 
-<iframe src="https://www.desmos.com/calculator/4fhbarj2z8?embed" width="100%" height="500" />
+<iframe src="https://www.desmos.com/calculator/4fhbarj2z8?embed" width="100%" height="500"></iframe>
+
+Hence we can conclude that the equation of the normal can be calculated as follows:
+
+$$
+y = -\frac{1}{f'(a)}(x - a) + f(a)
+$$
+
+#### Example
+
+> The equation of a curve is given by $f(x) = x^3 - 3x^2 + 2x - 1$, where $y = f(x)$, find the equations of the tangent and normal at the point (3, 5).
+
+1. Find the gradient function by taking the function's derivative and calculate $f'(3)$
+
+$$
+f'(x) = 3x^2 - 6x + 2 \\
+\begin{align*}
+\\ f'(3) &= 3\cdot 3^2 - 6 \cdot 3 + 2 \\
+&= 27 - 18 + 2 \\
+&= 11
+\end{align*}
+$$
+
+2. Find the equation of the tangent
+
+$$
+\begin{align*}
+y &= f'(3)(x - 3) + f(3) \\
+&= 11(x - 3) + [3^3 - 3\cdot 3^2 + 2 \cdot 3 - 1] \\
+&= 11x - 33 + 5 \\
+y &= 11x - 28
+\end{align*}
+$$
+
+3. Find the equation of the normal
+
+$$
+\begin{align*}
+y &= -\frac{1}{f'(3)}(x - 3) + f(3) \\
+&= -\frac{1}{11}(x - 3) + 5 \\
+&= -\frac{x}{11} + \frac{3}{11} + 5 \\
+y &= -\frac{x}{11} + 5\frac{3}{11} \\
+\end{align*}
+$$
+
+## Stationary Points
+
+Stationary points are points on a curve such **that their tangent has a gradient of 0**(i.e., is a horizontal line). They are said to be stationary because at these points, the function is neither decreasing or increasing.
+
+A function can have multiple stationary points, or just one. For example, a quadratic curve($y = ax^2 + bx + c$) would have only one stationary point.
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/stationary-calculus-0.png)
+
+There are three types of stationary points:
+
+- Maximum
+- Minimum
+- Neither
+
+For example, the point labeled in the image is a **minimum stationary point**.
+
+### Finding the Stationary Points
+
+As said above, a stationary point has a gradient of 0. So to calculate the coordinates of the stationary points of a function, set $f'(x) = 0$ and find the solutions of x
+
+These values of x would be the x-coordinates of the stationary points, and to find the corresponding y-coordinates, simply calculate $f(x)$ for each x-coordinate.
+
+Now, what if the curve we are dealing with has more than one stationary points? How do we classify them into these three categories?
+
+### The Second Derivative
+
+The second derivative of a function can be used to check if a stationary point is the maximum, minimum, or neither.
+
+If $f'(x) = 0$, i.e. for a stationary point:
+
+- If $f''(x) < 0$, the point is a maximum point.
+- Else if $f''(x) > 0$, the point is a minimum point.
+- Otherwise the point is neither a maximum nor a minimum.
+
+Take this as an example:
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/stationary-calculus-1.png)
+
+The curve is given by the equation $f\left(x\right)\ =\ x\left(x+2\right)\left(x-2\right)$.
+
+To find the coordinates of the two stationary points:
+
+1. Expand
+
+$$
+\begin{align*}
+f(x) &= x\left(x^2 - 4\right) \\
+&= x^3 - 4x
+\end{align*}
+$$
+
+2. Differentiate
+
+$$
+\begin{align*}
+f'(x) = 3x^2 - 4
+\end{align*}
+$$
+
+3. Set $f'(x) = 0$ and solve for x
+
+$$
+\begin{align*}
+& 3x^2 - 4 = 0 \\
+& x = \pm \frac{2\sqrt{3}}{3}
+\end{align*}
+$$
+
+4. Find the corresponding y coordinates
+
+$$
+\begin{align*}
+y_1 &= f(\frac{2\sqrt{3}}{3}) \\
+&= -\frac{16\sqrt{3}}{9} \\ \\
+
+y_2 &= f(-\frac{2\sqrt{3}}{3}) \\
+&= \frac{16\sqrt{3}}{9} \\ \\
+\end{align*}
+$$
+
+So our coordinates would be $\left(\pm\frac{2\sqrt{3}}{3}, \mp\frac{16\sqrt{3}}{9}\right)$
+
+Now, determine which is the maximum or minimum:
+
+1. Find the second derivative of the function
+
+$$
+\begin{align*}
+f''(x) = 6x
+\end{align*}
+$$
