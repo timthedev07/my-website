@@ -349,15 +349,27 @@ There are three types of stationary points:
 
 For example, the point labeled in the image is a **minimum stationary point**.
 
+A stationary point is a **turning point** if it is where the curve changes from increasing to decreasing, or the other way around.
+
+In the image above, the labeled point is a **_minimum turning point_**, because from there, the function becomes increasing.
+
+A polynomial function of degree $n$ would have at most $n - 1$ turning points. E.g., a quadratic function(degree 2) has at most $2 -1 = 1$ turning points.
+
 ### Finding the Stationary Points
 
 As said above, a stationary point has a gradient of 0. So to calculate the coordinates of the stationary points of a function, set $f'(x) = 0$ and find the solutions of x
 
 These values of x would be the x-coordinates of the stationary points, and to find the corresponding y-coordinates, simply calculate $f(x)$ for each x-coordinate.
 
-Now, what if the curve we are dealing with has more than one stationary points? How do we classify them into these three categories?
+#### Example
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/stationary-calculus-2.png)
+
+The function of the curve above is given by $f\left(x\right)\ =\ -x^{2\ }+3x+2$; find the coordinates of the stationary point P.
 
 ### The Second Derivative
+
+Now, what if the curve we are dealing with has more than one stationary points? How do we classify them into these three categories?
 
 The second derivative of a function can be used to check if a stationary point is the maximum, minimum, or neither.
 
@@ -373,7 +385,7 @@ If $f'(x) = 0$, i.e. for a stationary point:
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/stationary-calculus-1.png)
 
-The curve is given by the equation $f\left(x\right)\ =\ x\left(x+2\right)\left(x-2\right)$.
+The curve is given by the equation $f\left(x\right)\ =\ x\left(x+2\right)\left(x-2\right)$. Find the stationary points of the function and determine which of them are maximum/minimum.
 
 To find the coordinates of the two stationary points:
 
@@ -428,6 +440,8 @@ f''(x) = 6x
 $$
 
 2. So for any positive value of $x$, the point is a minimum, and hence for any negative value of $x$, the point is a maximum.
+
+**Conclusion**
 
 - $x_1 = \frac{2\sqrt{3}}{3} > 0$, so the stationary point with the x-coordinate $x_1$ is a _minimum_.
 
