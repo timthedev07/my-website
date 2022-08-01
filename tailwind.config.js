@@ -131,6 +131,7 @@ module.exports = {
       addVariant("child-math", "& .math");
       addVariant("child-links-hover", "& a:hover");
       addVariant("child-code", "& pre");
+      addVariant("child-block-quote", "& blockquote");
       addVariant("child-iframes", "& iframe");
     }),
   ],

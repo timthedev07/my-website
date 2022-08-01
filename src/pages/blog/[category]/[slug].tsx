@@ -126,7 +126,17 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
           </article>
           <article>
             <ReactMarkdown
-              className={`flex child-headings:font-semibold child-headings:text-white child-iframes:rounded-md child-iframes:mx-auto leading-loose child-code:leading-normal flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-math:text-white/90 ${NORMAL_TEXT_COLOR} child-list:text-[1.1rem] child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500 child-images:m-auto`}
+              className={`
+              flex flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings}
+              child-headings:font-semibold child-headings:text-white
+              child-iframes:rounded-md child-iframes:mx-auto
+              leading-loose
+              child-block-quote:border-l-[7px] child-block-quote:border-gray-600/60 child-block-quote:pl-6 child-block-quote:text-gray-400/80
+              child-code:leading-normal child-code:rounded-lg
+              child-math:text-white/90 ${NORMAL_TEXT_COLOR} child-list:text-[1.1rem]
+              child-images:rounded-xl child-images:shadow-xl child-images:mx-auto
+              child-list:list-disc child-list:list-inside
+              child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500`}
               rehypePlugins={[
                 [rehypeRaw, {}],
                 remarkMath,
