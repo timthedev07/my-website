@@ -17,7 +17,7 @@ import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
-import remarkParse from "remark-parse";
+import rehypeRaw from "rehype-raw";
 import Link from "next/link";
 
 interface Props {
@@ -124,16 +124,13 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
               </Button>
             </div>
           </article>
-          <article
-            className={``}
-            // dangerouslySetInnerHTML={{ __html: content }}
-          >
+          <article>
             <ReactMarkdown
               className={`flex child-headings:font-semibold child-headings:text-white child-iframes:rounded-md child-iframes:mx-auto leading-loose child-code:leading-normal flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings} child-math:text-white/90 ${NORMAL_TEXT_COLOR} child-list:text-[1.1rem] child-images:rounded-xl child-images:shadow-xl child-code:rounded-lg child-list:list-disc child-list:list-inside child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500 child-images:m-auto`}
               rehypePlugins={[
-                [remarkParse, {}],
-                [remarkMath, {}],
-                [remarkGfm, {}],
+                [rehypeRaw, {}],
+                remarkMath,
+                remarkGfm,
                 [rehypeKatex, { strict: true }],
                 rehypeHighlight,
               ]}
