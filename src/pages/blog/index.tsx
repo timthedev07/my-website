@@ -2,15 +2,16 @@ import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { MarkdownMetadata } from "../../types/posts";
 import { useNavContext } from "../../components/nav/Navbar";
-import { useEffect, useState } from "react";
+import { ChangeEventHandler, useEffect, useState } from "react";
 import {
   BlogCategoryTabType,
   BLOG_CATEGORIES,
 } from "../../types/blogCategories";
-import { BlogGroups } from "../../utils/groupBlogs";
+import { BlogFileInfo, BlogGroups } from "../../utils/groupBlogs";
 import { useRouter } from "next/router";
 import { BlogTabs } from "../../components/BlogTabs";
 import {
+  Button,
   Input,
   Menu,
   MenuButton,
@@ -23,38 +24,92 @@ import headerImage from "../../../public/images/blog-heading.jpg";
 import { blurDataUrl } from "../../utils/blurDataUrl";
 import { getBlogsWithMetadata } from "../../utils/blogsWithMeta";
 import { SearchSVG } from "../../components/svgs/Search";
+import { anyElementContains } from "../../utils/arrays";
 
 interface Props {
   groupedBlogs: BlogGroups;
+  keywords: Array<string>;
 }
 
-const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
+const Blogs: NextPage<Props> = ({
+  groupedBlogs: filenamesWithMetadata,
+  keywords: tags,
+}) => {
   const router = useRouter();
   const { query, isReady } = router;
   const { setNavTransparent, windowSize } = useNavContext();
   const [currTab, setCurrTab] = useState<BlogCategoryTabType>(() => "recent");
+  const [currTag, setCurrTag] = useState<string | null>(null);
+  const [filteredByTag, setFilteredByTag] = useState<BlogFileInfo[] | null>(
+    null
+  );
+
+  const tabCandidates = filenamesWithMetadata[currTab].sort(
+    (a, b) =>
+      new Date(JSON.parse(b.metadata).date).valueOf() -
+      new Date(JSON.parse(a.metadata).date).valueOf()
+  );
 
   useEffect(() => {
-    if (!query.category) return;
-    if (
-      ["recent", ...BLOG_CATEGORIES].findIndex(
-        (val) => val === query.category
-      ) < 0
-    )
-      return;
-    setCurrTab(query.category as any);
-  }, [isReady, query]);
+    const initCategory = () => {
+      if (!query.category) return;
+      if (
+        ["recent", ...BLOG_CATEGORIES].findIndex(
+          (val) => val === query.category
+        ) < 0
+      )
+        return;
+      setCurrTab(query.category as any);
+    };
+
+    const initTag = () => {
+      if (!query.tag) return;
+      if (tags.findIndex((val) => val === query.tag) < 0) return;
+      setCurrTag(query.tag as any);
+      handleSearch();
+    };
+
+    // populating the states according to query params(if any)
+    initCategory();
+    initTag();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isReady, query, tags]);
 
   useEffect(() => {
     setNavTransparent(true);
   }, [setNavTransparent]);
 
+  const handleSearchUpdate: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setCurrTag(e.target.value);
+  };
+
+  const handleSearch = () => {
+    if (!currTag) return;
+
+    router.query.tag = currTag;
+    router.push(router);
+
+    const newCandidateIds: BlogFileInfo[] = [];
+
+    // searching strategy
+    for (const candidate of tabCandidates) {
+      const { keywords } = JSON.parse(candidate.metadata) as MarkdownMetadata;
+
+      if (anyElementContains(keywords, currTag)) {
+        newCandidateIds.push(candidate);
+      }
+    }
+
+    setFilteredByTag(newCandidateIds);
+  };
+
   return (
     <>
       {getHeadForPage({
-        description: "All My Blogs",
+        description: "My Blog Collection",
         path: "/blog",
-        title: "Blogs",
+        title: "Blog",
       })}
       <header className="relative w-full h-72 flex justify-center items-center">
         <Image
@@ -74,7 +129,19 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
         <Input
           placeholder="Type to search by tag"
           leftAddon={<SearchSVG className="w-6 h-6 text-gray-300" />}
+          rightElement={
+            <Button
+              scale="sm"
+              color="green"
+              className="w-[90%]"
+              onClick={handleSearch}
+            >
+              Go
+            </Button>
+          }
+          rightElementWidth="w-24"
           containerClassName="flex-1 flex-grow"
+          onChange={handleSearchUpdate}
         />
       </div>
 
@@ -107,13 +174,8 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
       )}
 
       <ol className="w-full flex gap-5 p-8 flex-wrap justify-center">
-        {filenamesWithMetadata[currTab]
-          .sort(
-            (a, b) =>
-              new Date(JSON.parse(b.metadata).date).valueOf() -
-              new Date(JSON.parse(a.metadata).date).valueOf()
-          )
-          .map(({ filename, metadata: metadataAsString, category }) => {
+        {(filteredByTag || tabCandidates).map(
+          ({ filename, metadata: metadataAsString, category }) => {
             const metadata = JSON.parse(metadataAsString) as MarkdownMetadata;
             return (
               <Link
@@ -148,16 +210,29 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
                 </li>
               </Link>
             );
-          })}
+          }
+        )}
       </ol>
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const data = await getBlogsWithMetadata("ssg");
+
+  const allKeywords: string[] = [];
+
+  for (const c of BLOG_CATEGORIES) {
+    for (const d of data[c]) {
+      const { keywords } = JSON.parse(d.metadata) as MarkdownMetadata;
+      allKeywords.concat(keywords);
+    }
+  }
+
   return {
     props: {
-      groupedBlogs: await getBlogsWithMetadata("ssg"),
+      groupedBlogs: data,
+      keywords: Array.from(new Set(allKeywords)),
     } as Props,
   };
 };

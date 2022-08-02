@@ -6,6 +6,7 @@ keywords:
   - Programming
   - Algorithms
   - Math
+  - Python
 ---
 
 ## Problem Statement

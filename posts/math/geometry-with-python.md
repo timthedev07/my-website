@@ -2,7 +2,7 @@
 title: I Tackled a Math Problem With Programming, Is This Cheating?
 description: How I solved a Geometry Problem with Python
 date: 2022-06-18
-keywords: ["Math", "Programming", "Geometry"]
+keywords: ["Math", "Programming", "Geometry", "Python"]
 ---
 
 ## Problem Statement
