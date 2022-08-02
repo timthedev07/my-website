@@ -493,7 +493,7 @@ In contrast, a quadratic function, for example, would have a **variable rate of 
 
 ### Average Rate of Change
 
-The average rate of change is the gradient of the secant line that passes through the curve at $x_1$ and $x_2$.
+The average rate of change over an interval $[a, b]$ is the gradient of the secant line that passes through the curve at $x_1 = a$ and $x_2 = b$.
 
 <iframe src="https://www.desmos.com/calculator/mpygaspgsp?embed" width="100%" height="500"></iframe>
 
