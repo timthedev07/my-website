@@ -367,6 +367,37 @@ These values of x would be the x-coordinates of the stationary points, and to fi
 
 The function of the curve above is given by $f\left(x\right)\ =\ -x^{2\ }+3x+2$; find the coordinates of the stationary point P.
 
+1. Find the derivative of $f(x)$
+
+$$
+\begin{align*}
+f'(x) = -2x + 3
+\end{align*}
+$$
+
+2. Solve for $x$ when $f'(x) = 0$
+
+$$
+\begin{align*}
+0 &= 3 - 2x \\
+3 &= 2x \\
+x &= \frac{3}{2}
+\end{align*}
+$$
+
+3. Substitute the $x$ value back into $f(x)$
+
+$$
+\begin{align*}
+y &= f(\frac{3}{2}) \\
+y &= \frac{17}{4} = 4\frac{1}{4}
+\end{align*}
+$$
+
+**Conclusion**
+
+Stationary point $P = (1\frac{1}{2}, 4\frac{1}{4})$.
+
 ### The Second Derivative
 
 Now, what if the curve we are dealing with has more than one stationary points? How do we classify them into these three categories?
@@ -446,3 +477,125 @@ $$
 - $x_1 = \frac{2\sqrt{3}}{3} > 0$, so the stationary point with the x-coordinate $x_1$ is a _minimum_.
 
 - $x_2 = -\frac{2\sqrt{3}}{3} < 0$, so the stationary point with the x-coordinate $x_2$ is a _maximum_.
+
+## Rate of Change
+
+Now, in calculus, the concept of rate of change is also important. It's simply a rate of how a dependent variable changes as an independent variable changes.
+
+There are two types of rates of change we will look at here:
+
+- Instantaneous rate of change
+- Average rate of change
+
+For example, for a linear function, the rate of change is **constant**, because there is a linear(straight line) correlation between the variables. And the rate also happens to be the derivative of the function, i.e. the gradient/slope of the line, as discussed above.
+
+In contrast, a quadratic function, for example, would have a **variable rate of change** over an interval or a point. As you saw earlier, the derivative would produce an expression whose value actually depends on x; or in other words, the derivative's value at different x coordinates may vary, unlike a linear function's derivative, which is a single constant that represents the gradient.
+
+### Average Rate of Change
+
+The average rate of change is the gradient of the secant line that passes through the curve at $x_1$ and $x_2$.
+
+<iframe src="https://www.desmos.com/calculator/mpygaspgsp?embed" width="100%" height="500"></iframe>
+
+To calculate this, find the coordinates of the two points of intersection and calculate the gradient:
+
+$$
+\begin{align*}
+m = \frac{y_2 - y_1}{x_2 - x_1}
+\end{align*}
+$$
+
+And to form an equation for the secant line:
+
+$$
+\begin{align*}
+y = m(x - x_1) + y_1
+\end{align*}
+$$
+
+#### Example
+
+Let $f\left(x\right)\ =\ \frac{1}{20}x^{3}$, find the average rate of change over the interval $[1, 4]$, and hence the equation of the secant line.
+
+$$
+\begin{align*}
+x_1 &= 1 \\
+y_1 &= f(1) = 0.05 \\ \\
+
+x_2 &= 4 \\
+y_2 &= f(4) = 3.2 \\ \\
+
+m &= \frac{3.15}{3} = 1.05 \\ \\
+
+y = 1.05(x - 1) + 0.05 = 1.05x - 1
+\end{align*}
+$$
+
+Thus the average rate of change required is $1.05$ and the equation of the secant line drawn is $y = 1.05x - 1$.
+
+### Instantaneous Rate Of Change
+
+The instantaneous rate of change is the value of the derivative at a specific point on the curve of the function, i.e. the gradient of the tangent line at a point.
+
+To calculate its value for a curve $f(x)$, is simply $f'(x)$, where $x$ is the x-coordinate of a point on the curve.
+
+Take this as an example:
+
+> The curve C is given by the equation $f(x) = 2x^2+4x-3$, find the instantaneous rate of change at the point (7, 123).
+
+$$
+\begin{align*}
+f'(x) &= 4x + 4
+f'(7) = 32
+\end{align*}
+$$
+
+In this case, 32 represents the gradient of the line that's tangent to the curve at $(7, 123)$.
+
+## Problems Involving Displacement, Velocity, and Acceleration
+
+- Displacement is a vector quantity represented by $s$.
+- Velocity is a vector quantity represented by $v$.
+- Acceleration is a vector quantity represented by $a$.
+
+If you've learned a little bit of physics, you would know that $v = s/t$ where t is time, and $a = v/t$.
+
+Now, if you get a question that, for example, gives you a polynomial of some degree indicating the relationship between two of these quantities stated above(e.g. $s = 3t^2 + 7t - 13$), you'll have to calculate the derivative of the function to obtain some result, for example, velocity.
+
+### Key Point
+
+- $v = \frac{ds}{dt}$
+- $a = \frac{dv}{dt} = \frac{d^2s}{dt^2}$
+
+### Example 1
+
+A particle $P$ is moving along a straight line that passes through the fixed point $O$. The displacement, $s$ meters, of $P$ from $O$ at time $t$ seconds is given by:
+
+$$
+\begin{align*}
+s = t^3 - 6t^2 + 5t - 4
+\end{align*}
+$$
+
+Find the value of t for which the acceleration of P is $3m/s^2$.
+
+$$
+\begin{align*}
+a &= \frac{d^2s}{dt^2} = 6t -12 \\ \\
+3 &= 6t - 12  \\
+6t &= 15 \\
+t &= \frac{5}{2} \space seconds
+\end{align*}
+$$
+
+### Example 2
+
+The displacement, $s$ meters, of a particle after $t$ seconds is given by $s = t^3 - 2t^2 + 3t + 1$
+
+1. Find an expression for $v$.
+
+$$
+\begin{align*}
+
+\end{align*}
+$$
