@@ -1,7 +1,7 @@
 ---
-title: "A Brief Introduction to Calculus: Part 1 - Differentiation"
+title: "A Brief Introduction to Calculus: Part 1 - Derivatives"
 description: "If you're new to calculus and know nothing about it, then this blog is aimed to get a gist of it for you, but not to turn you into a master of calculus."
-date: 2022-07-31
+date: 2022-08-03
 keywords:
   - Math
   - Calculus
@@ -10,7 +10,9 @@ keywords:
 
 # Introduction
 
-This blog would primarily focus on the three fundamental areas of calculus - _differentiation_, _limits_, and _integration_; thus no prior knowledge of calculus is needed.
+This series would primarily focus on the three fundamental areas of calculus - _derivatives_, _limits_, and _integration_, looking briefly at some of the different concepts to get started with calculus.; thus no prior knowledge of calculus is needed.
+
+**This is the first part of the series, it is entirely about derivatives**
 
 Note: the content covered here would only require a solid understanding of basic algebra.
 
@@ -28,7 +30,7 @@ In the example above, $ax^2 + bx + c$ would be the expression for the **value of
 
 Graphically, this is the equivalent of: for each x-coordinate, calculate its corresponding y-coordinate using $f(x)$; and the point $P(x, f(x))$ would hence be plotted, for example, on a cartesian graph.
 
-# Differentiation
+# Derivatives
 
 Differentiation in calculus refers to the process of finding the derivative of a function, which also represents the rate of change of a function.
 
