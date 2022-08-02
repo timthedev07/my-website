@@ -562,6 +562,8 @@ In this case, 32 represents the gradient of the line that's tangent to the curve
 
 If you've learned a little bit of physics, you would know that $v = s/t$ where t is time, and $a = v/t$.
 
+Generally the expressions' variable would be time, and we would have to differentiate the functions with respect to $t$(time) to workout the rate of something.
+
 Now, if you get a question that, for example, gives you a polynomial of some degree indicating the relationship between two of these quantities stated above(e.g. $s = 3t^2 + 7t - 13$), you'll have to calculate the derivative of the function to obtain some result, for example, velocity.
 
 ### Key Point
@@ -592,12 +594,192 @@ $$
 
 ### Example 2
 
+The velocity, $v$ m/s, of a particle after t seconds is given by $v = 160 - 32t$. Find the acceleration.
+
+$$
+\begin{align*}
+a &= \frac{dv}{dt} \\
+&= -32 m/s^2 \\ \\
+\end{align*}
+$$
+
+### Example 3
+
 The displacement, $s$ meters, of a particle after $t$ seconds is given by $s = t^3 - 2t^2 + 3t + 1$
 
 1. Find an expression for $v$.
 
 $$
 \begin{align*}
+v &= \frac{ds}{dt} \\ \\
+v &= 3t^2 - 4t + 3
+\end{align*}
+$$
+
+2. Find an expression for $a$.
+
+$$
+\begin{align*}
+a &= \frac{dv}{dt} \\ \\
+a &= 6t - 4
+\end{align*}
+$$
+
+3. Workout the velocity and acceleration of the particle after two seconds, in the correct units.
+
+$$
+\begin{align*}
+v &= 3 \cdot 2^2 - 4 \cdot 2 + 3 \\
+&= 12 - 8 + 3 \\
+&= 7 m/s \\ \\
+
+a &= 6t - 4 \\
+&= 12 - 4 \\
+&= 8m/s^2
+\end{align*}
+$$
+
+## Maximization/Minimization Problems
+
+Often times, you will have to construct a function that relates one quantity to another, say $x$ is the independent variable and $y$ is th dependent variable, and you will have to find the value of $x$ for which $y$ is a maximum/minimum.
+
+Once you have a function, calculate its derivative and set its value to 0, thus providing an equation whose solutions would be the coordinates of the turning points. Refer back to the "Stationary Points" section for more explanation on the method.
+
+### Example 1
+
+Prerequisite:
+
+- The minor **arc length** of a sector is $l = r\theta$, where $\theta$ is the angle in **radians**(180 degrees = $\pi$ radians).
+
+$OMT$ is a minor sector of a circle with center $O$ and radius $r$ cm. The perimeter of the sector is 200cm.
+
+1. Find a function for the area of the sector, A, in $cm^2$.
+
+$$
+\begin{align*}
+P &= 200 \\
+200 &= 2r + r\theta \\
+\frac{200}{r} &= 2 + \theta \\
+\theta &= \frac{200}{r} - 2 \\ \\
+
+A &= \pi r^2 \frac{\theta}{2\pi} \\
+A &= r^2 \frac{\theta}{2} \\ \\
+
+\because \theta &= \frac{200}{r} - 2 \\
+A &= r^2 \cdot \frac{1}{2}\left[\frac{200}{r} - 2\right] \\
+&= r^2 \left[\frac{100}{r} - 1\right] \\
+&= 100r - r^2
 
 \end{align*}
 $$
+
+2. Find the value of $r$ for which $A$ is a maximum.
+
+$$
+\begin{align*}
+\frac{dA}{dr} &= 100 - 2r \\ \\
+0 &= 100 - 2r \\
+r &= 50
+
+\end{align*}
+$$
+
+3. Prove that the the area of a sector with the radius calculated above is indeed a maximum.
+
+$$
+\begin{align*}
+\frac{d^2A}{dr^2} &= -2 < 0
+\end{align*}
+$$
+
+4. Find the maximum area of the sector $OMN$.
+
+$$
+\begin{align*}
+r &= 50 \\
+A &= 100 \cdot 50 - 50^2 \\
+&= 5000 - 2500 \\
+&= 2500 cm^2
+\end{align*}
+$$
+
+### Example 2
+
+A large tank in the shape of a cuboid is to be made from $54m^2$ of sheet metal. There is no top, i.e. only 5 faces. The height and width of the tank are both $x$ meters.
+
+1. Find a function for the volume of the cuboid.
+
+$$
+\textnormal{Let } y \textnormal{ be the length of the cuboid} \\
+
+\begin{align*}
+\\ 54 &= 2x^2 + 3xy \\
+y &= \frac{54 - 2x^2}{3x}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+V &= x^2y \\
+&= x^2\left[\frac{54 - 2x^2}{3x}\right] \\
+&= 18x - \frac{2}{3}x^3
+\end{align*}
+$$
+
+2. Find the maximum stationary point of $V$ and justify that it's a maximum.
+
+$$
+\begin{align*}
+\frac{dV}{dx} &= 18 - 2x^2 \\
+0 &= 18 - 2x^2 \\
+x &= {3} \\ \\
+
+\frac{d^2V}{dx^2} &= -4x \\
+\end{align*}
+$$
+
+$$
+\begin{align*}
+&\textnormal{Thus a coordinate with a positive x value} \\
+&\textnormal{would be a maximum stationary point.} \\
+\end{align*}
+$$
+
+$$
+\begin{align*}
+x &= 3 \\
+V &= 18\cdot 3 - \frac{2}{3}\cdot 3^3 \\
+&= 54 - 18 \\
+&= 36 m^3
+\end{align*}
+$$
+
+### Example 3
+
+A community is planning the greenery for a land of area $1000m^2$. One part would be planted with flowers and the other part with grass.
+
+Let the area of grass be $x$ $m^2$; the cost of the grass, $y_1$, is given by $y_1 = 30x$. The cost of the flowers, $y_2$ is given by $y_2 = -0.01x^2 - 20x + 30000$.
+
+Let $W$ be the total cost of greenery for the whole area, calculate the maximum value of $W$; and thus find the area of grass when $W$ is maximum.
+
+$$
+\begin{align*}
+W &= y_1 + y_2 \\
+W &= -\frac{1}{100}x^2 + 10x + 30000 \\ \\
+\frac{dW}{dx} &= - \frac{1}{50}x + 10 \\
+0 &= - \frac{1}{50}x + 10 \\
+10 &= \frac{1}{50}x \\
+x &= 500 \\ \\
+
+W_{max} &= -\frac{1}{100}\cdot 500^2 + 10 \cdot 500 + 30000 \\
+&= 32500
+\end{align*}
+$$
+
+# Conclusion
+
+I personally found calculus very fascinating, and that's why I decided to spend some time writing about what I perceived in the process of learning calculus.
+
+Not too far in the future, blogs about integration and limits will be published too, so stay tuned!
+
+Again, all of the content I have covered and am about to cover is introductory level, this is about high school level if you will. But to anyone reading this, thanks for getting through it!
