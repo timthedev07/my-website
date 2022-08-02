@@ -63,9 +63,9 @@ const Blogs: NextPage<Props> = ({
     };
 
     const initTag = () => {
-      if (!query.tag) return;
+      if (!query.tag || currTag) return;
       setCurrTag(query.tag as any);
-      handleSearch();
+      handleSearch(query.tag as any);
     };
 
     // populating the states according to query params(if any)
@@ -83,11 +83,11 @@ const Blogs: NextPage<Props> = ({
     setCurrTag(e.target.value);
   };
 
-  const handleSearch = () => {
-    if (!currTag) return;
+  const handleSearch = (searchTag?: string) => {
+    if (!currTag && !searchTag) return;
 
-    router.query.tag = currTag;
-    router.push(router);
+    const term = currTag || (searchTag as string);
+    console.log("Searching ", term);
 
     const newCandidateIds: BlogFileInfo[] = [];
 
@@ -95,13 +95,21 @@ const Blogs: NextPage<Props> = ({
     for (const candidate of tabCandidates) {
       const { keywords } = JSON.parse(candidate.metadata) as MarkdownMetadata;
 
-      if (anyElementContains(keywords, currTag)) {
+      if (anyElementContains(keywords, term)) {
         newCandidateIds.push(candidate);
       }
     }
 
     setFilteredByTag(newCandidateIds);
+
+    router.query.tag = term;
+    router.push(router);
   };
+
+  useEffect(() => {
+    handleSearch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query.category]);
 
   return (
     <>
@@ -134,7 +142,9 @@ const Blogs: NextPage<Props> = ({
               scale="sm"
               color="green"
               className="w-[90%]"
-              onClick={handleSearch}
+              onClick={() => {
+                handleSearch();
+              }}
             >
               Go
             </Button>
@@ -147,7 +157,7 @@ const Blogs: NextPage<Props> = ({
 
       {windowSize ? (
         windowSize > 800 ? (
-          <BlogTabs currTab={currTab} onTabChange={handleSearch} />
+          <BlogTabs currTab={currTab} />
         ) : (
           <Menu className="m-6">
             <MenuButton className="capitalize">{currTab || ""}</MenuButton>
@@ -159,7 +169,6 @@ const Blogs: NextPage<Props> = ({
                     onClick={() => {
                       router.query.category = each;
                       router.push(router);
-                      handleSearch();
                     }}
                     className="capitalize"
                     key={each}
