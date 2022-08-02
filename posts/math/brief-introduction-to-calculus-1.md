@@ -1,5 +1,5 @@
 ---
-title: "A Brief Introduction to Calculus"
+title: "A Brief Introduction to Calculus: Part 1 - Differentiation"
 description: "If you're new to calculus and know nothing about it, then this blog is aimed to get a gist of it for you, but not to turn you into a master of calculus."
 date: 2022-07-31
 keywords:
