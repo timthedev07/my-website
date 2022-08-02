@@ -28,7 +28,7 @@ For example, a quadratic equation in the form of $y = ax^2 + bx + c$ could be wr
 
 In the example above, $ax^2 + bx + c$ would be the expression for the **value of the function** $f(x)$, i.e. the output, but it's also a representation of the relationship between $f(x)$, or $y$, and $x$; likewise $x$ would be the variable, i.e. the input.
 
-Graphically, this is the equivalent of: for each x-coordinate, calculate its corresponding y-coordinate using $f(x)$; and the point $P(x, f(x))$ would hence be plotted, for example, on a cartesian graph.
+Graphically, this is the equivalent of for each x-coordinate, calculate its corresponding y-coordinate using $f(x)$; and the point $P(x, f(x))$ would hence be plotted, for example, on a cartesian graph.
 
 # Derivatives
 
@@ -36,9 +36,9 @@ Differentiation in calculus refers to the process of finding the derivative of a
 
 The way I think of taking a derivative is a linear downward transformation since the indices of x are reduced by 1.
 
-The mathematical representation of the derivative of a function is $f'(x)$ where the number of apostrophes after $f$ indicates the nth derivative of function $f(x)$; meanwhile you can also say that the first derivative of $y$, **with respect to** $x$, is $\frac{dy}{dx}$. Furthermore, the $nth$ derivative of $y$ is written as $\large\frac{d^{n}y}{dx^{n}}$
+The mathematical representation of the derivative of a function is $f'(x)$ where the number of apostrophes after $f$ indicates the nth derivative of function $f(x)$; meanwhile, you can also say that the first derivative of $y$, **with respect to** $x$, is $\frac{dy}{dx}$. Furthermore, the $nth$ derivative of $y$ is written as $\large\frac{d^{n}y}{dx^{n}}$
 
-Not only can we calculate the derivative of a function, we can also calculate the derivative of a derivative. This might sound a bit confusing, but to put simply, say we have a function $f(x)$, its **first derivative** is $f'(x)$, and the derivative of the first derivative, i.e. the **second derivative** of $f(x)$, would be $f''(x)$, so on and so forth.
+Not only can we calculate the derivative of a function, but we can also calculate the derivative of a derivative. This might sound a bit confusing, but to put it simply, say we have a function $f(x)$, its **first derivative** is $f'(x)$, and the derivative of the first derivative, i.e. the **second derivative** of $f(x)$, would be $f''(x)$, so on and so forth.
 
 A function's derivative can be calculated by applying some rules _**to each term of the expression**_.
 
@@ -268,7 +268,7 @@ Thus **the gradient of a curve changes**, unlike a linear equation where the gra
 
 Take point $P(x, f(x))$, how do we find the gradient at $P$ then?
 
-As discusses above, we can formulate a gradient function for any line/curve by taking the derivative of the original function.
+As discussed above, we can formulate a gradient function for any line/curve by taking the derivative of the original function.
 
 In this example, the curve shown is a quadratic function, so let $f(x) = ax^2 + bx + c$. Taking its derivative would give $f'(x) = 2ax + b$, and the tangent's gradient at $P(x, f(x))$ is simply equal to $f'(x)$.
 
@@ -302,7 +302,7 @@ $$
 
 > The equation of a curve is given by $f(x) = x^3 - 3x^2 + 2x - 1$, where $y = f(x)$, find the equations of the tangent and normal at the point (3, 5).
 
-1. Find the gradient function by taking the function's derivative and calculate $f'(3)$
+1. Find the gradient function by taking the function's derivative and calculating $f'(3)$
 
 $$
 f'(x) = 3x^2 - 6x + 2 \\
@@ -337,7 +337,7 @@ $$
 
 ## Stationary Points
 
-Stationary points are points on a curve such **that their tangent has a gradient of 0**(i.e., is a horizontal line). They are said to be stationary because at these points, the function is neither decreasing or increasing.
+Stationary points are points on a curve such **that their tangent has a gradient of 0**(i.e., a horizontal line). They are said to be stationary because, at these points, the function is neither decreasing nor increasing.
 
 A function can have multiple stationary points, or just one. For example, a quadratic curve($y = ax^2 + bx + c$) would have only one stationary point.
 
@@ -359,7 +359,7 @@ A polynomial function of degree $n$ would have at most $n - 1$ turning points. E
 
 ### Finding the Stationary Points
 
-As said above, a stationary point has a gradient of 0. So to calculate the coordinates of the stationary points of a function, set $f'(x) = 0$ and find the solutions of x
+As said above, a stationary point has a gradient of 0. So to calculate the coordinates of the stationary points of a function set $f'(x) = 0$ and find the solutions of x
 
 These values of x would be the x-coordinates of the stationary points, and to find the corresponding y-coordinates, simply calculate $f(x)$ for each x-coordinate.
 
@@ -402,7 +402,7 @@ Stationary point $P = (1\frac{1}{2}, 4\frac{1}{4})$.
 
 ### The Second Derivative
 
-Now, what if the curve we are dealing with has more than one stationary points? How do we classify them into these three categories?
+Now, what if the curve we are dealing with has more than one stationary point? How do we classify them into these three categories?
 
 The second derivative of a function can be used to check if a stationary point is the maximum, minimum, or neither.
 
@@ -412,7 +412,7 @@ If $f'(x) = 0$, i.e. for a stationary point:
 
 - If $f''(x) < 0$, the point is a maximum point.
 - Else if $f''(x) > 0$, the point is a minimum point.
-- Otherwise the point is neither a maximum nor a minimum.
+- Otherwise, the point is neither a maximum nor a minimum.
 
 #### Example
 
@@ -462,7 +462,7 @@ $$
 
 So our coordinates would be $\left(\pm\frac{2\sqrt{3}}{3}, \mp\frac{16\sqrt{3}}{9}\right)$
 
-Now, determine which is the maximum or minimum:
+Now, determine which is maximum or minimum:
 
 1. Find the second derivative of the function
 
@@ -482,7 +482,7 @@ $$
 
 ## Rate of Change
 
-Now, in calculus, the concept of rate of change is also important. It's simply a rate of how a dependent variable changes as an independent variable changes.
+Now, in calculus, the concept of rate of change is also important. It's simply a rate of how a dependent variable changes as the independent variable changes.
 
 There are two types of rates of change we will look at here:
 
@@ -491,7 +491,7 @@ There are two types of rates of change we will look at here:
 
 For example, for a linear function, the rate of change is **constant**, because there is a linear(straight line) correlation between the variables. And the rate also happens to be the derivative of the function, i.e. the gradient/slope of the line, as discussed above.
 
-In contrast, a quadratic function, for example, would have a **variable rate of change** over an interval or a point. As you saw earlier, the derivative would produce an expression whose value actually depends on x; or in other words, the derivative's value at different x coordinates may vary, unlike a linear function's derivative, which is a single constant that represents the gradient.
+In contrast, a quadratic function, for example, would have a **variable rate of change** over an interval or a point. As you saw earlier, the derivative would produce an expression whose value actually depends on x; in other words, the derivative's value at different x coordinates may vary, unlike a linear function's derivative, which is a single constant that represents the gradient.
 
 ### Average Rate of Change
 
@@ -562,7 +562,7 @@ In this case, 32 represents the gradient of the line that's tangent to the curve
 
 If you've learned a little bit of physics, you would know that $v = s/t$ where t is time, and $a = v/t$.
 
-Generally the expressions' variable would be time, and we would have to differentiate the functions with respect to $t$(time) to workout the rate of something.
+Generally, the expressions' variable would be time, and we would have to differentiate the functions with respect to $t$(time) to work out the rate of something.
 
 Now, if you get a question that, for example, gives you a polynomial of some degree indicating the relationship between two of these quantities stated above(e.g. $s = 3t^2 + 7t - 13$), you'll have to calculate the derivative of the function to obtain some result, for example, velocity.
 
@@ -625,7 +625,7 @@ a &= 6t - 4
 \end{align*}
 $$
 
-3. Workout the velocity and acceleration of the particle after two seconds, in the correct units.
+3. Work out the velocity and acceleration of the particle after two seconds, in the correct units.
 
 $$
 \begin{align*}
@@ -641,9 +641,9 @@ $$
 
 ## Maximization/Minimization Problems
 
-Often times, you will have to construct a function that relates one quantity to another, say $x$ is the independent variable and $y$ is th dependent variable, and you will have to find the value of $x$ for which $y$ is a maximum/minimum.
+Oftentimes, you will have to construct a function that relates one quantity to another, say $x$ is the independent variable and $y$ is the dependent variable, and you will have to find the value of $x$ for which $y$ is a maximum/minimum.
 
-Once you have a function, calculate its derivative and set its value to 0, thus providing an equation whose solutions would be the coordinates of the turning points. Refer back to the "Stationary Points" section for more explanation on the method.
+Once you have a function, calculate its derivative and set its value to 0, thus providing an equation whose solutions would be the coordinates of the turning points. Refer back to the "Stationary Points" section for more explanation of the method.
 
 ### Example 1
 
@@ -684,7 +684,7 @@ r &= 50
 \end{align*}
 $$
 
-3. Prove that the the area of a sector with the radius calculated above is indeed a maximum.
+3. Prove that the area of a sector with the radius calculated above is indeed a maximum.
 
 $$
 \begin{align*}
@@ -782,4 +782,4 @@ I personally found calculus very fascinating, and that's why I decided to spend 
 
 Not too far in the future, blogs about integration and limits will be published too, so stay tuned!
 
-Again, all of the content I have covered and am about to cover is introductory level, this is about high school level if you will. But to anyone reading this, thanks for getting through it!
+Again, all of the content I have covered and am about to cover is at an introductory level, so this is about high school level if you will. But to anyone reading this, thanks for getting through it!
