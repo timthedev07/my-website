@@ -4,9 +4,13 @@ import { BLOG_CATEGORIES } from "../types/blogCategories";
 
 interface BlogTabsProps {
   currTab: string;
+  onTabChange?: Function;
 }
 
-export const BlogTabs: FC<BlogTabsProps> = ({ currTab }) => {
+export const BlogTabs: FC<BlogTabsProps> = ({
+  currTab,
+  onTabChange = () => {},
+}) => {
   const router = useRouter();
 
   return (
@@ -16,6 +20,7 @@ export const BlogTabs: FC<BlogTabsProps> = ({ currTab }) => {
           onClick={() => {
             router.query.category = each;
             router.push(router);
+            onTabChange();
           }}
           className={`flex-1 select-none flex-grow text-center uppercase flex justify-center items-center ${
             each === currTab
