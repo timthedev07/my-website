@@ -41,7 +41,7 @@ const Blogs: NextPage<Props> = ({
   const [currTab, setCurrTab] = useState<BlogCategoryTabType>(() => "recent");
   const [currTag, setCurrTag] = useState<string | null>(null);
   const [filteredByTag, setFilteredByTag] = useState<BlogFileInfo[] | null>(
-    null
+    () => null
   );
 
   const tabCandidates = filenamesWithMetadata[currTab].sort(
@@ -64,7 +64,6 @@ const Blogs: NextPage<Props> = ({
 
     const initTag = () => {
       if (!query.tag) return;
-      if (tags.findIndex((val) => val === query.tag) < 0) return;
       setCurrTag(query.tag as any);
       handleSearch();
     };
@@ -128,6 +127,7 @@ const Blogs: NextPage<Props> = ({
       <div className="w-full flex justify-center items-center px-16 md:px-24 py-4">
         <Input
           placeholder="Type to search by tag"
+          defaultValue={currTag || undefined}
           leftAddon={<SearchSVG className="w-6 h-6 text-gray-300" />}
           rightElement={
             <Button
@@ -147,7 +147,7 @@ const Blogs: NextPage<Props> = ({
 
       {windowSize ? (
         windowSize > 800 ? (
-          <BlogTabs currTab={currTab} />
+          <BlogTabs currTab={currTab} onTabChange={handleSearch} />
         ) : (
           <Menu className="m-6">
             <MenuButton className="capitalize">{currTab || ""}</MenuButton>
@@ -159,6 +159,7 @@ const Blogs: NextPage<Props> = ({
                     onClick={() => {
                       router.query.category = each;
                       router.push(router);
+                      handleSearch();
                     }}
                     className="capitalize"
                     key={each}
