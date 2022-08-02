@@ -1365,10 +1365,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dragontail-experimental@^0.0.62:
-  version "0.0.62"
-  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.62.tgz#0b2f1ee5fe6c1bee48e0dd9cb35cbb05786beb86"
-  integrity sha512-Tw2g2W7rthy9NL3YJDlzbQB4EFqHf7raX51up++/8aaIXGQdglosayqglmvfsI9P1tLb1Sr9bulQNDtlKCj46A==
+dragontail-experimental@^0.0.63:
+  version "0.0.63"
+  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.63.tgz#ea9d1cac656534d74b531f8f97ba62787695d8c0"
+  integrity sha512-B+8EPY947V+JUYTZCqj+jhLbHPG1yUlY1b8hyEzS+WJxQb9YmSdaspS/tMqaFym4JRXYTLh96BZN+R4uDftjcA==
 
 ecdsa-sig-formatter@1.0.11:
   version "1.0.11"
