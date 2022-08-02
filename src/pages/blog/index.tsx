@@ -10,12 +10,19 @@ import {
 import { BlogGroups } from "../../utils/groupBlogs";
 import { useRouter } from "next/router";
 import { BlogTabs } from "../../components/BlogTabs";
-import { Menu, MenuButton, MenuItem, MenuList } from "dragontail-experimental";
+import {
+  Input,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from "dragontail-experimental";
 import { getHeadForPage } from "../../utils/getHead";
 import Image from "next/image";
 import headerImage from "../../../public/images/blog-heading.jpg";
 import { blurDataUrl } from "../../utils/blurDataUrl";
 import { getBlogsWithMetadata } from "../../utils/blogsWithMeta";
+import { SearchSVG } from "../../components/svgs/Search";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -62,6 +69,14 @@ const Blogs: NextPage<Props> = ({ groupedBlogs: filenamesWithMetadata }) => {
           My Blog
         </h2>
       </header>
+
+      <div className="w-full flex justify-center items-center px-16 md:px-24 py-4">
+        <Input
+          placeholder="Type to search by tag"
+          leftAddon={<SearchSVG className="w-6 h-6 text-gray-300" />}
+          containerClassName="flex-1 flex-grow"
+        />
+      </div>
 
       {windowSize ? (
         windowSize > 800 ? (
