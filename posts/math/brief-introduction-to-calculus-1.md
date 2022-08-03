@@ -547,7 +547,7 @@ Take this as an example:
 
 $$
 \begin{align*}
-f'(x) &= 4x + 4
+f'(x) &= 4x + 4 \\
 f'(7) = 32
 \end{align*}
 $$
