@@ -305,9 +305,9 @@ $$
 1. Find the gradient function by taking the function's derivative and calculating $f'(3)$
 
 $$
-f'(x) = 3x^2 - 6x + 2 \\
 \begin{align*}
-\\ f'(3) &= 3\cdot 3^2 - 6 \cdot 3 + 2 \\
+f'(x) &= 3x^2 - 6x + 2 \\
+f'(3) &= 3\cdot 3^2 - 6 \cdot 3 + 2 \\
 &= 27 - 18 + 2 \\
 &= 11
 \end{align*}
