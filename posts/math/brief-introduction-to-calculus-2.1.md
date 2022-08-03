@@ -36,13 +36,15 @@ An **indefinite integral** is written in the form of $\int y\,dx$, where $y$ is 
 
 For example, $\int 2x\, dx$, is a indefinite integral whose integrand is $2x$ and variable to integrate is $x$.
 
-Since an integral produces another function, by convention, that new function is represented by $F(x)$. In other words:
+Since an integral produces another function, by convention, that new function, i.e. the anti-derivative is represented by $F(x)$. In other words:
 
 $$
 \begin{align*}
-\int f(x)\, dx = F(x)
+\int f(x)\, dx = F(x) + C
 \end{align*}
 $$
+
+where $C$ is some constant
 
 As said earlier, integration is the reverse process of differentiation, so sometimes it will attempt to construct the function that's being differentiated.
 
@@ -60,11 +62,11 @@ However, we can say that:
 
 $$
 \begin{align*}
-\int 2x\, dx = x^2 + c
+\int 2x\, dx = x^2 + C
 \end{align*}
 $$
 
-Where $c$ is a possible constant ignored/removed when differentiating; it could be anything, but without further information we won't be able to find $c$.
+Where $C$ is a possible constant ignored/removed when differentiating; it could be anything, but without further information we won't be able to find $C$.
 
 ## Rules for Integration
 
@@ -76,13 +78,13 @@ Just like differentiating, you will need to integrate term by term.
 
 Note that it's also very important to pay attention to the part of $dx$, because it indicates what variable you should integrate with respect to.
 
-When applying the following rules to all the terms in a function, the constant $c$ is only added at the end and doesn't need to be included in every integrated term.
+When applying the following rules to all the terms in a function, the constant $C$ is only added at the end and doesn't need to be included in every integrated term.
 
 ### Powers of $x$
 
 $$
 \begin{align*}
-\int x^n\, dx = \frac{x^{n + 1}}{n + 1} + c \space\space\space (n \not= -1)
+\int x^n\, dx = \frac{x^{n + 1}}{n + 1} + C \space\space\space (n \not= -1)
 \end{align*}
 $$
 
@@ -93,8 +95,8 @@ $$
 $$
 \begin{align*}
 &\int 3x^2\, dx \\
-=& \frac{3}{3}x^3 +c \\
-=& x^3 + c
+=& \frac{3}{3}x^3 + C \\
+=& x^3 + C
 \end{align*}
 $$
 
@@ -102,7 +104,7 @@ $$
 
 $$
 \begin{align*}
-\int x^4\, dx = \frac{x^5}{5} + c
+\int x^4\, dx = \frac{x^5}{5} + C
 \end{align*}
 $$
 
@@ -111,7 +113,7 @@ $$
 $$
 \begin{align*}
 & \int (x^{\frac{1}{2}} + 2x^3)\, dx \\
-=& \frac{2}{3}x^\frac{3}{2} + \frac{1}{2}x^4 + c
+=& \frac{2}{3}x^\frac{3}{2} + \frac{1}{2}x^4 + C
 \end{align*}
 $$
 
@@ -119,7 +121,15 @@ $$
 
 $$
 \begin{align*}
-& \int a\, dx = ax + c
+\int a\, dx = ax + C
+\end{align*}
+$$
+
+#### Example
+
+$$
+\begin{align*}
+\int 3\, dx = 3x + C
 \end{align*}
 $$
 
@@ -127,7 +137,7 @@ $$
 
 $$
 \begin{align*}
-\int e^{ax}\, dx = \frac{1}{a}e^{ax} + c
+\int e^{ax}\, dx = \frac{1}{a}e^{ax} + C
 \end{align*}
 $$
 
@@ -138,7 +148,7 @@ Find $\int 5e^{-3x}\, dx$
 $$
 \begin{align*}
 & \int 5e^{-3x}\, dx \\
-=&\space-15e^{-3x} + c
+=&\space-15e^{-3x} + C
 \end{align*}
 $$
 
@@ -146,8 +156,8 @@ $$
 
 $$
 \begin{align*}
-&\int \sin(ax)\, dx = -\frac{1}{a}\cos(ax) + c \\
-&\int \cos(ax)\, dx = \frac{1}{a}\sin(ax) + c \\
+&\int \sin(ax)\, dx = -\frac{1}{a}\cos(ax) + C \\ \\
+&\int \cos(ax)\, dx = \frac{1}{a}\sin(ax) + C \\
 \end{align*}
 $$
 
@@ -161,14 +171,16 @@ $$
 \int 3e^{-x}\, dx &= -3e^{-x} \\
 \int -\sin(2x)\, dx &= -(-\frac{1}{2}\cos(2x)) \\
 &= \frac{1}{2}\cos(2x) \\ \\
-
-I &= 2\sin(x) - 3e^{-x} + \frac{1}{2}\cos(2x)
 \end{align*}
+$$
+
+$$
+I = 2\sin(x) - 3e^{-x} + \frac{1}{2}\cos(2x) + C
 $$
 
 ## Definite Integrals
 
-Unlike indefinite integrals, these integrals have a limit of integration, composed of an upper and a lower bound.
+Unlike indefinite integrals, these integrals have a limit of integration, composed of an upper and a lower bound. Moreover, they compute a definite value instead of producing a function.
 
 A definite integral is written as follows:
 
@@ -176,10 +188,20 @@ $$
 \int_{a}^{b} y\, dx
 $$
 
-As discussed earlier, the function produced by the integral is written as $F(x)$.
-
 What are $a$ and $b$ then?
 
 $b$ represents the **upper limit** of integration, and $a$ represents the **lower limit**.
 
-What it does is that it calculates the difference $F(x)$,
+As discussed earlier, a function produced by an indefinite integral is written as $F(x)$.
+
+However, a definite integral is the result of the calculation $F(b) - F(a)$ .
+
+Hence:
+
+$$
+\begin{align*}
+& \int_{a}^{b} f(x) \, dx \\
+=& \left[\,F(x)\,\right]_{a}^{b} \\
+=& F(b) - F(a)
+\end{align*}
+$$
