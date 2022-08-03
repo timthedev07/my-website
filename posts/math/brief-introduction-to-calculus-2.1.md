@@ -205,3 +205,5 @@ $$
 =& F(b) - F(a)
 \end{align*}
 $$
+
+Notice that the constant $C$ is not included in the expressions, that's because when $F(b) + C - (F(a) + C)$, the constant cancels out.
