@@ -22,7 +22,7 @@ So now, let's sit back, relax, and have some fun!
 # Quick Access
 
 - [Part 1 - Derivatives](/blog/math/brief-introduction-to-calculus-1)
-- [Part 2.1 - Definite & Indefinite Integrals](/blog/math/brief-introduction-to-calculus-1)
+- [Part 2.1 - Definite & Indefinite Integrals](/blog/math/brief-introduction-to-calculus-2.1)
 
 # Integration
 
