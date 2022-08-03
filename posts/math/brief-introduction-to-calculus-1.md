@@ -20,8 +20,8 @@ So now, let's sit back, relax, and have some fun!
 
 # Quick Access
 
-- [Part 1 - Derivatives](/blog/brief-introduction-to-calculus-1)
-- [Part 2.1 - Definite & Indefinite Integrals](/blog/brief-introduction-to-calculus-1)
+- [Part 1 - Derivatives](/blog/math/brief-introduction-to-calculus-1)
+- [Part 2.1 - Definite & Indefinite Integrals](/blog/math/brief-introduction-to-calculus-1)
 
 # Functions
 
