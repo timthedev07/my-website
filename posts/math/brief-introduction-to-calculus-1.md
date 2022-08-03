@@ -113,7 +113,7 @@ Where $u'$ is the derivative of $u$.
 Examples:
 
 - $\frac{d}{dx}\space \ln(x^n) = \frac{n}{x}$
-- $\frac{d}{dx}\space \ln(\sin(x)) = \frac{\cos(x)}{\sin(x)} = \tan^{-1}(x) = \cot(x)$
+- $\frac{d}{dx}\space \ln(\sin(x)) = \frac{\cos(x)}{\sin(x)} = \frac{1}{\tan(x)} = \cot(x)$
 - $\frac{d}{dx}\space \ln(\cos(x)) = -\frac{\sin(x)}{\cos(x)} = -\tan(x)$
 - $\frac{d}{dx}\space \ln(c) = 0$
 - $\frac{d}{dx}\space \ln(c) = 0$
