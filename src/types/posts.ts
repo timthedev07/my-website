@@ -6,4 +6,5 @@ export interface MarkdownMetadata {
   date: string;
   category: BlogCategoryType;
   keywords: string[];
+  thumbnail?: string;
 }
