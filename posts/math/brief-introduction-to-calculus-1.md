@@ -18,6 +18,11 @@ Note: the content covered here would only require a solid understanding of basic
 
 So now, let's sit back, relax, and have some fun!
 
+# Quick Access
+
+- [Part 1 - Derivatives](/blog/brief-introduction-to-calculus-1)
+- [Part 2.1 - Definite & Indefinite Integrals](/blog/brief-introduction-to-calculus-1)
+
 # Functions
 
 This is one of the most fundamental and critical ideas in calculus, so do ensure that you understand this part perfectly.

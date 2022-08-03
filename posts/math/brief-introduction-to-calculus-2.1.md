@@ -15,9 +15,14 @@ This series would primarily focus on the three fundamental areas of calculus - _
 
 **This is the first chapter of the second part of the series, and it is about definite and indefinite integrals.**
 
-**Further content in this topic will be published in separate articles for performance reasons.**
+**Further content on this topic will be published in separate articles for performance reasons.**
 
 So now, let's sit back, relax, and have some fun!
+
+# Quick Access
+
+- [Part 1 - Derivatives](/blog/brief-introduction-to-calculus-1)
+- [Part 2.1 - Definite & Indefinite Integrals](/blog/brief-introduction-to-calculus-1)
 
 # Integration
 
@@ -34,7 +39,7 @@ There are two types of integrals:
 
 An **indefinite integral** is written in the form of $\int y\,dx$, where $y$ is the **expression to be integrated(aka the integrand)** and $x$ is the **variable to integrate with respect to**.
 
-For example, $\int 2x\, dx$, is a indefinite integral whose integrand is $2x$ and variable to integrate is $x$.
+For example, $\int 2x\, dx$, is an indefinite integral whose integrand is $2x$ and the variable to integrate is $x$.
 
 Since an integral produces another function, by convention, that new function, i.e. the anti-derivative is represented by $F(x)$. In other words:
 
@@ -66,13 +71,13 @@ $$
 \end{align*}
 $$
 
-Where $C$ is a possible constant ignored/removed when differentiating; it could be anything, but without further information we won't be able to find $C$.
+Where $C$ is a possible constant ignored/removed when differentiating; it could be anything, but without further information, we won't be able to find $C$.
 
 ## Rules for Integration
 
 Let's discuss some basic rules for integration before moving on to definite integrals.
 
-Bear in mind that integration is the inverse operation, so you an verify them yourself if you want to see why these rules make sense.
+Bear in mind that integration is the inverse operation, so you can verify them yourself if you want to see why these rules make sense.
 
 Just like differentiating, you will need to integrate term by term.
 
@@ -178,6 +183,43 @@ $$
 I = 2\sin(x) - 3e^{-x} + \frac{1}{2}\cos(2x) + C
 $$
 
+### Inverse $x$
+
+For the powers of $x$, there is one exception, and that is $\frac{a}{x}$, and $x$ needs to have a power of exactly $-1$ when it's rewritten as being multiplied by a. In other words, this doesn't include scenarios like $\int \frac{1}{x^2}\, dx$
+
+$$
+\begin{align*}
+\int \frac{a}{x}\, dx = a\ln(|x|) + C
+\end{align*}
+$$
+
+This is because:
+
+$$
+\begin{align*}
+\int \frac{1}{x}\, dx = \ln(|x|) + C
+\end{align*}
+$$
+
+and:
+
+$$
+\begin{align*}
+&\int \frac{a}{x}\, dx = a \cdot \int \frac{1}{x}\, dx \\
+=\,& a\ln(|x|) + C
+\end{align*}
+$$
+
+#### Example
+
+Evaluate $\int \frac{4}{x}\, dx$
+
+$$
+\begin{align*}
+\int \frac{4}{x}\, dx = 4\ln(x) + C
+\end{align*}
+$$
+
 ## Definite Integrals
 
 Unlike indefinite integrals, these integrals have a limit of integration, composed of an upper and a lower bound. Moreover, they compute a definite value instead of producing a function.
@@ -194,7 +236,7 @@ $b$ represents the **upper limit** of integration, and $a$ represents the **lowe
 
 As discussed earlier, a function produced by an indefinite integral is written as $F(x)$.
 
-However, a definite integral is the result of the calculation $F(b) - F(a)$ .
+However, a definite integral is simply the value of F(b) - F(a)$.
 
 Hence:
 
@@ -207,3 +249,21 @@ $$
 $$
 
 Notice that the constant $C$ is not included in the expressions, that's because when $F(b) + C - (F(a) + C)$, the constant cancels out.
+
+Example: evaluate $\int_{1}^{4} \left[x^3 + 4x^2 - 7x + 13\right]\, dx$
+
+$$
+\begin{align*}
+&\int_{1}^{4} \left[x^3 + 6x^2 - 7x + 13\right]\, dx \\
+=&\, \left[\frac{x^4}{4} + 2x^3 - \frac{7}{2}x^2 + 13x\right]_{1}^{4} \\
+=&\, 188 - 11\frac{3}{4} \\
+=&\, 176\frac{1}{4}
+
+\end{align*}
+$$
+
+# Conclusion
+
+This blog introduced a few _basic_ concepts of definite and indefinite integrals, and more content will be covered in future blogs of this part.
+
+Thanks for reading!
