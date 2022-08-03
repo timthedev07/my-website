@@ -79,7 +79,7 @@ Examples:
 $$
 \begin{align*}
 \frac{d}{dx}\space& \sin(ax) = a \cdot \cos(ax) \\ \\
-\frac{d}{dx}\space& \cos(x) = -a \cdot \sin(x)
+\frac{d}{dx}\space& \cos(ax) = -a \cdot \sin(ax)
 \end{align*}
 $$
 
