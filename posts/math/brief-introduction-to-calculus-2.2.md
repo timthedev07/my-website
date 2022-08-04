@@ -1,7 +1,7 @@
 ---
 title: "A Brief Introduction to Calculus: Part 2.2 - Area Under the Curve"
 description: "If you're new to calculus and know nothing about it, then this blog is aimed to get a gist of it for you, but not to turn you into a master of calculus."
-date: 2022-08-04
+date: 2022-08-05
 keywords:
   - Math
   - Calculus
