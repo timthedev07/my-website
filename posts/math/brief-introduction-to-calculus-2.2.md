@@ -25,6 +25,12 @@ So now, let's sit back, relax, and have some fun!
 - [Part 2.1 - Definite & Indefinite Integrals](/blog/math/brief-introduction-to-calculus-2.1)
 - [Part 2.2 - Area Under the Curve](/blog/math/brief-introduction-to-calculus-2.2)
 
+# Using Integration to Find the Area
+
+Firstly, let's see how we can use **definite integrals** to calculate **the exact area** of a region bounded by the $x$-axis, and the lines $x = a$ and $x = b$.
+
+The method for Riemann sum(as seen later) was an approximation of the integral, because the value calculated from the integral is the limit of the Riemann sum, meaning that the approximation will always converge(approach) on the value of the integral.
+
 # Riemann Sum
 
 The Riemann sum is a strategy for estimating the area under a curve by dividing the area into $n$ rectangular strips, where each rectangle has a defined width, namely $\Delta x$, and its height is defined by the $y$ value calculated using each x value $f(x_i)$.
@@ -35,11 +41,11 @@ There are three types of Riemann sums:
 
 - Right endpoint sum
 - Left endpoint sum
-- Midpoint sum
+- Midpoint rule
 
 We will discuss the differences later.
 
-The formula is as follows:
+The formula is as follows, however, for the different types of Riemann sum, the formulas differ a little.
 
 $$
 \begin{align*}
@@ -47,11 +53,33 @@ A \approx \sum_{i=1}^{n}\, \Delta x f(x_i)
 \end{align*}
 $$
 
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-labels.png)
+
 Let's break this down step by step.
 
-- $n$ is the number of strips
+- $n$ is the number of strips the area is divided into; generally the higher $n$ is, the closer the approximation
 - $\Delta x$ is the width of each rectangle, and it's given by $\frac{b - a}{n}$, where $b$ and $a$ are the limits on the x-axis
 - $f(x)$ is the function of the curve
+- $x_i$ is the ith value in the arithmetic sequence, given by $x_i = x_1 + (i - 1)\Delta x$, which is based on $U_i = U_1 + (n-1)d$
+- $x_1 = a$, which means that the sequence starts at the lower bound, hence $x_i = a + (i - 1)\Delta x$
+
+Furthermore, let $R(n)$ be the function for the left endpoint Riemann approximation:
+
+$$
+\begin{align*}
+R(n) = \sum_{i=1}^{n}\, \Delta x f(x_i)
+\end{align*}
+$$
+
+The value of $R(n)$ will never exceed a certain value no matter how large $n$ becomes, and that limit is the exact area of the curve.
+
+By definition, the integral used to find the area for the same region is exactly the limit of $R(n)$ as $n \rightarrow \infty$:
+
+$$
+\begin{align*}
+\int_{a}^{b} f(x)\, dx = \lim_{x \to +\infty} R(n)
+\end{align*}
+$$
 
 ## Left Endpoint, Right Endpoint, and Midpoint
 
@@ -59,29 +87,60 @@ For a **_left endpoint sum_**, each rectangle's top-left corner touches the curv
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/left-endpoint.png)
 
-In comparison, for a **_right endpoint_** sum, each rectangle's top-right corner touches the curve, therefore the approximation will always be above the actual area.
+In comparison, for a **_right endpoint sum_**, each rectangle's top-right corner touches the curve, therefore the approximation will always be above the actual area.
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/right-endpoint.png)
-
-Finally, for a **_midpoint_** sum, the curve meets each strip at the midpoint of the length of the rectangle.
-
-## Example
-
-Calculate the area under the curve $f(x)=x^{2} + 1$ bounded by $x = 0$ and $x = 6$.
+Note that, in this case, the height of the rectangles is $f(x)$ for which $x$ is shifted by $\Delta x$ to the right, thus:
 
 $$
 \begin{align*}
-\textnormal{Let } n &= 18 \\
-\Delta x &= \frac{6 - 0}{18} = \frac{1}{3} \\
-A &\approx \sum_{i=1}^{o}\,
+A \approx \sum_{i=1}^{n}\, \Delta x f(x_i + \Delta x)
 \end{align*}
 $$
 
-# Using Integration to Find the Area
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/right-endpoint.png)
 
-To start off, let's see how we can use **definite integrals** to calculate **the exact area**.
+Finally, for a **_midpoint_** rule, the curve meets each strip at the midpoint of the length of the rectangle.
 
-The method for Riemann sum was an approximation of the integral, because the value calculated from the integral is the limit of the Riemann sum, meaning that the approximation will always converge(approach) on the value of the integral.
+Likewise, for the midpoint rule, the height of the rectangles is $f(x)$ for which $x$ is shifted by $\frac{1}{2}\Delta x$ to the right, thus:
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/midpoint-riemann.png)
+
+$$
+\begin{align*}
+A \approx \sum_{i=1}^{n}\, \Delta x f(x_i + \frac{1}{2}\Delta x)
+\end{align*}
+$$
+
+## Example
+
+Calculate the area under the curve $f(x)=x^{2} + 1$ bounded by $x = 0$ and $x = 3$. Use the midpoint rule.
+
+$$
+A \approx \sum_{i=1}^{n}\, \Delta x f(x_i + \frac{1}{2}\Delta x)\\
+a = 0 \\
+b = 3
+$$
+
+$$
+\begin{align*}
+\textnormal{Let } n &= 18 \\ \\
+\Delta x &= \frac{3 - 0}{18} = \frac{1}{6} \\
+A &\approx \sum_{i=1}^{18}\, \frac{1}{6} \times f(a + \frac{1}{6}(i - 1) + \frac{1}{2} \times \frac{1}{6}) \\
+&\because a = 0 \\
+A &\approx \sum_{i=1}^{18}\, \frac{1}{6} \times f(\frac{1}{6}(i - 1) + \frac{1}{12}) \\
+
+A &\approx \frac{1727}{144} \\
+&\approx 11\frac{143}{144}
+\end{align*}
+$$
+
+You will realize that the value is very close to what the definite integral would give:
+
+$$
+\begin{align*}
+\int_{0}^{3} f(x)\, dx = 12
+\end{align*}
+$$
 
 # Conclusion
 
