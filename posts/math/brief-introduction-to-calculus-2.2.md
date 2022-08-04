@@ -71,13 +71,17 @@ R(n) = \sum_{i=1}^{n}\, \Delta x f(x_i)
 \end{align*}
 $$
 
-The value of $R(n)$ will never exceed a certain value no matter how large $n$ becomes, and that limit is the exact area of the curve.
+As $n$, the number of subintervals is increased, the blank gap reduces, therefore increasing the resulting approximated area:
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-n-increase.gif)
+
+However, the value of $R(n)$ will never exceed a certain value no matter how large $n$ becomes, and that limit is the exact area of the curve.
 
 By definition, the integral used to find the area for the same region is exactly the limit of $R(n)$ as $n \rightarrow \infty$:
 
 $$
 \begin{align*}
-\int_{a}^{b} f(x)\, dx = \lim_{x \to +\infty} R(n)
+\int_{a}^{b} f(x)\, dx = \lim_{n \to \infty} R(n)
 \end{align*}
 $$
 
@@ -144,6 +148,6 @@ $$
 
 # Conclusion
 
-This blog introduced a few _basic_ concepts of definite and indefinite integrals, and more content will be covered in future blogs of this part.
+This blog introduced a few _basic_ concepts of definite and indefinite integrals, and more content will be covered in future blogs of this part in the series.
 
 Thanks for reading!
