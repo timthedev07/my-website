@@ -1,7 +1,7 @@
 ---
 title: "A Brief Introduction to Calculus: Part 2.2 - Area Under the Curve"
 description: "If you're new to calculus and know nothing about it, then this blog is aimed to get a gist of it for you, but not to turn you into a master of calculus."
-date: 2022-08-06
+date: 2022-08-04
 keywords:
   - Math
   - Calculus
@@ -29,7 +29,55 @@ So now, let's sit back, relax, and have some fun!
 
 Firstly, let's see how we can use **definite integrals** to calculate **the exact area** of a region bounded by the $x$-axis, and the lines $x = a$ and $x = b$.
 
-The method for Riemann sum(as seen later) was an approximation of the integral, because the value calculated from the integral is the limit of the Riemann sum, meaning that the approximation will always converge(approach) on the value of the integral.
+The method for Riemann sum, which will be discussed later, is an approximation of the integral, because the value calculated from the integral is the limit of the Riemann sum, meaning that the approximation will always converge(approach) on the value of the integral.
+
+## The Basic Scenario
+
+When the entirety of the region required is on one side of the $x$-axis, we can find the area between the curve and the $x$-axis, bounded by the limits $[a, b]$ using the definite integral:
+
+$$
+\begin{align*}
+\int_{a}^{b} f(x)\, dx
+\end{align*}
+$$
+
+### Examples
+
+1. The function of the curve is given by $f(x) = -x^2 + 10$, find the exact area of the shaded region.
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-simple.png)
+
+$$
+\begin{align*}
+a &= -2 \\
+b &= 2 \\ \\
+A &= \int_{-2}^{2} \left[-x^2 + 10\right]\, dx \\
+&= \left[-\frac{1}{3}x^3 + 10x\right]_{-2}^{2} \\
+&= 34\frac{2}{3}
+\end{align*}
+$$
+
+2. The function of the curve is given by $f(x) = \left(x-4\right)\left(x+4\right)$, find the exact area of the shaded region.
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-simple-2.png)
+
+$$
+\begin{align*}
+I &= \int_{0}^{4} (x-4)(x+4)\, dx \\
+&= \int_{0}^{4} \left(x^2 - 16\right)\, dx \\
+&= \left[\frac{x^3}{3} - 16x\right]_{0}^{4} \\
+&= -\frac{128}{3}
+\end{align*}
+$$
+
+Now, because (in this context) area is a scalar quantity, we should take the absolute value of the integral.
+
+$$
+\begin{align*}
+\therefore A &= |-\frac{128}{3}| \\
+&= 42\frac{2}{3}
+\end{align*}
+$$
 
 # Riemann Sum
 
@@ -148,6 +196,6 @@ $$
 
 # Conclusion
 
-This blog introduced a few _basic_ concepts of definite and indefinite integrals, and more content will be covered in future blogs of this part in the series.
+This blog introduced a few _basic_ concepts of definite and indefinite integrals, and more content will be covered in future blogs of this part of the series.
 
 Thanks for reading!
