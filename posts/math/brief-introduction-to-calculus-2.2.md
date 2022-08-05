@@ -86,9 +86,69 @@ Consider the following case:
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/sinx-integral-graph.png)
 
+The function of the curve is given by $f(x) = -3\sin(x)$. In the range of values we are looking at, the curve intercepts the x-axis at $x \in \{-\pi, 0, \pi\}$.
+
+If you set $a = -\pi$ and $b = \pi$ and use integration to find the area:
+
+$$
+\begin{align*}
+A &= \int_{-\pi}^{\pi} \left[-3\sin(x)\right]\, dx \\
+&= \Big[3\cos(x)\Big]_{-\pi}^{\pi} \\
+&= -3 - (-3) = 0
+\end{align*}
+$$
+
+However, the area is clearly not 0. So how should we go about finding the area for regions like this?
+
+To compute the correct area, split the region into different parts by their direction relative to the x-axis. In this case, calculate the area above the x-axis and add the area below the x-axis to obtain the final answer.
+
+Note that when adding the respective parts, take the absolute value of the integral where necessary to avoid the subtraction of areas due to a negative result from an integral.
+
+
+
+$$
+\begin{align*}
+A &= \int_{-\pi}^{0} -3\sin(x)\, dx+ \left| \int_{0}^{\pi} -3\sin(x)\, dx\right| \\
+&= 3 + \mid-3\mid \\
+&= 6
+\end{align*}
+$$
+
+### Example
+
+The function of the curve below is given by $f(x) = x(x - 1)(x + 3)$.
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-axis-both-eg.png)
+
+Find the area of the finite region bounded by the x-axis and the curve.
+
+$$
+\textnormal{When }y = 0\textnormal{, }x \in \{-3, 0, 1\}
+$$
+
+$$
+\begin{align*}
+&x(x - 1)(x + 3) \\
+=& x[x^2 + 2x - 3] \\
+=& x^3 + 2x^2 - 3x \\
+\end{align*}
+$$
+
+$$
+\begin{align*}
+
+A &= \int_{-3}^{0} f(x)\, dx + \left|\int_{0}^{1} f(x)\, dx\right| \\ \\
+
+F(x) &= \frac{x^4}{4} + \frac{2}{3}x^3 - \frac{3}{2}x^2 \\
+
+A &= F(0) - F(-3) + \left|F(1) - F(0)\right| \\
+&= 11\frac{5}{6}
+\end{align*}
+$$
+
 # Riemann Sum
 
-The Riemann sum is a strategy for estimating the area under a curve by dividing the area into $n$ rectangular strips, where each rectangle has a defined width, namely $\Delta x$, and its height is defined by the $y$ value calculated using each x value $f(x_i)$.
+The Riemann sum is a strategy for **estimating** the area under a curve by dividing the area into $n$ rectangular strips, where each rectangle has a defined width, namely $\Delta x$, and its height is defined by the $y$ value calculated using each x value $f(x_i)$.
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-strips.png)
 
@@ -114,7 +174,7 @@ Let's break this down step by step.
 
 - $n$ is the number of strips the area is divided into; generally the higher $n$ is, the closer the approximation
 - $\Delta x$ is the width of each rectangle, and it's given by $\frac{b - a}{n}$, where $b$ and $a$ are the limits on the x-axis
-- $f(x)$ is the function of the curve
+- $f(x)$ is the function of the curve, and for a given $x_i$, it returns the height of the rectangle
 - $x_i$ is the ith value in the arithmetic sequence, given by $x_i = x_1 + (i - 1)\Delta x$, which is based on $U_i = U_1 + (n-1)d$
 - $x_1 = a$, which means that the sequence starts at the lower bound, hence $x_i = a + (i - 1)\Delta x$
 
