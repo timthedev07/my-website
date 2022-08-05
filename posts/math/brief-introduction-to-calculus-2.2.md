@@ -80,6 +80,12 @@ $$
 \end{align*}
 $$
 
+## When the Region Is on Both Sides of the X-Axis
+
+Consider the following case:
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/sinx-integral-graph.png)
+
 # Riemann Sum
 
 The Riemann sum is a strategy for estimating the area under a curve by dividing the area into $n$ rectangular strips, where each rectangle has a defined width, namely $\Delta x$, and its height is defined by the $y$ value calculated using each x value $f(x_i)$.
