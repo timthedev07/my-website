@@ -24,7 +24,7 @@ So now, let's sit back, relax, and have some fun!
 - [Part 1 - Derivatives](/blog/math/brief-introduction-to-calculus-1)
 - [Part 2.1 - Definite & Indefinite Integrals](/blog/math/brief-introduction-to-calculus-2.1)
 - [Part 2.2 - Area Under the Curve](/blog/math/brief-introduction-to-calculus-2.2)
-- [Part 2.2 - Area Bounded by Two Equations](/blog/math/brief-introduction-to-calculus-2.3)
+- [Part 2.3 - Area Bounded by Two Equations](/blog/math/brief-introduction-to-calculus-2.3)
 
 # Integration
 

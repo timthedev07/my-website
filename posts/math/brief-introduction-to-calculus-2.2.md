@@ -24,7 +24,7 @@ So now, let's sit back, relax, and have some fun!
 - [Part 1 - Derivatives](/blog/math/brief-introduction-to-calculus-1)
 - [Part 2.1 - Definite & Indefinite Integrals](/blog/math/brief-introduction-to-calculus-2.1)
 - [Part 2.2 - Area Under the Curve](/blog/math/brief-introduction-to-calculus-2.2)
-- [Part 2.2 - Area Bounded by Two Equations](/blog/math/brief-introduction-to-calculus-2.3)
+- [Part 2.3 - Area Bounded by Two Equations](/blog/math/brief-introduction-to-calculus-2.3)
 
 # Using Integration to Find the Area
 
@@ -103,8 +103,6 @@ However, the area is clearly not 0. So how should we go about finding the area f
 To compute the correct area, split the region into different parts by their direction relative to the x-axis. In this case, calculate the area above the x-axis and add the area below the x-axis to obtain the final answer.
 
 Note that when adding the respective parts, take the absolute value of the integral where necessary to avoid the subtraction of areas due to a negative result from an integral.
-
-
 
 $$
 \begin{align*}
