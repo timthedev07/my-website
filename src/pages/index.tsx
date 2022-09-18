@@ -25,8 +25,6 @@ const Home: NextPage = () => {
   const techIconClassname =
     "rounded full w-20 h-20 md:w-24 md:h-24 animate-wiggle";
   const technicalExperienceRef = useRef<HTMLParagraphElement | null>(null);
-  const pulseClassname =
-    "animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]";
 
   useViewportClassname(sectionHeading2, "animate-fade-in-up-slow", "");
   useViewportClassname(techIconsRef, "animate-fade-in-left", "opacity-0");
