@@ -26,4 +26,20 @@ So now, let's sit back, relax, and have some fun!
 - [Part 2.2 - Area Under the Curve](/blog/math/brief-introduction-to-calculus-2.2)
 - [Part 2.3 - Area Bounded by Two Equations](/blog/math/brief-introduction-to-calculus-2.3)
 
-## A
+## Area Between a Curve and Another Line/Curve
+
+The formula for calculating the area between a curve and a line(or another curve), in the x interval $[a, b]$ is as follows:
+
+$$
+\begin{align*}
+\int_{a}^{b} y_1 - y_2\, dx
+\end{align*}
+$$
+
+Where $y_1$ is the function of the curve/line above $y_2$.
+
+Consider the following region:
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/integral-area-two-fs.png)
+
+In this case, $y_1$ is the function of the curve and $y_2$ is the function of the straight line, since in the required region, the curve is above the line.
