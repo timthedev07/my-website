@@ -10,8 +10,10 @@ import { GraphQLSVG } from "../components/svgs/home/GraphQL";
 import { MongoDBSVG } from "../components/svgs/home/MongoDB";
 import { NextjsSVG } from "../components/svgs/home/Nextjs";
 import { PostgresSVG } from "../components/svgs/home/Postgres";
+import { PythonSVG } from "../components/svgs/home/Python";
 import { SvelteSVG } from "../components/svgs/home/Svelte";
 import { TailwindCSSSVG } from "../components/svgs/home/TailwindCSS";
+import { TensorflowSVG } from "../components/svgs/home/Tensorflow";
 import { TypeScriptSVG } from "../components/svgs/home/TypeScript";
 import { blurDataUrl } from "../utils/blurDataUrl";
 import { getHeadForPage } from "../utils/getHead";
@@ -23,6 +25,8 @@ const Home: NextPage = () => {
   const techIconClassname =
     "rounded full w-20 h-20 md:w-24 md:h-24 animate-wiggle";
   const technicalExperienceRef = useRef<HTMLParagraphElement | null>(null);
+  const pulseClassname =
+    "animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite]";
 
   useViewportClassname(sectionHeading2, "animate-fade-in-up-slow", "");
   useViewportClassname(techIconsRef, "animate-fade-in-left", "opacity-0");
@@ -70,15 +74,21 @@ const Home: NextPage = () => {
             </span>
             <h1 className="font-semibold text-8xl animate-fade-in">Tim</h1>
             <h5 className="max-w-sm text-neutral-100/70 animate-fade-in-left md:animate-fade-in-up">
-              A software developer interested and specialized in building real
-              world projects on the web. Currently a full-time student pursuing
-              his dream of studying at G5 colleges.
+              A software developer interested and specialized in building
+              machine learning models and real world projects on the web.
+              Currently a full-time student pursuing his dream of studying at G5
+              colleges.
             </h5>
           </div>
-          <DevSVG className="w-48 h-48 md:w-60 md:h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]" />
+          <DevSVG
+            className={`w-48 h-48 md:w-60 md:h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]`}
+          />
         </div>
       </header>
-      <section className="min-h-[70vh] bg-indigo-900/50 pt-6 h-max w-full relative overflow-hidden flex flex-col items-center">
+      <section
+        id="technical-experience"
+        className="min-h-[70vh] pt-24 h-max w-full relative overflow-hidden flex flex-col items-center"
+      >
         <h1
           className="text-4xl md:text-5xl font-bold text-center w-full opacity-0 underline underline-offset-4 decoration-slate-400/40"
           ref={sectionHeading2}
@@ -106,11 +116,24 @@ const Home: NextPage = () => {
               ref={technicalExperienceRef}
               className="md:p-16 md:px-16 p-2 px-6 font-semibold"
             >
-              I primarily develop fullstack applications on the internet, and
+              I primarily develop fullstack applications on the Internet, and
               over time, I have built confidence with a few frameworks/libraries
               that significantly boost my productivity.
             </p>
           </div>
+        </div>
+        <div className="flex flex-col items-center mb-24 mt-12 gap-12">
+          <div className="w-fit flex gap-16">
+            <PythonSVG className={`w-48 h-48 animate-wiggle`} />
+            <TensorflowSVG className={`w-48 h-48 animate-wiggle`} />
+          </div>
+          <p className="max-w-[75%]">
+            Aside from web development, another one of my main career focuses is{" "}
+            <span className="underline">artificial intelligence</span>.<br /> I
+            mostly build <span className="font-bold">machine learning</span>{" "}
+            projects with Python and Tensorflow. I have some experience in NLP,
+            image classification, and sentiment analysis.
+          </p>
         </div>
       </section>
     </>
