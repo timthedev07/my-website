@@ -18,7 +18,7 @@ const transporter = createTransport({
 });
 
 const handler: NextApiHandler = async (req, res) => {
-  return new Promise((resolve) => {
+  return new Promise<void>((resolve) => {
     const reqData = JSON.parse(req.body) as ContactFormData;
 
     const mailOptions = {
