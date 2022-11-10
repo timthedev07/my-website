@@ -18,13 +18,14 @@ import {
   MenuItem,
   MenuList,
 } from "dragontail-experimental";
-import { getHeadForPage } from "../../utils/getHead";
 import Image from "next/image";
 import headerImage from "../../../public/images/blog-heading.jpg";
 import { blurDataUrl } from "../../utils/blurDataUrl";
 import { getBlogsWithMetadata } from "../../utils/blogsWithMeta";
 import { SearchSVG } from "../../components/svgs/Search";
 import { anyElementContains } from "../../utils/arrays";
+import { NextSeo } from "next-seo";
+import SEOConfig from "../../utils/seo-config";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -113,11 +114,11 @@ const Blogs: NextPage<Props> = ({
 
   return (
     <>
-      {getHeadForPage({
-        description: "My Blog Collection",
-        path: "/blog",
-        title: "Blog",
-      })}
+      <NextSeo
+        title="Blog"
+        description="My Blog Collection"
+        openGraph={{ url: `${SEOConfig.openGraph?.url}blog` }}
+      />
       <header className="relative w-full h-72 flex justify-center items-center">
         <Image
           layout="fill"

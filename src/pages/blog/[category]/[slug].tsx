@@ -7,7 +7,6 @@ import { MarkdownMetadata } from "../../../types/posts";
 import { useEffect, useRef, useState } from "react";
 import { useOnScreen } from "../../../utils/hooks";
 import { BlogComments } from "../../../components/BlogComments";
-import { getHeadForPage } from "../../../utils/getHead";
 import { useAppLoading } from "../../../components/AppLoading";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { TagList } from "../../../components/TagList";
@@ -19,6 +18,8 @@ import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeRaw from "rehype-raw";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
+import SEOConfig from "../../../utils/seo-config";
 
 interface Props {
   content: string;
@@ -84,13 +85,26 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
 
   return (
     <>
-      {getHeadForPage({
-        title: metadata.title,
-        description: metadata.description,
-        path: `/blog/${metadata.category}/${slug}`,
-        keywords: metadata.keywords,
-        image: `/thumbnails/${metadata.thumbnail || slug}.png`,
-      })}
+      <NextSeo
+        title={metadata.title}
+        description={metadata.description}
+        openGraph={{
+          url: `${SEOConfig.openGraph?.url}blog/${metadata.category}/${slug}`,
+          images: [
+            {
+              url: `${SEOConfig.openGraph?.url}thumbnails/${
+                metadata.thumbnail || slug
+              }.png`,
+            },
+          ],
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content: metadata.keywords.join(", "),
+          },
+        ]}
+      />
       <div className="flex flex-col justify-center items-center">
         <section
           className={`w-[95%] md:w-[90%] md:max-w-4xl lg:max-w-5xl md:bg-slate-900 rounded-lg m-6`}
