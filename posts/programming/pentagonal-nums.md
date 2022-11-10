@@ -199,7 +199,7 @@ int main() {
 
 ## Performance
 
-I implemented the algorithm in C++ because, with Python the execution time was hideous. However, in C++, it's much faster.
+I implemented the algorithm in C++ because with Python the execution time was hideous. However, in C++, it's much faster.
 
 Average run times:
 
