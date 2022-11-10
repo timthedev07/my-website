@@ -1,6 +1,6 @@
 ---
-title: "Project Euler #44: Pentagon numbers"
-description: My solution to problem 44 of project euler in Python and C++
+title: "Project Euler #44: Pentagonal Numbers"
+description: My solution to problem 44 of Project Euler in Python and C++
 date: 2022-07-08
 keywords:
   - Python
@@ -21,7 +21,7 @@ Find the pair of pentagonal numbers, $P_j$ and $P_k$, for which their sum and di
 
 ## Let's Analyze the Problem Mathematically
 
-The pair we are trying to find is $P_j$ and $P_k$, and it also has to satisfy the constraint that their sum and different are also pentagonal. Therefore we can write two equations for the sum and difference respectively, where $a$ and $b$ are the indices of the the resulting pentagonal number:
+The pair we are trying to find is $P_j$ and $P_k$, and it also has to satisfy the constraint that their sum and differences are also pentagonal. Therefore we can write two equations for the sum and difference respectively, where $a$ and $b$ are the indices of the resulting pentagonal number:
 
 $$
 \begin{align*}
@@ -51,13 +51,13 @@ b=\frac{1 \pm \sqrt{1 + 12t_2}}{6}
 \end{align*}
 $$
 
-Now that we have a formula for $a$ and $b$, we can simplify verify if a pair meets the stated requirements by testing if the numerator is divisible by 6(which would therefore make $a$ and $b$ integers).
+Now that we have a formula for $a$ and $b$, we can simply verify if a pair meets the stated requirements by testing if the numerator is divisible by 6(which would therefore make $a$ and $b$ integers).
 
-However, we can try to determined the $\pm$ in the numerators of our equations.
+However, we can try to determine the $\pm$ in the numerators of our equations.
 
 We know that $a$ and $b$ are indices of a sequence, so they have to be **positive** integers.
 
-Let's look at $\sqrt{1 + 12t}$, here, we can say that $12t$ is some constant added to 1, thus transforming it into $\sqrt{1 + k}$. Since $t$ is a **pentagonal number**, which starts at 1, it's certain that $t > 0$, and so $k = 12t > 0$. Therefore, $\sqrt{1 + k}$ is definite greater than 1.
+Let's look at $\sqrt{1 + 12t}$, here, we can say that $12t$ is some constant added to 1, thus transforming it into $\sqrt{1 + k}$. Since $t$ is a **pentagonal number**, which starts at 1, it's certain that $t > 0$, and so $k = 12t > 0$. Therefore, $\sqrt{1 + k}$ is definitely greater than 1.
 
 Back to the numerator:
 
@@ -199,7 +199,7 @@ int main() {
 
 ## Performance
 
-I implemented the algorithm in C++ because with Python, the execution time was hideous. However, in C++, it's much faster.
+I implemented the algorithm in C++ because, with Python the execution time was hideous. However, in C++, it's much faster.
 
 Average run times:
 
