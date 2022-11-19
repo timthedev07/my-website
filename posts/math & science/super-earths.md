@@ -1,6 +1,6 @@
 ---
 title: Super-Earths
-description: The Universe has always been a mysterious figure to us, nevertheless, our curiosity never stopped us from pushing the limit of our understanding. In this article, we will talk about a few fascinating discoveries of ”Super-Earth”, and briefly look at a few Super-Earths that are potentially habitable for us. If you are interested in astrophysics, then you should keep reading to find out more.
+description: Article on the recent discoveries of Super-Earths. Credit to Elena as the main writer of the article.
 date: 2022-11-16
 keywords: ["Astronomy", "Super-Earth", "Astrophysics", "Science"]
 ---
