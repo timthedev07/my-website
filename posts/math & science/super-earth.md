@@ -2,7 +2,7 @@
 title: Super-Earths
 description: The Universe has always been a mysterious figure to us, nevertheless, our curiosity never stopped us from pushing the limit of our understanding. In this article, we will talk about a few fascinating discoveries of ”Super-Earth”, and briefly look at a few Super-Earths that are potentially habitable for us. If you are interested in astrophysics, then you should keep reading to find out more.
 date: 2022-11-16
-keywords: ["Math", "Programming", "Geometry", "Python"]
+keywords: ["Astronomy", "Super-Earth", "Astrophysics", "Science"]
 ---
 
 # Introduction
@@ -13,11 +13,15 @@ The Universe has always been a mysterious figure to us, nevertheless, our curios
 
 Let's begin by discussing what it means for a planet to be a Super-Earth. "Super-Earths" refers to planets outside our solar system which are larger in size than Earth but much smaller than ice giants such as Uranus and Neptune. It provides a reference to the size of exoplanets, but it doesn't mean they are necessarily as habitable as Earth.
 
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/super-earth/p1.jpg)
+
 # Kepler-438b
 
 On the 6th of January, 2015, Kepler's space telescope discovered another planet named "Kepler-438b".  Surprisingly, scientists claim that its ESI is about 0.88, which means that it's one of the planets most similar to the Earth we have discovered thus far.
 
 However, does this imply that it's a very suitable choice for us? More factors need to be taken into account. For instance, distance is one of the most significant issues that we face: it is located 470 light years away from our planet, which means that we can't migrate to Kepler-438b regarding the current pace of our technology.
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/super-earth/kepler438b.png)
 
 ## The ESI Formula
 
@@ -41,9 +45,13 @@ Research has shown that the star that the planet orbits explodes once per 100 da
 
 However, there is one last hope we have for Kepler-438b, if there is a strong magnetic field around it, it would protect the planet from the solar wind and potentially allow us to reconsider the chances of moving there. But further investigation is required to support the proposal.
 
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/super-earth/kepler438b1.jpg)
+
 # Kepler-1649c
 
 On the 14th of April 2020, NASA's Kepler space telescope discovered Kepler-1649 c. It is an Earth-sized potentially habitable terrestrial exoplanet that is located 301 light years away from Earth, orbiting within the habitable zone of the red dwarf star Kepler-1649, ranked 5th in ESI in December 2020.
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/super-earth/kepler-1649c.jpg)
 
 ## The Habitable Zone
 
@@ -69,6 +77,8 @@ Therefore, it is really likely that there is liquid water in some regions of Kep
 
 Here is some sad news: the planet receives a vast amount of radiation in the form of UV and X-rays from Proxima Centauri(about 10-60 times what we get on the Earth), which means that living organisms on the planet are exposed to severe health risks like cancer due to cell mutation.
 
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/super-earth/proxima.jpg)
+
 # KOI-4878.01
 
 In the previous paragraphs, we introduced many Super-Earths with very high ESI values. But next, we'd like to introduce you to the closest Earth-sized Super-Earth ever explored: KOI 4878.01!
@@ -78,6 +88,8 @@ According to the data from the Kepler space telescope, its ESI reaches 0.98, tha
 You might wonder, if KOI 4878.01 was also discovered by the Kepler space telescope, why does its name not start with "Kepler"?
 
 The reason is that we have not yet completed the manual identification of its data, but once scientists can accurately confirm it, KOI 4878.01 will officially be named Kepler 4878-b and announced as the most Earth-like planet observed by scientists and researchers(yet).
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/super-earth/koi.png)
 
 ## KOI-4878.01's Conditions
 
@@ -90,6 +102,8 @@ Combining these factors, we get an astonishing 0.98 for the ESI value.
 Unfortunately, KOI-4878.01 is about 1075 light-years away from the Earth, which means that even if our technology reaches the speed of light, we will still need 1075 years to reach its surface.
 
 # Factors affecting habitability
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/super-earth/habitability.png)
 
 One of the most important things that are required for living organisms' survival is liquid water. Living things need water for chemical reactions in the body to take place. As a result, the habitability of a planet greatly depends on the surface temperature, as high temperatures would mean that the water would evaporate and thus not be in the form of a liquid.
 
@@ -114,3 +128,5 @@ Well, we have so many places to consider for migration, so is the Earth still cr
 Undoubtedly yes. In the near future, there is no guarantee for efficient and large-scale migration, and therefore we should not put the entirety of our hopes onto other Earth-like planets.
 
 The Earth had nurtured trillions of lives including us, and not only should we appreciate it, but you should also act upon it by contributing your part to save our common mother from our own hands.
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/super-earth/conclusion.jpg)
