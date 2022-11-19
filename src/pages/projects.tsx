@@ -31,10 +31,6 @@ export const SITES: Site[] = [
     githubRepo: "whosmorepopular",
   },
   {
-    name: "Digit Recognition",
-    githubRepo: "digit-recognition",
-  },
-  {
     name: "Creativity Matters",
     githubRepo: "Creativity-Matters",
   },

@@ -1,9 +1,9 @@
 export const BLOG_CATEGORIES = [
   "programming",
-  "math",
+  "math & science",
   "school",
   "travel",
-  "books",
+  "others",
 ] as const;
 
 export type BlogCategoryType = typeof BLOG_CATEGORIES[number];
