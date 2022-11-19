@@ -27,7 +27,7 @@ interface Props {
   slug: string;
 }
 
-const NORMAL_TEXT_COLOR = "text-white/80";
+const NORMAL_TEXT_COLOR = "text-white/[0.825]";
 
 const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
   const metadata: MarkdownMetadata = JSON.parse(metadataAsString);

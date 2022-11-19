@@ -194,7 +194,7 @@ const Blogs: NextPage<Props> = ({
                 key={filename}
                 href={`/blog/${category}/${filename}`}
               >
-                <li className="w-80 md:w-96 h-auto cursor-pointer bg-slate-300/20 rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color">
+                <li className="w-80 md:w-96 h-auto cursor-pointer bg-slate-500/30 rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color">
                   <div className="relative w-80 md:w-96 h-80 md:h-96 rounded-t-md">
                     <Image
                       placeholder="blur"
@@ -205,8 +205,8 @@ const Blogs: NextPage<Props> = ({
                       className="rounded-t-md"
                     />
                   </div>
-                  <div className="p-6 flex flex-col gap-2">
-                    <div className="text-xl">
+                  <div className="p-6 flex flex-col justify-between h-48">
+                    <div className="text-xl font-semibold">
                       {metadata.title
                         .split(" ")
                         .map(
@@ -214,7 +214,7 @@ const Blogs: NextPage<Props> = ({
                         )
                         .join(" ")}
                     </div>
-                    <div className="text-white/60">
+                    <div className="text-white/60 italic">
                       {new Date(metadata.date).toDateString()}
                     </div>
                   </div>
