@@ -128,7 +128,9 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
               <Button
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `https://${window.location.hostname}/blog/${metadata.category}/${slug}`
+                    encodeURIComponent(
+                      `https://${window.location.hostname}/blog/${metadata.category}/${slug}`
+                    )
                   );
                 }}
                 variant="ghost"
