@@ -105,6 +105,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
           },
         ]}
       />
+
       <div className="flex flex-col justify-center items-center">
         <section
           className={`w-[95%] md:w-[90%] md:max-w-4xl lg:max-w-5xl md:bg-slate-900 rounded-lg m-6`}
@@ -128,9 +129,11 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
               <Button
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    encodeURIComponent(
-                      `https://${window.location.hostname}/blog/${metadata.category}/${slug}`
-                    )
+                    `https://${
+                      window.location.hostname
+                    }/blog/${encodeURIComponent(
+                      `${metadata.category}/${slug}`
+                    )}`
                   );
                 }}
                 variant="ghost"
@@ -140,6 +143,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
               </Button>
             </div>
           </article>
+
           <article>
             <ReactMarkdown
               className={`
