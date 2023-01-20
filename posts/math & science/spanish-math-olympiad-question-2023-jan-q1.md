@@ -1,0 +1,86 @@
+---
+title: A Question from 2023's Spanish Math Olympiad - 1st Phase Q1
+description: My solution to the problem.
+date: 2023-01-20
+keywords: ["Math", "Olympiad"]
+---
+
+# Problem Statement
+
+Let $n$ be a positive whole number. Every number from 1 to 2023 is colored using one of the $n$ distinct colors. Once colored, for any pair $(a, b)$ with $a < b$ and $a | b$ (b is divisible by a), the numbers $a$ and $b$ have distinct colors.
+
+Find the minimum value of $n$ for which the scenario outlined above is true.
+
+# My Solution
+
+Let's just start with a few numbers:
+
+$$
+\begin{aligned}
+1, 2, 3, 4, 5, 6, 7, 8
+\end{aligned}
+$$
+
+To achieve the conditions previously described, every number must have a different color than that of its multiples. That is, for example, if $3$ is green, none of its multiples like $6, 9, 12$ can have the color of green. This means that to color those ones, at least one new color has to be added into consideration.
+
+Let's use $C_k$ to denote the $k\text{th}$ color, and do the above process on the set of numbers from $1$ to $16$. Every number (apart from $1$) in our set is a multiple of $1$, so immediately we realize that at least 2 colors should be used. The first one of my steps is:
+
+| Number | Color |
+| ------ | ----- |
+| 1      | $C_1$ |
+| 2      | $C_2$ |
+| 3      | $C_2$ |
+| 4      | $C_2$ |
+| 5      | $C_2$ |
+| 6      | $C_2$ |
+| 7      | $C_2$ |
+| 8      | $C_2$ |
+
+Now, this should apply not only to the number 1, but it should also hold true for other numbers.
+
+So let's do this for the multiples of $2$ now, but now we will need to use a third color for those:
+
+| Number | Color |
+| ------ | ----- |
+| 1      | $C_1$ |
+| 2      | $C_2$ |
+| 3      | $C_2$ |
+| 4      | $C_3$ |
+| 5      | $C_2$ |
+| 6      | $C_3$ |
+| 7      | $C_2$ |
+| 8      | $C_3$ |
+
+For multiples of 3,, we realize that there is no need to alter the colors as $6$ is already different from $3$.
+
+| Number | Color |
+| ------ | ----- |
+| 1      | $C_1$ |
+| 2      | $C_2$ |
+| 3      | $C_2$ |
+| 4      | $C_3$ |
+| 5      | $C_2$ |
+| 6      | $C_3$ |
+| 7      | $C_2$ |
+| 8      | $C_3$ |
+
+For multiples of 4:
+
+| Number | Color |
+| ------ | ----- |
+| 1      | $C_1$ |
+| 2      | $C_2$ |
+| 3      | $C_2$ |
+| 4      | $C_3$ |
+| 5      | $C_2$ |
+| 6      | $C_3$ |
+| 7      | $C_2$ |
+| 8      | $C_4$ |
+
+The table above would be the final stage for our number set.
+
+notice that at $2$, $4$, and $8$, a new color is required to be considered. This also shows that whenever a power of $2$ is reached, a new highest number of colors is required (1 more than the previous one). This pattern also applies to other multiples of $2$, and this goes on until $2^{10} = 1024$ because $2^{11} = 2048$ exceeds the range stated in the question.
+
+However our answer should be $n = 11$ rather than $n = 10$ because every number is a multiple of $1$ so that extra color needs to be considered as well.
+
+Our final solution is: the minimum value of $n$ required for the condition to hold true is $11$.
