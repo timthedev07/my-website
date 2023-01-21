@@ -23,7 +23,7 @@ $$
 
 To achieve the conditions previously described, every number must have a different color than that of its multiples. That is, for example, if $3$ is green, none of its multiples like $6, 9, 12$ can have the color of green. This means that to color those ones, at least one new color has to be added into consideration.
 
-Let's use $C_k$ to denote the $k\text{th}$ color, and do the above process on the set of numbers from $1$ to $16$. Every number (apart from $1$) in our set is a multiple of $1$, so immediately we realize that at least 2 colors should be used. The first one of my steps is:
+Let's use $C_k$ to denote the $k\text{th}$ color, and do the above process on the set of numbers from $1$ to $8$. Every number (apart from $1$) in our set is a multiple of $1$, so immediately we realize that at least 2 colors should be used. The first one of my steps is:
 
 | Number | Color |
 | ------ | ----- |
