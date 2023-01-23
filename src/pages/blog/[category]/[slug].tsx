@@ -122,7 +122,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
                 {!viewCount || viewCount > 1 ? "s" : ""}
               </span>
             </div>
-            <span className="text-base font-semibold italic text-white/80">
+            <span className="text-base font-semibold italic text-white/80 whitespace-pre-line">
               {metadata.description}
             </span>
             <div>
