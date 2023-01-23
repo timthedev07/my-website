@@ -147,6 +147,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
           <article>
             <ReactMarkdown
               className={`
+              markdown-render
               flex flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings}
               child-headings:font-semibold child-headings:text-white
               child-iframes:rounded-md child-iframes:mx-auto
