@@ -58,6 +58,14 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
           "Message sent! I will get back to you as soon as possible. Thanks for reaching out!"
         )}&prev=${encodeURIComponent("/contact")}`
       );
+    else {
+      const msg = (await response.json()).message;
+      router.push(
+        `/client-error?msg=${encodeURIComponent(msg)}&prev=${encodeURIComponent(
+          "/contact"
+        )}&prev=${encodeURIComponent("/contact")}`
+      );
+    }
   };
 
   const handleChange = <
