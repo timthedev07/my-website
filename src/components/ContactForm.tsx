@@ -8,6 +8,7 @@ import {
 } from "dragontail-experimental";
 import { ChangeEvent, FC, FormEventHandler, useState } from "react";
 import { hasNoAlphanumeric, validateEmailWithRegex } from "../utils/regex";
+import { useRouter } from "next/router";
 
 export interface ContactFormData {
   name: string;
@@ -28,8 +29,10 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
     message: false,
     name: false,
   });
+  const router = useRouter();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    if (!router) return;
     e.preventDefault();
 
     const errors = {
@@ -49,7 +52,12 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
     });
 
     const status = response.status;
-    console.log(status);
+    if (status === 200)
+      router.push(
+        `/success?msg=${encodeURIComponent(
+          "Message sent! I will get back to you as soon as possible. Thanks for reaching out!"
+        )}&prev=${encodeURIComponent("/contact")}`
+      );
   };
 
   const handleChange = <
