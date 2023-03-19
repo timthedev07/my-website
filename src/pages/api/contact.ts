@@ -22,7 +22,7 @@ const handler: NextApiHandler = async (req, res) => {
     const reqData = JSON.parse(req.body) as ContactFormData;
 
     const mailOptions = {
-      from: `"Someone contacted you via your website." <${process.env.EMAIL_USERNAME}>`,
+      from: `"Email Bot" <${process.env.EMAIL_USERNAME}>`,
       to: "timbusiness.work07@gmail.com",
       subject: `Portfolio contact message`,
       html: `
@@ -36,14 +36,12 @@ ${reqData.message}
 
     transporter.sendMail(mailOptions, (err) => {
       if (err) {
-        console.log({ err });
         res.status(500).send({
-          message: `Error: ${err}`,
+          message: `${err}`,
           code: "contact/failure",
         });
         return resolve();
       } else {
-        console.log("Mail sent.");
         res.status(200).send({
           message: "Thank you for contacting us!",
           code: "contact/success",
