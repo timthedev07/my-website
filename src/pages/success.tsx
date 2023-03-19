@@ -26,7 +26,7 @@ const Success: NextPage = () => {
     <>
       <div className="w-full h-[70vh] flex flex-col gap-10 justify-center items-center pt-24 text-center">
         <h1 className="text-green-400 font-bold text-8xl">Success!</h1>
-        <h4 className="text-green-200/80 text-lg">{msg}</h4>
+        <h4 className="text-green-200/80 text-lg font-semibold">{msg}</h4>
         <div className="w-full flex justify-center items-center gap-10">
           <Button
             onClick={() => {
