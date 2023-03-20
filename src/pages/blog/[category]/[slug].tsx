@@ -95,8 +95,8 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
               url: `${SEOConfig.openGraph?.url}thumbnails/${
                 metadata.thumbnail || slug
               }.png`,
-              height: 900,
-              width: 900,
+              height: 550,
+              width: 550,
             },
           ],
         }}
