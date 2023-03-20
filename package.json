@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.9",
-    "capture-website": "^3.2.0",
+    "capture-website": "^3.1.0",
     "dragontail-experimental": "^0.0.63",
     "gray-matter": "^4.0.3",
     "mongodb": "^5.1.0",
