@@ -28,17 +28,6 @@ export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
         <meta name="language" content="English" />
         <meta name="revisit-after" content="0 days" />
         <meta name="author" content="Tim <timpersonal07@gmail.com>" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:site_name" content={metadata.title} />
-        <meta property="og:url" content="https://timthedev07.github.io/" />
-        <meta property="og:image" content={metadata.image} />
-        <meta property="og:description" content={metadata.description} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@timthedev07" />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content={metadata.image} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
