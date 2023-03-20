@@ -5,6 +5,10 @@ date: 2023-03-19
 keywords: ["Math", "Olympiad", "UKMT", "UKMT Maclaurin"]
 ---
 
+# Quick Access
+
+- [UKMT Maclaurin 2023 Question 3 Solution](https://timthedev07.vercel.app/blog/math%20&%20science/maclaurin-2023-q3)
+
 # Problem Statement
 
 A plank of wood has one end, A, against a vertical wall. Its other end, B, is on horizontal ground. When end A slips down 8cm, end B moves 4cm further away from the wall. When end A slips down a further 9cm, end B moves a further 3cm away from the wall. Find the length of the plank.
