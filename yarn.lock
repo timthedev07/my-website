@@ -1137,7 +1137,7 @@ caniuse-lite@^1.0.30001406, caniuse-lite@^1.0.30001449, caniuse-lite@^1.0.300014
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001468.tgz#0101837c6a4e38e6331104c33dcfb3bdf367a4b7"
   integrity sha512-zgAo8D5kbOyUcRAgSmgyuvBkjrGk5CGYG5TYgFdpQv+ywcyEpo1LOWoG8YmoflGnh+V+UsNuKYedsoYs0hzV5A==
 
-capture-website@^3.2.0:
+capture-website@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/capture-website/-/capture-website-3.2.0.tgz#bc50454be0a1444c4cefcf71cefee1b93ea6d4d6"
   integrity sha512-AupgsR6iNi2RA8Prgr1JuuTKYSgfKNU/7cl90Xndh1VhfEwYr4jjduyPJvNyc7nhCOyl9ocCzW6nbB7xLuSmug==
