@@ -7,12 +7,10 @@
     "build": "next build && yarn sitemap",
     "start": "next start",
     "lint": "next lint",
-    "sitemap": "next-sitemap --config next-sitemap.config.mjs",
-    "add-no-build": "yarn add --ignore-scripts"
+    "sitemap": "next-sitemap --config next-sitemap.config.mjs"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.9",
-    "capture-website": "^3.1.0",
     "dragontail-experimental": "^0.0.63",
     "gray-matter": "^4.0.3",
     "mongodb": "^5.1.0",

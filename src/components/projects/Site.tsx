@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { WithStarCount } from "../../pages/projects";
@@ -13,21 +12,12 @@ export const Site: FC<WithStarCount & { ss?: string }> = ({
   url,
   topics,
   description,
-  ss,
 }) => {
   return (
     <div className="flex flex-col p-4 rounded-md border border-slate-400/40 w-80 md:w-[516px] h-[546px] bg-slate-400/20 transform transition duration-200 hover:-translate-y-1">
-      <div className="w-full h-[60%] relative rounded-md overflow-hidden cursor-pointer">
-        <Link href={url} passHref>
-          <Image
-            layout="fill"
-            alt="screenshot"
-            objectFit="cover"
-            objectPosition={"top center"}
-            src={`data:image/jpeg;base64,${ss}`}
-          />
-        </Link>
-      </div>
+      <Link href={url} passHref>
+        <div className="w-full h-[60%] relative rounded-md overflow-hidden cursor-pointer"></div>
+      </Link>
       <div className="flex flex-1 flex-col h-auto justify-between">
         <div className="flex flex-col gap-2">
           <h3 className="font-bold">{name}</h3>

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useNavContext } from "../components/nav/Navbar";
 import { Site } from "../components/projects/Site";
 import { getRepoWithStars } from "../utils/GHRest";
-import cw from "capture-website";
 
 export type Site = {
   name: string;
@@ -66,19 +65,7 @@ const Projects: NextPage<Props> = ({ sites }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const sites = await Promise.all(
     SITES.map(async (e) => {
-      const t = await getRepoWithStars(e);
-
-      const ss = await cw.base64(t.url as string, {
-        isJavaScriptEnabled: true,
-        delay: 4,
-        type: "jpeg",
-        quality: 0.5,
-        launchOptions: {
-          args: ["--no-sandbox", "--disable-setuid-sandbox"],
-        },
-      });
-
-      return { ...t, ss };
+      return await getRepoWithStars(e);
     })
   );
 
