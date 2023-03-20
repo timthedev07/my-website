@@ -1,6 +1,6 @@
 export const BLOG_CATEGORIES = [
   "programming",
-  "math & science",
+  "math-and-science",
   "school",
   "travel",
   "others",
