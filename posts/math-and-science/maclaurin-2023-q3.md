@@ -7,7 +7,7 @@ keywords: ["Math", "Olympiad", "UKMT", "UKMT Maclaurin"]
 
 # Quick Access
 
-- [UKMT Maclaurin 2023 Question 1 Solution](https://timthedev07.vercel.app/blog/math%20&%20science/maclaurin-2023-q1)
+- [UKMT Maclaurin 2023 Question 1 Solution](https://timthedev07.vercel.app/blog/math-and-science/maclaurin-2023-q1)
 
 # Problem Statement
 
