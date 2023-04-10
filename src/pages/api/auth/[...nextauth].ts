@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import SpotifyProvider from "next-auth/providers/spotify";
 import DiscordProvider from "next-auth/providers/discord";
 
-export default NextAuth({
+export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -23,4 +23,6 @@ export default NextAuth({
     error: "/auth/error", // Error code passed in query string as ?error=
   },
   secret: process.env.NEXT_AUTH_SECRET,
-});
+};
+
+export default NextAuth(authOptions);
