@@ -201,7 +201,7 @@ const Blogs: NextPage<Props> = ({
                       blurDataURL={blurDataUrl}
                       src={`/thumbnails/${metadata.thumbnail || filename}.png`}
                       alt={filename}
-                      layout="fill"
+                      fill
                       className="rounded-t-md"
                     />
                   </div>
