@@ -1,36 +1,32 @@
 import type { NextPage } from "next";
 import { GetStaticProps, GetStaticPaths } from "next";
-import { readdirSync, readFileSync } from "fs";
-import path, { join } from "path";
-import matter from "gray-matter";
-import { MarkdownMetadata } from "../../../types/posts";
-import { useEffect, useRef, useState } from "react";
+import { readdirSync } from "fs";
+import { join, sep } from "path";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useOnScreen } from "../../../utils/hooks";
 import { BlogComments } from "../../../components/BlogComments";
 import { useAppLoading } from "../../../components/AppLoading";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { TagList } from "../../../components/TagList";
 import { Button } from "dragontail-experimental";
-import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
-import rehypeKatex from "rehype-katex";
-import remarkGfm from "remark-gfm";
-import remarkMath from "remark-math";
-import rehypeRaw from "rehype-raw";
-import Link from "next/link";
+import { MDXRemote } from "next-mdx-remote";
 import { NextSeo } from "next-seo";
 import SEOConfig from "../../../utils/seo-config";
+import { MDXData, readMDX } from "../../../lib/blog";
+import { components } from "../../../components/mdx-custom";
 
 interface Props {
-  content: string;
-  metadataAsString: string;
+  mdxDataRaw: string;
   slug: string;
 }
 
-const NORMAL_TEXT_COLOR = "text-white/[0.825]";
+const Slug: NextPage<Props> = ({ mdxDataRaw, slug }) => {
+  const mdxData = useMemo(
+    () => JSON.parse(mdxDataRaw) as MDXData,
+    [mdxDataRaw]
+  );
+  const metadata = useMemo(() => mdxData.frontmatter, [mdxData]);
 
-const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
-  const metadata: MarkdownMetadata = JSON.parse(metadataAsString);
   const ref = useRef<HTMLDivElement | null>(null);
   const loadComments = useOnScreen(ref);
   const [viewCount, setViewCount] = useState<number | null>(null);
@@ -130,13 +126,7 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             <div>
               <Button
                 onClick={() => {
-                  navigator.clipboard.writeText(
-                    `https://${
-                      window.location.hostname
-                    }/blog/${encodeURIComponent(
-                      `${metadata.category}/${slug}`
-                    )}`
-                  );
+                  navigator.clipboard.writeText(window.location.href);
                 }}
                 variant="ghost"
                 color="orange"
@@ -146,39 +136,13 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
             </div>
           </article>
 
-          <article>
-            <ReactMarkdown
-              className={`
-              markdown-render
-              flex flex-col gap-4 pt-20 md:pt-8 pb-10 ${xPaddings}
-              child-headings:font-semibold child-headings:text-white
-              child-iframes:rounded-md child-iframes:mx-auto
-              leading-loose
-              child-block-quote:border-l-[7px] child-block-quote:border-gray-600/60 child-block-quote:pl-6 child-block-quote:text-gray-400/80
-              child-code:leading-normal child-code:rounded-lg
-              child-math:text-white/90 ${NORMAL_TEXT_COLOR} child-list:text-[1.1rem]
-              child-images:rounded-xl child-images:shadow-xl child-images:mx-auto
-              child-ul:list-disc child-ol:list-decimal child-list:list-inside
-              child-links-hover:underline child-links:text-cyan-400 child-links-hover:text-cyan-500`}
-              rehypePlugins={[
-                [rehypeRaw, {}],
-                remarkMath,
-                remarkGfm,
-                [rehypeKatex, { strict: true }],
-                rehypeHighlight,
-              ]}
-              components={{
-                a: ({ href, children, ...rest }) => {
-                  return (
-                    <Link {...rest} href={href || ""}>
-                      {children?.length ? children[0] : children}
-                    </Link>
-                  );
-                },
-              }}
-            >
-              {content}
-            </ReactMarkdown>
+          <article
+            className={`
+            leading-loose pt-20 md:pt-12 pb-10 ${xPaddings} flex flex-col gap-4
+            child-headings:font-semibold child-headings:text-white
+            child-math:text-white/90 child-code:leading-normal child-code:rounded-lg child-code:overflow-hidden`}
+          >
+            <MDXRemote components={components} {...mdxData} />
           </article>
 
           <hr className="w-full h-[1px] border-t border-t-slate-400/30" />
@@ -193,22 +157,24 @@ const Slug: NextPage<Props> = ({ content, metadataAsString, slug }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categories = readdirSync("posts");
+  const categories = readdirSync(join("src", "blog-mdx"));
 
   // const fileNames
   let fileNames: string[] = [];
   for (const category of categories) {
     fileNames = fileNames.concat(
-      readdirSync(`posts/${category}`).map((each) => `${category}/${each}`)
+      readdirSync(join("src", "blog-mdx", category)).map(
+        (each) => `${category}/${each}`
+      )
     );
   }
 
   const paths = fileNames.map((fileName) => {
-    const pieces = fileName.split(path.sep);
+    const pieces = fileName.split(sep);
 
     return {
       params: {
-        slug: pieces[pieces.length - 1].replace(".md", ""),
+        slug: pieces[pieces.length - 1].replace(".mdx", ""),
         category: pieces[0],
       },
     };
@@ -221,22 +187,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params!.slug;
-  const category = params!.category;
+  const slug = params!.slug as string;
+  const category = params!.category as string;
 
-  const fileContent = readFileSync(
-    join("posts", category as string, slug + ".md")
-  ).toString();
-
-  const withMetadata = matter(fileContent);
-
-  withMetadata.data.category = category;
+  const data = await readMDX(slug, category);
+  console.log(data.scope);
 
   return {
     props: {
       slug,
-      content: withMetadata.content,
-      metadataAsString: JSON.stringify(withMetadata.data),
+      mdxDataRaw: JSON.stringify(data),
     } as Props,
   };
 };
