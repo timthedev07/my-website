@@ -1,5 +1,15 @@
+import MDX from "@next/mdx";
+
+const withMDX = MDX({
+  extension: /\.mdx?$/,
+  options: {
+    providerImportSource: "@mdx-js/react",
+  },
+});
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+export default withMDX({
   reactStrictMode: false,
   images: {
     domains: ["raw.githubusercontent.com"],
@@ -8,4 +18,4 @@ module.exports = {
     locales: ["en"],
     defaultLocale: "en",
   },
-};
+});
