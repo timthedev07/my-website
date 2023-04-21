@@ -1,6 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import { MarkdownMetadata } from "../../types/posts";
 import { useNavContext } from "../../components/nav/Navbar";
 import { ChangeEventHandler, useEffect, useState } from "react";
 import {
@@ -21,7 +20,7 @@ import {
 import Image from "next/image";
 import headerImage from "../../../public/images/blog-heading.jpg";
 import { blurDataUrl } from "../../utils/blurDataUrl";
-import { getBlogsWithMetadata } from "../../utils/blogsWithMeta";
+import { MDXBlogMeta, getBlogsWithMetadata } from "../../lib/blog";
 import { SearchSVG } from "../../components/svgs/Search";
 import { anyElementContains } from "../../utils/arrays";
 import { NextSeo } from "next-seo";
@@ -88,13 +87,12 @@ const Blogs: NextPage<Props> = ({
     if (!currTag && !searchTag) return;
 
     const term = currTag || (searchTag as string);
-    console.log("Searching ", term);
 
     const newCandidateIds: BlogFileInfo[] = [];
 
     // searching strategy
     for (const candidate of tabCandidates) {
-      const { keywords } = JSON.parse(candidate.metadata) as MarkdownMetadata;
+      const { keywords } = JSON.parse(candidate.metadata) as MDXBlogMeta;
 
       if (anyElementContains(keywords, term)) {
         newCandidateIds.push(candidate);
@@ -187,7 +185,7 @@ const Blogs: NextPage<Props> = ({
       <ol className="w-full flex gap-5 p-8 flex-wrap justify-center">
         {(filteredByTag || tabCandidates).map(
           ({ filename, metadata: metadataAsString, category }) => {
-            const metadata = JSON.parse(metadataAsString) as MarkdownMetadata;
+            const metadata = JSON.parse(metadataAsString) as MDXBlogMeta;
             return (
               <Link
                 passHref
@@ -229,13 +227,13 @@ const Blogs: NextPage<Props> = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getBlogsWithMetadata("ssg");
+  const data = await getBlogsWithMetadata();
 
   const allKeywords: string[] = [];
 
   for (const c of BLOG_CATEGORIES) {
     for (const d of data[c]) {
-      const { keywords } = JSON.parse(d.metadata) as MarkdownMetadata;
+      const { keywords } = JSON.parse(d.metadata) as MDXBlogMeta;
       allKeywords.concat(keywords);
     }
   }
