@@ -1,9 +1,9 @@
+import { MDXBlogMeta } from "../lib/blog";
 import {
   BlogCategoryTabType,
   BlogCategoryType,
   BLOG_CATEGORIES,
 } from "../types/blogCategories";
-import { MarkdownMetadata } from "../types/posts";
 
 export type BlogFileInfo = {
   metadata: string;
@@ -32,7 +32,7 @@ export const groupBlogs = (blogs: BlogFileInfo[]): BlogGroups => {
   grouped.recent = [...sortedBlogs];
 
   for (const blog of sortedBlogs) {
-    const blogMetadata = JSON.parse(blog.metadata) as MarkdownMetadata;
+    const blogMetadata = JSON.parse(blog.metadata) as MDXBlogMeta;
     blogMetadata.category = blog.category;
     grouped[blog.category as BlogCategoryTabType].push({
       ...blog,
