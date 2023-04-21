@@ -110,6 +110,10 @@ body {
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-padding-top: 36px;
+}
+
 *::selection {
   @apply bg-orange-700/50;
 }
