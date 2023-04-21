@@ -1,0 +1,92 @@
+---
+title: UKMT Maclaurin 2023 - Question 1
+description: My solution to the problem.
+date: 2023-03-19
+keywords: ["Math", "Olympiad", "UKMT", "UKMT Maclaurin"]
+---
+
+# Quick Access
+
+- [UKMT Maclaurin 2023 Question 3 Solution](https://timthedev07.vercel.app/blog/math-and-science/maclaurin-2023-q3)
+
+# Problem Statement
+
+A plank of wood has one end, A, against a vertical wall. Its other end, B, is on horizontal ground. When end A slips down 8cm, end B moves 4cm further away from the wall. When end A slips down a further 9cm, end B moves a further 3cm away from the wall. Find the length of the plank.
+
+# My Solution
+
+Based on the given information, we can construct a diagram similar to the one below (NOT drawn to scale):
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/maclaurin2023/Q1-1.png)
+
+where:
+
+- $AA' = 8$
+- $A'A'' = 9$
+- $BB' = 4$
+- $B'B'' = 3$
+
+Let
+
+- $AT = x$
+- $BT = y$
+- $t = AB = A'B' = A''B''$
+
+![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/maclaurin2023/Q1-1-labeled.png)
+
+Triangles $ABT$, $A'B'T$, and $A''B''T$ all have the same hypotenuse since the length of the wood plank remains unchanged as it slips.
+
+Thus a system of equations can be formed:
+
+$$
+\begin{aligned}
+  \begin{cases}
+    (x + 17)^2 + y^2 = t^2 \\
+    (x + 9)^2 + (y + 4)^2 = t^2 \\
+    x^2 + (y + 7)^2 = t^2 \\
+  \end{cases}\,
+\end{aligned}
+$$
+
+Combining the first equation with the second:
+
+$$
+\begin{aligned}
+(x + 17)^2 + y^2 &= (x + 9)^2 + (y + 4)^2 \\
+x^2 + 34x + 289 + y^2 &= x^2 + 18x + 81 + y^2 + 8y + 16 \\
+16x + 192 &= 8y \\
+2x + 24 &= y\\
+\end{aligned}
+$$
+
+Combining the third equation with the second:
+
+$$
+\begin{aligned}
+x^2 + (y + 7)^2 &= (x + 9)^2 + (y + 4)^2 \\
+x^2 + y^2 + 14y + 49 &= x^2 + 18x + 81 + y^2 + 8y + 16 \\
+6y = 18x + 48 \\
+y = 3x + 8
+\end{aligned}
+$$
+
+This obtains a new system of equations:
+
+$$
+\begin{aligned}
+  \begin{cases}
+    y = 3x + 8 \\
+    y = 2x + 24
+  \end{cases}
+\end{aligned}
+$$
+
+This gives $x = 16$ and $y = 56$. This pair of values can be substituted into any of the three original equations to find $t$ and they will give the same value. However, I personally find the second one giving nicer numbers:
+
+$$
+\begin{aligned}
+t^2 &= (x + 9)^2 + (y + 4)^2 \\
+&= 25^2 + 60^2 = 625 + 3600 = 4225 \\
+t &= \sqrt{4225} = 65
+\end{aligned}
+$$
