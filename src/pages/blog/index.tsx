@@ -119,8 +119,8 @@ const Blogs: NextPage<Props> = ({
       />
       <header className="relative w-full h-72 flex justify-center items-center">
         <Image
-          layout="fill"
           placeholder="blur"
+          fill
           src={headerImage}
           blurDataURL={blurDataUrl}
           className="absolute w-full h-full object-cover brightness-[0.6] pointer-events-none"
