@@ -112,7 +112,6 @@ export const components: MDXComponents | MergeComponents = {
           src={src || ""}
           alt=""
           className="object-contain w-full h-full top-0 left-0"
-          quality="0.8"
         ></Image>
       </div>
     );
