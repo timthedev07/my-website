@@ -115,9 +115,7 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {},
-  },
+  variants: {},
   plugins: [
     plugin(({ addVariant }) => {
       addVariant("child-images", "& img");
