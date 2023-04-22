@@ -54,7 +54,11 @@ export const readMDX = async (
   const { compiledSource, scope } = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkMath, remarkUnwrapImages],
-      rehypePlugins: [rehypeHighlight, rehypeKatex, rehypeAutolinkHeadings],
+      rehypePlugins: [
+        rehypeHighlight,
+        [rehypeKatex, { strict: true }],
+        rehypeAutolinkHeadings,
+      ],
     },
   });
 
