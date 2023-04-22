@@ -1,10 +1,10 @@
 import { MergeComponents } from "@mdx-js/react/lib";
 import { MDXComponents } from "mdx/types";
-import Image from "next/image";
 import Link from "next/link";
 import { LinkSVG } from "../svgs/Link";
 import { ReactNode } from "react";
 import { PlaintextPre } from "./blog-components/PlaintextPre";
+import { SizedImage } from "./blog-components/SizedImage";
 
 const PLAIN_TEXT_COLOR = "text-white/[0.825]";
 
@@ -101,23 +101,10 @@ export const components: MDXComponents | MergeComponents = {
       ></Link>
     );
   },
-  img: ({
-    src,
-    width: _,
-    height: __,
-    placeholder: ___,
-    ref: ____,
-    ...props
-  }) => {
+  img: ({}) => {
     return (
-      <div className="relative w-full h-[428px] overflow-hidden">
-        <Image
-          fill
-          {...props}
-          src={src || ""}
-          alt=""
-          className="object-contain w-full h-full top-0 left-0"
-        ></Image>
+      <div className="mx-auto bg-red-500/60 border-2 border-red-900/90 rounded-xl px-8 py-4">
+        FORBIDDEN USE OF UNSIZED IMAGES
       </div>
     );
   },
@@ -144,4 +131,5 @@ export const components: MDXComponents | MergeComponents = {
     );
   },
   PlaintextPre: PlaintextPre,
+  SizedImage: SizedImage,
 };
