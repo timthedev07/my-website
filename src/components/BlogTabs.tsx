@@ -8,10 +8,7 @@ interface BlogTabsProps {
 }
 
 export const beautifyCategoryName = (category: string, capitalize = false) => {
-  const k = category
-    .toLowerCase()
-    .replaceAll("-", " ")
-    .replaceAll(" and ", " & ");
+  const k = category.toLowerCase().replace(/-/g, " ").replace(/ and /g, " & ");
   if (capitalize) return k[0].toUpperCase() + k.slice(1);
   return k;
 };
