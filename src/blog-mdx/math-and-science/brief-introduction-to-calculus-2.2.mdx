@@ -46,9 +46,9 @@ $$
 
 1. The function of the curve is given by $f(x) = -x^2 + 10$, find the exact area of the shaded region.
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-simple.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-simple.png" width="656" height="489" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 $$
 \begin{align*}
 a &= -2 \\
@@ -61,9 +61,9 @@ $$
 
 2. The function of the curve is given by $f(x) = \left(x-4\right)\left(x+4\right)$, find the exact area of the shaded region.
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-simple-2.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-simple-2.png" width="656" height="489" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 $$
 \begin{align*}
 I &= \int_{0}^{4} (x-4)(x+4)\, dx \\
@@ -86,9 +86,9 @@ $$
 
 Consider the following case:
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/sinx-integral-graph.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/sinx-integral-graph.png" width="588" height="522" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 The function of the curve is given by $f(x) = -3\sin(x)$. In the range of values we are looking at, the curve intercepts the x-axis at $x \in \{-\pi, 0, \pi\}$.
 
 If you set $a = -\pi$ and $b = \pi$ and use integration to find the area:
@@ -119,9 +119,9 @@ $$
 
 The function of the curve below is given by $f(x) = x(x - 1)(x + 3)$.
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-axis-both-eg.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-axis-both-eg.png" width="509" height="376" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 Find the area of the finite region bounded by the x-axis and the curve.
 
 $$
@@ -152,9 +152,9 @@ $$
 
 The Riemann sum is a strategy for **estimating** the area under a curve by dividing the area into $n$ rectangular strips, where each rectangle has a defined width, namely $\Delta x$, and its height is defined by the $y$ value calculated using each x value $f(x_i)$.
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-strips.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-strips.png" width="767" height="530" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 There are three types of Riemann sums:
 
 - Right endpoint sum
@@ -171,9 +171,9 @@ A \approx \sum_{i=1}^{n}\, \Delta x f(x_i)
 \end{align*}
 $$
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-labels.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-labels.png" width="960" height="720" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 Let's break this down step by step.
 
 - $n$ is the number of strips the area is divided into; generally the higher $n$ is, the closer the approximation
@@ -192,9 +192,9 @@ $$
 
 As $n$, the number of subintervals is increased, the blank gap reduces, therefore increasing the resulting approximated area:
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-n-increase.gif)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-n-increase.gif" width="417" height="427" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 However, the value of $R(n)$ will never exceed a certain value no matter how large
 $n$ becomes, and that limit is the exact area of the curve.
 
@@ -210,9 +210,9 @@ $$
 
 For a **_left endpoint sum_**, each rectangle's top-left corner touches the curve, and thus the approximation is always below the actual area.
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/left-endpoint.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/left-endpoint.png" width="767" height="530" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 In comparison, for a **_right endpoint sum_**, each rectangle's top-right corner
 touches the curve, therefore the approximation will always be above the actual area.
 
@@ -224,17 +224,17 @@ A \approx \sum_{i=1}^{n}\, \Delta x f(x_i + \Delta x)
 \end{align*}
 $$
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/right-endpoint.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/right-endpoint.png" width="767" height="546" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 Finally, for a **_midpoint_** rule, the curve meets each strip at the midpoint of
 the length of the rectangle.
 
 Likewise, for the midpoint rule, the height of the rectangles is $f(x)$ for which $x$ is shifted by $\frac{1}{2}\Delta x$ to the right, thus:
 
-![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/midpoint-riemann.png)
+<SizedImage alt="" src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/midpoint-riemann.png" width="767" height="546" />
 
-<SizedImage width={} height={} src="" alt="" />
+
 $$
 \begin{align*}
 A \approx \sum_{i=1}^{n}\, \Delta x f(x_i + \frac{1}{2}\Delta x)
