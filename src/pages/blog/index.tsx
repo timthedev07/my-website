@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from "next";
-import Link from "next/link";
 import { useNavContext } from "../../components/nav/Navbar";
 import { ChangeEventHandler, useEffect, useState } from "react";
 import {
@@ -24,7 +23,8 @@ import { SearchSVG } from "../../components/svgs/Search";
 import { anyElementContains } from "../../utils/arrays";
 import { NextSeo } from "next-seo";
 import SEOConfig from "../../utils/seo-config";
-import { blurDataUrl, getBlurDataURL } from "../../utils/blurDataUrl";
+import { getBlurDataURL } from "../../utils/blurDataUrl";
+import { SmallBlogDisplay } from "../../components/BlogDisplay";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -182,42 +182,16 @@ const Blogs: NextPage<Props> = ({
         ""
       )}
 
-      <ol className="w-full flex gap-5 p-8 flex-wrap justify-center">
+      <ol className="w-full flex gap-24 p-8 flex-wrap justify-center">
         {(filteredByTag || tabCandidates).map(
-          ({ filename, metadata: metadataAsString, category }) => {
+          ({ metadata: metadataAsString, ...rest }) => {
             const metadata = JSON.parse(metadataAsString) as MDXBlogMeta;
             return (
-              <Link
-                passHref
-                key={filename}
-                href={`/blog/${category}/${filename}`}
-              >
-                <li className="w-80 md:w-96 h-auto cursor-pointer bg-slate-500/30 rounded-md my-6 transition ease-out duration-200 transform hover:-translate-y-1 hover:shadow-xl-theme-color">
-                  <div className="relative w-80 md:w-96 h-80 md:h-96 rounded-t-md">
-                    <Image
-                      placeholder="blur"
-                      blurDataURL={blurDataUrl}
-                      src={`/thumbnails/${metadata.thumbnail || filename}.png`}
-                      alt={filename}
-                      fill
-                      className="rounded-t-md"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col justify-between h-48">
-                    <div className="text-xl font-semibold">
-                      {metadata.title
-                        .split(" ")
-                        .map(
-                          (each) => each.charAt(0).toUpperCase() + each.slice(1)
-                        )
-                        .join(" ")}
-                    </div>
-                    <div className="text-white/60 italic">
-                      {new Date(metadata.date).toDateString()}
-                    </div>
-                  </div>
-                </li>
-              </Link>
+              <SmallBlogDisplay
+                {...rest}
+                metadata={metadata}
+                key={metadata.title}
+              />
             );
           }
         )}

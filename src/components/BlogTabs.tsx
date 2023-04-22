@@ -7,6 +7,10 @@ interface BlogTabsProps {
   onTabChange?: Function;
 }
 
+export const beautifyCategoryName = (category: string) => {
+  return category.toLowerCase().replaceAll("-", " ").replaceAll(" and ", " & ");
+};
+
 export const BlogTabs: FC<BlogTabsProps> = ({
   currTab,
   onTabChange = () => {},
@@ -29,7 +33,7 @@ export const BlogTabs: FC<BlogTabsProps> = ({
           } transition duration-200 hover:text-white hover:bg-slate-400/20 cursor-pointer`}
           key={each}
         >
-          {each}
+          {beautifyCategoryName(each)}
         </li>
       ))}
     </ul>
