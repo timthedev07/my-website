@@ -191,7 +191,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const category = params!.category as string;
 
   const data = await readMDX(slug, category);
-  console.log(data.scope);
 
   return {
     props: {

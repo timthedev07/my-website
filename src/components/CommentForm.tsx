@@ -73,7 +73,6 @@ export const CommentForm: FC<CommentFormProps> = ({
     e.preventDefault();
     setLoading(true);
 
-
     const updatedFormData = {
       ...formData,
       commenterEmail: userEmail,
@@ -85,7 +84,6 @@ export const CommentForm: FC<CommentFormProps> = ({
     const errors = {
       comment: !formData.comment || hasNoAlphanumeric(formData.comment),
     };
-    console.log(errors);
     setFormError((prev) => ({ ...prev, ...errors }));
 
     if (Object.values(errors).findIndex((val) => val === true) >= 0) {
