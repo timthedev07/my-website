@@ -22,20 +22,25 @@ export const components: MDXComponents | MergeComponents = {
   h1: ({ children, ...props }) => {
     const finalId = headingId(children, "h1");
     return (
-      <h1
-        {...props}
-        id={finalId}
-        className="flex items-center gap-4 text-[2.8rem] overflow"
-      >
-        {children}
-        <LinkSVG
-          onClick={() => {
-            navigator.clipboard.writeText(window.location.href + "#" + finalId);
-          }}
-          className="mt-2 cursor-pointer fill-slate-400/10 hover:fill-cyan-400/80 w-12 transition duration-200"
-        />
-        <a aria-hidden="true" tabIndex={-1} href={"#" + finalId}></a>
-      </h1>
+      <>
+        <h1
+          {...props}
+          id={finalId}
+          className="flex items-center gap-4 text-[2.6rem] overflow py-0 leading-none"
+        >
+          {children}
+          <LinkSVG
+            onClick={() => {
+              navigator.clipboard.writeText(
+                window.location.href + "#" + finalId
+              );
+            }}
+            className="mt-2 cursor-pointer fill-slate-400/10 hover:fill-cyan-400/80 w-12 transition duration-200"
+          />
+          <a aria-hidden="true" tabIndex={-1} href={"#" + finalId}></a>
+        </h1>
+        <hr className="h-0 border-slate-200/20 border" />
+      </>
     );
   },
   h2: ({ children, ...props }) => {
