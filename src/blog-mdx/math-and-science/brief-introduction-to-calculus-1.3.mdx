@@ -1,0 +1,156 @@
+---
+title: "A Brief Introduction to Calculus: Part 1.3 - Rate of Change"
+description: "An introduction to basic concepts in Calculus; mostly based on the IGCSE Further Math textbook."
+date: 2022-08-02
+keywords:
+  - Math
+  - Calculus
+  - Further Math
+thumbnail: brief-introduction-to-calculus-1
+---
+
+# Introduction
+
+This is the third part of first series — Derivatives, focused on the concept of the rate of change of a function.
+
+Note: the content introduced in this series is mostly based on the IGCSE Further Math textbook.
+
+# Quick Access
+
+- [Part 1.1 - Basic Differentiation Rules](/blog/math-and-science/brief-introduction-to-calculus-1.1)
+- [Part 1.2 - Gradient Functions](/blog/math-and-science/brief-introduction-to-calculus-1.2)
+- [Part 1.3 - Rate of Change](/blog/math-and-science/brief-introduction-to-calculus-1.3)
+- [Part 1.4 - Using the Rate of Change](/blog/math-and-science/brief-introduction-to-calculus-1.4)
+- [Part 2.1 - Definite & Indefinite Integrals](/blog/math-and-science/brief-introduction-to-calculus-2.1)
+- [Part 2.2 - Area Under the Curve](/blog/math-and-science/brief-introduction-to-calculus-2.2)
+
+# Rate of Change
+
+Now, in calculus, the concept of rate of change is also important. It's simply a rate of how a dependent variable changes as the independent variable changes.
+
+There are two types of rates of change we will look at here:
+
+- Instantaneous rate of change
+- Average rate of change
+
+For example, for a linear function, the rate of change is **constant**, because there is a linear (straight line) correlation between the variables. And the rate also happens to be the derivative of the function, i.e. the gradient/slope of the line, as discussed above.
+
+In contrast, a quadratic function, for example, would have a **variable rate of change** over an interval or a point. As you saw earlier, the derivative would produce an expression whose value actually depends on x; in other words, the derivative's value at different x coordinates may vary, unlike a linear function's derivative, which is a single constant that represents the gradient.
+
+## Average Rate of Change
+
+The average rate of change over an interval $[a, b]$ is the gradient of the secant line that passes through the curve at $x_1 = a$ and $x_2 = b$.
+
+<iframe
+  src="https://www.desmos.com/calculator/mpygaspgsp?embed"
+  width="100%"
+  height="500"
+></iframe>
+
+To calculate this, find the coordinates of the two points of intersection and calculate the gradient:
+
+$$
+\begin{align*}
+m = \frac{y_2 - y_1}{x_2 - x_1}
+\end{align*}
+$$
+
+And to form an equation for the secant line:
+
+$$
+\begin{align*}
+y = m(x - x_1) + y_1
+\end{align*}
+$$
+
+### Its Correlation with Derivatives
+
+Suppose there exists a tangent to the blue curve, whose corresponding function is $f(x)$, at point $P(x_0, f(x_0))$:
+
+<SizedImage
+  alt=""
+  src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/derivlim2.png"
+  width="654"
+  height="504"
+/>
+
+Start by picking another point on the curve, whose $x$-coordinate is displaced by $h$ units away from $x_0$ and $y$-coordinate is hence $f(x_0 + h)$
+
+<SizedImage
+  alt=""
+  src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/derivlim0.png"
+  width="746"
+  height="528"
+/>
+
+By dragging the new point closer and closer towards point $P$, $h$ gets smaller and smaller, and the gradient of the secant line approaches the tangent line:
+
+<SizedImage
+  alt=""
+  src="https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/derivlim1.gif"
+  width="600"
+  height="462"
+/>
+
+At some point, when the second point reaches point $P$, the gradient of the two lines would be equal.
+
+Given that the gradient of a straight line can be calculated by:
+
+$$
+\begin{aligned}
+\frac{\Delta y}{\Delta x}
+\end{aligned}
+$$
+
+we can define the tangent line's gradient using limits:
+
+$$
+\begin{aligned}
+\frac{dy}{dx} = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
+\end{aligned}
+$$
+
+### Example
+
+Let $f\left(x\right)\ =\ \frac{1}{20}x^{3}$, find the average rate of change over the interval $[1, 4]$, and hence the equation of the secant line.
+
+$$
+\begin{align*}
+x_1 &= 1 \\
+y_1 &= f(1) = 0.05 \\ \\
+
+x_2 &= 4 \\
+y_2 &= f(4) = 3.2 \\ \\
+
+m &= \frac{3.15}{3} = 1.05 \\ \\
+
+y &= 1.05(x - 1) + 0.05 = 1.05x - 1
+\end{align*}
+$$
+
+Thus the average rate of change required is $1.05$ and the equation of the secant line drawn is $y = 1.05x - 1$.
+
+## Instantaneous Rate Of Change
+
+The instantaneous rate of change is the value of the derivative at a specific point on the curve of the function, i.e. the gradient of the tangent line at a point.
+
+To calculate its value for a curve $f(x)$, is simply $f'(x)$, where $x$ is the x-coordinate of a point on the curve.
+
+Take this as an example:
+
+> The curve C is given by the equation $f(x) = 2x^2+4x-3$, find the instantaneous rate of change at the point (7, 123).
+
+$$
+\begin{align*}
+f'(x) &= 4x + 4 \\
+f'(7) = 32
+\end{align*}
+$$
+
+In this case, $32$ represents the gradient of the line that's tangent to the curve at $(7, 123)$.
+
+# Conclusion
+
+Subsequent sections are accessible through [this section](#~Quick%20Access) at the top of the article.
+
+Thanks for reading.
