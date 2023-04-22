@@ -14,7 +14,7 @@ export const Site: FC<WithStarCount & { ss?: string }> = ({
   description,
 }) => {
   return (
-    <div className="flex flex-col p-4 rounded-md border border-slate-400/40 w-80 md:w-[516px] h-[546px] bg-slate-400/20 transform transition duration-200 hover:-translate-y-1">
+    <div className="flex flex-col p-4 rounded-md border border-slate-400/40 w-80 md:w-[516px] h-80 bg-slate-400/20 transform transition duration-200 hover:-translate-y-1">
       <Link href={url} passHref>
         <div className="w-full h-[60%] relative rounded-md overflow-hidden cursor-pointer"></div>
       </Link>

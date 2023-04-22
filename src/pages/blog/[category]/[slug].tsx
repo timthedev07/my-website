@@ -106,7 +106,7 @@ const Slug: NextPage<Props> = ({ mdxDataRaw, slug }) => {
 
       <div className="flex flex-col justify-center items-center">
         <section
-          className={`w-[95%] md:w-[90%] md:max-w-4xl lg:max-w-5xl md:bg-slate-900 rounded-lg m-6`}
+          className={`w-[95%] md:w-[90%] md:max-w-4xl lg:max-w-5xl rounded-lg m-6`}
         >
           <article
             className={`${xPaddings} flex flex-col gap-6 border-2 py-12 bg-slate-700/10 border-slate-700/60 rounded-xl`}
