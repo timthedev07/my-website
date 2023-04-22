@@ -33,10 +33,10 @@ export const SmallBlogDisplay: FC<BlogDisplayProps> = ({
           className="rounded-xl"
         />
       </div>
-      <span className="text-base text-blue-400 flex gap-2 items-center font-bold">
-        {<Icon className="w-4 h-4" />} {beautifyCategoryName(category)}
+      <span className="text-lg text-blue-400 flex gap-2 items-center font-semibold">
+        {<Icon className="w-7 h-7" />} {beautifyCategoryName(category, true)}
       </span>
-      <div className="w-80">
+      <div className="w-80 h-40 flex flex-col justify-between gap-4">
         <div className="text-xl font-semibold">
           {metadata.title
             .split(" ")
