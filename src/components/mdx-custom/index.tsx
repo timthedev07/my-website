@@ -13,7 +13,7 @@ const headingId = (
   type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
 ) => {
   return (
-    "~".repeat(parseInt(type.at(1) as string)) +
+    "~".repeat(parseInt(type[1] as string)) +
     encodeURIComponent(children?.valueOf().toString() || "")
   );
 };
