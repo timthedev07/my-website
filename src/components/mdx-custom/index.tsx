@@ -128,5 +128,15 @@ export const components: MDXComponents | MergeComponents = {
       ></code>
     );
   },
+  blockquote: ({ className, ...props }) => {
+    return (
+      <blockquote
+        className={`border-l-[7px] border-gray-600/60 pl-6 text-gray-400/80 bg-slate-950/30 py-3 ${
+          className || ""
+        }`}
+        {...props}
+      ></blockquote>
+    );
+  },
   PlaintextPre: PlaintextPre,
 };
