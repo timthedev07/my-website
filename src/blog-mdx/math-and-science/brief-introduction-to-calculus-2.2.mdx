@@ -48,6 +48,7 @@ $$
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-simple.png)
 
+<SizedImage width={} height={} src="" alt="" />
 $$
 \begin{align*}
 a &= -2 \\
@@ -62,6 +63,7 @@ $$
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-simple-2.png)
 
+<SizedImage width={} height={} src="" alt="" />
 $$
 \begin{align*}
 I &= \int_{0}^{4} (x-4)(x+4)\, dx \\
@@ -86,6 +88,7 @@ Consider the following case:
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/sinx-integral-graph.png)
 
+<SizedImage width={} height={} src="" alt="" />
 The function of the curve is given by $f(x) = -3\sin(x)$. In the range of values we are looking at, the curve intercepts the x-axis at $x \in \{-\pi, 0, \pi\}$.
 
 If you set $a = -\pi$ and $b = \pi$ and use integration to find the area:
@@ -118,6 +121,7 @@ The function of the curve below is given by $f(x) = x(x - 1)(x + 3)$.
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/area-curve-axis-both-eg.png)
 
+<SizedImage width={} height={} src="" alt="" />
 Find the area of the finite region bounded by the x-axis and the curve.
 
 $$
@@ -150,6 +154,7 @@ The Riemann sum is a strategy for **estimating** the area under a curve by divid
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-strips.png)
 
+<SizedImage width={} height={} src="" alt="" />
 There are three types of Riemann sums:
 
 - Right endpoint sum
@@ -168,6 +173,7 @@ $$
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-labels.png)
 
+<SizedImage width={} height={} src="" alt="" />
 Let's break this down step by step.
 
 - $n$ is the number of strips the area is divided into; generally the higher $n$ is, the closer the approximation
@@ -188,7 +194,9 @@ As $n$, the number of subintervals is increased, the blank gap reduces, therefor
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/riemann-n-increase.gif)
 
-However, the value of $R(n)$ will never exceed a certain value no matter how large $n$ becomes, and that limit is the exact area of the curve.
+<SizedImage width={} height={} src="" alt="" />
+However, the value of $R(n)$ will never exceed a certain value no matter how large
+$n$ becomes, and that limit is the exact area of the curve.
 
 By definition, the integral used to find the area for the same region is exactly the limit of $R(n)$ as $n \rightarrow \infty$:
 
@@ -204,7 +212,9 @@ For a **_left endpoint sum_**, each rectangle's top-left corner touches the curv
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/left-endpoint.png)
 
-In comparison, for a **_right endpoint sum_**, each rectangle's top-right corner touches the curve, therefore the approximation will always be above the actual area.
+<SizedImage width={} height={} src="" alt="" />
+In comparison, for a **_right endpoint sum_**, each rectangle's top-right corner
+touches the curve, therefore the approximation will always be above the actual area.
 
 Note that, in this case, the height of the rectangles is $f(x)$ for which $x$ is shifted by $\Delta x$ to the right, thus:
 
@@ -216,12 +226,15 @@ $$
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/right-endpoint.png)
 
-Finally, for a **_midpoint_** rule, the curve meets each strip at the midpoint of the length of the rectangle.
+<SizedImage width={} height={} src="" alt="" />
+Finally, for a **_midpoint_** rule, the curve meets each strip at the midpoint of
+the length of the rectangle.
 
 Likewise, for the midpoint rule, the height of the rectangles is $f(x)$ for which $x$ is shifted by $\frac{1}{2}\Delta x$ to the right, thus:
 
 ![](https://raw.githubusercontent.com/timthedev07/my-website/dev/assets/midpoint-riemann.png)
 
+<SizedImage width={} height={} src="" alt="" />
 $$
 \begin{align*}
 A \approx \sum_{i=1}^{n}\, \Delta x f(x_i + \frac{1}{2}\Delta x)
