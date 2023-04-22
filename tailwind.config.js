@@ -17,6 +17,9 @@ module.exports = {
       mono: ["ui-monospace", "Azeret\\ Mono"],
     },
     extend: {
+      fontSize: {
+        paragraph: "1.1rem",
+      },
       keyframes: (theme) => ({
         enlarge: {
           from: {
