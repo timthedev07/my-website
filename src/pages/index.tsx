@@ -16,8 +16,8 @@ import { SvelteSVG } from "../components/svgs/home/Svelte";
 import { TailwindCSSSVG } from "../components/svgs/home/TailwindCSS";
 import { TensorflowSVG } from "../components/svgs/home/Tensorflow";
 import { TypeScriptSVG } from "../components/svgs/home/TypeScript";
-import { blurDataUrl } from "../utils/blurDataUrl";
 import { useViewportClassname } from "../utils/hooks";
+import { getBlurDataURL } from "../utils/blurDataUrl";
 
 const Home: NextPage = () => {
   const sectionHeading2 = useRef<HTMLHeadingElement | null>(null);
@@ -56,12 +56,11 @@ const Home: NextPage = () => {
         <Image
           src={heroImage}
           alt=""
-          layout="fill"
-          objectFit="cover"
+          fill
           placeholder="blur"
           priority
-          blurDataURL={blurDataUrl}
-          className="object-[50%_30%] absolute blur-[2px] brightness-[0.5] z-10"
+          blurDataURL={getBlurDataURL(3648, 2432)}
+          className="object-[50%_30%] absolute blur-[2px] brightness-[0.5] z-10 object-cover"
         />
         <div className="z-20 absolute flex flex-col px-6 sm:mx-0 md:w-[96%] md:flex-row md:justify-center md:gap-32">
           <div className="flex flex-col items-start gap-5">

@@ -19,12 +19,12 @@ import {
 } from "dragontail-experimental";
 import Image from "next/image";
 import headerImage from "../../../public/images/blog-heading.jpg";
-import { blurDataUrl } from "../../utils/blurDataUrl";
 import { MDXBlogMeta, getBlogsWithMetadata } from "../../lib/blog";
 import { SearchSVG } from "../../components/svgs/Search";
 import { anyElementContains } from "../../utils/arrays";
 import { NextSeo } from "next-seo";
 import SEOConfig from "../../utils/seo-config";
+import { blurDataUrl, getBlurDataURL } from "../../utils/blurDataUrl";
 
 interface Props {
   groupedBlogs: BlogGroups;
@@ -122,7 +122,7 @@ const Blogs: NextPage<Props> = ({
           placeholder="blur"
           fill
           src={headerImage}
-          blurDataURL={blurDataUrl}
+          blurDataURL={getBlurDataURL(1920, 635)}
           className="absolute w-full h-full object-cover brightness-[0.6] pointer-events-none"
           alt=""
         />

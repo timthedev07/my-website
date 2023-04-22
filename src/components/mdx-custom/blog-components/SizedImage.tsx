@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
-import { blurDataUrl } from "../../../utils/blurDataUrl";
+import { getBlurDataURL } from "../../../utils/blurDataUrl";
 
 export type SafeNumber = number | `${number}`;
 
@@ -17,7 +17,7 @@ export const SizedImage: FC<SizedImageProps> = ({ alt = "", ...props }) => {
       {...props}
       alt={alt}
       placeholder="blur"
-      blurDataURL={blurDataUrl}
+      blurDataURL={getBlurDataURL(props.width, props.height)}
       className="mx-auto rounded-xl"
     />
   );
