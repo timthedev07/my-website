@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LinkSVG } from "../svgs/Link";
 import { ReactNode } from "react";
+import { PlaintextPre } from "./blog-components/PlaintextPre";
 
 const PLAIN_TEXT_COLOR = "text-white/[0.825]";
 
@@ -67,9 +68,8 @@ export const components: MDXComponents | MergeComponents = {
       </h3>
     );
   },
-
   p: ({ className: _, ...props }) => {
-    return <p {...props} className={`${PLAIN_TEXT_COLOR}`}></p>;
+    return <p {...props} className={`${PLAIN_TEXT_COLOR} text-paragraph`}></p>;
   },
   ul: ({ className: _, ...props }) => {
     return (
@@ -116,4 +116,17 @@ export const components: MDXComponents | MergeComponents = {
       </div>
     );
   },
+  code: ({ className, ...props }) => {
+    return (
+      <code
+        className={`${
+          !className || className === ""
+            ? "font-normal leading-tight border-[1px] border-slate-300/60 bg-slate-950 rounded-md px-2 py-[1px]"
+            : ""
+        } ${className}`}
+        {...props}
+      ></code>
+    );
+  },
+  PlaintextPre: PlaintextPre,
 };
