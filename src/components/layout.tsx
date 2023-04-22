@@ -37,7 +37,7 @@ export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
         />
       </Head>
 
-      <div id="App" className={`bg-slate-900`}>
+      <div id="App" className={`bg-slate-950`}>
         <AppLoadingProvider>
           <NavProvider>
             <main className={`w-full text-white min-w-[250px]`}>
