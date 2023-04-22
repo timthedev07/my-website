@@ -7,8 +7,13 @@ interface BlogTabsProps {
   onTabChange?: Function;
 }
 
-export const beautifyCategoryName = (category: string) => {
-  return category.toLowerCase().replaceAll("-", " ").replaceAll(" and ", " & ");
+export const beautifyCategoryName = (category: string, capitalize = false) => {
+  const k = category
+    .toLowerCase()
+    .replaceAll("-", " ")
+    .replaceAll(" and ", " & ");
+  if (capitalize) return k[0].toUpperCase() + k.slice(1);
+  return k;
 };
 
 export const BlogTabs: FC<BlogTabsProps> = ({
