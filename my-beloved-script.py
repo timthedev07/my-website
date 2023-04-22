@@ -14,10 +14,14 @@ def findInSquareBrackets(s):
 
 def main():
     dirs = os.listdir()
+    dirs.remove("script.py")
 
     for dir in dirs:
+        print(f"In dir: <{dir}>")
         for file in os.listdir(dir):
-            with open(file, "r") as f:
+            print(f"  - In file: <{file}>")
+            newContent = ""
+            with open(os.path.join(dir, file), "r") as f:
                 raw = f.read().strip()
                 lines = raw.split("\n")
                 removeLineNums = []
@@ -40,6 +44,13 @@ def main():
 
                         alterations.append(
                             (i, f'<SizedImage alt="{alt}" src="{src}" width="{w}" height="{h}" />'))
+
+                for i, alteration in alterations:
+                    lines[i] = alteration
+
+                newContent = "\n".join(lines) + "\n"
+            with open(os.path.join(dir, file), "w") as f:
+                f.write(newContent)
 
 
 if __name__ == "__main__":
