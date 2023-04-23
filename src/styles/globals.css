@@ -64,7 +64,7 @@
 
 @layer base {
   html {
-    @apply bg-slate-900;
+    @apply bg-slate-950;
   }
   a:hover {
     @apply text-cyan-400 duration-200;
