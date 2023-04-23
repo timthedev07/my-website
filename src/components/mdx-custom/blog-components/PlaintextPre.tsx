@@ -7,9 +7,11 @@ interface PlaintextPreProps {
 
 export const PlaintextPre: FC<PlaintextPreProps> = ({
   children,
-  center = false,
+  center = true,
 }) => {
   return (
-    <pre className={`p-4 rounded-none${center && " mx-auto"}`}>{children}</pre>
+    <pre className={`p-4 rounded-none ${center ? "mx-auto" : ""}`}>
+      {children}
+    </pre>
   );
 };

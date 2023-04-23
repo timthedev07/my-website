@@ -35,7 +35,7 @@ export const components: MDXComponents | MergeComponents = {
                 window.location.href + "#" + finalId
               );
             }}
-            className="mt-2 cursor-pointer fill-slate-400/10 hover:fill-cyan-400/80 w-12 transition duration-200"
+            className="mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/80 w-12 transition duration-200"
           />
           <a aria-hidden="true" tabIndex={-1} href={"#" + finalId}></a>
         </h1>
@@ -52,7 +52,7 @@ export const components: MDXComponents | MergeComponents = {
           onClick={() => {
             navigator.clipboard.writeText(window.location.href + "#" + finalId);
           }}
-          className="mt-2 cursor-pointer fill-slate-400/10 hover:fill-cyan-400/[.75] w-10 transition duration-200"
+          className="mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/[.75] w-10 transition duration-200"
         />
         <a aria-hidden="true" tabIndex={-1} href={"#" + finalId}></a>
       </h2>
@@ -67,7 +67,7 @@ export const components: MDXComponents | MergeComponents = {
           onClick={() => {
             navigator.clipboard.writeText(window.location.href + "#" + finalId);
           }}
-          className="mt-2 cursor-pointer fill-slate-400/10 hover:fill-cyan-400/70 w-8 transition duration-200"
+          className="mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/70 w-8 transition duration-200"
         />
         <a aria-hidden="true" tabIndex={-1} href={"#" + finalId}></a>
       </h3>

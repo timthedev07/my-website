@@ -14,7 +14,7 @@ module.exports = {
     fontFamily: {
       sans: openSans,
       serif: openSans,
-      mono: ["ui-monospace", "Azeret\\ Mono"],
+      mono: ["ui-monospace", "Monaco"],
     },
     extend: {
       fontSize: {
