@@ -18,6 +18,8 @@ import { TensorflowSVG } from "../components/svgs/home/Tensorflow";
 import { TypeScriptSVG } from "../components/svgs/home/TypeScript";
 import { useViewportClassname } from "../utils/hooks";
 import { getBlurDataURL } from "../utils/blurDataUrl";
+import { TwitterSVG } from "../components/svgs/home/Twitter";
+import { InstagramSVG } from "../components/svgs/home/Instagram";
 
 const Home: NextPage = () => {
   const sectionHeading2 = useRef<HTMLHeadingElement | null>(null);
@@ -49,6 +51,12 @@ const Home: NextPage = () => {
       <aside className="hidden h-96 animate-fade-in-slow md:flex flex-row items-center gap-4 uppercase font-mono text-zinc-200/80 tracking-widest text-sm fixed left-10 bottom-0 w-4 vertical-text whitespace-nowrap z-[10000]">
         <Link passHref href="https://github.com/timthedev07">
           <GitHubSVG className="h-8 w-8 cursor-pointer" />
+        </Link>
+        <Link passHref href="https://twitter.com/timthedev07">
+          <TwitterSVG className="h-8 w-8 cursor-pointer" />
+        </Link>
+        <Link passHref href="https://www.instagram.com/timthedev07/">
+          <InstagramSVG className="h-8 w-8 cursor-pointer" />
         </Link>
         <div className="grow-1 flex-1 w-[1px] bg-zinc-200/80" />
       </aside>
