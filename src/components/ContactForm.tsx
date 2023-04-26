@@ -9,6 +9,7 @@ import {
 import { ChangeEvent, FC, FormEventHandler, useState } from "react";
 import { hasNoAlphanumeric, validateEmailWithRegex } from "../utils/regex";
 import { useRouter } from "next/router";
+import { useAppLoading } from "./AppLoading";
 
 export interface ContactFormData {
   name: string;
@@ -30,6 +31,7 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
     name: false,
   });
   const router = useRouter();
+  const { setAppLoading } = useAppLoading();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     if (!router) return;
@@ -46,12 +48,15 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
       return;
     }
 
+    setAppLoading(true, true);
+
     const response = await fetch("/api/contact", {
       body: JSON.stringify(formData),
       method: "POST",
     });
 
     const status = response.status;
+    setAppLoading(false);
     if (status === 200)
       router.push(
         `/success?msg=${encodeURIComponent(
