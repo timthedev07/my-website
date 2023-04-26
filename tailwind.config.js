@@ -100,6 +100,7 @@ module.exports = {
         enlarge: "enlarge 0.7s ease-out forwards",
         "enlarge-slow": "enlarge 1s ease-out forwards",
         "loading-grow": "loadingGrow 2s cubic-bezier(1,.11,0,.89) forwards",
+        appear: "appear 200ms ease-out forwards",
       },
       screens: {
         md2: "868px",

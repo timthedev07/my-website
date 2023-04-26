@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import {
   createContext,
-  Dispatch,
   ReactNode,
   SetStateAction,
   useContext,
@@ -11,7 +10,10 @@ import {
 
 interface AppLoadingContextType {
   appLoading: boolean;
-  setAppLoading: Dispatch<SetStateAction<boolean>>;
+  setAppLoading: (
+    loading: SetStateAction<boolean>,
+    withCoverElement?: boolean
+  ) => void;
 }
 const AppLoadingContext = createContext<AppLoadingContextType>({
   appLoading: true,
@@ -28,6 +30,7 @@ export const AppLoadingProvider: React.FC<{ children: ReactNode }> = ({
   const router = useRouter();
 
   const [appLoading, setAppLoading] = useState(false);
+  const [withCover, setWithCover] = useState(false);
 
   useEffect(() => {
     const handleStart = () => setAppLoading(true);
@@ -44,9 +47,17 @@ export const AppLoadingProvider: React.FC<{ children: ReactNode }> = ({
     };
   });
 
+  const handleLoading = (
+    loading: SetStateAction<boolean>,
+    withCoverElement = false
+  ) => {
+    setWithCover(withCoverElement);
+    setAppLoading(loading);
+  };
+
   const value: AppLoadingContextType = {
     appLoading: appLoading,
-    setAppLoading: setAppLoading,
+    setAppLoading: handleLoading,
   };
 
   return (
@@ -55,6 +66,9 @@ export const AppLoadingProvider: React.FC<{ children: ReactNode }> = ({
         <div className="absolute h-1 w-full z-[99999999999999999999]">
           <div className="w-1/2 h-1 bg-sky-500 border-r-transparent rounded-r-full absolute animate-loading-grow"></div>
         </div>
+      ) : null}
+      {appLoading && withCover ? (
+        <div className="z-[1000] overflow-hidden loading-cover w-screen h-screen fixed top-0 animate-appear" />
       ) : null}
       {children}
     </AppLoadingContext.Provider>
