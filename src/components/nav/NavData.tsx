@@ -17,6 +17,10 @@ export const NAV_LINKS: NavbarItemProps[] = [
     name: "blog",
   },
   {
+    href: "/ib/cas",
+    name: "ib-cas"
+  },
+  {
     href: "/contact",
     name: "contact",
   },
