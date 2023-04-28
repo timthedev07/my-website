@@ -1341,10 +1341,13 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dragontail-experimental@^0.0.63:
-  version "0.0.63"
-  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.63.tgz#ea9d1cac656534d74b531f8f97ba62787695d8c0"
-  integrity sha512-B+8EPY947V+JUYTZCqj+jhLbHPG1yUlY1b8hyEzS+WJxQb9YmSdaspS/tMqaFym4JRXYTLh96BZN+R4uDftjcA==
+dragontail-experimental@^0.0.67:
+  version "0.0.67"
+  resolved "https://registry.yarnpkg.com/dragontail-experimental/-/dragontail-experimental-0.0.67.tgz#53dd155b7c80d788d04b73f810081ef7129910e1"
+  integrity sha512-Xda+Nqph+a0ipC0JFnoAJRZze1bzxClcUdVG0twM1He5IRSKS6FFlkwqgqhWiV/lLqnEQE0dyNxe8KUzjcA79Q==
+  dependencies:
+    react "^18.2.0"
+    react-dom "^18.2.0"
 
 ecdsa-sig-formatter@1.0.11:
   version "1.0.11"
@@ -3714,7 +3717,7 @@ react-is@^16.13.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react@18.2.0:
+react@18.2.0, react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==

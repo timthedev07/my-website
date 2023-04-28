@@ -1,4 +1,4 @@
-import { DragontailProvider } from "dragontail-experimental";
+import { DragontailProvider, ToastProvider } from "dragontail-experimental";
 import type { AppProps } from "next/app";
 import { Layout } from "../components/layout";
 import { SessionProvider } from "next-auth/react";
@@ -18,7 +18,9 @@ const App = ({
       <DefaultSeo {...SEOConfig} />
       <DragontailProvider theme="dark">
         <Layout>
-          <Component {...pageProps} />
+          <ToastProvider>
+            <Component {...pageProps} />
+          </ToastProvider>
         </Layout>
       </DragontailProvider>
     </SessionProvider>
