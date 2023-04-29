@@ -60,7 +60,7 @@ const Home: NextPage = () => {
         </Link>
         <div className="grow-1 flex-1 w-[1px] bg-zinc-200/80" />
       </aside>
-      <header className="gap-4 md:gap-0 h-screen w-full flex flex-col justify-center items-center md:items-start relative overflow-hidden">
+      <header className="h-screen w-full flex flex-col justify-center items-center md:items-start relative overflow-hidden">
         <Image
           src={heroImage}
           alt=""
@@ -70,8 +70,8 @@ const Home: NextPage = () => {
           blurDataURL={getBlurDataURL(3648, 2432)}
           className="object-[50%_30%] absolute blur-[2px] brightness-[0.5] z-10 object-cover"
         />
-        <div className="z-20 absolute flex flex-col px-6 sm:mx-0 md:w-[96%] md:flex-row md:justify-center md:gap-32">
-          <div className="flex flex-col items-start gap-5">
+        <div className="z-20 absolute flex flex-col px-6 sm:mx-0 md:w-[96%] md:flex-row md:justify-center gap-8 md:gap-32">
+          <div className="flex flex-col items-start gap-8 md:gap-5">
             <span className="text-base text-neutral-50/60 animate-fade-in-slow">
               Hi, I am
             </span>
@@ -84,7 +84,7 @@ const Home: NextPage = () => {
             </h5>
           </div>
           <DevSVG
-            className={`w-48 h-48 md:w-60 md:h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]`}
+            className={`mx-auto w-48 h-48 md:w-60 md:h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]`}
           />
         </div>
       </header>
