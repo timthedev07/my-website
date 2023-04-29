@@ -84,7 +84,7 @@ const Home: NextPage = () => {
             </h5>
           </div>
           <DevSVG
-            className={`mx-auto w-48 h-48 md:w-60 md:h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]`}
+            className={`mx-auto md:mx-0 w-48 h-48 md:w-60 md:h-60 animate-[pulse_2s_cubic-bezier(0.4,0,0.6,1)_infinite,fadeInRight_1300ms_ease-in-out]`}
           />
         </div>
       </header>
