@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { useEffect } from "react";
+import Link from "next/link";
 
 const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
@@ -10,10 +11,20 @@ const IBCASIndex: NextPage = () => {
   }, [setNavTransparent]);
 
   return (
-    <>
-      <header className="flex justify-center items-center h-[80vh]"><h1 className="text-center">Coming up...</h1></header>
-      <main></main>
-    </>
+    <div className="p-12">
+      <header className="flex justify-center items-center"></header>
+      <main>
+        <h1>Links</h1>
+        <ol className="list-disc list-inside">
+          <li>
+            <Link href="/ib/cas/profile">IB CAS Profile</Link>
+          </li>
+          <li>
+            <Link href="/ib/cas/experiences">IB CAS Experiences</Link>
+          </li>
+        </ol>
+      </main>
+    </div>
   );
 };
 
