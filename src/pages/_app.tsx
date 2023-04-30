@@ -6,6 +6,7 @@ import "../styles/globals.css";
 import { Session } from "next-auth";
 import SEOConfig from "../utils/seo-config";
 import { DefaultSeo } from "next-seo";
+import "dragontail-experimental/dist/base.css";
 
 const App = ({
   Component,
