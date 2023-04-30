@@ -8,7 +8,7 @@ import { BlogComments } from "../../../components/BlogComments";
 import { useAppLoading } from "../../../components/AppLoading";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { TagList } from "../../../components/TagList";
-import { Button } from "dragontail-experimental";
+import { Button, useToast } from "dragontail-experimental";
 import { MDXRemote } from "next-mdx-remote";
 import { NextSeo } from "next-seo";
 import SEOConfig from "../../../utils/seo-config";
@@ -28,6 +28,7 @@ const Slug: NextPage<Props> = ({ mdxDataRaw, slug }) => {
   const metadata = useMemo(() => mdxData.frontmatter, [mdxData]);
 
   const ref = useRef<HTMLDivElement | null>(null);
+  const { addToast } = useToast();
   const loadComments = useOnScreen(ref);
   const [viewCount, setViewCount] = useState<number | null>(null);
   const { setAppLoading } = useAppLoading();
@@ -127,6 +128,13 @@ const Slug: NextPage<Props> = ({ mdxDataRaw, slug }) => {
               <Button
                 onClick={() => {
                   navigator.clipboard.writeText(window.location.href);
+                  addToast({
+                    duration: 3000,
+                    position: "bottom-right",
+                    type: "success",
+                    description: "Link copied!",
+                    size: "large",
+                  });
                 }}
                 variant="ghost"
                 color="orange"
