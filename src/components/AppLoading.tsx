@@ -63,7 +63,7 @@ export const AppLoadingProvider: React.FC<{ children: ReactNode }> = ({
   return (
     <AppLoadingContext.Provider value={value}>
       {appLoading ? (
-        <div className="absolute h-1 w-full z-[99999999999999999999]">
+        <div className="absolute h-1 w-full z-[1000]">
           <div className="w-1/2 h-1 bg-sky-500 border-r-transparent rounded-r-full absolute animate-loading-grow"></div>
         </div>
       ) : null}

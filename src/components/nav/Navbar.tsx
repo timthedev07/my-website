@@ -18,6 +18,8 @@ interface NavContextType {
   windowSize?: number;
 }
 
+export const NAV_Z_INDEX_CLASS = "z-[100]";
+
 const BREAK_POINT = 600;
 
 const NavContext = createContext<NavContextType>({
@@ -32,7 +34,7 @@ export const useNavContext = () => {
 
 export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [scrollY, setScrollY] = useState<number>(0);
-  const [windowSize, setWindowSize] = useState<number>(0);
+  const [windowSize, setWindowSize] = useState<number>(1000000);
   const [navTransparent, setNavTransparent] = useState<boolean>(true);
 
   useEffect(() => {
@@ -72,7 +74,7 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
             !navTransparent
               ? "bg-black" + " sticky"
               : (scrollY > 100 ? "bg-black" : "bg-transparent") + " fixed"
-          } z-50 h-14 flex justify-between items-center gap-5 px-8`}
+          } ${NAV_Z_INDEX_CLASS} h-14 flex justify-between items-center gap-5 px-8`}
         >
           <div className="flex justify-start items-center w-[40%] gap-5">
             {NAV_LINKS.slice(0, -1).map((navLink) => {
