@@ -129,11 +129,12 @@ const Slug: NextPage<Props> = ({ mdxDataRaw, slug }) => {
                 onClick={() => {
                   navigator.clipboard.writeText(window.location.href);
                   addToast({
-                    duration: 3000,
+                    duration: 30000,
                     position: "bottom-right",
                     type: "success",
                     description: "Link copied!",
                     size: "large",
+                    zIndex: 5000,
                   });
                 }}
                 variant="ghost"
