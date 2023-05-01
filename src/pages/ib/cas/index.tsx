@@ -1,7 +1,12 @@
 import { NextPage } from "next";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { useEffect } from "react";
-import Link from "next/link";
+import { IndexBoard } from "../../../components/ib-pages/IndexBoard";
+import { ExperiencesSVG } from "../../../components/svgs/ib-cas/ExperiencesSVG";
+import { ProfileSVG } from "../../../components/svgs/ib-cas/ProfileSVG";
+import { ProjectsSVG } from "../../../components/svgs/ib-cas/ProjectsSVG";
+
+const ICON_SIZE = "w-32 h-32";
 
 const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
@@ -14,15 +19,32 @@ const IBCASIndex: NextPage = () => {
     <div className="p-12">
       <header className="flex justify-center items-center"></header>
       <main>
-        <h1>Links</h1>
-        <ol className="list-disc list-inside">
-          <li>
-            <Link href="/ib/cas/profile">IB CAS Profile</Link>
-          </li>
-          <li>
-            <Link href="/ib/cas/experiences">IB CAS Experiences</Link>
-          </li>
-        </ol>
+        <div className="flex gap-2 w-full justify-center -space-x-10">
+          <IndexBoard
+            title="Profile"
+            description="IB Profile"
+            icon={<ProfileSVG className={ICON_SIZE} />}
+            buttonColor="teal"
+            defaultZIndexClass="z-30"
+            linkURL="/ib/cas/profile"
+          />
+          <IndexBoard
+            title="Experiences"
+            description="IB Experiences"
+            icon={<ExperiencesSVG className={ICON_SIZE} />}
+            buttonColor="emerald"
+            defaultZIndexClass="z-20"
+            linkURL="/ib/cas/experiences"
+          />
+          <IndexBoard
+            title="Projects"
+            description="IB Projects"
+            icon={<ProjectsSVG className={ICON_SIZE} />}
+            buttonColor="sky"
+            defaultZIndexClass="z-10"
+            linkURL="/ib/cas/projects"
+          />
+        </div>
       </main>
     </div>
   );

@@ -22,6 +22,7 @@ interface IndexBoardProps {
   description: string;
   linkURL: string;
   buttonColor: CSType;
+  defaultZIndexClass: string;
 }
 
 export const IndexBoard: FC<IndexBoardProps> = ({
@@ -30,14 +31,15 @@ export const IndexBoard: FC<IndexBoardProps> = ({
   icon,
   buttonColor,
   linkURL,
+  defaultZIndexClass,
 }) => {
   return (
     <article
-      className={`flex flex-col gap-3 items-center p-4 bg-slate-900 rounded-md border border-slate-100/40 w-96 h-72 z-10 hover:z-20`}
+      className={`flex flex-col gap-3 items-center p-4 bg-slate-900 rounded-md border-2 border-slate-400/20 w-72 h-96 ${defaultZIndexClass} hover:z-20 ring-4 ring-slate-950 shadow-cyan-300 transition duration-400 hover:shadow-2xl`}
     >
       {icon}
-      <h1 className="text-center w-full font-semibold text-lg">{title}</h1>
-      <p className="text-base text-left text-white/[.75] w-full">
+      <h1 className="text-center w-full font-semibold text-2xl">{title}</h1>
+      <p className="text-base text-left text-slate-200/80 w-full">
         {description}
       </p>
       <Link href={linkURL}>
