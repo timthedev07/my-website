@@ -1,4 +1,4 @@
-import { MDXBlogMeta } from "../lib/blog";
+import { MDXBlogMeta } from "../lib/mdx";
 import {
   BlogCategoryTabType,
   BlogCategoryType,

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { MDXBlogMeta } from "../lib/blog";
+import { MDXBlogMeta } from "../lib/mdx";
 import Link from "next/link";
 import Image from "next/image";
 import { blurDataUrl } from "../utils/blurDataUrl";

@@ -18,7 +18,7 @@ import {
 } from "dragontail-experimental";
 import Image from "next/image";
 import headerImage from "../../../public/images/blog-heading.jpg";
-import { MDXBlogMeta, getBlogsWithMetadata } from "../../lib/blog";
+import { MDXBlogMeta, getBlogsWithMetadata } from "../../lib/mdx";
 import { SearchSVG } from "../../components/svgs/Search";
 import { anyElementContains } from "../../utils/arrays";
 import { NextSeo } from "next-seo";

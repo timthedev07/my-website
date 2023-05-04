@@ -9,6 +9,8 @@ import remarkMath from "remark-math";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkUnwrapImages from "remark-unwrap-images";
 
+export type DirType = "blog-mdx" | "experiences-mdx"
+
 export interface MDXBlogMeta {
   title: string;
   description: string;
@@ -24,9 +26,9 @@ export interface MDXData {
   scope: Record<string, unknown>;
 }
 
-export const getMetadataFromMDXFile = (slug: string, category: string) => {
+export const getMetadataFromMDXFile = (slug: string, category: string, dataDir: DirType = "blog-mdx") => {
   const fileContent = readFileSync(
-    join("src", "blog-mdx", category as string, slug + ".mdx")
+    join("src", dataDir, category as string, slug + ".mdx")
   ).toString();
   return getMetadataFromMDXStr(fileContent, category);
 };
@@ -43,10 +45,11 @@ export const getMetadataFromMDXStr = (
 
 export const readMDX = async (
   slug: string,
-  category: string
+  category: string,
+  dataDir: DirType = "blog-mdx"
 ): Promise<MDXData> => {
   const fileContent = readFileSync(
-    join("src", "blog-mdx", category as string, slug + ".mdx")
+    join("src", dataDir, category as string, slug + ".mdx")
   ).toString();
 
   const { content, data } = matter(fileContent);
@@ -72,13 +75,13 @@ export const readMDX = async (
   };
 };
 
-export const getBlogsWithMetadata = async () => {
-  const categories = readdirSync(join("src", "blog-mdx"));
+export const getBlogsWithMetadata = async (dataDir: DirType = "blog-mdx") => {
+  const categories = readdirSync(join("src", dataDir));
   let fileNames: string[] = [];
 
   for (const category of categories) {
     fileNames = fileNames.concat(
-      readdirSync(join("src", "blog-mdx", category)).map(
+      readdirSync(join("src", dataDir, category)).map(
         (each) => `${category}/${each}`
       )
     );

@@ -12,7 +12,7 @@ import { Button, useToast } from "dragontail-experimental";
 import { MDXRemote } from "next-mdx-remote";
 import { NextSeo } from "next-seo";
 import SEOConfig from "../../../utils/seo-config";
-import { MDXData, readMDX } from "../../../lib/blog";
+import { MDXData, readMDX } from "../../../lib/mdx";
 import { components } from "../../../components/mdx-custom";
 
 interface Props {
