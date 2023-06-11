@@ -150,7 +150,7 @@ const Home: NextPage = () => {
           placeholder="blur"
           priority
           blurDataURL={getBlurDataURL(3648, 2432)}
-          className="object-[50%_30%] absolute opacity-20 blur-[0.5px] brightness-60 z-10 object-cover"
+          className="object-[50%_30%] absolute opacity-20 blur-[0.5px] brightness-60 object-cover"
         />
         <h1
           ref={alternativeCareerHeadingRef}
