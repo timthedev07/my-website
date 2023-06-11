@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { NextSeo } from "next-seo";
 import heroImage from "../../public/images/home-hero.jpg";
+import mathBgImage from "../../public/images/mathbg.png";
 import { DevSVG } from "../components/svgs/home/Dev";
 import { ExpressSVG } from "../components/svgs/home/Express";
 import { GitHubSVG } from "../components/svgs/home/GitHub";
@@ -23,12 +24,18 @@ import { InstagramSVG } from "../components/svgs/home/Instagram";
 
 const Home: NextPage = () => {
   const sectionHeading2 = useRef<HTMLHeadingElement | null>(null);
+  const alternativeCareerHeadingRef = useRef<HTMLHeadingElement | null>(null);
   const techIconsRef = useRef<HTMLDivElement | null>(null);
   const techIconClassname =
     "rounded full w-20 h-20 md:w-24 md:h-24 animate-wiggle";
   const technicalExperienceRef = useRef<HTMLParagraphElement | null>(null);
 
-  useViewportClassname(sectionHeading2, "animate-fade-in-up-slow", "");
+  useViewportClassname(
+    alternativeCareerHeadingRef,
+    "animate-fade-in-up-slow",
+    ""
+  );
+  useViewportClassname(sectionHeading2, "animate-fade-in-slow", "");
   useViewportClassname(techIconsRef, "animate-fade-in-left", "opacity-0");
   useViewportClassname(
     technicalExperienceRef,
@@ -137,6 +144,40 @@ const Home: NextPage = () => {
             projects with Python and Tensorflow. I have some experience in NLP,
             image classification, and sentiment analysis.
           </p>
+        </div>
+      </section>
+      <section className="py-24 relative overflow-hidden w-full h-screen">
+        <Image
+          src={mathBgImage}
+          alt=""
+          fill
+          placeholder="blur"
+          priority
+          blurDataURL={getBlurDataURL(3648, 2432)}
+          className="object-[50%_30%] absolute opacity-20 blur-[0.5px] brightness-60 z-10 object-cover"
+        />
+        <h1
+          ref={alternativeCareerHeadingRef}
+          className="text-4xl mb-12 md:text-5xl font-bold text-center w-full opacity-0 underline underline-offset-4 decoration-slate-400/40"
+        >
+          Alternative Career Path - Mathematics
+        </h1>
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col gap-5">
+            <p>Math has always been a passion of mine.</p>
+            <p>Below are some of my achievements as a student:</p>
+            <ul className="text-base list-disc list-inside">
+              <li>
+                Gold in UKMT Intermediate Maths Challenge for 2 consecutive
+                years; Best of School in 2023
+              </li>
+              <li>Merit Certificate in UKMT Maclaurin 2023</li>
+              <li>
+                Province representative in &quot;Fase Autonòmica Olimpíada
+                Matemàtica 2023&quot;
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </>
