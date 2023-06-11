@@ -30,12 +30,8 @@ const Home: NextPage = () => {
     "rounded full w-20 h-20 md:w-24 md:h-24 animate-wiggle";
   const technicalExperienceRef = useRef<HTMLParagraphElement | null>(null);
 
-  useViewportClassname(
-    alternativeCareerHeadingRef,
-    "animate-fade-in-up-slow",
-    ""
-  );
-  useViewportClassname(sectionHeading2, "animate-fade-in-slow", "");
+  useViewportClassname(alternativeCareerHeadingRef, "animate-fade-in-slow", "");
+  useViewportClassname(sectionHeading2, "animate-fade-in-up-slow", "");
   useViewportClassname(techIconsRef, "animate-fade-in-left", "opacity-0");
   useViewportClassname(
     technicalExperienceRef,
