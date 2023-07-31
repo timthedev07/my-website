@@ -1,12 +1,12 @@
+import BG from "../../../../public/images/macOS-Ventura-Wallpaper-2.jpeg";
 import { NextPage } from "next";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { useEffect } from "react";
 import { IndexBoard } from "../../../components/ib-pages/IndexBoard";
+import Image from "next/image";
 import { ExperiencesSVG } from "../../../components/svgs/ib-cas/ExperiencesSVG";
 import { ProfileSVG } from "../../../components/svgs/ib-cas/ProfileSVG";
 import { ProjectsSVG } from "../../../components/svgs/ib-cas/ProjectsSVG";
-
-const ICON_SIZE = "w-32 h-32";
 
 const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
@@ -16,36 +16,33 @@ const IBCASIndex: NextPage = () => {
   }, [setNavTransparent]);
 
   return (
-    <div className="p-12">
-      <header className="flex justify-center items-center"></header>
-      <main>
-        <div className="flex gap-2 w-full justify-center -space-x-10">
+    <div className="flex justify-center relative h-screen">
+      <Image src={BG} alt="" fill className="z-0 object-cover blur" />
+      <div className="w-screen z-10 relative flex flex-col items-center justify-evenly h-[80%]">
+        <header className="relative mb-12 rounded-3xl backdrop-blur-lg bg-slate-800/50 w-[70%] flex justify-center h-48 items-center">
+          <h1 className="font-xl font-semibold">CAS Portfolio</h1>
+        </header>
+        <div className="flex w-[70%] justify-between">
           <IndexBoard
             title="Profile"
-            description="IB Profile"
-            icon={<ProfileSVG className={ICON_SIZE} />}
-            buttonColor="teal"
-            defaultZIndexClass="z-30"
+            icon={ProfileSVG}
+            bgColorClassName="bg-cyan-500 hover:bg-cyan-600"
             linkURL="/ib/cas/profile"
           />
           <IndexBoard
             title="Experiences"
-            description="IB Experiences"
-            icon={<ExperiencesSVG className={ICON_SIZE} />}
-            buttonColor="emerald"
-            defaultZIndexClass="z-20"
+            icon={ExperiencesSVG}
+            bgColorClassName="bg-emerald-500 hover:bg-emerald-600"
             linkURL="/ib/cas/experiences"
           />
           <IndexBoard
             title="Projects"
-            description="IB Projects"
-            icon={<ProjectsSVG className={ICON_SIZE} />}
-            buttonColor="sky"
-            defaultZIndexClass="z-10"
+            icon={ProjectsSVG}
+            bgColorClassName="bg-amber-500 hover:bg-amber-600"
             linkURL="/ib/cas/projects"
           />
         </div>
-      </main>
+      </div>
     </div>
   );
 };

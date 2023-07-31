@@ -1,52 +1,32 @@
-import { Button } from "dragontail-experimental";
 import Link from "next/link";
 import { FC } from "react";
 
-declare const CSTypeValues: readonly [
-  "sky",
-  "teal",
-  "red",
-  "orange",
-  "dark",
-  "light",
-  "cyan",
-  "emerald",
-  "green",
-  "neutral"
-];
-export type CSType = (typeof CSTypeValues)[number];
-
 interface IndexBoardProps {
   title: string;
-  icon: React.ReactNode;
-  description: string;
+  icon: any;
   linkURL: string;
-  buttonColor: CSType;
-  defaultZIndexClass: string;
+  bgColorClassName: string;
 }
 
 export const IndexBoard: FC<IndexBoardProps> = ({
   title,
-  description,
   icon,
-  buttonColor,
+  bgColorClassName,
   linkURL,
-  defaultZIndexClass,
 }) => {
+  const I = icon;
   return (
-    <article
-      className={`flex flex-col gap-3 items-center p-4 bg-slate-900 rounded-md border-2 border-slate-400/20 w-72 h-96 ${defaultZIndexClass} hover:z-20 ring-4 ring-slate-950 shadow-cyan-300 transition duration-400 hover:shadow-2xl`}
-    >
-      {icon}
-      <h1 className="text-center w-full font-semibold text-2xl">{title}</h1>
-      <p className="text-base text-left text-slate-200/80 w-full">
-        {description}
-      </p>
+    <article className="flex-col flex items-center gap-2 cursor-pointer">
       <Link href={linkURL}>
-        <Button color={buttonColor} variant="outline" className="mr-auto">
-          See Page
-        </Button>
+        <div
+          className={`transition duration-800 ${bgColorClassName} shadow-2xl w-20 h-20 md:w-28 md:h-28 rounded-2xl md:rounded-3xl flex justify-center items-center`}
+        >
+          <I className="w-12 h-12 md:w-20 md:h-20" />
+        </div>
       </Link>
+      <span className="font-semibold text-center md:text-lg md:font-bold">
+        {title}
+      </span>
     </article>
   );
 };
