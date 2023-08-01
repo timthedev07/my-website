@@ -1,5 +1,6 @@
 import { NextApiHandler } from "next";
 import { collections, connectDB } from "../../../mongodb";
+import { withMethodValidation } from "next-method-validation";
 
 const handler: NextApiHandler = async (req, res) => {
   await connectDB();
@@ -26,4 +27,4 @@ const handler: NextApiHandler = async (req, res) => {
   }
 };
 
-export default handler;
+export default withMethodValidation(handler, "GET");

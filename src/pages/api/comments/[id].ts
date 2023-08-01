@@ -1,5 +1,5 @@
 import { NextApiHandler } from "next";
-import { withMethodGuard } from "../../../lib/middlewares/methodGuard";
+import { withMethodValidation } from "next-method-validation";
 import { getComments } from "../../../mongodb/functions/getComments";
 
 const handler: NextApiHandler = async (req, res) => {
@@ -12,4 +12,4 @@ const handler: NextApiHandler = async (req, res) => {
   }
 };
 
-export default withMethodGuard(handler, "GET");
+export default withMethodValidation(handler, "GET");

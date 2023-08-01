@@ -3243,6 +3243,11 @@ next-mdx-remote@^4.4.1:
     vfile "^5.3.0"
     vfile-matter "^3.0.1"
 
+next-method-validation@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/next-method-validation/-/next-method-validation-1.1.0.tgz#f1b8d3a979b6de191d8091433f55a957a3bb908e"
+  integrity sha512-DY6oMshyJEaBPYuKkBTNfhGZ/x/XDmeiBeyHZI4PSbt1OxTZGI3QvOHwLI3dPdskf3UEi8jfwQAUC/7VdQtE3Q==
+
 next-seo@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-6.0.0.tgz#4568dc61a44dbdf5fe5ff44156cd0ff8804889a2"

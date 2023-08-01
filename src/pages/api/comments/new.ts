@@ -1,8 +1,8 @@
 import { NextApiHandler } from "next";
 import { BlogFormData } from "../../../components/CommentForm";
 import { withAuth } from "../../../lib/middlewares/authRoute";
-import { withMethodGuard } from "../../../lib/middlewares/methodGuard";
 import { newComment } from "../../../mongodb/functions/newComment";
+import { withMethodValidation } from "next-method-validation";
 
 const handler: NextApiHandler = async (req, res) => {
   const formData: BlogFormData = JSON.parse(req.body);
@@ -17,4 +17,4 @@ const handler: NextApiHandler = async (req, res) => {
   }
 };
 
-export default withMethodGuard(withAuth(handler), "POST");
+export default withMethodValidation(withAuth(handler), "POST");
