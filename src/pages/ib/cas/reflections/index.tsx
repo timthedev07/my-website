@@ -11,7 +11,7 @@ const Nothing: NextPage<Props> = ({ latest }) => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push(`/ib/cas/experiences/${latest}`);
+    router.push(`/ib/cas/reflections/${latest}`);
   }, []);
 
   return <></>;
