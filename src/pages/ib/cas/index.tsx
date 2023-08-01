@@ -2,7 +2,7 @@ import BG from "../../../../public/images/macOS-Ventura-Wallpaper-2.jpeg";
 import { NextPage } from "next";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { useEffect } from "react";
-import { IndexBoard } from "../../../components/ib-pages/IndexBoard";
+import { IndexAppDisplay } from "../../../components/ib-pages/IndexBoard";
 import Image from "next/image";
 import { ExperiencesSVG } from "../../../components/svgs/ib-cas/ExperiencesSVG";
 import { ProfileSVG } from "../../../components/svgs/ib-cas/ProfileSVG";
@@ -23,22 +23,22 @@ const IBCASIndex: NextPage = () => {
           <h1 className="font-xl font-semibold">CAS Portfolio</h1>
         </header>
         <div className="flex w-[70%] justify-between">
-          <IndexBoard
+          <IndexAppDisplay
             title="Profile"
             icon={ProfileSVG}
-            bgColorClassName="bg-cyan-500 hover:bg-cyan-600"
+            bgColorClassName="bg-sky-400 hover:bg-sky-400/80"
             linkURL="/ib/cas/profile"
           />
-          <IndexBoard
+          <IndexAppDisplay
             title="Experiences"
             icon={ExperiencesSVG}
-            bgColorClassName="bg-emerald-500 hover:bg-emerald-600"
+            bgColorClassName="bg-emerald-500 hover:bg-emerald-500/80"
             linkURL="/ib/cas/experiences"
           />
-          <IndexBoard
+          <IndexAppDisplay
             title="Projects"
             icon={ProjectsSVG}
-            bgColorClassName="bg-amber-500 hover:bg-amber-600"
+            bgColorClassName="bg-amber-500 hover:bg-amber-500/80"
             linkURL="/ib/cas/projects"
           />
         </div>
