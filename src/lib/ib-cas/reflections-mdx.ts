@@ -3,6 +3,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { join } from "path";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkUnwrapImages from "remark-unwrap-images";
+import { MDXDataBase } from "../mdx";
 
 const CAS_ROOT = "ib-cas-mdx";
 
@@ -24,10 +25,10 @@ export const getMonthEntries = async (month: string) => {
     .sort()
     .reverse();
   // compiled mdx source and unix timestamp for date display
-  const entries: [string, number][] = [];
+  const entries: [MDXDataBase, number][] = [];
 
   for (const filename of filenames) {
-    const { compiledSource } = await serialize(
+    const data = await serialize(
       readFileSync(join("src", DATA_DIR, filename)),
       {
         mdxOptions: {
@@ -36,10 +37,7 @@ export const getMonthEntries = async (month: string) => {
         },
       }
     );
-    entries.push([
-      compiledSource,
-      new Date(filename.replace(".mdx", "")).valueOf(),
-    ]);
+    entries.push([data, new Date(filename.replace(".mdx", "")).valueOf()]);
   }
 
   return entries;
