@@ -149,6 +149,12 @@ const Slug: NextPage<Props> = ({ mdxDataRaw, slug }) => {
             className={`
             leading-loose pt-20 md:pt-12 pb-10 ${xPaddings} flex flex-col gap-4
             child-headings:font-semibold child-headings:text-white
+            child-table-cells:border-[1px]
+            child-table-cells:border-slate-200/20
+            child-table:rounded-table
+            child-table:border-slate-200/20
+            child-table:border
+            child-table:text-center
             child-math:text-white/90 child-code:leading-normal child-code:rounded-lg child-code:overflow-hidden`}
           >
             <MDXRemote components={components} {...mdxData} />

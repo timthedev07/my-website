@@ -129,6 +129,8 @@ module.exports = {
         [1, 2, 3, 4, 5, 6].map((each) => `& h${each}`)
       );
       addVariant("child-paragraphs", "& p");
+      addVariant("child-table-cells", ["& table td", "& table th"]);
+      addVariant("child-table", "& table");
       addVariant("child-list", ["& ol", "& ul"]);
       addVariant("child-ol", "& ol");
       addVariant("child-ul", "& ul");

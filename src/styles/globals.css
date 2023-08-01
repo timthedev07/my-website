@@ -91,6 +91,19 @@
 }
 
 @layer components {
+  .rounded-table th:first-of-type {
+    @apply rounded-tl-xl;
+  }
+  .rounded-table th:last-of-type {
+    @apply rounded-tr-xl;
+  }
+  .rounded-table tr:last-of-type td:first-of-type {
+    @apply rounded-bl-xl;
+  }
+  .rounded-table tr:last-of-type td:last-of-type {
+    @apply rounded-br-xl;
+  }
+
   .typewriter {
     @apply overflow-hidden border-r-[.15em] border-r-cyan-400 whitespace-nowrap mx-0 my-auto font-mono;
     letter-spacing: 0.001rem;
