@@ -13,12 +13,17 @@ const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
 
   useEffect(() => {
-    setNavTransparent(false);
+    setNavTransparent(true);
   }, [setNavTransparent]);
 
   return (
     <div className="flex justify-center relative h-screen">
-      <Image src={BG} alt="" fill className="z-0 object-cover blur" />
+      <Image
+        src={BG}
+        alt=""
+        fill
+        className="z-0 object-cover blur brightness-[0.8]"
+      />
       <div className="w-screen z-10 relative flex flex-col items-center justify-evenly h-[80%]">
         <header className="relative mb-12 rounded-3xl backdrop-blur-lg bg-slate-800/50 w-[70%] flex justify-center h-48 items-center">
           <h1 className="font-xl font-semibold">CAS Portfolio</h1>
