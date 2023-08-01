@@ -7,6 +7,7 @@ import Image from "next/image";
 import { ExperiencesSVG } from "../../../components/svgs/ib-cas/ExperiencesSVG";
 import { ProfileSVG } from "../../../components/svgs/ib-cas/ProfileSVG";
 import { ProjectsSVG } from "../../../components/svgs/ib-cas/ProjectsSVG";
+import { ReflectionsSVG } from "../../../components/svgs/ib-cas/ReflectionsSVG";
 
 const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
@@ -24,10 +25,10 @@ const IBCASIndex: NextPage = () => {
         </header>
         <div className="flex w-[70%] justify-between">
           <IndexAppDisplay
-            title="Profile"
-            icon={ProfileSVG}
-            bgColorClassName="bg-sky-400 hover:bg-sky-400/80"
-            linkURL="/ib/cas/profile"
+            title="Projects"
+            icon={ProjectsSVG}
+            bgColorClassName="bg-amber-500 hover:bg-amber-500/80"
+            linkURL="/ib/cas/projects"
           />
           <IndexAppDisplay
             title="Experiences"
@@ -36,10 +37,17 @@ const IBCASIndex: NextPage = () => {
             linkURL="/ib/cas/experiences"
           />
           <IndexAppDisplay
-            title="Projects"
-            icon={ProjectsSVG}
-            bgColorClassName="bg-amber-500 hover:bg-amber-500/80"
-            linkURL="/ib/cas/projects"
+            title="Profile"
+            icon={ProfileSVG}
+            bgColorClassName="bg-sky-400 hover:bg-sky-400/80"
+            linkURL="/ib/cas/profile"
+          />
+
+          <IndexAppDisplay
+            title="Reflections"
+            icon={ReflectionsSVG}
+            bgColorClassName="bg-fuchsia-400 hover:bg-fuchsia-400/80"
+            linkURL="/ib/cas/reflections"
           />
         </div>
       </div>
