@@ -1,6 +1,7 @@
 const plugin = require(`tailwindcss/plugin`);
 
 const openSans = '"Open Sans", sans-serif';
+const serif = '"Merriweather", serif';
 
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
@@ -13,7 +14,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: openSans,
-      serif: openSans,
+      serif: serif,
       mono: ["ui-monospace", "Monaco"],
     },
     extend: {
