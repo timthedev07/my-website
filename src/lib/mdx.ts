@@ -5,6 +5,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import { groupBlogs } from "../utils/groupBlogs";
 import rehypeHighlight from "rehype-highlight";
 import rehypeKatex from "rehype-katex";
+import gfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkUnwrapImages from "remark-unwrap-images";
@@ -61,7 +62,7 @@ export const readMDX = async (
 
   const { compiledSource, scope } = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [remarkMath, remarkUnwrapImages],
+      remarkPlugins: [gfm, remarkMath, remarkUnwrapImages],
       rehypePlugins: [
         rehypeHighlight,
         [rehypeKatex, { strict: true }],
