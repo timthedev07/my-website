@@ -20,6 +20,12 @@ export interface MDXBlogMeta {
   thumbnail?: string;
 }
 
+export interface MDXDataBase {
+  compiledSource: string;
+  frontmatter: Record<string, unknown>;
+  scope: Record<string, unknown>;
+}
+
 export interface MDXData {
   compiledSource: string;
   frontmatter: MDXBlogMeta;
