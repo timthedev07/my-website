@@ -7,13 +7,21 @@ import { MDXRemote } from "next-mdx-remote";
 import { components } from "../../../../components/mdx-custom";
 import Image from "next/image";
 import BG from "../../../../../public/images/monterey.jpg";
+import { LeftArrowSVG } from "../../../../components/svgs/LeftArrowSVG";
+import { RightArrowSVG } from "../../../../components/svgs/RightArrowSVG";
+import { IndexIconSVG } from "../../../../components/svgs/IndexIcon";
+import Link from "next/link";
 
 export interface ReflectionsMonthProps {
   month: string;
+  allMonths: string;
   monthEntries: string;
 }
 
-const monthNames = [
+const pageSwitcherBase =
+  "cursor-pointer transition duration-800 h-min px-4 rounded-md bg-transparent hover:bg-slate-300/20 bg-opacity-30 text-slate-50/80 hover:text-slate-50/100";
+
+export const monthNames = [
   "January",
   "February",
   "March",
@@ -31,7 +39,9 @@ const monthNames = [
 const IBReflections: NextPage<ReflectionsMonthProps> = ({
   month: yearMonth,
   monthEntries,
+  allMonths,
 }) => {
+  const months = JSON.parse(allMonths) as string[];
   const data = JSON.parse(monthEntries) as Awaited<
     ReturnType<typeof getMonthEntries>
   >;
@@ -72,6 +82,60 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             ))}
           </ol>
         </div>
+        <ul
+          className="flex justify-evenly items-center absolute bottom-12 bg-slate-800 bg-opacity-40 backdrop-blur-2xl w-9/12 md:w-full max-w-[756px] min-w-[286px] rounded-2xl px-8 py-4 border-slate-300/30 border"
+          style={{
+            left: "50%",
+            transform: "translate(-50%)",
+          }}
+        >
+          {months.indexOf(yearMonth) < months.length - 1 ? (
+            <li
+              className={`flex justify-evenly items-center stext-center flex-1 px-8 border-l border-l-slate-400/30 `}
+            >
+              <LeftArrowSVG className="w-6 h-6" />
+              <Link
+                href={`/reflections/${months[months.indexOf(yearMonth) + 1]}`}
+              >
+                <span className={pageSwitcherBase}>
+                  {months[months.indexOf(yearMonth) + 1]}
+                </span>
+              </Link>
+
+              <div className="w-6"></div>
+            </li>
+          ) : (
+            <li className={`flex-1`}></li>
+          )}
+          <li
+            className={`flex-1 text-center px-8 border-x border-x-slate-400/30 `}
+          >
+            <div className={`flex justify-center`}>
+              <Link href={"/reflections/"}>
+                <div className="w-min cursor-pointer transition duration-800 h-min p-2 rounded-md bg-transparent hover:bg-slate-300/20 bg-opacity-30 text-slate-50/80 hover:text-slate-50/100">
+                  <IndexIconSVG className={`h-6 w-6 `} />
+                </div>
+              </Link>
+            </div>
+          </li>
+          {months.indexOf(yearMonth) > 0 ? (
+            <li
+              className={`flex justify-evenly items-center stext-center flex-1 px-8 border-r border-r-slate-400/30 `}
+            >
+              <div className="w-6"></div>
+              <Link
+                href={`/reflections/${months[months.indexOf(yearMonth) - 1]}`}
+              >
+                <span className={pageSwitcherBase}>
+                  {months[months.indexOf(yearMonth) - 1]}
+                </span>
+              </Link>
+              <RightArrowSVG className="w-6 h-6" />
+            </li>
+          ) : (
+            <li className={`flex-1`}></li>
+          )}
+        </ul>
         <div className="fixed bottom-12 right-12 text-sm text-slate-200/70">
           Attribution to Apple® for background
         </div>
@@ -84,13 +148,15 @@ export const getStaticProps: GetStaticProps<ReflectionsMonthProps> = async (
   context
 ) => {
   let month = context.params?.month;
-  const curr = getAllMonths()[0];
+  const allMonths = getAllMonths();
+  const curr = allMonths[0];
   if (!month || typeof month === "object") month = curr;
   const monthEntries = await getMonthEntries(month);
 
   return {
     props: {
       month,
+      allMonths: JSON.stringify(allMonths),
       monthEntries: JSON.stringify(monthEntries),
     },
   };
