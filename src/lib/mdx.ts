@@ -9,7 +9,7 @@ import remarkMath from "remark-math";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkUnwrapImages from "remark-unwrap-images";
 
-export type DirType = "blog-mdx" | "experiences-mdx"
+const dataDir = "blog-mdx";
 
 export interface MDXBlogMeta {
   title: string;
@@ -26,7 +26,7 @@ export interface MDXData {
   scope: Record<string, unknown>;
 }
 
-export const getMetadataFromMDXFile = (slug: string, category: string, dataDir: DirType = "blog-mdx") => {
+export const getMetadataFromMDXFile = (slug: string, category: string) => {
   const fileContent = readFileSync(
     join("src", dataDir, category as string, slug + ".mdx")
   ).toString();
@@ -45,8 +45,7 @@ export const getMetadataFromMDXStr = (
 
 export const readMDX = async (
   slug: string,
-  category: string,
-  dataDir: DirType = "blog-mdx"
+  category: string
 ): Promise<MDXData> => {
   const fileContent = readFileSync(
     join("src", dataDir, category as string, slug + ".mdx")
@@ -75,7 +74,7 @@ export const readMDX = async (
   };
 };
 
-export const getBlogsWithMetadata = async (dataDir: DirType = "blog-mdx") => {
+export const getBlogsWithMetadata = async () => {
   const categories = readdirSync(join("src", dataDir));
   let fileNames: string[] = [];
 
