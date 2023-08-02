@@ -95,7 +95,9 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             >
               <LeftArrowSVG className="w-6 h-6" />
               <Link
-                href={`/reflections/${months[months.indexOf(yearMonth) + 1]}`}
+                href={`/ib/cas/reflections/${
+                  months[months.indexOf(yearMonth) + 1]
+                }`}
               >
                 <span className={pageSwitcherBase}>
                   {months[months.indexOf(yearMonth) + 1]}
@@ -111,9 +113,11 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             className={`flex-1 text-center px-8 border-x border-x-slate-400/30 `}
           >
             <div className={`flex justify-center`}>
-              <Link href={"/reflections/"}>
-                <div className="w-min cursor-pointer transition duration-800 h-min p-2 rounded-md bg-transparent hover:bg-slate-300/20 bg-opacity-30 text-slate-50/80 hover:text-slate-50/100">
-                  <IndexIconSVG className={`h-6 w-6 `} />
+              <Link href={"/ib/cas/reflections/"}>
+                <div className="group w-min cursor-pointer transition duration-800 h-min p-2 rounded-md bg-transparent hover:bg-slate-300/20 bg-opacity-30 text-slate-50/80 hover:text-slate-50/100">
+                  <IndexIconSVG
+                    className={`transition duration-800 h-6 w-6 text-slate-300/80 group-hover:text-slate-300`}
+                  />
                 </div>
               </Link>
             </div>
@@ -124,7 +128,9 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             >
               <div className="w-6"></div>
               <Link
-                href={`/reflections/${months[months.indexOf(yearMonth) - 1]}`}
+                href={`/ib/cas/reflections/${
+                  months[months.indexOf(yearMonth) - 1]
+                }`}
               >
                 <span className={pageSwitcherBase}>
                   {months[months.indexOf(yearMonth) - 1]}

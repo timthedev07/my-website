@@ -11,7 +11,7 @@ export const IndexIconSVG = forwardRef<SVGSVGElement, SVGProps<SVGSVGElement>>(
         {...props}
       >
         <path
-          className="stroke-slate-300/80"
+          stroke="currentColor"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
