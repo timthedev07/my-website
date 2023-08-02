@@ -11,6 +11,7 @@ import { LeftArrowSVG } from "../../../../components/svgs/LeftArrowSVG";
 import { RightArrowSVG } from "../../../../components/svgs/RightArrowSVG";
 import { IndexIconSVG } from "../../../../components/svgs/IndexIcon";
 import Link from "next/link";
+import { AppleBGAttribution } from "../../../../components/AppleBGAttribution";
 
 export interface ReflectionsMonthProps {
   month: string;
@@ -58,6 +59,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             className="z-0 object-cover blur brightness-[0.8]"
           />
         </div>
+        <AppleBGAttribution />
         <div className="relative pt-52 pb-96 w-9/12 md:w-full max-w-[756px] min-w-[286px]">
           <header className="w-full flex justify-center items-center mb-20">
             <h1 className="w-full text-center font-bold">
@@ -142,9 +144,6 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             <li className={`flex-1`}></li>
           )}
         </ul>
-        <div className="absolute top-20 right-12 text-sm text-slate-200/70">
-          Attribution to Apple® for background
-        </div>
       </div>
     </>
   );
