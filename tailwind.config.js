@@ -106,6 +106,7 @@ module.exports = {
       screens: {
         md2: "868px",
         xs: "428px",
+        xxs: "368px",
       },
       minWidth: {
         350: "350px",
