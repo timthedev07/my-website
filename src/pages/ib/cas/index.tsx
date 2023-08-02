@@ -1,5 +1,5 @@
 import BG from "../../../../public/images/macOS-Ventura-Wallpaper-2.jpeg";
-import { GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 import { useNavContext } from "../../../components/nav/Navbar";
 import { useEffect } from "react";
 import { IndexAppDisplay } from "../../../components/ib-pages/IndexBoard";
@@ -8,13 +8,8 @@ import { ExperiencesSVG } from "../../../components/svgs/ib-cas/ExperiencesSVG";
 import { ProfileSVG } from "../../../components/svgs/ib-cas/ProfileSVG";
 import { ProjectsSVG } from "../../../components/svgs/ib-cas/ProjectsSVG";
 import { ReflectionsSVG } from "../../../components/svgs/ib-cas/ReflectionsSVG";
-import { getAllMonths } from "../../../lib/ib-cas/reflections-mdx";
 
-export interface Props {
-  latest: string;
-}
-
-const IBCASIndex: NextPage<Props> = ({ latest }) => {
+const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
 
   useEffect(() => {
@@ -57,7 +52,7 @@ const IBCASIndex: NextPage<Props> = ({ latest }) => {
             title="Reflections"
             icon={ReflectionsSVG}
             bgColorClassName="bg-fuchsia-400 hover:bg-fuchsia-400/80"
-            linkURL={`/ib/cas/reflections/${latest}`}
+            linkURL={`/ib/cas/reflections/`}
           />
         </div>
       </div>
@@ -66,15 +61,6 @@ const IBCASIndex: NextPage<Props> = ({ latest }) => {
       </div>
     </div>
   );
-};
-
-export const getStaticProps: GetStaticProps = async () => {
-  const latest = getAllMonths()[0];
-  return {
-    props: {
-      latest,
-    },
-  };
 };
 
 export default IBCASIndex;
