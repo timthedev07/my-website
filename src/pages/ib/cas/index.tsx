@@ -25,10 +25,10 @@ const IBCASIndex: NextPage = () => {
         className="z-0 object-cover blur brightness-[0.8]"
       />
       <div className="w-screen z-10 relative flex flex-col items-center justify-evenly h-[80%]">
-        <header className="relative mb-12 rounded-3xl backdrop-blur-lg bg-slate-800/50 w-[70%] flex justify-center h-48 items-center">
+        <header className="relative mb-12 rounded-3xl backdrop-blur-lg bg-slate-800/50 w-[90%] md:w-[70%] flex justify-center h-48 items-center">
           <h1 className="font-xl font-semibold">CAS Portfolio</h1>
         </header>
-        <div className="flex w-[70%] justify-between">
+        <div className="flex w-[90%] md:w-[70%] justify-between">
           <IndexAppDisplay
             title="Projects"
             icon={ProjectsSVG}
