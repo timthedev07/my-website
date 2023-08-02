@@ -9,6 +9,10 @@ const CAS_ROOT = "ib-cas-mdx";
 
 const DATA_DIR = join(CAS_ROOT, "reflections");
 
+export const getYearAndMonth = (yearMonth: string) => {
+  return yearMonth.split("-");
+};
+
 export const getAllMonths = () => {
   return [
     ...new Set(
@@ -17,6 +21,17 @@ export const getAllMonths = () => {
   ]
     .sort()
     .reverse(); // sort descending, latest first
+};
+
+export const groupByYear = (yearMonths: string[]) => {
+  // this maps yyyy to yyyy-mm
+  const groups: Record<string, string[]> = {};
+  for (const yearMonth of yearMonths) {
+    const [year] = getYearAndMonth(yearMonth);
+    groups[year].push(yearMonth);
+  }
+
+  return groups;
 };
 
 export const getMonthEntries = async (month: string) => {
