@@ -19,7 +19,7 @@ export interface ReflectionsMonthProps {
 }
 
 const pageSwitcherBase =
-  "cursor-pointer transition duration-800 h-min px-4 rounded-md bg-transparent hover:bg-slate-300/20 bg-opacity-30 text-slate-50/80 hover:text-slate-50/100";
+  "cursor-pointer transition duration-800 h-min px-4 rounded-md bg-transparent hover:bg-slate-300/20 bg-opacity-30 text-slate-50/80 hover:text-slate-50/100 text-sm sm:text-base";
 
 export const monthNames = [
   "January",
@@ -83,7 +83,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
           </ol>
         </div>
         <ul
-          className="flex justify-evenly items-center absolute bottom-12 bg-slate-800 bg-opacity-40 backdrop-blur-2xl w-9/12 md:w-full max-w-[756px] min-w-[286px] rounded-2xl px-8 py-4 border-slate-300/30 border"
+          className="flex justify-evenly items-center absolute bottom-12 bg-slate-800 bg-opacity-40 backdrop-blur-2xl w-11/12 md:w-full max-w-[756px] min-w-[286px] rounded-2xl px-8 py-4 border-slate-300/30 border"
           style={{
             left: "50%",
             transform: "translate(-50%)",
@@ -91,7 +91,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
         >
           {months.indexOf(yearMonth) < months.length - 1 ? (
             <li
-              className={`flex justify-evenly items-center stext-center flex-1 px-8 border-l border-l-slate-400/30 `}
+              className={`flex justify-evenly items-center stext-center flex-1 px-4 sm:px-8 border-l border-l-slate-400/30 `}
             >
               <LeftArrowSVG className="w-6 h-6" />
               <Link
@@ -110,7 +110,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             <li className={`flex-1`}></li>
           )}
           <li
-            className={`flex-1 text-center px-8 border-x border-x-slate-400/30 `}
+            className={`md:flex-1 text-center sm:px-6 md:px-8 border-x border-x-slate-400/30 `}
           >
             <div className={`flex justify-center`}>
               <Link href={"/ib/cas/reflections/"}>
@@ -124,7 +124,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
           </li>
           {months.indexOf(yearMonth) > 0 ? (
             <li
-              className={`flex justify-evenly items-center stext-center flex-1 px-8 border-r border-r-slate-400/30 `}
+              className={`flex justify-evenly items-center stext-center flex-1 px-4 sm:px-8 border-r border-r-slate-400/30 `}
             >
               <div className="w-6"></div>
               <Link
@@ -142,7 +142,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             <li className={`flex-1`}></li>
           )}
         </ul>
-        <div className="fixed bottom-12 right-12 text-sm text-slate-200/70">
+        <div className="absolute top-20 right-12 text-sm text-slate-200/70">
           Attribution to Apple® for background
         </div>
       </div>
