@@ -90,12 +90,14 @@ export const NavProvider: FC<{ children: ReactNode }> = ({ children }) => {
           <NavbarItem {...NAV_LINKS[NAV_LINKS.length - 1]} className="" />
         </div>
       ) : null}
-      {children}
-      <div
+      <div className={`${windowSize <= BREAK_POINT ? "pb-24" : ""}`}>
+        {children}
+      </div>
+      {/* <div
         className={`${
-          windowSize <= BREAK_POINT ? "block" : "hidden"
+           ? "block" : "hidden"
         } bg-transparent h-24 w-full`}
-      ></div>
+      ></div> */}
       {windowSize <= BREAK_POINT ? <BottomNav /> : null}
     </NavContext.Provider>
   );
