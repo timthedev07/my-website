@@ -9,6 +9,7 @@ import { ProfileSVG } from "../../../components/svgs/ib-cas/ProfileSVG";
 import { ProjectsSVG } from "../../../components/svgs/ib-cas/ProjectsSVG";
 import { ReflectionsSVG } from "../../../components/svgs/ib-cas/ReflectionsSVG";
 import { AppleBGAttribution } from "../../../components/AppleBGAttribution";
+import { CriteriaReminders } from "../../../components/ib-pages/CriteriaReminders";
 
 const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
@@ -26,6 +27,7 @@ const IBCASIndex: NextPage = () => {
         className="z-0 object-cover blur brightness-[0.8]"
       />
       <AppleBGAttribution />
+      <CriteriaReminders />
       <div className="w-screen z-10 relative flex flex-col items-center justify-evenly h-[80%]">
         <header className="relative mb-12 rounded-3xl backdrop-blur-lg bg-slate-800/50 w-[90%] sm:w-[70%] flex justify-center h-48 items-center">
           <h1 className="font-xl font-semibold">CAS Portfolio</h1>
