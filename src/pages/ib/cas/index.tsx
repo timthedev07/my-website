@@ -8,6 +8,7 @@ import { ExperiencesSVG } from "../../../components/svgs/ib-cas/ExperiencesSVG";
 import { ProfileSVG } from "../../../components/svgs/ib-cas/ProfileSVG";
 import { ProjectsSVG } from "../../../components/svgs/ib-cas/ProjectsSVG";
 import { ReflectionsSVG } from "../../../components/svgs/ib-cas/ReflectionsSVG";
+import { AppleBGAttribution } from "../../../components/AppleBGAttribution";
 
 const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
@@ -24,11 +25,12 @@ const IBCASIndex: NextPage = () => {
         fill
         className="z-0 object-cover blur brightness-[0.8]"
       />
+      <AppleBGAttribution />
       <div className="w-screen z-10 relative flex flex-col items-center justify-evenly h-[80%]">
-        <header className="relative mb-12 rounded-3xl backdrop-blur-lg bg-slate-800/50 w-[90%] md:w-[70%] flex justify-center h-48 items-center">
+        <header className="relative mb-12 rounded-3xl backdrop-blur-lg bg-slate-800/50 w-[90%] sm:w-[70%] flex justify-center h-48 items-center">
           <h1 className="font-xl font-semibold">CAS Portfolio</h1>
         </header>
-        <div className="flex w-[90%] md:w-[70%] justify-between">
+        <div className="flex w-[90%] sm:w-[70%] justify-between">
           <IndexAppDisplay
             title="Projects"
             icon={ProjectsSVG}
@@ -55,9 +57,6 @@ const IBCASIndex: NextPage = () => {
             linkURL={`/ib/cas/reflections/`}
           />
         </div>
-      </div>
-      <div className="absolute bottom-12 right-12 text-sm text-slate-200/70">
-        Attribution to Apple® for background
       </div>
     </div>
   );
