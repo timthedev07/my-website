@@ -10,6 +10,7 @@ import { ProjectsSVG } from "../../../components/svgs/ib-cas/ProjectsSVG";
 import { ReflectionsSVG } from "../../../components/svgs/ib-cas/ReflectionsSVG";
 import { AppleBGAttribution } from "../../../components/AppleBGAttribution";
 import { CriteriaReminders } from "../../../components/ib-pages/CriteriaReminders";
+import { pageMinHeight } from "./reflections/[month]";
 
 const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
@@ -19,7 +20,7 @@ const IBCASIndex: NextPage = () => {
   }, [setNavTransparent]);
 
   return (
-    <div className="flex justify-center relative h-screen">
+    <div className={`flex justify-center relative h-screen ${pageMinHeight}`}>
       <Image
         src={BG}
         alt=""

@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from "next";
 import { getAllMonths } from "../../../../lib/ib-cas/reflections-mdx";
-import { monthNames } from "./[month]";
+import { monthNames, pageMinHeight } from "./[month]";
 import Image from "next/image";
 import BG from "../../../../../public/images/macosHelloGreen.jpg";
 import {
@@ -20,7 +20,9 @@ const ReflectionsIndex: NextPage<Props> = ({ monthsRaw }) => {
   const groupedMonths = groupByYear(yearMonths);
 
   return (
-    <div className="flex flex-col justify-center relative h-screen">
+    <div
+      className={`flex flex-col justify-center relative h-screen ${pageMinHeight}`}
+    >
       <div className="fixed h-screen w-screen">
         <Image
           src={BG}

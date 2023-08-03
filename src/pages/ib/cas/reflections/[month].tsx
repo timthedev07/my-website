@@ -37,6 +37,8 @@ export const monthNames = [
   "December",
 ];
 
+export const pageMinHeight = "min-h-[512px]";
+
 const IBReflections: NextPage<ReflectionsMonthProps> = ({
   month: yearMonth,
   monthEntries,
@@ -50,7 +52,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
 
   return (
     <>
-      <div className="flex justify-center relative">
+      <div className={`flex justify-center relative ${pageMinHeight}`}>
         <div className="fixed h-screen w-screen">
           <Image
             src={BG}
