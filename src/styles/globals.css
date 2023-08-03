@@ -88,6 +88,17 @@
     text-orientation: mixed;
     writing-mode: vertical-rl;
   }
+
+  .hide-scrollbar {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+  }
 }
 
 @layer components {
@@ -137,6 +148,10 @@ body {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
+}
+
+body {
+  overflow: auto;
 }
 
 html {
