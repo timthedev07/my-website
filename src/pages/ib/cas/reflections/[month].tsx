@@ -20,7 +20,7 @@ export interface ReflectionsMonthProps {
 }
 
 const pageSwitcherBase =
-  "cursor-pointer transition duration-800 h-min px-4 rounded-md bg-transparent hover:bg-slate-300/20 bg-opacity-30 text-slate-50/80 hover:text-slate-50/100 text-sm sm:text-base";
+  "cursor-pointer transition duration-800 h-min py-2 px-4 rounded-md bg-transparent hover:bg-slate-300/20 bg-opacity-30 text-slate-50/80 hover:text-slate-50/100 text-sm sm:text-base";
 
 export const monthNames = [
   "January",
@@ -112,7 +112,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             <li className={`flex-1`}></li>
           )}
           <li
-            className={`md:flex-1 text-center sm:px-6 md:px-8 border-x border-x-slate-400/30 `}
+            className={`md:flex-1 text-center px-4 sm:px-6 md:px-8 border-x border-x-slate-400/30 `}
           >
             <div className={`flex justify-center`}>
               <Link href={"/ib/cas/reflections/"}>
