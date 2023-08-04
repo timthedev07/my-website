@@ -9,7 +9,6 @@ import {
 } from "../../../../lib/ib-cas/reflections-helper";
 import Link from "next/link";
 import { AppleBGAttribution } from "../../../../components/AppleBGAttribution";
-import { CriteriaReminders } from "../../../../components/ib-pages/CriteriaReminders";
 
 export interface Props {
   monthsRaw: string;
@@ -32,7 +31,6 @@ const ReflectionsIndex: NextPage<Props> = ({ monthsRaw }) => {
         />
       </div>
       <AppleBGAttribution />
-      <CriteriaReminders />
       <section className="relative flex flex-col items-center lg:justify-start gap-12 px-8 lg:px-48 pt-48 w-full h-full">
         <header className="relative">
           <h1 className="font-semibold">IB CAS Reflections</h1>
