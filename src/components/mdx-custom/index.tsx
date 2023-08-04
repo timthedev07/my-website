@@ -5,6 +5,7 @@ import { LinkSVG } from "../svgs/Link";
 import { ReactNode } from "react";
 import { PlaintextPre } from "./blog-components/PlaintextPre";
 import { SizedImage } from "./blog-components/SizedImage";
+import { CASStrandsHours } from "../ib-pages/mdx/CASStrandsHours";
 
 const PLAIN_TEXT_COLOR = "text-white/[0.825]";
 
@@ -132,4 +133,5 @@ export const components: MDXComponents | MergeComponents = {
   },
   PlaintextPre: PlaintextPre,
   SizedImage: SizedImage,
+  CASStrandsHours: CASStrandsHours,
 };
