@@ -37,7 +37,7 @@ export const monthNames = [
   "December",
 ];
 
-export const pageMinHeight = "min-h-[512px]";
+export const pageMinHeight = "min-h-[612px]";
 
 const IBReflections: NextPage<ReflectionsMonthProps> = ({
   month: yearMonth,
@@ -58,7 +58,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
             src={BG}
             alt=""
             fill
-            className="z-0 object-cover blur brightness-[0.8]"
+            className={`z-0 object-cover blur brightness-[0.8]`}
           />
         </div>
         <AppleBGAttribution />
