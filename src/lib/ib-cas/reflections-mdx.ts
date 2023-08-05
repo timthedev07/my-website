@@ -5,22 +5,18 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { MDXDataBase } from "../mdx";
 
-const CAS_ROOT = "ib-cas-mdx";
+export const CAS_ROOT = "src/ib-cas-mdx";
 
 const DATA_DIR = join(CAS_ROOT, "reflections");
 
 export const getAllMonths = () => {
-  return [
-    ...new Set(
-      readdirSync(join("src", DATA_DIR)).map((each) => each.slice(0, 7))
-    ),
-  ]
+  return [...new Set(readdirSync(DATA_DIR).map((each) => each.slice(0, 7)))]
     .sort()
     .reverse(); // sort descending, latest first
 };
 
 export const getMonthEntries = async (month: string) => {
-  const filenames = readdirSync(join("src", DATA_DIR))
+  const filenames = readdirSync(DATA_DIR)
     .filter((each) => each.startsWith(month))
     .sort()
     .reverse();
@@ -28,15 +24,12 @@ export const getMonthEntries = async (month: string) => {
   const entries: [MDXDataBase, number][] = [];
 
   for (const filename of filenames) {
-    const data = await serialize(
-      readFileSync(join("src", DATA_DIR, filename)),
-      {
-        mdxOptions: {
-          remarkPlugins: [remarkUnwrapImages],
-          rehypePlugins: [rehypeAutolinkHeadings],
-        },
-      }
-    );
+    const data = await serialize(readFileSync(join(DATA_DIR, filename)), {
+      mdxOptions: {
+        remarkPlugins: [remarkUnwrapImages],
+        rehypePlugins: [rehypeAutolinkHeadings],
+      },
+    });
     entries.push([data, new Date(filename.replace(".mdx", "")).valueOf()]);
   }
 
