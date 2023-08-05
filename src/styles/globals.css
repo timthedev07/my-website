@@ -4,9 +4,11 @@
 @import url(./nav-item.module.css);
 @import url(./fonts.css);
 @import url(./prism-tomorrow.css);
+@import url(./timeline-grid.css);
 
 :root {
   font-size: 13px;
+  --time-line-card-h: 250px;
 }
 
 @keyframes appear {
@@ -98,6 +100,10 @@
     /* WebKit */
     width: 0;
     height: 0;
+  }
+
+  .cut-off-extra-text {
+    @apply text-ellipsis whitespace-nowrap overflow-hidden;
   }
 }
 
@@ -191,10 +197,4 @@ body ul,
 ol {
   font-size: 1.2rem;
   font-weight: 500;
-}
-
-#experience-index {
-  background-image: url(../../public/images/binding_dark.png);
-  background-repeat: repeat;
-  @apply brightness-[0.6];
 }
