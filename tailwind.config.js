@@ -18,6 +18,16 @@ module.exports = {
       mono: ["ui-monospace", "Monaco"],
     },
     extend: {
+      colors: {
+        "timeline-terracotta": "#e2725b",
+        "timeline-green": "#36827f",
+        "timeline-blue": "#464d77",
+        "timeline-brown": "#5b4b49",
+        "timeline-bronze": "#c5832b",
+        "timeline-forest": "#014421",
+        "timeline-darkblue": "#222e50",
+        "timeline-tangerine": "#f28500",
+      },
       fontSize: {
         paragraph: "1.1rem",
       },
@@ -107,6 +117,7 @@ module.exports = {
         md2: "868px",
         xs: "428px",
         xxs: "368px",
+        landscape: "100vh",
       },
       minWidth: {
         350: "350px",
