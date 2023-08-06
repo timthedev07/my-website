@@ -33,7 +33,10 @@ export const components: MDXComponents | MergeComponents = {
           <LinkSVG
             onClick={() => {
               navigator.clipboard.writeText(
-                window.location.href + "#" + finalId
+                window.location.origin +
+                  window.location.pathname +
+                  "#" +
+                  finalId
               );
             }}
             className="mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/80 w-12 transition duration-200"
@@ -51,7 +54,9 @@ export const components: MDXComponents | MergeComponents = {
         {children}
         <LinkSVG
           onClick={() => {
-            navigator.clipboard.writeText(window.location.href + "#" + finalId);
+            navigator.clipboard.writeText(
+              window.location.origin + window.location.pathname + "#" + finalId
+            );
           }}
           className="mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/[.75] w-10 transition duration-200"
         />
@@ -66,7 +71,9 @@ export const components: MDXComponents | MergeComponents = {
         {children}
         <LinkSVG
           onClick={() => {
-            navigator.clipboard.writeText(window.location.href + "#" + finalId);
+            navigator.clipboard.writeText(
+              window.location.origin + window.location.pathname + "#" + finalId
+            );
           }}
           className="mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/70 w-8 transition duration-200"
         />
