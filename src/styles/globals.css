@@ -92,6 +92,10 @@
 }
 
 @layer utilities {
+  .decorated-link {
+    @apply bg-slate-400/20 rounded-md px-2 py-1;
+  }
+
   .vertical-text {
     text-orientation: mixed;
     writing-mode: vertical-rl;
