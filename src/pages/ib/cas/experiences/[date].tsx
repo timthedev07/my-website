@@ -18,7 +18,6 @@ interface Props {
 const ExperienceEntryPage: NextPage<Props> = ({ mdxData, dateStr }) => {
   const data = JSON.parse(mdxData) as Awaited<ReturnType<typeof serialize>>;
   const meta = data.frontmatter as any;
-  console.log(dateStr);
 
   return (
     <div className="w-full min-h-screen relative flex flex-col items-center">
