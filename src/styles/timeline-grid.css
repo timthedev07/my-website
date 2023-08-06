@@ -62,3 +62,21 @@
   margin-left: calc(-0.5 * var(--timeline-dot-size));
   @apply -left-12;
 }
+
+.timeline-description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap; /* let the text wrap preserving spaces */
+}
+@media screen and (max-width: 768px) {
+  .timeline-description {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 9; /* start showing ellipsis when 3rd line is reached */
+    white-space: no-wrap; /* let the text wrap preserving spaces */
+  }
+}
