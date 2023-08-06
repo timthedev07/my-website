@@ -6,7 +6,7 @@ import { CAS_ROOT } from "./reflections-mdx";
 
 const DATA_DIR = join(CAS_ROOT, "experiences");
 
-export const getMetadataFromExperienceMDX = (rawFile: string) => {
+export const getMetadataFromMDX = (rawFile: string) => {
   return matter(rawFile).data;
 };
 
@@ -23,7 +23,7 @@ export const getAllEntriesW_Preview = () => {
 
   for (const filename of allFileNames) {
     const rawFile = readFileSync(join(DATA_DIR, filename)).toString();
-    const meta = getMetadataFromExperienceMDX(rawFile);
+    const meta = getMetadataFromMDX(rawFile);
     entries.push({
       ...(meta as any),
       dateStr: filename.replace(".mdx", ""),
@@ -31,4 +31,17 @@ export const getAllEntriesW_Preview = () => {
   }
 
   return entries;
+};
+
+export const getEntryRawContent = (dateStr: string) => {
+  const available = readdirSync(DATA_DIR);
+  const fname = dateStr + ".mdx";
+
+  if (available.indexOf(fname) < 0) return null;
+
+  return matter(readFileSync(join(DATA_DIR, fname)).toString());
+};
+
+export const getAllAvailablePaths = () => {
+  return readdirSync(DATA_DIR).map((each) => each.replace(".mdx", ""));
 };

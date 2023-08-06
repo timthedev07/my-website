@@ -11,6 +11,5 @@ export const createGradient = (
     gradient.addColorStop(a, b);
   }
 
-  console.log(gradient);
   return gradient;
 };
