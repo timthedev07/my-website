@@ -92,7 +92,7 @@ export const CASStrandsHours: FC<CASStrandsHoursProps> = ({
   }, []);
 
   return (
-    <div className="bg-slate-800/50 backdrop-blur-xl shadow-2xl border border-slate-400/30 p-12 relative max-w-[612px] max-h-[612px] rounded-xl flex justify-center items-center mx-auto">
+    <div className="w-full h-full my-12 bg-slate-800/50 backdrop-blur-xl shadow-2xl border border-slate-400/30 p-12 relative max-w-[512px] max-h-[612px] rounded-xl flex justify-center items-center mx-auto">
       <PolarArea
         ref={chartRef as any}
         options={{
