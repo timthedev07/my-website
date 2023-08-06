@@ -57,7 +57,6 @@ export const getAdjacentEntries = (currDateStr: string) => {
   let next, prev;
   const all = getAllAvailablePaths();
   const i = all.indexOf(currDateStr);
-  console.log(all, i);
 
   next =
     i === 0
