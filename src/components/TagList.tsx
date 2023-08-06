@@ -17,7 +17,7 @@ const tagColors = [
 
 export const TagList: FC<TagListProps> = ({ tagContents, className = "" }) => {
   return (
-    <ul className={`flex gap-3 ${className}`}>
+    <ul className={`flex gap-3 ${className} flex-wrap`}>
       {tagContents.map((tag, ind) => (
         <li
           key={tag}

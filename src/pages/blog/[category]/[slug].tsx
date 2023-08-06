@@ -113,7 +113,7 @@ const Slug: NextPage<Props> = ({ mdxDataRaw, slug }) => {
             className={`${xPaddings} flex flex-col gap-6 border-2 py-12 bg-slate-700/10 border-slate-700/60 rounded-xl`}
           >
             <h1 className="font-bold">{metadata.title}</h1>
-            <TagList tagContents={metadata.keywords} className="flex-wrap" />
+            <TagList tagContents={metadata.keywords} />
             <div className="text-white/70 flex w-full justify-between">
               <span>Published on {new Date(metadata.date).toDateString()}</span>
               <span>
