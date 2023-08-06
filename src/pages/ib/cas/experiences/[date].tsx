@@ -22,7 +22,7 @@ const ExperienceEntryPage: NextPage<Props> = ({ mdxData, dateStr }) => {
   return (
     <div className="w-full min-h-screen relative flex flex-col items-center">
       <div className="fixed z-0" id="experience-index">
-        <ExperiencesBGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover brightness-[0.7] blur" />
+        <ExperiencesBGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover brightness-[0.4] blur-md" />
       </div>
       <div className="mt-32 relative z-10 md:w-7/12 w-10/12 rounded-xl border flex flex-col gap-8 p-12 py-16 items-start border-slate-400/20 bg-neutral-950/30 backdrop-blur-lg">
         <h1 className="m-0 font-semibold">{meta.activity}</h1>

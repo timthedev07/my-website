@@ -94,7 +94,7 @@ export const TimelineItem: FC<TimelineItemProps> = ({
         >
           {new Date(dateStr).toDateString()}
         </span>
-        <div className="col-start-1 col-end-5 h-full row-start-2 row-end-3 timeline-description">
+        <div className="col-start-1 col-end-5 h-full row-start-2 row-end-3 overflow-y-scroll hide-scrollbar">
           {description}
         </div>
         <Link
