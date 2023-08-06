@@ -43,5 +43,37 @@ export const getEntryRawContent = (dateStr: string) => {
 };
 
 export const getAllAvailablePaths = () => {
-  return readdirSync(DATA_DIR).map((each) => each.replace(".mdx", ""));
+  return readdirSync(DATA_DIR)
+    .map((each) => each.replace(".mdx", ""))
+    .sort()
+    .reverse();
+};
+
+export const getAdjacentEntries = (currDateStr: string) => {
+  const defaultVal = {
+    display: undefined,
+    url: undefined,
+  };
+  let next, prev;
+  const all = getAllAvailablePaths();
+  const i = all.indexOf(currDateStr);
+  console.log(all, i);
+
+  next =
+    i === 0
+      ? defaultVal
+      : {
+          display: all[i - 1],
+          url: `/ib/cas/experiences/${all[i - 1]}`,
+        };
+
+  prev =
+    i === all.length - 1
+      ? defaultVal
+      : {
+          display: all[i + 1],
+          url: `/ib/cas/experiences/${all[i + 1]}`,
+        };
+
+  return { next, prev };
 };

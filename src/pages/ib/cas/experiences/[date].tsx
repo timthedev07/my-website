@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import {
+  getAdjacentEntries,
   getAllAvailablePaths,
   getEntryRawContent,
 } from "../../../../lib/ib-cas/experiences-mdx";
@@ -9,15 +10,25 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import { MDXRemote } from "next-mdx-remote";
 import { components } from "../../../../components/mdx-custom";
 import { ExperiencesBGSVG } from "../../../../components/svgs/ib-cas/ExperiencesBG";
+import { PageSwitcher } from "../../../../components/ib-pages/PageSwitcher";
 
 interface Props {
   mdxData: string;
   dateStr: string;
+  neighbors: string;
 }
 
-const ExperienceEntryPage: NextPage<Props> = ({ mdxData, dateStr }) => {
+const ExperienceEntryPage: NextPage<Props> = ({
+  mdxData,
+  dateStr,
+  neighbors,
+}) => {
   const data = JSON.parse(mdxData) as Awaited<ReturnType<typeof serialize>>;
   const meta = data.frontmatter as any;
+
+  const { next, prev } = JSON.parse(neighbors) as ReturnType<
+    typeof getAdjacentEntries
+  >;
 
   return (
     <div className="w-full min-h-screen relative flex flex-col items-center">
@@ -35,6 +46,13 @@ const ExperienceEntryPage: NextPage<Props> = ({ mdxData, dateStr }) => {
       <div className="relative z-10 pb-64 md:w-7/12 gap-4 w-10/12 flex flex-col child-headings:mt-20 leading-loose">
         <MDXRemote components={components} {...data} />
       </div>
+      <PageSwitcher
+        indexPageURL="/ib/cas/experiences"
+        prevDisplay={prev.display}
+        prevURL={prev.url}
+        nextDisplay={next.display}
+        nextURL={next.url}
+      />
     </div>
   );
 };
@@ -50,6 +68,9 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       rehypePlugins: [rehypeAutolinkHeadings],
     },
   });
+
+  const neighbors = getAdjacentEntries(a);
+
   return {
     props: {
       mdxData: JSON.stringify({
@@ -57,6 +78,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
         frontmatter: data,
       }),
       dateStr: a,
+      neighbors: JSON.stringify(neighbors),
     },
   };
 };

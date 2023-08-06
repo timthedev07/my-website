@@ -24,7 +24,7 @@ export const PageSwitcher: FC<PageSwitcherProps> = ({
 }) => {
   return (
     <ul
-      className="flex justify-evenly items-center absolute bottom-12 bg-slate-800 bg-opacity-40 backdrop-blur-2xl w-11/12 md:w-full max-w-[756px] min-w-[286px] rounded-2xl px-8 py-4 border-slate-300/30 border"
+      className="z-10 flex justify-evenly items-center absolute bottom-12 bg-slate-800 bg-opacity-40 backdrop-blur-2xl w-11/12 md:w-full max-w-[756px] min-w-[286px] rounded-2xl px-8 py-4 border-slate-300/30 border"
       style={{
         left: "50%",
         transform: "translate(-50%)",
