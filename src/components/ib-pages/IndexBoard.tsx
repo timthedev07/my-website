@@ -19,9 +19,9 @@ export const IndexAppDisplay: FC<IndexAppDisplayProps> = ({
     <article className="flex-col flex items-center gap-2 cursor-pointer">
       <Link href={linkURL}>
         <div
-          className={`transition duration-900 ${bgColorClassName} shadow-2xl w-20 h-20 md:w-28 md:h-28 rounded-2xl md:rounded-3xl flex justify-center items-center`}
+          className={`transition duration-900 ${bgColorClassName} shadow-2xl w-16 h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 rounded-2xl lg:rounded-3xl flex justify-center items-center`}
         >
-          <I className="w-12 h-12 md:w-16 md:h-16 opacity-100" />
+          <I className="w-9 h-9 md:w-12 md:h-12 lg:w-16 lg:h-16 opacity-100" />
         </div>
       </Link>
       <span className="font-semibold text-center md:text-lg md:font-bold">
