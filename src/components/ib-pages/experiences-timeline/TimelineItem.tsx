@@ -89,7 +89,7 @@ export const TimelineItem: FC<TimelineItemProps> = ({
       </div>
       <div className="grid gap-y-4 grid-cols-[1fr_1fr] p-4 grid-rows-[30px_1fr_30px] h-full">
         <span
-          className={`col-start-1 col-end-2 md:col-end-3 row-span-1 bg-cyan-300 ${dateBgColor} rounded-full flex justify-center items-center text-neutral-200/90 font-semibold`}
+          className={`col-start-1 md:col-end-2 col-end-3 row-span-1 bg-cyan-300 ${dateBgColor} rounded-full flex justify-center items-center text-neutral-200/90 font-semibold`}
         >
           {new Date(dateStr).toDateString()}
         </span>
@@ -97,7 +97,7 @@ export const TimelineItem: FC<TimelineItemProps> = ({
           {description}
         </div>
         <Button
-          className="font-semibold col-start-2 md:col-start-1 col-end-3 row-start-3 row-start-4 max-w-[100px] ml-auto"
+          className="font-semibold md:col-start-2 col-start-1 col-end-3 row-start-3 row-start-4 max-w-[100px] ml-auto"
           theme="light"
           scale={(screenSize || 1000) < 468 ? "sm" : "md"}
           color="neutral"
