@@ -4,6 +4,7 @@ import { join } from "path";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkUnwrapImages from "remark-unwrap-images";
 import { MDXDataBase } from "../mdx";
+import matter from "gray-matter";
 
 export const CAS_ROOT = "src/ib-cas-mdx";
 
@@ -24,7 +25,8 @@ export const getMonthEntries = async (month: string) => {
   const entries: [MDXDataBase, number][] = [];
 
   for (const filename of filenames) {
-    const data = await serialize(readFileSync(join(DATA_DIR, filename)), {
+    const { content /*data: metadata*/ } = matter(join(DATA_DIR, filename));
+    const data = await serialize(readFileSync(content), {
       mdxOptions: {
         remarkPlugins: [remarkUnwrapImages],
         rehypePlugins: [rehypeAutolinkHeadings],
