@@ -8,7 +8,7 @@ import matter from "gray-matter";
 
 export const CAS_ROOT = "src/ib-cas-mdx";
 
-const DATA_DIR = join(CAS_ROOT, "reflections");
+const DATA_DIR = join(CAS_ROOT, "TOK-journal");
 
 export const getAllMonths = () => {
   return [...new Set(readdirSync(DATA_DIR).map((each) => each.slice(0, 7)))]

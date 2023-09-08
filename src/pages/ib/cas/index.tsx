@@ -9,7 +9,7 @@ import { ProfileSVG } from "../../../components/svgs/ib-cas/ProfileSVG";
 import { ProjectsSVG } from "../../../components/svgs/ib-cas/ProjectsSVG";
 import { ReflectionsSVG } from "../../../components/svgs/ib-cas/ReflectionsSVG";
 import { AppleBGAttribution } from "../../../components/AppleBGAttribution";
-import { pageMinHeight } from "./reflections/[month]";
+import { pageMinHeight } from "./tok-journal/[month]";
 
 const IBCASIndex: NextPage = () => {
   const { setNavTransparent } = useNavContext();
@@ -55,7 +55,7 @@ const IBCASIndex: NextPage = () => {
             title="Reflections"
             icon={ReflectionsSVG}
             bgColorClassName="bg-fuchsia-400 hover:bg-fuchsia-400/80"
-            linkURL={`/ib/cas/reflections/`}
+            linkURL={`/ib/cas/tok-journal/`}
           />
         </div>
       </div>

@@ -33,7 +33,7 @@ const ReflectionsIndex: NextPage<Props> = ({ monthsRaw }) => {
       <AppleBGAttribution />
       <section className="relative flex flex-col items-center lg:justify-start gap-12 px-8 lg:px-48 pt-48 w-full h-full">
         <header className="relative">
-          <h1 className="font-semibold">IB CAS Reflections</h1>
+          <h1 className="font-semibold">IB TOK Journal</h1>
         </header>
         <div className="flex flex-wrap justify-evenly flex-1 w-full gap-10 md:gap-0 pb-72">
           {getUniqueYears(yearMonths).map((year) => (
@@ -51,7 +51,7 @@ const ReflectionsIndex: NextPage<Props> = ({ monthsRaw }) => {
                     >
                       <Link
                         className="w-full text-slate-50/70"
-                        href={`/ib/cas/reflections/${each}`}
+                        href={`/ib/cas/tok-journal/${each}`}
                       >
                         <div className="rounded-xl bg-slate-800 bg-opacity-40 backdrop-blur-xl text-center py-7 border border-slate-300/10">
                           {monthNames[parseInt(month) - 1]}, {year}

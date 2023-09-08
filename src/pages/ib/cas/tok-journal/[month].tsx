@@ -61,7 +61,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
         <div className="relative pt-52 pb-96 w-9/12 md:w-full max-w-[756px] min-w-[286px]">
           <header className="w-full flex justify-center items-center mb-20">
             <h1 className="w-full text-center font-bold">
-              Reflections in {monthNames[parseInt(month) - 1]}, {year}
+              TOK Journal in {monthNames[parseInt(month) - 1]}, {year}
             </h1>
           </header>
           <ol className="bg-slate-900 bg-opacity-50 backdrop-blur-2xl rounded-2xl w-full px-24 py-16 border-slate-300/30 border flex gap-20 flex-col">
@@ -83,13 +83,13 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
           </ol>
         </div>
         <PageSwitcher
-          indexPageURL="/ib/cas/reflections/"
+          indexPageURL="/ib/cas/tok-journal/"
           prevDisplay={
             hasPrev ? months[months.indexOf(yearMonth) + 1] : undefined
           }
           prevURL={
             hasPrev
-              ? `/ib/cas/reflections/${months[months.indexOf(yearMonth) + 1]}`
+              ? `/ib/cas/tok-journal/${months[months.indexOf(yearMonth) + 1]}`
               : undefined
           }
           nextDisplay={
@@ -97,7 +97,7 @@ const IBReflections: NextPage<ReflectionsMonthProps> = ({
           }
           nextURL={
             hasNext
-              ? `/ib/cas/reflections/${months[months.indexOf(yearMonth) - 1]}`
+              ? `/ib/cas/tok-journal/${months[months.indexOf(yearMonth) - 1]}`
               : undefined
           }
         />
