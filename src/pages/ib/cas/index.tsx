@@ -52,7 +52,7 @@ const IBCASIndex: NextPage = () => {
           />
 
           <IndexAppDisplay
-            title="Reflections"
+            title="TOK Journal"
             icon={ReflectionsSVG}
             bgColorClassName="bg-fuchsia-400 hover:bg-fuchsia-400/80"
             linkURL={`/ib/cas/tok-journal/`}
