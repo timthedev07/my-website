@@ -35,7 +35,7 @@ const ExperienceEntryPage: NextPage<Props> = ({
   return (
     <>
       <NextSeo
-        title={meta.activity}
+        title={meta.activity + " - timthedev07"}
         description={meta.description}
         openGraph={{
           url: `${defaultSEOConfig.openGraph?.url}ib/cas/experiences/${dateStr}`,
@@ -43,7 +43,7 @@ const ExperienceEntryPage: NextPage<Props> = ({
         additionalMetaTags={[
           {
             name: "keywords",
-            content: ["IB", "CAS"].join(", "),
+            content: ["ib"].join(", "),
           },
         ]}
       />
