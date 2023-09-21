@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import {
+  EXPERIENCES_DATA_DIR,
   getAdjacentEntries,
   getAllAvailablePaths,
   getEntryRawContent,
@@ -103,7 +104,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
 export const getStaticPaths: GetStaticPaths = () => {
   return {
-    paths: getAllAvailablePaths().map((each) => {
+    paths: getAllAvailablePaths(EXPERIENCES_DATA_DIR).map((each) => {
       return {
         params: {
           date: each,

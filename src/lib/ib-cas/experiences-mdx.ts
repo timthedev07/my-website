@@ -4,7 +4,7 @@ import { join } from "path";
 import matter from "gray-matter";
 import { CAS_ROOT } from "./reflections-mdx";
 
-const DATA_DIR = join(CAS_ROOT, "experiences");
+export const EXPERIENCES_DATA_DIR = join(CAS_ROOT, "experiences");
 
 export const getMetadataFromMDX = (rawFile: string) => {
   return matter(rawFile).data;
@@ -18,11 +18,13 @@ export interface ExperiencePreviewData {
 }
 
 export const getAllEntriesW_Preview = () => {
-  const allFileNames = readdirSync(DATA_DIR).sort().reverse();
+  const allFileNames = readdirSync(EXPERIENCES_DATA_DIR).sort().reverse();
   const entries: Array<ExperiencePreviewData> = [];
 
   for (const filename of allFileNames) {
-    const rawFile = readFileSync(join(DATA_DIR, filename)).toString();
+    const rawFile = readFileSync(
+      join(EXPERIENCES_DATA_DIR, filename)
+    ).toString();
     const meta = getMetadataFromMDX(rawFile);
     entries.push({
       ...(meta as any),
@@ -34,16 +36,16 @@ export const getAllEntriesW_Preview = () => {
 };
 
 export const getEntryRawContent = (dateStr: string) => {
-  const available = readdirSync(DATA_DIR);
+  const available = readdirSync(EXPERIENCES_DATA_DIR);
   const fname = dateStr + ".mdx";
 
   if (available.indexOf(fname) < 0) return null;
 
-  return matter(readFileSync(join(DATA_DIR, fname)).toString());
+  return matter(readFileSync(join(EXPERIENCES_DATA_DIR, fname)).toString());
 };
 
-export const getAllAvailablePaths = () => {
-  return readdirSync(DATA_DIR)
+export const getAllAvailablePaths = (dataDir: string) => {
+  return readdirSync(dataDir)
     .map((each) => each.replace(".mdx", ""))
     .sort()
     .reverse();
@@ -55,7 +57,7 @@ export const getAdjacentEntries = (currDateStr: string) => {
     url: undefined,
   };
   let next, prev;
-  const all = getAllAvailablePaths();
+  const all = getAllAvailablePaths(EXPERIENCES_DATA_DIR);
   const i = all.indexOf(currDateStr);
 
   next =
