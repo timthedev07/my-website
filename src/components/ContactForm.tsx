@@ -6,10 +6,11 @@ import {
   Input,
   Textarea,
 } from "dragontail-experimental";
-import { ChangeEvent, FC, FormEventHandler, useState } from "react";
+import { ChangeEvent, FC, FormEventHandler, useRef, useState } from "react";
 import { hasNoAlphanumeric, validateEmailWithRegex } from "../utils/regex";
 import { useRouter } from "next/router";
 import { useAppLoading } from "./AppLoading";
+import emailjs from "@emailjs/browser";
 
 export interface ContactFormData {
   name: string;
@@ -18,6 +19,7 @@ export interface ContactFormData {
 }
 
 export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [formData, setFormData] = useState<ContactFormData>({
     email: "",
     message: "",
@@ -32,10 +34,13 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
   });
   const router = useRouter();
   const { setAppLoading } = useAppLoading();
+  const [submitting, setSubmitting] = useState<boolean>(false);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     if (!router) return;
     e.preventDefault();
+    setSubmitting(true);
+    console.log("called");
 
     const errors = {
       email: !formData.email || !validateEmailWithRegex(formData.email),
@@ -50,27 +55,39 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
 
     setAppLoading(true, true);
 
-    const response = await fetch("/api/contact", {
-      body: JSON.stringify(formData),
-      method: "POST",
-    });
+    const templateParams = {
+      user_name: formData.name,
+      user_email: formData.email,
+      message: formData.message,
+    };
 
-    const status = response.status;
-    setAppLoading(false);
-    if (status === 200)
-      router.push(
-        `/success?msg=${encodeURIComponent(
-          "Message sent! I will get back to you as soon as possible. Thanks for reaching out!"
-        )}&prev=${encodeURIComponent("/contact")}`
+    await emailjs
+      .send(
+        "service_yzuc1mi",
+        "template_n24qz4g",
+        templateParams,
+        "pR188r4xwmgKICKm7"
+      )
+      .then(
+        function (response) {
+          setAppLoading(false);
+          console.log("SUCCESS!", response.status, response.text);
+          router.push(
+            `/success?msg=${encodeURIComponent(
+              "Message sent! I will get back to you as soon as possible. Thanks for reaching out!"
+            )}&prev=${encodeURIComponent("/contact")}`
+          );
+        },
+        function (err) {
+          setAppLoading(false);
+          console.log("FAILED...", err);
+          router.push(
+            `/client-error?msg=${encodeURIComponent(
+              "Message couldn't be sent..."
+            )}&prev=${encodeURIComponent("/contact")}`
+          );
+        }
       );
-    else {
-      const msg = (await response.json()).message;
-      router.push(
-        `/client-error?msg=${encodeURIComponent(msg)}&prev=${encodeURIComponent(
-          "/contact"
-        )}&prev=${encodeURIComponent("/contact")}`
-      );
-    }
   };
 
   const handleChange = <
@@ -97,7 +114,11 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
 
   return (
     <div className={`border border-slate-500/60 rounded-md p-6 ${className}`}>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-5"
+        ref={formRef}
+      >
         <FormControl label="name" isInvalid={formError.name} isRequired>
           <FormLabel>Name</FormLabel>
           <Input name="name" value={formData.name} onChange={handleChange} />
@@ -125,7 +146,13 @@ export const ContactForm: FC<{ className?: string }> = ({ className = "" }) => {
             <FormErrorMessage>Invalid Message</FormErrorMessage>
           )}
         </FormControl>
-        <Button color="neutral" type="submit">
+        <Button
+          color="cyan"
+          onClick={() => {
+            if (!submitting) formRef.current?.requestSubmit();
+          }}
+          isDisabled={submitting}
+        >
           Submit
         </Button>
       </form>

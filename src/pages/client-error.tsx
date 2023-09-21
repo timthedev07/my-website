@@ -39,6 +39,7 @@ const ClientError: NextPage = () => {
           <Button
             onClick={() => {
               if (prev) router.push(prev);
+              else router.back();
             }}
             color="light"
           >
