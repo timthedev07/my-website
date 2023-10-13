@@ -162,7 +162,7 @@ const Home: NextPage = () => {
           <div className="flex flex-col gap-5">
             <p>Math has always been a passion of mine.</p>
             <p>Below are some of my achievements as a student:</p>
-            <ul className="text-base list-disc list-inside">
+            <ul className="text-base list-disc">
               <li>
                 Gold in UKMT Intermediate Maths Challenge for 2 consecutive
                 years; Best of School in 2023
