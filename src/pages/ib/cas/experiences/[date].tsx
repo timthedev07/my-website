@@ -50,7 +50,7 @@ const ExperienceEntryPage: NextPage<Props> = ({
       />
 
       <div className="w-full min-h-screen relative flex flex-col items-center">
-        <div className="fixed z-0">
+        <div className="fixed z-0 blur-sm">
           <ExperiencesBGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover brightness-[0.4] blur-md" />
         </div>
         <div className="mt-32 relative z-10 md:w-7/12 w-10/12 rounded-xl border flex flex-col gap-8 p-12 py-16 items-start border-slate-400/20 bg-neutral-950/30 backdrop-blur-lg">

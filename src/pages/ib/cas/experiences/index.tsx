@@ -44,7 +44,7 @@ const ExperiencesIndex: NextPage<Props> = ({ rawData }) => {
 
   return (
     <div className="w-full min-w-[600px] min-h-screen relative flex flex-col items-center">
-      <div className="fixed z-0" id="experience-index">
+      <div className="fixed z-0 blur-md" id="experience-index">
         <BGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover brightness-[0.7] blur-sm" />
       </div>
       <header className="relative h-full mt-32 px-4 text-center">

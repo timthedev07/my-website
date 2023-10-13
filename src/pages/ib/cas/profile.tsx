@@ -9,7 +9,7 @@ const Paragraph: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 const Profile: NextPage = () => {
   return (
     <div className="w-full min-h-screen relative flex flex-col items-center">
-      <div className="fixed z-0">
+      <div className="fixed z-0 blur-sm">
         <ProfileBGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover brightness-[0.5] blur-sm" />
       </div>
       <div className="relative z-10 pt-32 w-10/12 md:w-1/2 flex flex-col gap-8">
