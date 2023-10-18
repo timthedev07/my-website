@@ -12,6 +12,7 @@ import { components } from "../../../../components/mdx-custom";
 import { ProjectsBGSVGSVG } from "../../../../components/svgs/ib-cas/ProjectsBGSVG";
 import { NextSeo } from "next-seo";
 import defaultSEOConfig from "../../../../utils/seo-config";
+import { StartDateTag } from "../../../../components/ib-pages/StartDateTag";
 
 interface Props {
   mdxData: string;
@@ -38,14 +39,12 @@ const Project: NextPage<Props> = ({ mdxData, slug }) => {
       />
 
       <div className="w-full min-h-screen relative flex flex-col items-center">
-        <div className="fixed z-0 blur-md">
-          <ProjectsBGSVGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover brightness-[0.4] blur-md" />
+        <div className="fixed z-0 blur-md brightness-[0.6]">
+          <ProjectsBGSVGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover blur-md" />
         </div>
         <div className="mt-32 relative z-10 md:w-7/12 w-10/12 rounded-xl border flex flex-col gap-8 p-12 py-16 items-start border-slate-400/20 bg-neutral-950/30 backdrop-blur-lg">
           <h1 className="m-0 font-semibold">{meta.name}</h1>
-          <span className="rounded-full px-5 py-2 bg-sky-800/50 font-semibold">
-            Start Date: {new Date(meta.startDate).toDateString()}
-          </span>
+          <StartDateTag dateStr={meta.startDate} />
           <span className="text-lg text-white/80">{meta.description}</span>
         </div>
 
@@ -84,7 +83,7 @@ export const getStaticPaths: GetStaticPaths = () => {
   const paths = getAllProjectEntries(false).map((each) => {
     return {
       params: {
-        slug: each,
+        slug: each.fname,
       },
     };
   });

@@ -14,13 +14,25 @@ export const PROJECTS_DATA_DIR = path.join(CAS_ROOT, "projects");
 
 export const getAllProjectEntries = (withExtension: boolean = false) => {
   const fnames = readdirSync(PROJECTS_DATA_DIR);
+  const names = fnames.map((fname) => {
+    const p = path.join(PROJECTS_DATA_DIR, fname);
+    const meta = matter({ content: readFileSync(p) }).data;
+    const name = meta.name as string;
+    return { fname, name, meta };
+  });
 
   switch (withExtension) {
     case true: {
-      return fnames;
+      return names;
     }
     case false: {
-      return fnames.map((each) => each.replace(".mdx", ""));
+      return names.map(({ fname, name, meta }) => {
+        return {
+          name,
+          fname: fname.replace(".mdx", ""),
+          meta,
+        };
+      });
     }
   }
 };
