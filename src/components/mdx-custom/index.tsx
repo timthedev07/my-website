@@ -88,7 +88,11 @@ export const components: MDXComponents | MergeComponents = {
     return (
       <ul
         {...props}
-        className={`list-disc text-[1.1rem] ${PLAIN_TEXT_COLOR}`}
+        className={`list-disc list-inside ml-8 text-[1.1rem] ${PLAIN_TEXT_COLOR}`}
+        style={{
+          textIndent: "-1em",
+          paddingLeft: "1em",
+        }}
       ></ul>
     );
   },
