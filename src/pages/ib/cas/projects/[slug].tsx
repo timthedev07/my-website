@@ -39,8 +39,8 @@ const Project: NextPage<Props> = ({ mdxData, slug }) => {
       />
 
       <div className="w-full min-h-screen relative flex flex-col items-center">
-        <div className="fixed z-0 blur-md brightness-[0.6]">
-          <ProjectsBGSVGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover blur-md" />
+        <div className="fixed z-0 blur-md brightness-[0.45]">
+          <ProjectsBGSVGSVG className="h-[150vh] landscape:w-screen landscape:h-auto object-cover" />
         </div>
         <div className="mt-32 relative z-10 md:w-7/12 w-10/12 rounded-xl border flex flex-col gap-8 p-12 py-16 items-start border-slate-400/20 bg-neutral-950/30 backdrop-blur-lg">
           <h1 className="m-0 font-semibold">{meta.name}</h1>
