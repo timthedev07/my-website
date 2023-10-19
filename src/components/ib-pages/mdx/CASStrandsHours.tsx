@@ -17,9 +17,9 @@ import { createGradient } from "../../../lib/chartGradientColor";
 ChartJS.register(RadialLinearScale, ArcElement, Title, Legend, Tooltip);
 
 interface CASStrandsHoursProps {
-  creativityHours: number;
-  activityHours: number;
-  serviceHours: number;
+  creativityHours?: number;
+  activityHours?: number;
+  serviceHours?: number;
 }
 
 const transparentizeGradients = (
