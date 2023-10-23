@@ -30,7 +30,7 @@ const IBCASIndex: NextPage = () => {
         <header className="relative mb-12 rounded-3xl backdrop-blur-lg bg-slate-800/50 w-[90%] sm:w-[70%] flex justify-center h-48 items-center">
           <h1 className="font-xl font-semibold">CAS Portfolio</h1>
         </header>
-        <div className="flex w-[90%] sm:w-[70%] justify-between">
+        <div className="flex w-[90%] sm:w-[70%] justify-evenly md:justify-between">
           <IndexAppDisplay
             title="Projects"
             icon={ProjectsSVG}
