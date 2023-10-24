@@ -56,7 +56,14 @@ const ExperienceEntryPage: NextPage<Props> = ({
         <div className="mt-32 relative z-10 md:w-7/12 w-10/12 rounded-xl border flex flex-col gap-8 p-12 py-16 items-start border-slate-400/20 bg-neutral-950/30 backdrop-blur-lg">
           <h1 className="m-0 font-semibold">{meta.activity}</h1>
           <span className="rounded-full px-5 py-2 bg-sky-800/50 font-semibold">
-            {new Date(dateStr).toDateString()}
+            {meta.startDate ? (
+              <>
+                {new Date(meta.startDate).toDateString()} -{" "}
+                {new Date(dateStr).toDateString()}
+              </>
+            ) : (
+              new Date(dateStr).toDateString()
+            )}
           </span>
           <span className="text-lg text-white/80">{meta.description}</span>
         </div>
