@@ -3,14 +3,23 @@ import { FC } from "react";
 import { getBlurDataURL } from "../../../utils/blurDataUrl";
 
 export type SafeNumber = number | `${number}`;
+export type MDXAssetURL =
+  | string
+  | { host?: string; dir: string; fname: string };
 
 export const DEFAULT_IMG_HOST =
   "https://raw.githubusercontent.com/timthedev07/my-website/dev/assets";
 
+export const handleSrc = (src: MDXAssetURL) => {
+  return typeof src === "string"
+    ? src
+    : `${src.host || DEFAULT_IMG_HOST}/${src.dir}/${src.fname}`;
+};
+
 interface SizedImageProps {
   width: SafeNumber;
   height: SafeNumber;
-  src: string | { host?: string; dir: string; fname: string };
+  src: MDXAssetURL;
   alt?: string;
   quality: number;
 }
@@ -23,11 +32,7 @@ export const SizedImage: FC<SizedImageProps> = ({
   return (
     <Image
       {...props}
-      src={
-        typeof src === "string"
-          ? src
-          : `${src.host || DEFAULT_IMG_HOST}/${src.dir}/${src.fname}`
-      }
+      src={handleSrc(src)}
       alt={alt}
       placeholder="blur"
       blurDataURL={getBlurDataURL(props.width, props.height)}
