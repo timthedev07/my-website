@@ -12,6 +12,7 @@ interface SizedImageProps {
   height: SafeNumber;
   src: string | { host?: string; dir: string; fname: string };
   alt?: string;
+  quality: number;
 }
 
 export const SizedImage: FC<SizedImageProps> = ({
