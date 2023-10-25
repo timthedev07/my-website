@@ -9,7 +9,7 @@ interface VideoProps {
 
 export const Video: FC<VideoProps> = ({ src, ...props }) => {
   return (
-    <video className="mx-auto rounded-lg" {...props} controls>
+    <video className="mx-auto rounded-lg my-6" {...props} controls>
       <source src={handleSrc(src)} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
