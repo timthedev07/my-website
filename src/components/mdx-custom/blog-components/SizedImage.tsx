@@ -13,7 +13,9 @@ export const DEFAULT_IMG_HOST =
 export const handleSrc = (src: MDXAssetURL) => {
   return typeof src === "string"
     ? src
-    : `${src.host || DEFAULT_IMG_HOST}/${src.dir}/${src.fname}`;
+    : `${src.host || DEFAULT_IMG_HOST}/${encodeURIComponent(
+        src.dir
+      )}/${encodeURIComponent(src.fname)}`;
 };
 
 interface SizedImageProps {
