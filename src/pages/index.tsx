@@ -167,7 +167,10 @@ const Home: NextPage = () => {
                 Gold in UKMT Intermediate Maths Challenge for 2 consecutive
                 years; Best of School in 2023
               </li>
-              <li>Gold in UKMT Senior Maths Challenge, 2023</li>
+              <li>
+                Gold, best of year and second of school in UKMT Senior Maths
+                Challenge as a Y12, 2023
+              </li>
               <li>Merit, UKMT Maclaurin 2023</li>
               <li>
                 Province representative in &quot;Fase Autonòmica Olimpíada
