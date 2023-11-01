@@ -38,7 +38,7 @@ export const SizedImage: FC<SizedImageProps> = ({
       alt={alt}
       placeholder="blur"
       blurDataURL={getBlurDataURL(props.width, props.height)}
-      className="mx-auto rounded-xl"
+      className="mx-auto rounded-xl my-6"
     />
   );
 };
