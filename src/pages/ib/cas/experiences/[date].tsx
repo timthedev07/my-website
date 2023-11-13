@@ -68,7 +68,7 @@ const ExperienceEntryPage: NextPage<Props> = ({
           <span className="text-lg text-white/80">{meta.description}</span>
         </div>
 
-        <div className="relative z-10 pb-64 md:w-7/12 gap-4 w-10/12 flex flex-col child-headings:mt-20 leading-loose">
+        <div className="relative z-10 pb-64 md:w-7/12 gap-4 w-10/12 flex flex-col leading-loose">
           <MDXRemote components={components} {...data} />
         </div>
         <PageSwitcher

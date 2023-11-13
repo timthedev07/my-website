@@ -29,7 +29,10 @@ export const components: MDXComponents | MergeComponents = {
         <h1
           {...props}
           id={finalId}
-          className="flex items-center gap-4 text-[2.6rem] overflow py-0 leading-none"
+          className={
+            "flex items-center gap-4 text-[2.6rem] overflow py-0 leading-none" +
+            (props.className?.includes("box") ? "" : "mt-20")
+          }
         >
           {children}
           <LinkSVG
@@ -60,7 +63,10 @@ export const components: MDXComponents | MergeComponents = {
               window.location.origin + window.location.pathname + "#" + finalId
             );
           }}
-          className="mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/[.75] w-10 transition duration-200"
+          className={
+            "mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/[.75] w-10 transition duration-200" +
+            (props.className?.includes("box") ? "" : "mt-20")
+          }
         />
         <a aria-hidden="true" tabIndex={-1} href={"#" + finalId}></a>
       </h2>
@@ -77,7 +83,10 @@ export const components: MDXComponents | MergeComponents = {
               window.location.origin + window.location.pathname + "#" + finalId
             );
           }}
-          className="mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/70 w-8 transition duration-200"
+          className={
+            "mt-2 cursor-pointer fill-slate-400/40 hover:fill-cyan-400/70 w-8 transition duration-200" +
+            (props.className?.includes("box") ? "" : "mt-20")
+          }
         />
         <a aria-hidden="true" tabIndex={-1} href={"#" + finalId}></a>
       </h3>
