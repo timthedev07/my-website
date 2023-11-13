@@ -7,7 +7,7 @@
       "command": "git pull", // Enter your command here
       "group": "none",
       "presentation": {
-        "reveal": "always",
+        "reveal": "never",
         "panel": "new"
       },
       "runOptions": {
