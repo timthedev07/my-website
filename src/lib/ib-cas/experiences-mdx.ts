@@ -12,6 +12,7 @@ export const getMetadataFromMDX = (rawFile: string) => {
 
 export interface ExperiencePreviewData {
   dateStr: string; // yyyy-mm-dd
+  startDate?: string; // yyyy-mm-dd
   // for the following two fields, reference the corresponding section of metadata in the template file
   activity: string;
   description: string;

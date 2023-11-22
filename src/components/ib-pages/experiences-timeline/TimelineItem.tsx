@@ -1,6 +1,7 @@
 import { Button } from "dragontail-experimental";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
+import { entryDateDisplay } from "../../../utils/entryDateDisplay";
 
 export enum TimelineItemDirection {
   Left,
@@ -48,6 +49,7 @@ interface TimelineItemProps {
   activity: string;
   dotColor: string;
   dateBgColor: string;
+  startDate?: string;
 }
 
 export const TimelineItem: FC<TimelineItemProps> = ({
@@ -58,6 +60,7 @@ export const TimelineItem: FC<TimelineItemProps> = ({
   description,
   dotColor,
   dateBgColor,
+  startDate,
 }) => {
   const isLeft = direction === TimelineItemDirection.Left;
 
@@ -88,11 +91,11 @@ export const TimelineItem: FC<TimelineItemProps> = ({
           {activity}
         </h4>
       </div>
-      <div className="grid gap-y-4 grid-cols-[1fr_1fr_1fr_1fr] p-4 grid-rows-[30px_1fr_30px] h-full">
+      <div className="grid gap-y-4 grid-cols-[1fr_1fr_1fr_1fr] p-4 grid-rows-[35px_1fr_30px] h-full">
         <span
-          className={`text-sm font-bold lg:text-lg col-start-1 lg:col-end-4 col-end-5 row-span-1 bg-cyan-300 ${dateBgColor} rounded-full flex justify-center items-center text-neutral-200/90 lg:font-semibold`}
+          className={`text-sm font-bold lg:text-base col-start-1 lg:col-end-4 col-end-5 row-span-1 bg-cyan-300 ${dateBgColor} rounded-full flex justify-center items-center text-neutral-50/90 lg:font-semibold`}
         >
-          {new Date(dateStr).toDateString()}
+          {entryDateDisplay(dateStr, startDate)}
         </span>
         <div className="col-start-1 col-end-5 h-full row-start-2 row-end-3 overflow-y-scroll hide-scrollbar">
           {description}

@@ -14,6 +14,7 @@ import { ExperiencesBGSVG } from "../../../../components/svgs/ib-cas/Experiences
 import { PageSwitcher } from "../../../../components/ib-pages/PageSwitcher";
 import { NextSeo } from "next-seo";
 import defaultSEOConfig from "../../../../utils/seo-config";
+import { entryDateDisplay } from "../../../../utils/entryDateDisplay";
 
 interface Props {
   mdxData: string;
@@ -56,14 +57,7 @@ const ExperienceEntryPage: NextPage<Props> = ({
         <div className="mt-32 relative z-10 md:w-7/12 w-10/12 rounded-xl border flex flex-col gap-8 p-12 py-16 items-start border-slate-400/20 bg-neutral-950/30 backdrop-blur-lg">
           <h1 className="m-0 font-semibold">{meta.activity}</h1>
           <span className="rounded-full px-5 py-2 bg-sky-800/50 font-semibold">
-            {meta.startDate ? (
-              <>
-                {new Date(meta.startDate).toDateString()} -{" "}
-                {new Date(dateStr).toDateString()}
-              </>
-            ) : (
-              new Date(dateStr).toDateString()
-            )}
+            {entryDateDisplay(dateStr, meta.startDate)}
           </span>
           <span className="text-lg text-white/80">{meta.description}</span>
         </div>
