@@ -10,6 +10,7 @@ module.exports = {
     "./src/components/**/*.{ts,tsx}",
     "node_modules/dragontail-experimental/dist/cjs/index.js",
   ],
+  safelist: ["flex-col", "flex-row", "flex-col-reverse", "flex-row-reverse"],
   mode: "jit",
   theme: {
     fontFamily: {

@@ -8,6 +8,7 @@ import { SizedImage } from "./blog-components/SizedImage";
 import { CASStrandsHours } from "../ib-pages/mdx/CASStrandsHours";
 import { Video } from "./blog-components/Video";
 import { Box } from "./Box";
+import { ImageTextHStack } from "./content-blocks/ImageTextHStack";
 
 const PLAIN_TEXT_COLOR = "text-white/[0.825]";
 
@@ -162,4 +163,5 @@ export const components: MDXComponents | MergeComponents = {
   SizedImage: SizedImage,
   CASStrandsHours: CASStrandsHours,
   Box: Box,
+  ImageTextHStack: ImageTextHStack,
 };
