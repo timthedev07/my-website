@@ -35,7 +35,7 @@ const Projects: NextPage<Props> = ({ all }) => {
             {projectSlugs.map((each) => (
               <li
                 key={each.fname}
-                className="flex flex-col gap-7 px-12 py-12 w-full bg-slate-800/90 border border-slate-500/50 rounded-md cursor-pointer"
+                className="flex flex-col gap-7 px-12 py-12 w-full bg-slate-900/80 border border-slate-500/50 shadow-2xl rounded-md cursor-pointer"
               >
                 <h3 className="font-semibold">{each.name}</h3>
                 <StartDateTag
