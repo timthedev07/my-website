@@ -163,6 +163,9 @@ const Home: NextPage = () => {
             <p>Math has always been a passion of mine.</p>
             <p>Below are some of my achievements as a student:</p>
             <ul className="text-base list-disc">
+              <li>
+                Top six of province & national round participant, OME 2023-2024
+              </li>
               <li>1 mark away from distrinction, UKMT BMO1 2023</li>
               <li>
                 Gold in UKMT Intermediate Maths Challenge for 2 consecutive
