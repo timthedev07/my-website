@@ -158,10 +158,10 @@ export const components: MDXComponents | MergeComponents = {
       ></blockquote>
     );
   },
-  Video: Video,
-  PlaintextPre: PlaintextPre,
-  SizedImage: SizedImage,
-  CASStrandsHours: CASStrandsHours,
-  Box: Box,
-  ImageTextHStack: ImageTextHStack,
+  Video: Video as any,
+  PlaintextPre: PlaintextPre as any,
+  SizedImage: SizedImage as any,
+  CASStrandsHours: CASStrandsHours as any,
+  Box: Box as any,
+  ImageTextHStack: ImageTextHStack as any,
 };

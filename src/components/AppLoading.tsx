@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { usePathname } from "next/navigation";
 import {
   createContext,
   ReactNode,
@@ -27,25 +29,14 @@ export const useAppLoading = () => {
 export const AppLoadingProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   const [appLoading, setAppLoading] = useState(false);
   const [withCover, setWithCover] = useState(false);
 
   useEffect(() => {
-    const handleStart = () => setAppLoading(true);
-    const handleComplete = () => setAppLoading(false);
-
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeComplete", handleComplete);
-    router.events.on("routeChangeError", handleComplete);
-
-    return () => {
-      router.events.off("routeChangeStart", handleStart);
-      router.events.off("routeChangeComplete", handleComplete);
-      router.events.off("routeChangeError", handleComplete);
-    };
-  });
+    setAppLoading(false);
+  }, [pathname]);
 
   const handleLoading = (
     loading: SetStateAction<boolean>,

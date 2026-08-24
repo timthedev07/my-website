@@ -8,7 +8,7 @@ import {
 } from "dragontail-experimental";
 import { ChangeEvent, FC, FormEventHandler, useRef, useState } from "react";
 import { hasNoAlphanumeric, validateEmailWithRegex } from "../utils/regex";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useAppLoading } from "./AppLoading";
 import emailjs from "@emailjs/browser";
 

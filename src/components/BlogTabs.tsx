@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FC } from "react";
 import { BLOG_CATEGORIES } from "../types/blogCategories";
 
@@ -18,14 +20,17 @@ export const BlogTabs: FC<BlogTabsProps> = ({
   onTabChange = () => {},
 }) => {
   const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   return (
     <ul className="w-full flex h-11">
       {["recent", ...BLOG_CATEGORIES].map((each) => (
         <li
           onClick={() => {
-            router.query.category = each;
-            router.push(router);
+            const params = new URLSearchParams(searchParams.toString());
+            params.set("category", each);
+            router.push(`${pathname}?${params.toString()}`);
             onTabChange();
           }}
           className={`flex-1 select-none flex-grow text-center uppercase flex justify-center items-center ${

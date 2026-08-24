@@ -12,10 +12,14 @@ const withMDX = MDX({
 export default withMDX({
   reactStrictMode: false,
   images: {
-    domains: ["raw.githubusercontent.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+      },
+    ],
   },
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
+  turbopack: {
+    root: process.cwd(),
   },
 });
