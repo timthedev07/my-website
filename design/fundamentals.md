@@ -1,8 +1,8 @@
 # Learn Design(i decided to do this cause my design skills suck)
 
-## Color & Contrast
+## Colour & Contrast
 
-### An example of a poorly designed component color-wise
+### An example of a poorly designed component colour-wise
 
 ![alt](assets/images/bad-color.png)
 
@@ -25,7 +25,7 @@ This also works
 
 ![alt](assets/images/also-works.png)
 
-Converting to dark theme while maintaining this color and contrast
+Converting to dark theme while maintaining this colour and contrast
 
 ![dark](assets/images/dark-theme.png)
 
@@ -54,7 +54,7 @@ The spacing is inconsistent.
 No catchy content, in other words, you eye doesn't know where to look first.
 
 - The heading has the same font size as the sub heading
-- The button has the same color as the upper part
+- The button has the same colour as the upper part
 
 ## Complexity vs Simplicity
 
