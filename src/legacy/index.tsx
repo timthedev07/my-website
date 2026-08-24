@@ -143,7 +143,7 @@ const Home: NextPage = () => {
             <span className="underline">artificial intelligence</span>.<br /> I
             mostly build <span className="font-bold">machine learning</span>{" "}
             projects with Python and Tensorflow. I have some experience in NLP,
-            image classification, and sentiment analysis.
+            image classification, sentiment analysis, and computer vision.
           </p>
         </div>
       </section>
