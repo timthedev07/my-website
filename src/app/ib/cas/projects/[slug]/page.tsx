@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Project from "./Client";
 import { getAllProjectEntries, getProjectMDX } from "../../../../../lib/ib-cas/projects-mdx";
 import { serialize } from "next-mdx-remote/serialize";
-import remarkUnwrapImages from "remark-unwrap-images";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 export function generateStaticParams() {
@@ -14,7 +14,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   try {
     const { content, data } = getProjectMDX(slug);
     const mdxData = await serialize(content, {
-      mdxOptions: { remarkPlugins: [remarkUnwrapImages], rehypePlugins: [rehypeAutolinkHeadings] },
+      mdxOptions: { rehypePlugins: [rehypeAutolinkHeadings, rehypeUnwrapImages] },
     });
     return <Project slug={slug} mdxData={JSON.stringify({ ...mdxData, frontmatter: data })} />;
   } catch {

@@ -8,7 +8,7 @@ import rehypeKatex from "rehype-katex";
 import gfm from "remark-gfm";
 import remarkMath from "remark-math";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import remarkUnwrapImages from "remark-unwrap-images";
+import rehypeUnwrapImages from "rehype-unwrap-images";
 
 const dataDir = "blog-mdx";
 
@@ -62,11 +62,12 @@ export const readMDX = async (
 
   const { compiledSource, scope } = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [gfm, remarkMath, remarkUnwrapImages],
+      remarkPlugins: [gfm, remarkMath],
       rehypePlugins: [
         rehypeHighlight,
         [rehypeKatex, { strict: true }],
         rehypeAutolinkHeadings,
+        rehypeUnwrapImages,
       ],
     },
   });
