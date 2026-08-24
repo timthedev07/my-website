@@ -6,8 +6,7 @@ const serif = '"Merriweather", serif';
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   content: [
-    "./src/pages/**/*.{tsx,ts}",
-    "./src/components/**/*.{ts,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "node_modules/dragontail-experimental/dist/cjs/index.js",
   ],
   safelist: ["flex-col", "flex-row", "flex-col-reverse", "flex-row-reverse"],
